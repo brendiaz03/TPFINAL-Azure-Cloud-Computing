@@ -16,7 +16,10 @@
       },
       "ReproductorDeMusica.Entidades/1.0.0": {
         "runtime": {
-          "ReproductorDeMusica.Entidades.dll": {}
+          "ReproductorDeMusica.Entidades.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

@@ -1,7 +1,11 @@
+using ReproductorDeMusica.Logica;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
+
 
 var app = builder.Build();
 
