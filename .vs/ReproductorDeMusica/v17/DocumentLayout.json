@@ -1,12 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\BrendaDiaz\\Desktop\\TPFINALWEBIII\\TPFINAL-Azure-Cloud-Computing\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica\\reproductordemusica.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\reproductordemusica.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReproductorDeMusica.Web",
+              "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
+              "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
+              "RelativeToolTip": "ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-13T14:29:36.726Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

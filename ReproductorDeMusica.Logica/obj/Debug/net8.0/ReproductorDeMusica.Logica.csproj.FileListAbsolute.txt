@@ -14,3 +14,19 @@ C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\Reproduc
 C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\refint\ReproductorDeMusica.Logica.dll
 C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.pdb
 C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ref\ReproductorDeMusica.Logica.dll
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\bin\Debug\net8.0\ReproductorDeMusica.Logica.deps.json
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\bin\Debug\net8.0\ReproductorDeMusica.Logica.dll
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\bin\Debug\net8.0\ReproductorDeMusica.Logica.pdb
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\bin\Debug\net8.0\ReproductorDeMusica.Entidades.dll
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\bin\Debug\net8.0\ReproductorDeMusica.Entidades.pdb
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.csproj.AssemblyReference.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.AssemblyInfoInputs.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.AssemblyInfo.cs
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.csproj.CoreCompileInputs.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.sourcelink.json
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\Reproduc.BA5508E3.Up2Date
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.dll
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\refint\ReproductorDeMusica.Logica.dll
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ReproductorDeMusica.Logica.pdb
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Logica\obj\Debug\net8.0\ref\ReproductorDeMusica.Logica.dll
