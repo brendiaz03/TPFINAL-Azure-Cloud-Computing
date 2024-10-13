@@ -2768,21 +2768,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BrendaDiaz\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\leite\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BrendaDiaz\\Desktop\\TPFINALWEBIII\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
+      "projectUniqueName": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
       "projectName": "ReproductorDeMusica.Logica",
-      "projectPath": "C:\\Users\\BrendaDiaz\\Desktop\\TPFINALWEBIII\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
-      "packagesPath": "C:\\Users\\BrendaDiaz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BrendaDiaz\\Desktop\\TPFINALWEBIII\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\obj\\",
+      "projectPath": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
+      "packagesPath": "C:\\Users\\leite\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\BrendaDiaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\leite\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2797,8 +2795,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\BrendaDiaz\\Desktop\\TPFINALWEBIII\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj": {
-              "projectPath": "C:\\Users\\BrendaDiaz\\Desktop\\TPFINALWEBIII\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj"
+            "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj": {
+              "projectPath": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj"
             }
           }
         }
