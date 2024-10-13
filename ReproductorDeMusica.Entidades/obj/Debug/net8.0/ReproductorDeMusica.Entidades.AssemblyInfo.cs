@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReproductorDeMusica.Entidades")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51235aaafa9d02b323851c077db9606478198243")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9de846cc39f414527b791c79ad903401f42a5ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReproductorDeMusica.Entidades")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReproductorDeMusica.Entidades")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
