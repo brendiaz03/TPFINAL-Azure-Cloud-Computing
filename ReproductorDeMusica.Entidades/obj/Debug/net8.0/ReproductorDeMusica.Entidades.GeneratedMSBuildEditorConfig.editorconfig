@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ReproductorDeMusica.Entidades
-build_property.ProjectDir = C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Entidades\
+build_property.ProjectDir = C:\Users\leite\Source\Repos\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica.Entidades\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
