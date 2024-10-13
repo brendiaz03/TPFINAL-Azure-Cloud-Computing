@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\entidades\\tpweb3azurecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\entidades\\tpweb3azurecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\entidades\\listareproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\entidades\\listareproduccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alan\\desktop\\azure tp final\\tpfinal-azure-cloud-computing\\reproductordemusica\\reproductordemusica.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\reproductordemusica.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
@@ -14,20 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\appsettings.json",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\appsettings.json",
+              "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\appsettings.json",
+              "RelativeToolTip": "ReproductorDeMusica\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-13T16:24:30.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ReproductorDeMusica.Web",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Program.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\Program.cs",
+              "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Program.cs",
+              "RelativeToolTip": "ReproductorDeMusica\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T16:18:14.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T14:35:32.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ListaReproduccion.cs",
+              "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\ListaReproduccion.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Entidades\\ListaReproduccion.cs",
+              "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\ListaReproduccion.cs",
+              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Entidades\\ListaReproduccion.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T14:35:27.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tpweb3AzureContext.cs",
+              "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA4wBsAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T14:34:55.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReproductorDeMusica.Web.csproj",
               "DocumentMoniker": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
               "RelativeDocumentMoniker": "ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
               "ToolTip": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
               "RelativeToolTip": "ReproductorDeMusica\\ReproductorDeMusica.Web.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-13T14:29:36.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T14:29:36.726Z"
             }
           ]
         }
