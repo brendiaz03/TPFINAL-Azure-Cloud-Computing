@@ -21,6 +21,8 @@ public partial class Tpweb3AzureContext : DbContext
 
     public virtual DbSet<ListaReproduccion> ListaReproduccions { get; set; }
 
+    public virtual DbSet<Pago> Pagos { get; set; }
+
     public virtual DbSet<Plan> Plans { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
@@ -55,7 +57,6 @@ public partial class Tpweb3AzureContext : DbContext
 
             entity.HasOne(d => d.CreadorNavigation).WithMany(p => p.Cancions)
                 .HasForeignKey(d => d.Creador)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_creador");
         });
 
@@ -69,12 +70,10 @@ public partial class Tpweb3AzureContext : DbContext
 
             entity.HasOne(d => d.IdCancionNavigation).WithMany(p => p.ListaCanciones)
                 .HasForeignKey(d => d.IdCancion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_cancion");
 
             entity.HasOne(d => d.IdListaReproduccionNavigation).WithMany(p => p.ListaCanciones)
                 .HasForeignKey(d => d.IdListaReproduccion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_listaReproduccion");
         });
 
@@ -94,8 +93,26 @@ public partial class Tpweb3AzureContext : DbContext
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ListaReproduccions)
                 .HasForeignKey(d => d.IdUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_idUsuario");
+        });
+
+        modelBuilder.Entity<Pago>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("pk_pago");
+
+            entity.ToTable("Pago");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.IdPlan).HasColumnName("idPlan");
+            entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+
+            entity.HasOne(d => d.IdPlanNavigation).WithMany(p => p.Pagos)
+                .HasForeignKey(d => d.IdPlan)
+                .HasConstraintName("fk_plan");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Pagos)
+                .HasForeignKey(d => d.IdUsuario)
+                .HasConstraintName("fk_usuario");
         });
 
         modelBuilder.Entity<Plan>(entity =>
@@ -134,7 +151,6 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("email");
-            entity.Property(e => e.IdPlan).HasColumnName("idPlan");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -143,11 +159,6 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("nombreUsuario");
-
-            entity.HasOne(d => d.IdPlanNavigation).WithMany(p => p.Usuarios)
-                .HasForeignKey(d => d.IdPlan)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_idPlan");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -5,7 +5,15 @@
       "PackagePath": "staticwebassets\\ReproductorDeMusica.Web.bundle.scp.css"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\site.css",
+=======
+      "Id": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Pago.css",
+      "PackagePath": "staticwebassets\\css\\Pago.css"
+    },
+    {
+      "Id": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\site.css",
+>>>>>>> origin/alan
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
@@ -13,7 +21,15 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Id": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\js\\site.js",
+=======
+      "Id": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\images\\card_img.png",
+      "PackagePath": "staticwebassets\\images\\card_img.png"
+    },
+    {
+      "Id": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\js\\site.js",
+>>>>>>> origin/alan
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
