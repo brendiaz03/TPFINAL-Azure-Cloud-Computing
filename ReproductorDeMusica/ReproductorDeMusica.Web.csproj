@@ -17,4 +17,8 @@
     <ProjectReference Include="..\ReproductorDeMusica.Logica\ReproductorDeMusica.Logica.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\ListaReproduccion\" />
+  </ItemGroup>
+
 </Project>

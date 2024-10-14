@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\leite\Source\Repos\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/leite/Source/Repos/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Cancion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuY2lvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/leite/Source/Repos/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

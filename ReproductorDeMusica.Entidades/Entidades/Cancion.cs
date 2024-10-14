@@ -20,4 +20,6 @@ public partial class Cancion
     public virtual Usuario CreadorNavigation { get; set; } = null!;
 
     public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();
+
+    public string UrlPortada { get; set; }
 }
