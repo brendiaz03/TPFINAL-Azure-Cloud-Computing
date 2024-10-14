@@ -1,0 +1,9 @@
+﻿@model List<ReproductorDeMusica.Entidades.Entidades.Plan>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Id</li>
+        <li>@item.TipoPlan</li>
+    }
+</ul>
