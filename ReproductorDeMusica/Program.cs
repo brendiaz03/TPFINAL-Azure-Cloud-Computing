@@ -1,12 +1,13 @@
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<Tpweb3AzureContext>();
 builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
-
-
+builder.Services.AddSingleton<IPagoLogica,PagoLogica>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

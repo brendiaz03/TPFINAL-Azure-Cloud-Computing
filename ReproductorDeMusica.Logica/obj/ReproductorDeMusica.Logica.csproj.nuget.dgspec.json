@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj": {}
+    "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj": {
+    "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
         "projectName": "ReproductorDeMusica.Entidades",
-        "projectPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
+        "projectPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
         "packagesPath": "C:\\Users\\Alpha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\obj\\",
+        "outputPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alpha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,26 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -65,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj": {
+    "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
+        "projectUniqueName": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
         "projectName": "ReproductorDeMusica.Logica",
-        "projectPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
+        "projectPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj",
         "packagesPath": "C:\\Users\\Alpha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\obj\\",
+        "outputPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alpha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj": {
-                "projectPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\Trabajo Spotify - Web III\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj"
+              "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj": {
+                "projectPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj"
               }
             }
           }

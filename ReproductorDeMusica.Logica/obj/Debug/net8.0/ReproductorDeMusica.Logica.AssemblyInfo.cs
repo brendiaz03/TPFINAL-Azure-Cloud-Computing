@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReproductorDeMusica.Logica")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51235aaafa9d02b323851c077db9606478198243")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8e238f2b2930c9f7f1a8e98b92d000bcf79cbd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReproductorDeMusica.Logica")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReproductorDeMusica.Logica")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
