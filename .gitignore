@@ -60,3 +60,6 @@ yarn-error.log
 
 # Ignorar archivos de entorno virtual de Python (si aplica)
 .venv/
+
+/appsettings.json
+
