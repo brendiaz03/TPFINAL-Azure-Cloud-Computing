@@ -12,6 +12,11 @@ namespace ReproductorDeMusica.Entidades.Repositories
     {
         private readonly Tpweb3AzureContext _context;
 
+        public CancionRepository(Tpweb3AzureContext context)
+        {
+            _context = context;
+        }
+
         public Cancion CrearCancion(Cancion cancion)
         {
             _context.Cancions.Add(cancion);

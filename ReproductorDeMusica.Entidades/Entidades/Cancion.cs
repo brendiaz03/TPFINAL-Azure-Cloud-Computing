@@ -22,4 +22,5 @@ public partial class Cancion
     public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();
 
     public string UrlPortada { get; set; }
+    public string RutaAudio { get; set; }
 }

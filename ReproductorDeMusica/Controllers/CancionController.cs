@@ -1,30 +1,48 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica.Interfaces;
+using ReproductorDeMusica.Web.Models;
 
 namespace ReproductorDeMusica.Web.Controllers
 {
     public class CancionController : Controller
     {
+
         private readonly ICancionService _cancionService;
+        private readonly IBlobStorageService _blobStorageService;
+
+        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService)
+        {
+            _cancionService = cancionService;
+            _blobStorageService = blobStorageService;
+        }
 
         public IActionResult Index()
         {
-            List<Cancion> canciones = _cancionService.GetCancions();
-            return View(canciones);
+            return View();
         }
 
-        public CancionController(ICancionService cancionService)
+        public List<Cancion> GetAllCanciones()
         {
-            _cancionService = cancionService;
+            List<Cancion> canciones = _cancionService.GetCancions();
+            return canciones;
         }
 
         [HttpPost]
-        public IActionResult AgregarCancion(Cancion cancion)
+        public async Task<IActionResult> AgregarCancion([FromForm] CancionViewModel model)
         {
             try
             {
+                // Subir los archivos a Azure Blob Storage
+                string urlAudio = await _blobStorageService.SubirArchivoAsync(model.Audio, "audios");
+                string urlImagen = await _blobStorageService.SubirArchivoAsync(model.Imagen, "imagenes-canciones");
+
+                // Convertir el ViewModel a la entidad Cancion
+                Cancion cancion = CancionViewModel.ToCancion(model, urlAudio, urlImagen);
+
+                // Guardar la canción en la base de datos
                 _cancionService.CrearCancion(cancion);
+
                 return Ok(cancion);
             }
             catch (Exception ex)
@@ -32,6 +50,7 @@ namespace ReproductorDeMusica.Web.Controllers
                 var error = ex.ToString();
                 return Problem(error);
             }
+
         }
 
         [HttpPost]

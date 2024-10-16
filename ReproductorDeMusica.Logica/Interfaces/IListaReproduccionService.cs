@@ -12,7 +12,7 @@ namespace ReproductorDeMusica.Logica.Interfaces
         ListaReproduccion AgregarListaReproduccion(ListaReproduccion listaReproduccion);
         ListaReproduccion EditarListaReproduccion(ListaReproduccion listaReproduccion);
         void EliminarListaReproduccion(int idListaReproduccion);
-        List<ListaReproduccion> GetListaReproduccions();
+        List<ListaReproduccion> GetListasReproduccions();
 
     }
 }

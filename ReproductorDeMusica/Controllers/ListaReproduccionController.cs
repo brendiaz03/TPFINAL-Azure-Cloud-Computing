@@ -1,30 +1,45 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica.Interfaces;
+using ReproductorDeMusica.Web.Models;
 
 namespace ReproductorDeMusica.Web.Controllers
 {
     public class ListaReproduccionController : Controller
     {
         private readonly IListaReproduccionService _reproduccionService;
+        private readonly IBlobStorageService _blobStorageService;
 
-        public ListaReproduccionController(IListaReproduccionService service)
+        public ListaReproduccionController(IListaReproduccionService service, IBlobStorageService blobStorageService)
         {
             _reproduccionService = service;
+            _blobStorageService = blobStorageService;
         }
 
         public IActionResult Index()
         {
-            List<ListaReproduccion> listaReproduccions = _reproduccionService.GetListaReproduccions();
-            return View(listaReproduccions);
+            return View();
+        }
+
+        public List<ListaReproduccion> GetAllListasReproduccion()
+        {
+            List<ListaReproduccion> listaReproduccions = _reproduccionService.GetListasReproduccions();
+            return listaReproduccions;
         }
 
         [HttpPost]
-        public IActionResult AgregarListReproduccion(ListaReproduccion listaReproduccion)
+        public async Task<IActionResult> AgregarListaReproduccion([FromForm] ListaReproduccionViewModel listaReproduccionViewModel)
         {
             try
             {
+                string urlImagen = await _blobStorageService.SubirArchivoAsync(listaReproduccionViewModel.Imagen, "imagenesListaReproduccion");
+
+                // Convertir ViewModel a entidad ListaReproduccion
+                ListaReproduccion listaReproduccion = ListaReproduccionViewModel.ToListaReproduccion(listaReproduccionViewModel, urlImagen);
+
+                // Guardar lista en bdd
                 _reproduccionService.AgregarListaReproduccion(listaReproduccion);
+
                 return Ok(listaReproduccion);
             }
             catch (Exception ex)
@@ -65,5 +80,5 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
     }
-}
+
 }

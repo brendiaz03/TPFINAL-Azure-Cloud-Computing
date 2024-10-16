@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "su1/fIqO0zi+P/e0efj2f3LmVnDhvsZK/a3mOhBAU5c=",
-=======
-  "Hash": "NOM9LnuwLxl6SFZavhhBr6iiROu7w42YF4jjXC0vVW0=",
->>>>>>> origin/alan
+  "Hash": "3UKzA9xTFiCrJdD8HPX/ftJLzQ8ucqfwEiH+pSBibnI=",
   "Source": "ReproductorDeMusica.Web",
   "BasePath": "_content/ReproductorDeMusica.Web",
   "Mode": "Default",
@@ -59,13 +55,29 @@
       "OriginalItemSpec": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ReproductorDeMusica.Web.bundle.scp.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\site.css",
-=======
-      "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Pago.css",
+      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Cancion\\Index.css",
       "SourceId": "ReproductorDeMusica.Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
+      "BasePath": "_content/ReproductorDeMusica.Web",
+      "RelativePath": "css/Cancion/Index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Cancion\\Index.css"
+    },
+    {
+      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Pago.css",
+      "SourceId": "ReproductorDeMusica.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
       "BasePath": "_content/ReproductorDeMusica.Web",
       "RelativePath": "css/Pago.css",
       "AssetKind": "All",
@@ -81,8 +93,7 @@
       "OriginalItemSpec": "wwwroot\\css\\Pago.css"
     },
     {
-      "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\site.css",
->>>>>>> origin/alan
+      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\site.css",
       "SourceId": "ReproductorDeMusica.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
@@ -120,13 +131,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-<<<<<<< HEAD
-      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\js\\site.js",
-=======
-      "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\images\\card_img.png",
+      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\images\\card_img.png",
       "SourceId": "ReproductorDeMusica.Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
       "BasePath": "_content/ReproductorDeMusica.Web",
       "RelativePath": "images/card_img.png",
       "AssetKind": "All",
@@ -142,8 +150,26 @@
       "OriginalItemSpec": "wwwroot\\images\\card_img.png"
     },
     {
-      "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\js\\site.js",
->>>>>>> origin/alan
+      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\js\\Cancion\\Index.js",
+      "SourceId": "ReproductorDeMusica.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
+      "BasePath": "_content/ReproductorDeMusica.Web",
+      "RelativePath": "js/Cancion/Index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Cancion\\Index.js"
+    },
+    {
+      "Identity": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\js\\site.js",
       "SourceId": "ReproductorDeMusica.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\leite\\Source\\Repos\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",

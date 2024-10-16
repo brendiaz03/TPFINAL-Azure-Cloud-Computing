@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ReproductorDeMusica.Logica
 {
-    public class CancionService:ICancionService
+    public class CancionService : ICancionService
     {
         private readonly ICancionRepository _cancionRepository;
 

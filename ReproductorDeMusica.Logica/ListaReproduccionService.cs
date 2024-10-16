@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ReproductorDeMusica.Logica
 {
-    public class ListaReproduccionService:IListaReproduccionService
+    public class ListaReproduccionService : IListaReproduccionService
     {
         private readonly IListaReproduccionRepository _listaReproduccionRepository;
 
@@ -47,7 +47,7 @@ namespace ReproductorDeMusica.Logica
         {
             try
             {
-               _listaReproduccionRepository.EliminarListaReproduccion(idListaReproduccion);
+                _listaReproduccionRepository.EliminarListaReproduccion(idListaReproduccion);
             }
             catch (Exception ex)
             {
@@ -55,7 +55,7 @@ namespace ReproductorDeMusica.Logica
             }
         }
 
-        public List<ListaReproduccion> GetListaReproduccions()
+        public List<ListaReproduccion> GetListasReproduccions()
         {
             try
             {

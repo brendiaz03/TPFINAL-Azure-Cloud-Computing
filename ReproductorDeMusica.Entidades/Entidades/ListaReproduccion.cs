@@ -17,5 +17,5 @@ public partial class ListaReproduccion
 
     public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();
 
-    public string UrlPortada { get; set; }
+    public string? UrlPortada { get; set; }
 }
