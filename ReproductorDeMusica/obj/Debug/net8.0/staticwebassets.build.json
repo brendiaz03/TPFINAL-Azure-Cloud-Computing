@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NOM9LnuwLxl6SFZavhhBr6iiROu7w42YF4jjXC0vVW0=",
+  "Hash": "H/ryAOG5N9ET4cY14cjivm23zRwWUS53gF5M9EW7sMI=",
   "Source": "ReproductorDeMusica.Web",
   "BasePath": "_content/ReproductorDeMusica.Web",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Pago.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Plan.css",
+      "SourceId": "ReproductorDeMusica.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
+      "BasePath": "_content/ReproductorDeMusica.Web",
+      "RelativePath": "css/Plan.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Plan.css"
     },
     {
       "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\site.css",

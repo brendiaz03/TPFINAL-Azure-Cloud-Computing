@@ -13,8 +13,18 @@ namespace ReproductorDeMusica.Web.Controllers
             _pagoLogica = pagoLogica;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int planId)
         {
+            ViewBag.planId = planId;   
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RealizarPago()
+        {
+            int idUsuario = 3; // Prueba
+            int idPlan = int.Parse(Request.Form["idPlan"]);
+            _pagoLogica.RealizarPago(idPlan, idUsuario);
             return View();
         }
 

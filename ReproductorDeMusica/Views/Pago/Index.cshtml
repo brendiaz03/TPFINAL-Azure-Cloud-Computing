@@ -14,10 +14,10 @@
 
     <div class="container">
 
-        <form action="">
+        <form asp-controller="Pago" asp-action="RealizarPago" method="post">
+            <input type="hidden" name="idPlan" value="@ViewBag.planId"/>
 
             <div class="row">
-
                 <div class="col">
 
                     <h3 class="title">Datos personales</h3>
