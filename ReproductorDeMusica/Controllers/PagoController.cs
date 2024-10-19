@@ -6,11 +6,14 @@ namespace ReproductorDeMusica.Web.Controllers
 {
     public class PagoController : Controller
     {
-        private IPagoLogica _pagoLogica;
+        private readonly IPagoLogica _pagoLogica;
+        private readonly ICorreoLogica _correoLogica;
 
-        public PagoController(IPagoLogica pagoLogica)
+
+        public PagoController(IPagoLogica pagoLogica, ICorreoLogica correoLogica)
         {
             _pagoLogica = pagoLogica;
+            _correoLogica = correoLogica;
         }
 
         public IActionResult Index(int planId)
@@ -25,6 +28,12 @@ namespace ReproductorDeMusica.Web.Controllers
             int idUsuario = 3; // Prueba
             int idPlan = int.Parse(Request.Form["idPlan"]);
             _pagoLogica.RealizarPago(idPlan, idUsuario);
+            _correoLogica.EnviarCorreoPago("acavauncorreo@gmail.com");
+            return View("PagoRealizado");
+        }
+
+        public IActionResult PagoRealizado()
+        {
             return View();
         }
 

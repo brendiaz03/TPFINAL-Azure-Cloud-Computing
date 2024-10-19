@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReproductorDeMusica.Web", "ReproductorDeMusica\ReproductorDeMusica.Web.csproj", "{29E6161C-3290-4645-9856-036D711943C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReproductorDeMusica.Web", "ReproductorDeMusica\ReproductorDeMusica.Web.csproj", "{29E6161C-3290-4645-9856-036D711943C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReproductorDeMusica.Entidades", "ReproductorDeMusica.Entidades\ReproductorDeMusica.Entidades.csproj", "{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReproductorDeMusica.Entidades", "ReproductorDeMusica.Entidades\ReproductorDeMusica.Entidades.csproj", "{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReproductorDeMusica.Logica", "ReproductorDeMusica.Logica\ReproductorDeMusica.Logica.csproj", "{1F0B10DD-E223-42A1-8D4D-590B30724841}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReproductorDeMusica.Logica", "ReproductorDeMusica.Logica\ReproductorDeMusica.Logica.csproj", "{1F0B10DD-E223-42A1-8D4D-590B30724841}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReproductorDeMusica.AzureFunctions", "ReproductorDeMusica.AzureFunctions\ReproductorDeMusica.AzureFunctions.csproj", "{DC87409D-288D-4E55-BE8B-0A21F8950DF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{1F0B10DD-E223-42A1-8D4D-590B30724841}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F0B10DD-E223-42A1-8D4D-590B30724841}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F0B10DD-E223-42A1-8D4D-590B30724841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC87409D-288D-4E55-BE8B-0A21F8950DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC87409D-288D-4E55-BE8B-0A21F8950DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC87409D-288D-4E55-BE8B-0A21F8950DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC87409D-288D-4E55-BE8B-0A21F8950DF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

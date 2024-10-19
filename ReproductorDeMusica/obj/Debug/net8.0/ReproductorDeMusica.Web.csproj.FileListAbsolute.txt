@@ -65,15 +65,6 @@ C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\Reproduc
 C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.pdb
 C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.genruntimeconfig.cache
 C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ref\ReproductorDeMusica.Web.dll
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.csproj.AssemblyReference.cache
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.AssemblyInfoInputs.cache
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.AssemblyInfo.cs
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.csproj.CoreCompileInputs.cache
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.RazorAssemblyInfo.cache
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.RazorAssemblyInfo.cs
-C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.sourcelink.json
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\bin\Debug\net8.0\appsettings.json
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\bin\Debug\net8.0\ReproductorDeMusica.Web.staticwebassets.runtime.json
@@ -196,6 +187,15 @@ C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDe
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\bin\Debug\net8.0\ReproductorDeMusica.Logica.dll
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\bin\Debug\net8.0\ReproductorDeMusica.Logica.pdb
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\bin\Debug\net8.0\ReproductorDeMusica.Entidades.pdb
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.csproj.AssemblyReference.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.AssemblyInfoInputs.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.AssemblyInfo.cs
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.csproj.CoreCompileInputs.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.RazorAssemblyInfo.cache
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.RazorAssemblyInfo.cs
+C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\ReproductorDeMusica.Web.sourcelink.json
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Alan\Desktop\Azure Tp Final\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\obj\Debug\net8.0\staticwebassets\msbuild.ReproductorDeMusica.Web.Microsoft.AspNetCore.StaticWebAssets.props

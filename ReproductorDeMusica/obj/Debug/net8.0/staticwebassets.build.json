@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H/ryAOG5N9ET4cY14cjivm23zRwWUS53gF5M9EW7sMI=",
+  "Hash": "64sbG48K+2iF++Tjp/kdlAC14ogp4nR0ipI6Y2FAxK0=",
   "Source": "ReproductorDeMusica.Web",
   "BasePath": "_content/ReproductorDeMusica.Web",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ReproductorDeMusica.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Exito.css",
+      "SourceId": "ReproductorDeMusica.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\",
+      "BasePath": "_content/ReproductorDeMusica.Web",
+      "RelativePath": "css/Exito.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Exito.css"
     },
     {
       "Identity": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Pago.css",

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ReproductorDeMusica.Web.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Exito.css",
+      "PackagePath": "staticwebassets\\css\\Exito.css"
+    },
+    {
       "Id": "C:\\Users\\Alan\\Desktop\\Azure Tp Final\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\wwwroot\\css\\Pago.css",
       "PackagePath": "staticwebassets\\css\\Pago.css"
     },

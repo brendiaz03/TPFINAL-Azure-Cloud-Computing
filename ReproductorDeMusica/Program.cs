@@ -7,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<Tpweb3AzureContext>();
 builder.Services.AddSingleton<IPagoLogica,PagoLogica>();
+builder.Services.AddSingleton<ICorreoLogica, CorreoLogica>();
+builder.Services.AddSingleton<HttpClient>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
