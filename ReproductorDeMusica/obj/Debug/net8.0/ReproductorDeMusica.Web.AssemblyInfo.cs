@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ReproductorDeMusica.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8e238f2b2930c9f7f1a8e98b92d000bcf79cbd6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1df7c664fcd58d06df181ad43811ff53c07b6d76")]
 [assembly: System.Reflection.AssemblyProductAttribute("ReproductorDeMusica.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ReproductorDeMusica.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

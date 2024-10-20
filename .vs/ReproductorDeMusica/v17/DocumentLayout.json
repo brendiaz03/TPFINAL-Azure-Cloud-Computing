@@ -3,52 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\views\\usuario\\registrarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\views\\usuario\\registrarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1F0B10DD-E223-42A1-8D4D-590B30724841}|ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.logica\\usuariologica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F0B10DD-E223-42A1-8D4D-590B30724841}|ReproductorDeMusica.Logica\\ReproductorDeMusica.Logica.csproj|solutionrelative:reproductordemusica.logica\\usuariologica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\plan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\plan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\entidades\\tpweb3azurecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\entidades\\tpweb3azurecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\enumeradores\\tipoplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\enumeradores\\tipoplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\views\\usuario\\registrarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\views\\usuario\\registrarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica.entidades\\reproductordemusica.entidades.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}|ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj|solutionrelative:reproductordemusica.entidades\\reproductordemusica.entidades.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|c:\\users\\alpha\\documents\\unlam\\net\\tp - reproductor de musica\\tpfinal-azure-cloud-computing\\reproductordemusica\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29E6161C-3290-4645-9856-036D711943C3}|ReproductorDeMusica\\ReproductorDeMusica.Web.csproj|solutionrelative:reproductordemusica\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,151 +50,105 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Usuario\\Login.cshtml",
-              "RelativeDocumentMoniker": "ReproductorDeMusica\\Views\\Usuario\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Usuario\\Login.cshtml",
-              "RelativeToolTip": "ReproductorDeMusica\\Views\\Usuario\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-15T15:09:38.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UsuarioLogica.cs",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\UsuarioLogica.cs",
-              "RelativeDocumentMoniker": "ReproductorDeMusica.Logica\\UsuarioLogica.cs",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\UsuarioLogica.cs",
-              "RelativeToolTip": "ReproductorDeMusica.Logica\\UsuarioLogica.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.761Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RegistrarUsuario.cshtml",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
-              "RelativeDocumentMoniker": "ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
-              "RelativeToolTip": "ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-15T15:09:38.767Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Program.cs",
               "RelativeDocumentMoniker": "ReproductorDeMusica\\Program.cs",
               "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Program.cs",
               "RelativeToolTip": "ReproductorDeMusica\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "ReproductorDeMusica\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "ReproductorDeMusica\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.629Z",
+              "WhenOpened": "2024-10-17T18:34:22.34Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "ReproductorDeMusica\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "ReproductorDeMusica\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Title": "RegistrarUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
+              "RelativeToolTip": "ReproductorDeMusica\\Views\\Usuario\\RegistrarUsuario.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-15T15:09:38.77Z"
+              "WhenOpened": "2024-10-15T18:30:14.404Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\appsettings.json",
-              "RelativeDocumentMoniker": "ReproductorDeMusica\\appsettings.json",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\appsettings.json",
-              "RelativeToolTip": "ReproductorDeMusica\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-15T15:09:38.774Z"
+              "Title": "Tpweb3AzureContext.cs",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Entidades\\Tpweb3AzureContext.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAkwJEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:18:38.831Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "ReproductorDeMusica\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "ReproductorDeMusica\\Models\\ErrorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Entidades\\Usuario.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.777Z",
+              "WhenOpened": "2024-10-15T18:18:03.083Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ReproductorDeMusica\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:08:06.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "ReproductorDeMusica\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwEMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:07:27.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UsuarioViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Models\\UsuarioViewModel.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica\\Models\\UsuarioViewModel.cs",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica\\Models\\UsuarioViewModel.cs",
+              "RelativeToolTip": "ReproductorDeMusica\\Models\\UsuarioViewModel.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADwv0IAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T18:07:22.124Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Usuario.cs",
-              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Usuario.cs",
-              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "UsuarioLogica.cs",
+              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\UsuarioLogica.cs",
+              "RelativeDocumentMoniker": "ReproductorDeMusica.Logica\\UsuarioLogica.cs",
+              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Logica\\UsuarioLogica.cs",
+              "RelativeToolTip": "ReproductorDeMusica.Logica\\UsuarioLogica.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAiwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.779Z",
+              "WhenOpened": "2024-10-15T18:05:33.03Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TipoPlan.cs",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Enumeradores\\TipoPlan.cs",
-              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Enumeradores\\TipoPlan.cs",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Enumeradores\\TipoPlan.cs",
-              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Enumeradores\\TipoPlan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.782Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ReproductorDeMusica.Entidades.csproj",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
-              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
-              "RelativeToolTip": "ReproductorDeMusica.Entidades\\ReproductorDeMusica.Entidades.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-15T15:09:38.788Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Plan.cs",
-              "DocumentMoniker": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Plan.cs",
-              "RelativeDocumentMoniker": "ReproductorDeMusica.Entidades\\Plan.cs",
-              "ToolTip": "C:\\Users\\Alpha\\Documents\\UNLaM\\NET\\TP - Reproductor de Musica\\TPFINAL-Azure-Cloud-Computing\\ReproductorDeMusica.Entidades\\Plan.cs",
-              "RelativeToolTip": "ReproductorDeMusica.Entidades\\Plan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T15:09:38.916Z"
             }
           ]
         }

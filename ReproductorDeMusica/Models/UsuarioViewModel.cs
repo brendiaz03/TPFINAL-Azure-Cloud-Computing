@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using ReproductorDeMusica.Entidades;
+using ReproductorDeMusica.Entidades.Entidades;
 using System.Text.RegularExpressions;
 
 namespace ReproductorDeMusica.Web.Models

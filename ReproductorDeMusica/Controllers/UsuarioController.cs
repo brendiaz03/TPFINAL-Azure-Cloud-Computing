@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReproductorDeMusica.Entidades;
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Models;
 using ReproductorDeMusica.Web.Models;
@@ -22,17 +22,19 @@ public class UsuarioController : Controller
     }
 
     [HttpPost]
-    public IActionResult RegistrarUsuario(UsuarioViewModel usuarioModel)
-    {
-
-          if (!ModelState.IsValid)
-            {
+    public IActionResult RegistrarUsuario(UsuarioViewModel usuarioModel){
+          
+        if (!ModelState.IsValid){
                 return View(usuarioModel);
             }
-
+        try{
             _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel));
+        }   catch(UsuarioExistenteException e){
+            ModelState.AddModelError(string.Empty, e.Message);
+            return View(usuarioModel);
+        }
 
-            return RedirectToAction("Login");
+        return RedirectToAction("Login");
 
     }
 
@@ -57,8 +59,14 @@ public class UsuarioController : Controller
             ModelState.AddModelError("", "Nombre de usuario o contraseña incorrectos");
             return View(loginModel);
         }
+        else
+        {
+            HttpContext.Session.SetString("UsuarioId", usuario.Id.ToString());
+            HttpContext.Session.SetString("NombreUsuario", usuario.NombreUsuario);
+            var nombreUsuario = HttpContext.Session.GetString("NombreUsuario");
+            return RedirectToAction("HomeLogged", "Home");
+        }
 
-        return RedirectToAction("HomeLogged", "Home");
     }
 
 }

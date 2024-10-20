@@ -19,7 +19,7 @@ public partial class Usuario
 
     public virtual ICollection<Cancion> Cancions { get; set; } = new List<Cancion>();
 
-    public virtual ICollection<ListaReproduccion> ListaReproduccions { get; set; } = new List<ListaReproduccion>();
+    public virtual ICollection<ListaReproduccion> ListaReproduccions { get; set; } = new List<ListaReproduccion>();  //typo "Reproduccions"
 
     public virtual ICollection<Pago> Pagos { get; set; } = new List<Pago>();
 }

@@ -4,6 +4,11 @@
     <h1 class="text-center mb-4">Registrar Usuario</h1>
 
     <form asp-action="RegistrarUsuario" method="post" class="p-4 border rounded shadow-lg bg-light">
+        <!-- Resumen de errores, mostrar solo los errores de tipo no relacionado a los campos -->
+        <div class="text-danger">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+
         <div class="form-group mb-3">
             <label asp-for="Nombre" class="form-label fw-bold">Nombre</label>
             <input asp-for="Nombre" class="form-control" placeholder="Ingrese su nombre" />
