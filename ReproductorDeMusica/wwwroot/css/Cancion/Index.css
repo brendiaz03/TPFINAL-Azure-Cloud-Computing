@@ -1,0 +1,56 @@
+﻿.modal {
+    color: white;
+    background-color: #111827;
+}
+
+.modal-header, label, audioFileName, imageFileName {
+    color: white;
+}
+
+.modal-content {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+}
+
+#subtitle {
+    color: #D1D5D0;
+}
+
+.btn-primary, .btn-success {
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #2980b9;
+    }
+
+    .btn-success:hover {
+        background-color: #27ae60;
+    }
+
+#selectFileButton {
+    background-color: #145932;
+    color: white;
+}
+
+input.form-control, select.form-select {
+    background-color: #3e3e3e;
+    border: none;
+    color: white;
+}
+
+.form-control:focus, select.form-control:focus {
+    background-color: #3e3e3e;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+#fileName {
+    color: #8e44ad;
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+}
