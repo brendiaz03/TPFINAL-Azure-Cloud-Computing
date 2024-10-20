@@ -16,4 +16,6 @@ public partial class ListaReproduccion
     public virtual Usuario? IdUsuarioNavigation { get; set; }
 
     public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();
+
+    public string? UrlPortada { get; set; }
 }

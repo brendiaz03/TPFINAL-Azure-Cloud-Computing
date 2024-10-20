@@ -1,21 +1,29 @@
 using ReproductorDeMusica.Entidades.Entidades;
+using ReproductorDeMusica.Entidades.Repositories.Interfaces;
+using ReproductorDeMusica.Entidades.Repositories;
 using ReproductorDeMusica.Logica;
+using ReproductorDeMusica.Logica.Interfaces;
+using Azure.Storage.Blobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<Tpweb3AzureContext>();
-builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
-builder.Services.AddSingleton<IPagoLogica,PagoLogica>();
 
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30); 
-    options.Cookie.HttpOnly = true; 
-    options.Cookie.IsEssential = true; 
-});
+// Configurar BlobServiceClient
+builder.Services.AddSingleton(sp =>
+    new BlobServiceClient(builder.Configuration.GetConnectionString("BlobStorageConnection")));
+
+// Repositorios
+builder.Services.AddSingleton<ICancionRepository, CancionRepository>();
+builder.Services.AddSingleton<IListaReproduccionRepository, ListaReproduccionRepository>();
+
+// Servicios
+builder.Services.AddSingleton<IPagoLogica, PagoLogica>();
+builder.Services.AddSingleton<ICancionService, CancionService>();
+builder.Services.AddSingleton<IListaReproduccionService, ListaReproduccionService>();
+builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
 
 var app = builder.Build();
 
@@ -29,8 +37,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
-app.UseSession(); 
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
