@@ -1,0 +1,98 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="~/css/Pago.css" asp-append-version="true">
+</head>
+<body>
+
+    <div class="container">
+
+        <form asp-controller="Pago" asp-action="RealizarPago" method="post">
+            <input type="hidden" name="idPlan" value="@ViewBag.planId"/>
+
+            <div class="row">
+                <div class="col">
+
+                    <h3 class="title">Datos personales</h3>
+
+                    <div class="inputBox">
+                        <span>nombre Completo:</span>
+                        <input type="text" placeholder="john deo">
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input type="email" placeholder="example@example.com">
+                    </div>
+                    <div class="inputBox">
+                        <span>Direccion :</span>
+                        <input type="text" placeholder="Direccion">
+                    </div>
+                    <div class="inputBox">
+                        <span>Ciudad :</span>
+                        <input type="text" placeholder="CABA">
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>Pais :</span>
+                            <input type="text" placeholder="argentina">
+                        </div>
+                        <div class="inputBox">
+                            <span>codigo postal :</span>
+                            <input type="text" placeholder="123 456">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <h3 class="title">Datos de tarjeta</h3>
+
+                    <div class="inputBox">
+                        <span>Tarjetas aceptadas :</span>
+                        <img src="~/images/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span>titular :</span>
+                        <input type="text" placeholder="mr. john deo">
+                    </div>
+                    <div class="inputBox">
+                        <span>Numero de tarjeta de credito :</span>
+                        <input type="number" placeholder="1111-2222-3333-4444">
+                    </div>
+                    <div class="inputBox">
+                        <span>Mes de expiracion :</span>
+                        <input type="text" placeholder="january">
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>Año de expiracion :</span>
+                            <input type="number" placeholder="2022">
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input type="text" placeholder="1234">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="realizar pago" class="submit-btn">
+
+        </form>
+
+    </div>
+
+</body>
+</html>
