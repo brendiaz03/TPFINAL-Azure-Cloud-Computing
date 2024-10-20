@@ -1,0 +1,53 @@
+﻿<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="~/css/Cancion/Index.css" />
+<title>Añadir nueva Playlist</title>
+
+<body>
+    <div class="container">
+        <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#addListaReproduccionModal">
+            Añadir nueva playlist
+        </button>
+
+        <div class="modal fade" id="addListaReproduccionModal" tabindex="-1" aria-labelledby="addListaReproduccionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold text-center" id="addListaReproduccionModal">Añadir nueva Playlist</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="subtitle">Crea tu playlist y añade los detalles aquí.</p>
+                        <form id="playlistForm" action="/ListaReproduccion/AgregarListaReproduccion" method="POST" enctype="multipart/form-data">
+
+                            <input type="hidden" readonly id="id" />
+
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre de la playlist</label>
+                                <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Ingrese el nombre de la playlist" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="coverImage" class="form-label">Imagen de portada</label>
+                                <input type="file" class="form-control d-none" id="coverImage" name="Imagen" accept="image/*">
+                                <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
+                                    <i class="fa-solid fa-file-image"></i> Seleccionar portada
+                                </button>
+                                <p id="imageFileName" class="mt-2 text-info"></p>
+                            </div>
+
+                            <div class="d-flex justify-content-end mt-3">
+                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success" id="submitButtonPlaylist">Crear </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/ListaReproduccion/Index.js"> </script>
+</body>
