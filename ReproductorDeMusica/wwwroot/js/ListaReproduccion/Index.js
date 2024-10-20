@@ -7,9 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageFileInput = document.getElementById("coverImage");
     const selectImageButton = document.getElementById("selectImageButton");
     const imageFileNameDisplay = document.getElementById("imageFileName");
-    const playlistNameInput = document.getElementById("nombre");
 
     selectImageButton.onclick = () => imageFileInput.click();
+
+    // Validar en cada cambio de los inputs
+    document.getElementById("nombre").addEventListener("input", validateForm);
+    imageFileInput.addEventListener("change", validateForm);
 
     imageFileInput.onchange = () => {
         if (imageFileInput.files.length > 0) {
@@ -17,23 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
             imageFileNameDisplay.textContent = file.name;
         }
     };
+});
 
-    playlistNameInput.addEventListener('input', () => {
-        validateForm(); // Validar cada vez que el input cambia
-    });
+$('#playlistForm').submit(function (event) {
+    event.preventDefault();
 
-    // Manejo del evento submit
-    $('#playlistForm').submit(function (event) {
-        event.preventDefault();
+    const formData = new FormData(this); // Crea un FormData a partir del formulario
 
-        const formData = new FormData(this);
-
-        // Llama a la función para crear la playlist, solo si el form tiene los datos necesarios
-        if (validateForm()) {
-            crearPlaylist(formData);
-            resetearForm();
-        }
-    });
+    // Llama a la función para crear la playlist solo si el form tiene los datos necesarios
+    if (validateForm()) {
+        crearPlaylist(formData);
+        resetearForm();
+    }
 });
 
 function crearPlaylist(formData) {
@@ -41,10 +39,10 @@ function crearPlaylist(formData) {
         url: '/ListaReproduccion/AgregarListaReproduccion',
         type: 'POST',
         data: formData,
-        processData: false, // Evita que jQuery procese el data
-        contentType: false, // Permite que el navegador gestione el content type
+        processData: false,
+        contentType: false,
         success: function (data) {
-            console.log('Playlist creada con éxito:', data);
+            console.log("Playlist creada");
         },
         error: function (xhr, status, error) {
             console.error('Error en la generación de la playlist:', error);
@@ -53,20 +51,25 @@ function crearPlaylist(formData) {
 }
 
 function validateForm() {
-    const playlistName = document.getElementById("nombre").value.trim();
+    const nombre = document.getElementById("nombre").value.trim();
+    const imageFileInput = document.getElementById("coverImage");
 
-    if (playlistName) {
+    const imageSelected = imageFileInput.files.length > 0;
+
+    // Habilita el botón solo si todos los campos son válidos
+    if (nombre && imageSelected) {
         submitButtonPlaylist.disabled = false;
+        return true;
     } else {
         submitButtonPlaylist.disabled = true;
+        return false;
     }
-
-    return playlistName !== "";
 }
 
 function resetearForm() {
     document.getElementById('nombre').value = "";
-    document.getElementById('coverImage').value = null;
+    document.getElementById('coverImage').value = "";
+    document.getElementById('imageFileName').textContent = "";
     submitButtonPlaylist.disabled = true;
     cerrarModal('addListaReproduccionModal');
 }
