@@ -9,51 +9,51 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ReproductorDeMusica.Web
 build_property.RootNamespace = ReproductorDeMusica.Web
-build_property.ProjectDir = C:\Users\Alpha\Documents\UNLaM\NET\Trabajo Spotify - Web III\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\
+build_property.ProjectDir = C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Alpha\Documents\UNLaM\NET\Trabajo Spotify - Web III\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica
+build_property.MSBuildProjectDirectory = C:\Users\BrendaDiaz\Desktop\TPFINALWEBIII\TPFINAL-Azure-Cloud-Computing\ReproductorDeMusica
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/HomeLogged.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/HomeLogged.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lTG9nZ2VkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/Index.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/Privacy.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Shared/Error.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Usuario/Login.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Usuario/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Usuario/RegistrarUsuario.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Usuario/RegistrarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWdpc3RyYXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/_ViewImports.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/_ViewStart.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alpha/Documents/UNLaM/NET/Trabajo Spotify - Web III/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Shared/_Layout.cshtml]
+[C:/Users/BrendaDiaz/Desktop/TPFINALWEBIII/TPFINAL-Azure-Cloud-Computing/ReproductorDeMusica/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1ha6akjoi2
