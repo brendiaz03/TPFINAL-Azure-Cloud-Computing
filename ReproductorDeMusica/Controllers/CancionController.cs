@@ -89,6 +89,5 @@ namespace ReproductorDeMusica.Web.Controllers
             var resultados = _cancionService.BuscarCancionesPorNombre(titulo);
             return PartialView("_ResultadoBusquedaPartial", resultados);
         }
-
     }
 }

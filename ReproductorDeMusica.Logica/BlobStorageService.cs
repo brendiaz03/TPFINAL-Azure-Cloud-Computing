@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using Azure.Storage.Sas;
 using Microsoft.AspNetCore.Http;
 using ReproductorDeMusica.Logica.Interfaces;
 using System.Text.RegularExpressions;
@@ -38,8 +39,27 @@ namespace ReproductorDeMusica.Logica
                 await blobClient.UploadAsync(stream);
             }
 
-            // Retornar la URL del archivo en Blob Storage
-            return blobClient.Uri.ToString();
+            // Generar URL con SAS
+            if (blobClient.CanGenerateSasUri)
+            {
+                BlobSasBuilder sasBuilder = new BlobSasBuilder
+                {
+                    BlobContainerName = containerClient.Name,
+                    BlobName = blobClient.Name,
+                    Resource = "b", 
+                    ExpiresOn = DateTime.UtcNow.AddDays(30) //poner fecha de vencimiento alejada porque despues de esa fecha no se va a poder escuchr
+                };
+
+                sasBuilder.SetPermissions(BlobSasPermissions.Read);
+
+                Uri sasUri = blobClient.GenerateSasUri(sasBuilder);
+
+                return sasUri.ToString();
+            }
+            else
+            {
+                throw new InvalidOperationException("No se pudo generar una URL SAS para este blob.");
+            }
         }
     }
 

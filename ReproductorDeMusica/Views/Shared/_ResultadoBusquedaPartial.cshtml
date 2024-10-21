@@ -7,7 +7,10 @@
         {
             <li class="list-group-item">
                 <strong>@cancion.Titulo</strong> - @cancion.Artista
-                <a href="@cancion.RutaAudio" class="btn btn-primary btn-sm float-end" target="_blank">▶️</a> <!-- Enlace para reproducir -->
+                <button class="btn btn-primary btn-sm btn-reproducir"
+                        data-ruta-audio="@cancion.RutaAudio">
+                    ▶️ Reproducir
+                </button>
             </li>
         }
     </ul>

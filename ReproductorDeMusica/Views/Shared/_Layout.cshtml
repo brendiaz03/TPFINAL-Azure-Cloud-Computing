@@ -46,6 +46,43 @@
             @RenderBody()
         </main>
     </div>
+    <div id="reproductorContainer">
+        <partial name="_ReproductorPartial" />
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#search-input').on('input', function () {
+                const query = $(this).val();
+
+                if (query.length > 2) { // Iniciar búsqueda cuando hay más de 2 caracteres
+                    $.get('/Cancion/Buscar', { query: query }, function (data) {
+                        $('#resultadosBusqueda').html(data).show(); // Muestra los resultados
+                    });
+                } else {
+                    $('#resultadosBusqueda').hide(); // Oculta los resultados si la consulta es muy corta
+                }
+            });
+
+            // Cuando se hace clic en el botón de reproducir
+            $(document).on('click', '.btn-reproducir', function (e) {
+                e.preventDefault();
+
+                // Obtener la URL del archivo de audio
+                const audioUrl = $(this).data('ruta-audio');
+
+                // Asignar la URL al reproductor de audio
+                $('#audioSource').attr('src', audioUrl);
+
+                // Recargar el reproductor para que tome el nuevo archivo
+                const player = $('#audioPlayer')[0];
+                player.load();
+
+                // Reproducir el audio automáticamente
+                player.play();
+            });
+        });
+    </script>
 
     <footer class="footer">
         <div class="footer-top">
