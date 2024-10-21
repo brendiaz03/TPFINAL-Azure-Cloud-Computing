@@ -21,5 +21,5 @@ public partial class Usuario
 
     public virtual ICollection<ListaReproduccion> ListaReproduccions { get; set; } = new List<ListaReproduccion>();
 
-    public virtual ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+    public virtual ICollection<UsuarioPlan> UsuarioPlans { get; set; } = new List<UsuarioPlan>();
 }

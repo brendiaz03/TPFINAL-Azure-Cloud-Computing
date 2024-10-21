@@ -17,6 +17,10 @@ public partial class Cancion
 
     public int? Duracion { get; set; }
 
+    public string? RutaAudio { get; set; }
+
+    public string? UrlPortada { get; set; }
+
     public virtual Usuario? CreadorNavigation { get; set; }
 
     public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();

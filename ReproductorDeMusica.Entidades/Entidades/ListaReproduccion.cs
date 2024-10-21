@@ -13,6 +13,8 @@ public partial class ListaReproduccion
 
     public DateOnly? FechaCreacion { get; set; }
 
+    public string? UrlPortada { get; set; }
+
     public virtual Usuario? IdUsuarioNavigation { get; set; }
 
     public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();

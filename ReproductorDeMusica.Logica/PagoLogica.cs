@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.Entidades.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace ReproductorDeMusica.Logica
     public interface IPagoLogica {
         List<Plan> GetListPlan();
         void RealizarPago(int idPlan, int idUsuario);
+        List<UsuarioPlan> GetUsuariosPlansPorUsuario(int idUsuario);
     }
 
     public class PagoLogica : IPagoLogica
@@ -30,12 +32,23 @@ namespace ReproductorDeMusica.Logica
             Plan planAPagar = _context.Plans.Find(idPlan);
             Usuario usuario = _context.Usuarios.Find(idUsuario);
 
-            Pago pago = new Pago();
+            UsuarioPlan pago = new UsuarioPlan();
             pago.IdUsuarioNavigation = usuario;
             pago.IdPlanNavigation = planAPagar;
 
-            _context.Pagos.Add(pago);
+            _context.UsuarioPlans.Add(pago);
             _context.SaveChanges();
+        }
+
+
+        public List<UsuarioPlan> GetUsuariosPlansPorUsuario(int idUsuario)
+        {
+
+            //Eager loading
+            return _context.Usuarios
+                .Include(u => u.UsuarioPlans) // incluyo la lista
+                    .ThenInclude(up=> up.IdPlanNavigation)    //incluyo de la lista los planes
+                .First(u => u.Id == idUsuario).UsuarioPlans.ToList();
         }
     }
 }

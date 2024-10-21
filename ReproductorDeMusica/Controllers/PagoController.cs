@@ -42,5 +42,10 @@ namespace ReproductorDeMusica.Web.Controllers
             List<Plan> plan = _pagoLogica.GetListPlan();
             return View(plan);
         }
+
+        public IActionResult Prueba2() {
+            List<UsuarioPlan> usuariosPlanes = _pagoLogica.GetUsuariosPlansPorUsuario(3);
+            return View(usuariosPlanes);
+        }
     }
 }
