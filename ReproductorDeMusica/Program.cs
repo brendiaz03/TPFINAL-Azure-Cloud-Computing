@@ -4,8 +4,14 @@ using ReproductorDeMusica.Entidades.Repositories;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
 using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configurar los servicios de autenticación
+builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
