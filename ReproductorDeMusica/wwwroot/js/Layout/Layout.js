@@ -18,3 +18,30 @@
                 }
             });
   });
+
+    $(document).ready(function () {
+        $('#search-input').on('input', function () {
+            const query = $(this).val();
+
+            if (query.length > 2) {
+                $.get('/Cancion/Buscar', { query: query }, function (data) {
+                    $('#resultadosBusqueda').html(data).show(); 
+                });
+            } else {
+                $('#resultadosBusqueda').hide();
+            }
+        });
+
+    $(document).on('click', '.btn-reproducir', function (e) {
+        e.preventDefault();
+
+    const audioUrl = $(this).data('ruta-audio');
+
+    $('#audioSource').attr('src', audioUrl);
+
+    const player = $('#audioPlayer')[0];
+    player.load();
+
+    player.play();
+            });
+        });
