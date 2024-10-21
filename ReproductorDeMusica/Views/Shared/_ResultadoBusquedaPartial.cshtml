@@ -1,0 +1,18 @@
+﻿@model List<ReproductorDeMusica.Entidades.Entidades.Cancion>
+
+@if (Model != null && Model.Any())
+{
+    <ul class="list-group">
+        @foreach (var cancion in Model)
+        {
+            <li class="list-group-item">
+                <strong>@cancion.Titulo</strong> - @cancion.Artista
+                <a href="@cancion.RutaAudio" class="btn btn-primary btn-sm float-end" target="_blank">▶️</a> <!-- Enlace para reproducir -->
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No se encontraron resultados.</p>
+}
