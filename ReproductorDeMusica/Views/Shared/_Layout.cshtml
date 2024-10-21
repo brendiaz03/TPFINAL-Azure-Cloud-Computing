@@ -31,6 +31,38 @@
             </div>
         </nav>
     </header>
+    <!-- Menú lateral -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home")">
+                        <span data-feather="home"></span>
+                        Inicio
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <form action="/ListaReproduccion/Index" method="GET">
+                        <input type="hidden" name="usuarioId" value=4 />
+                        <button type="submit" class="btn btn-primary">Ver Mis Playlists</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("CrearPlaylist", "Playlist")">
+                        <span data-feather="plus-circle"></span>
+                        Crear Playlist
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Cancion")">
+                        <span data-feather="file"></span>
+                        Canciones
+                    </a>
+                </li>
+                <!-- Otros enlaces de navegación -->
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
+using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
 using ReproductorDeMusica.Web.Models;
 
@@ -16,11 +17,17 @@ namespace ReproductorDeMusica.Web.Controllers
             _blobStorageService = blobStorageService;
         }
 
-        public IActionResult Index()
+        // Método sincrónico para mostrar la página de listas de reproducción
+        public IActionResult Index(int usuarioId)
         {
-            return View();
+            // Obtener las listas de reproducción del usuario de manera sincrónica
+            var listasDeReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorUsuario(usuarioId);
+
+            // Pasarlas a la vista
+            return View(listasDeReproduccion);
         }
 
+        [HttpGet]
         public List<ListaReproduccion> GetAllListasReproduccion()
         {
             List<ListaReproduccion> listaReproduccions = _reproduccionService.GetListasReproduccions();

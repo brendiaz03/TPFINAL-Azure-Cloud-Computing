@@ -42,5 +42,12 @@ namespace ReproductorDeMusica.Entidades.Repositories
         {
             return _context.ListaReproduccions.ToList();
         }
+
+        public IEnumerable<ListaReproduccion> ObtenerListasPorUsuario(int usuarioId)
+        {
+            return _context.ListaReproduccions
+                           .Where(l => l.IdUsuario == usuarioId)
+                           .ToList(); // Devuelve las listas como una lista sincrónica
+        }
     }
 }

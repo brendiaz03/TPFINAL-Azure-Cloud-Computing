@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.Entidades.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using ReproductorDeMusica.Logica.Interfaces;
@@ -65,6 +66,11 @@ namespace ReproductorDeMusica.Logica
             {
                 throw ex;
             }
+        }
+
+        public IEnumerable<ListaReproduccion> ObtenerListasDeReproduccionPorUsuario(int usuarioId)
+        {
+            return _listaReproduccionRepository.ObtenerListasPorUsuario(usuarioId);
         }
     }
 }
