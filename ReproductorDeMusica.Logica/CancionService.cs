@@ -56,6 +56,17 @@ namespace ReproductorDeMusica.Logica
             }
         }
 
+        public Cancion GetCancionById(int id)
+        {
+            try
+            {
+                return _cancionRepository.GetCancionById(id);
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Cancion> GetCancions()
         {
             try

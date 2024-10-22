@@ -14,6 +14,7 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
         void EliminarCancion(int idCancion);
 
         List<Cancion> GetCancions();
+        Cancion GetCancionById(int id);
 
     }
 }

@@ -83,5 +83,20 @@ namespace ReproductorDeMusica.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult ReproducirCancion(int id)
+        {
+            try
+            {
+                var cancion = _cancionService.GetCancionById(id);
+                return Ok(cancion);
+            }
+            catch (Exception ex)
+            {
+                var error = ex.ToString();
+                return Problem(error);
+            }
+        }
+
     }
 }
