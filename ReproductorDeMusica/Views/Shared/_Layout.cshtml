@@ -1,46 +1,95 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+﻿<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ReproductorDeMusica</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ReproductorDeMusica.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Cancion/Index.css" />
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">🎵 MyMusic</div>
-        <div class="search-bar">
-            <form id="searchForm" action="/Cancion/Buscar" method="GET">
-                <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
-                <button type="submit" class="search-btn">🔍</button>
-            </form>
-                    <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
-        </div>
-        <div class="auth-buttons">
-            <button class="register-btn">Registrarse</button>
-            <button class="login-btn">Iniciar sesión</button>
-        </div>
-    </header>
 
-    <aside class="sidebar">
-        <h2>Tu bibliotecas</h2>
-        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <form action="/ListaReproduccion/Index" method="GET">
-                            <input type="hidden" name="usuarioId" value=4 />
-                            <button type="submit" class="btn btn-primary">Ver Mis Playlists</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </aside>
-   
+    <div class="sidebar">
+        <div class="logo">
+            <a href="#">
+                <img src="~/images/ripple_logo.png" alt="Logo" />
+            </a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li id="navigation-li-home">
+                    <a href="#">
+                        <span class="fa fa-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li id="navigation-li-my-library">
+                    <a href="#">
+                        <span class="fa fas fa-book"></span>
+                        <span>Your Library</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li id="navigation-li-create-playlist"
+                    <button id="createPlaylistButton" type="button" class="no-button" data-bs-toggle="modal" data-bs-target="#addSongModal">
+                        <span class="fa fas fa-plus-square"></span>
+                        <span>Create Playlist</span>
+                    </button>
+                </li>
+
+                <li id="navigation-li-liked-songs">
+                    <a href="#">
+                        <span class="fa fas fa-heart"></span>
+                        <span>Liked Songs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        @* <div class="policies">
+            <ul>
+                <li>
+                    <a href="#">Cookies</a>
+                </li>
+                <li>
+                    <a href="#">Privacy</a>
+                </li>
+            </ul>
+        </div> *@
+
+    </div>
+
+    <div class="topbar">
+        <div class="navbar">
+            <form id="searchForm" action="/Cancion/Buscar" method="GET" class="search-bar">
+                <div class="input-container">
+                    <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </form>
+            <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
+
+            <ul>
+                <li id="topbar-premium">
+                    <a href="#">Premium</a>
+                </li>
+                <li class="divider">|</li>
+                <li id="topbar-registrate">
+                    <a href="#"> Regístrate </a>
+                </li>
+            </ul>
+            <button id="topbar-button-login" type="button">Iniciar sesión</button>
+        </div>
+    </div>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -84,10 +133,11 @@
         <div class="footer-bottom">
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-        <script src="~/js/Layout/Layout.js"> </script>
+    <script src="~/js/Layout/Layout.js"> </script>
+    <script src="~/js/Cancion/Index.js"> </script>
 </body>
-</html>
+
