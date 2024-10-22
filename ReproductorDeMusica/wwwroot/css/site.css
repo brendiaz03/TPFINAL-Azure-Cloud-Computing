@@ -37,8 +37,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #181818;
+    padding:0;
 }
 
 .search-bar input {
@@ -229,7 +228,7 @@ select:-webkit-autofill:focus {
     display: flex;
     justify-content: center;
     color: white;
-    background-color: #1db954;
+    background-color: #4b4bde;
     border-color: transparent;
     border-radius: 50px;
     width: 7em;
@@ -240,10 +239,14 @@ select:-webkit-autofill:focus {
 }
 
     .btn-principal:hover {
-        color: #1db954;
-        background-color: black;
+        color: white;
+        background-color: #609bf5;
     }
 
 .contenedor-botones a {
     text-decoration: none;
+}
+
+.contenedor-pagina{
+    padding-top:20px;
 }
