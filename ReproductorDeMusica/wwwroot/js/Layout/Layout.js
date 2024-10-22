@@ -17,6 +17,7 @@
                     $('#resultadosBusqueda').hide();
                 }
             });
+
   });
 
     $(document).ready(function () {
