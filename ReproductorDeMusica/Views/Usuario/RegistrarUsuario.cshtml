@@ -7,10 +7,6 @@
     <form asp-action="RegistrarUsuario" method="post" class="fondo-form">
         <section class="formulario">
 
-        <div class="text-danger">
-            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-        </div>
-
         <div class="form-group mb-3">
             <label asp-for="Nombre" class="form-label fw-bold">Nombre</label>
             <input asp-for="Nombre" class="form-control" placeholder="Ingrese su nombre" />
@@ -24,8 +20,8 @@
         </div>
 
         <div class="form-group mb-3">
-            <label asp-for="Email" class="form-label fw-bold">Email</label>
-            <input asp-for="Email" class="form-control" placeholder="Ingrese su Email" />
+            <label asp-for="Email" class="form-label fw-bold">Correo Electrónico</label>
+            <input asp-for="Email" class="form-control" placeholder="Ingrese su Correo Electrónico" />
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
 
@@ -41,7 +37,10 @@
             <span asp-validation-for="Contrasenia" class="text-danger"></span>
         </div>
 
-       
+            <div class="text-danger">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+
         </section>
         <section class="botones">
                 <button type="submit" id="boton_reg_usuario" class="btn-principal">Registrar</button>
