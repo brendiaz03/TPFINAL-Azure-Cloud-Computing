@@ -71,11 +71,15 @@ namespace ReproductorDeMusica.Logica
             return hashOfInput.Equals(storedHash);
         }
 
-
+        public Usuario buscarUsuarioPorID(int usuarioId)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.Id == usuarioId);
+        }
     }
 
     public interface IUsuarioLogica
     {
+        Usuario buscarUsuarioPorID(int usuarioId);
         void RegistrarUsuario(Usuario usuario);
         Usuario ValidarUsuario(string nombreUsuario, string contrasenia);
     }

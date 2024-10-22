@@ -11,14 +11,21 @@ body {
     color: white;
     font-family: Arial, sans-serif;
 }
-header{
-    height:4em;
+header {
+    height: 4em;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 .logo-link {
     display: inline-block;
     width: 3em;
     height: 3em;
     
+}
+
+.mensajeBienvenida{
+    align-content:center;
 }
 
 .logo-img {
@@ -216,7 +223,7 @@ select:-webkit-autofill:focus {
 .contenedor-botones {
     display: flex;
     justify-content: space-around;
-    gap:0.5em;
+    gap:1em;
 }
 .btn-principal {
     display: flex;
