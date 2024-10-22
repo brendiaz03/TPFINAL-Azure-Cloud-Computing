@@ -17,4 +17,5 @@
                     $('#resultadosBusqueda').hide();
                 }
             });
+
   });

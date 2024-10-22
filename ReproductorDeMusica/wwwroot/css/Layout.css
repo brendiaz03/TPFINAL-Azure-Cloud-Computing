@@ -64,6 +64,12 @@ body {
             margin-left: 20px;
         }
 
+        .topbar .navbar button a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+
             .topbar .navbar button:hover,
             .topbar .navbar button:active,
             .topbar .navbar button:focus {

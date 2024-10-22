@@ -1,0 +1,11 @@
+﻿.main-container {
+    margin-left: 50px;
+}
+
+.titulo_registroUsuario{
+    text-align: center;
+}
+.botones{
+    display:flex;
+    justify-content:center;
+}
