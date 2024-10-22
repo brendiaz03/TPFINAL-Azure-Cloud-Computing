@@ -21,7 +21,7 @@ public partial class Cancion
 
     public string? UrlPortada { get; set; }
 
-    public virtual Usuario? CreadorNavigation { get; set; }
+    public virtual ICollection<CancionListaReproduccion> CancionListaReproduccions { get; set; } = new List<CancionListaReproduccion>();
 
-    public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();
+    public virtual Usuario? CreadorNavigation { get; set; }
 }

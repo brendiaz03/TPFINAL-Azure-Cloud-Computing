@@ -45,10 +45,16 @@ namespace ReproductorDeMusica.Logica
         {
 
             //Eager loading
+            /*
             return _context.Usuarios
                 .Include(u => u.UsuarioPlans) // incluyo la lista
                     .ThenInclude(up=> up.IdPlanNavigation)    //incluyo de la lista los planes
                 .First(u => u.Id == idUsuario).UsuarioPlans.ToList();
+             */
+
+            //Lazy Loading implicitamente 
+            return _context.Usuarios
+               .First(u => u.Id == idUsuario).UsuarioPlans.ToList();
         }
     }
 }

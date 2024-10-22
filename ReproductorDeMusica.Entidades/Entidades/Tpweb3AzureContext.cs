@@ -17,7 +17,7 @@ public partial class Tpweb3AzureContext : DbContext
 
     public virtual DbSet<Cancion> Cancions { get; set; }
 
-    public virtual DbSet<ListaCancione> ListaCanciones { get; set; }
+    public virtual DbSet<CancionListaReproduccion> CancionListaReproduccions { get; set; }
 
     public virtual DbSet<ListaReproduccion> ListaReproduccions { get; set; }
 
@@ -28,8 +28,10 @@ public partial class Tpweb3AzureContext : DbContext
     public virtual DbSet<UsuarioPlan> UsuarioPlans { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User=pw3Admin;Password=Admin242;Trusted_Connection=True;Encrypt=False;Integrated Security=False");
+    {
+        optionsBuilder.UseLazyLoadingProxies();
+        optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User=pw3Admin;Password=Admin242;Trusted_Connection=True;Encrypt=False;Integrated Security=False");
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -62,21 +64,21 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasConstraintName("fk_creador");
         });
 
-        modelBuilder.Entity<ListaCancione>(entity =>
+        modelBuilder.Entity<CancionListaReproduccion>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("pk_lista_canciones");
+            entity.ToTable("CancionListaReproduccion");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.IdCancion).HasColumnName("idCancion");
             entity.Property(e => e.IdListaReproduccion).HasColumnName("idListaReproduccion");
 
-            entity.HasOne(d => d.IdCancionNavigation).WithMany(p => p.ListaCanciones)
+            entity.HasOne(d => d.IdCancionNavigation).WithMany(p => p.CancionListaReproduccions)
                 .HasForeignKey(d => d.IdCancion)
-                .HasConstraintName("fk_cancion");
+                .HasConstraintName("FK_CancionListaReproduccion_Cancion1");
 
-            entity.HasOne(d => d.IdListaReproduccionNavigation).WithMany(p => p.ListaCanciones)
+            entity.HasOne(d => d.IdListaReproduccionNavigation).WithMany(p => p.CancionListaReproduccions)
                 .HasForeignKey(d => d.IdListaReproduccion)
-                .HasConstraintName("fk_listaReproduccion");
+                .HasConstraintName("FK_CancionListaReproduccion_ListaReproduccion");
         });
 
         modelBuilder.Entity<ListaReproduccion>(entity =>
