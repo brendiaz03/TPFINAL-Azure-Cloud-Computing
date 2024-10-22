@@ -83,5 +83,11 @@ namespace ReproductorDeMusica.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Buscar(string titulo)
+        {
+            var resultados = _cancionService.BuscarCancionesPorNombre(titulo);
+            return PartialView("_ResultadoBusquedaPartial", resultados);
+        }
     }
 }
