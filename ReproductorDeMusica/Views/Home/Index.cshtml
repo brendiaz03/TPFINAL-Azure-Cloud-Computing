@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ReproductorDeMusica.Web.Models.HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 <!DOCTYPE html>
@@ -10,18 +11,6 @@
     <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">🎵 MyMusic</div>
-        <div class="search-bar">
-            <input type="text" placeholder="¿Qué quieres reproducir?">
-            <button class="search-btn">🔍</button>
-        </div>
-        <div class="auth-buttons">
-            <button class="register-btn">Registrarse</button>
-            <button class="login-btn">Iniciar sesión</button>
-        </div>
-    </header>
-
     <div class="main-container">
         <aside class="sidebar">
             <h2>Tu bibliotecas</h2>

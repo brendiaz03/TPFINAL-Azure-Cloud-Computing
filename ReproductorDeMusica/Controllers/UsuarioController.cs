@@ -10,6 +10,7 @@ public class UsuarioController : Controller
 {
     private readonly IUsuarioLogica _usuarioLogica;
 
+
     public UsuarioController(IUsuarioLogica usuarioLogica)
     {
         _usuarioLogica = usuarioLogica;
@@ -18,7 +19,13 @@ public class UsuarioController : Controller
     [HttpGet]
     public IActionResult RegistrarUsuario()
     {
-        return View();
+        var usuarioId = HttpContext.Session.GetString("UsuarioId");
+        var nombreUsuario = HttpContext.Session.GetString("NombreUsuario");
+
+        ViewBag.EstaLoggeado = usuarioId != null;
+        ViewBag.NombreUsuario = nombreUsuario;
+
+        return View(new UsuarioViewModel());
     }
 
     [HttpPost]
@@ -41,7 +48,13 @@ public class UsuarioController : Controller
     [HttpGet]
     public IActionResult Login()
     {
-        return View();
+            var usuarioId = HttpContext.Session.GetString("UsuarioId");
+            var nombreUsuario = HttpContext.Session.GetString("NombreUsuario");
+
+           ViewBag.EstaLoggeado = usuarioId != null;
+           ViewBag.NombreUsuario = nombreUsuario;
+
+        return View(new LoginViewModel());
     }
 
     [HttpPost]
@@ -62,11 +75,17 @@ public class UsuarioController : Controller
         else
         {
             HttpContext.Session.SetString("UsuarioId", usuario.Id.ToString());
-            HttpContext.Session.SetString("NombreUsuario", usuario.NombreUsuario);
-            var nombreUsuario = HttpContext.Session.GetString("NombreUsuario");
-            return RedirectToAction("HomeLogged", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
     }
+    public IActionResult Logout(LoginViewModel loginModel)
+    {
+        HttpContext.Session.Clear();
+
+        return RedirectToAction("Index", "Home");
+    }
 
 }
+
+

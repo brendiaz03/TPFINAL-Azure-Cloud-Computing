@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Models;
+using ReproductorDeMusica.Web.Models;
 using System.Diagnostics;
 
 namespace ReproductorDeMusica.Controllers
@@ -15,12 +16,13 @@ namespace ReproductorDeMusica.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
+            var usuarioId = HttpContext.Session.GetString("UsuarioId");
+            var nombreUsuario = HttpContext.Session.GetString("NombreUsuario");
 
-        public IActionResult HomeLogged()
-        {
-            return View();
+            ViewBag.EstaLoggeado = usuarioId != null;
+            ViewBag.NombreUsuario = nombreUsuario;
+
+            return View(new HomeViewModel());
         }
 
         public IActionResult Privacy()

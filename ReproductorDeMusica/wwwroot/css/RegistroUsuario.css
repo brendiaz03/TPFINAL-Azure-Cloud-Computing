@@ -1,0 +1,7 @@
+﻿.titulo_registroUsuario{
+    text-align: center;
+}
+.botones{
+    display:flex;
+    justify-content:center;
+}

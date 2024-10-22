@@ -11,7 +11,20 @@ body {
     color: white;
     font-family: Arial, sans-serif;
 }
+header{
+    height:4em;
+}
+.logo-link {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    
+}
 
+.logo-img {
+    width: 3em;
+    height: 3em;
+}
 /* Header */
 .navbar {
     display: flex;
@@ -147,4 +160,83 @@ body {
     text-align: center;
     font-size: 12px;
     color: #737373;
+}
+.fondo-form {
+    align-self: center;
+    border-radius: 50px;
+    align-items: center;
+    padding: 3% 5% 3% 5%;
+    background: rgba(10, 10, 10, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 4px 8px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    color: white;
+}
+
+    .fondo-form h2 {
+        text-align: center;
+    }
+
+.form-control {
+    border-color: white;
+    border-radius: 15px;
+    background-color: transparent;
+    height: 30px;
+    color: white;
+    padding: 0 10px;
+}
+
+    .form-control:focus {
+        background-color: transparent;
+        outline: none;
+        color: white;
+    }
+
+    .form-control:-webkit-autofill {
+        box-shadow: 0 0 0 30px transparent inset;
+        -webkit-box-shadow: 0 0 0 30px transparent inset;
+        color: white;
+    }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+.contenedor-botones {
+    display: flex;
+    justify-content: space-around;
+    gap:0.5em;
+}
+.btn-principal {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #1db954;
+    border-color: transparent;
+    border-radius: 50px;
+    width: 7em;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .btn-principal:hover {
+        color: #1db954;
+        background-color: black;
+    }
+
+.contenedor-botones a {
+    text-decoration: none;
 }
