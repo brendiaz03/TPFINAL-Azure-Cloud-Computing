@@ -14,7 +14,6 @@ public partial class ListaReproduccion
     public DateOnly? FechaCreacion { get; set; }
 
     public string? UrlPortada { get; set; }
-
     public virtual ICollection<CancionListaReproduccion> CancionListaReproduccions { get; set; } = new List<CancionListaReproduccion>();
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }

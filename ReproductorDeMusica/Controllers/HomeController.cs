@@ -18,6 +18,11 @@ namespace ReproductorDeMusica.Controllers
             return View();
         }
 
+        public IActionResult HomeLogged()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

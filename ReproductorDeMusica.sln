@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReproductorDeMusica.Web", "ReproductorDeMusica\ReproductorDeMusica.Web.csproj", "{29E6161C-3290-4645-9856-036D711943C3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0} = {88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReproductorDeMusica.Entidades", "ReproductorDeMusica.Entidades\ReproductorDeMusica.Entidades.csproj", "{88DF9C27-27FC-4D17-8BD3-EB8A2566F1C0}"
 EndProject

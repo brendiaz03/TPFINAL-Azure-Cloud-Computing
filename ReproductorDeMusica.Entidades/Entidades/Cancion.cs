@@ -18,7 +18,6 @@ public partial class Cancion
     public int? Duracion { get; set; }
 
     public string? RutaAudio { get; set; }
-
     public string? UrlPortada { get; set; }
 
     public virtual ICollection<CancionListaReproduccion> CancionListaReproduccions { get; set; } = new List<CancionListaReproduccion>();

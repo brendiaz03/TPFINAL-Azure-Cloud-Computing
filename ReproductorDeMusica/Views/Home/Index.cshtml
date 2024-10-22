@@ -1,8 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Música</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    <div class="main-container">
+        <section class="content">
+            <h3>Artistas populares</h3>
+            <div class="image-row carousel">
+                <img src="/images/Luis Fonsi.jpg" alt="Artista 1">
+                <img src="/images/Shakira.jpg" alt="Artista 2">
+                <img src="/images/Tini.jpg" alt="Artista 3">
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+            <h3>Álbumes populares</h3>
+            <div class="image-row carousel">
+                <img src="/images/tema Fonsi.jpg" alt="Álbum 1">
+                <img src="/images/tema Shakira.jpg" alt="Álbum 2">
+                <img src="/images/tema Tini.jpg" alt="Álbum 3">
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/site.js"></script>
+</body>
+</html>
