@@ -78,25 +78,9 @@ header {
 }
 
 /* Main layout */
-.main-container {
-    display: flex;
-    height: 100vh;
-}
 
-.sidebar {
-    width: 20%;
-    background-color: #181818;
-    padding: 20px;
-}
 
-    .sidebar button {
-        background-color: #1db954;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 20px;
-        cursor: pointer;
-    }
+
 
 .content {
     width: 80%;
@@ -195,6 +179,7 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.5);
     position: relative;
     color: white;
+    width:50%;
 }
 
     .fondo-form h2 {
@@ -287,3 +272,51 @@ select:-webkit-autofill:focus {
     .dropdown-item:hover {
         background-color: #f1f1f1;
     }
+
+.main-container {
+    display: flex;
+    height: 100vh;
+    margin-left: 50px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.contenido-main {
+    display: flex;
+    height: 100vh; /* Ocupa el 100% del alto de la ventana */
+}
+
+.sidebar {
+    width: 15%; /* Sidebar ocupa el 15% */
+    background-color: #000000;
+    padding: 20px;
+    position: fixed; /* Sidebar fijo */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto; /* Para hacer scroll dentro del sidebar si el contenido es largo */
+}
+.contenedor-pagina {
+    padding: 5% 10% 5% 10%;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+.contenedor-estandar {
+    width: 85%; /* El contenido principal ocupa el 85% */
+    margin-left: 15%; /* Ajusta el contenido para que no quede debajo del sidebar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Esto lleva el reproductor al final */
+}
+
+#reproductorContainer {
+    position: sticky;
+    bottom: 0;
+    width: 100%; /* Para que el reproductor ocupe todo el ancho del contenedor */
+    background-color: #000000;
+    padding: 10px;
+}
