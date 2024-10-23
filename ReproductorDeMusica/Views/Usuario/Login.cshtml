@@ -1,5 +1,5 @@
 ﻿@model ReproductorDeMusica.Web.Models.LoginViewModel
-<link rel="stylesheet" href="~/css/Login.css">
+<link rel="stylesheet" href="~/css/Usuario/Login.css">
 
 <div class="main_login">
     <h1 class="titulo_login">Iniciar Sesión</h1>
@@ -15,7 +15,10 @@
 
             <div class="form-group mb-3">
                 <label asp-for="Contrasenia" class="form-label fw-bold">Contraseña</label>
-                <input asp-for="Contrasenia" type="password" class="form-control" placeholder="Ingrese su contraseña" />
+                <div class="input-container">
+                    <input asp-for="Contrasenia" type="password" id="passwordInput" class="form-control" placeholder="Ingrese su contraseña" />
+                        <i id="passwordIcon" class="fa-solid fa-eye-slash"></i>
+                </div>
                 <span asp-validation-for="Contrasenia" class="text-danger"></span>
             </div>
 
@@ -24,7 +27,7 @@
             </div>
 
             <section class="botones">
-                <button type="submit" id="boton_Login" class="btn-principal">Iniciar Sesión</button>
+                <button type="submit" id="boton_Login" class="btn-login">Iniciar Sesión</button>
             </section>
             <section class="redirigir-register">
                 <p class="text-center"> ¿No tienes cuenta? <a href="/Usuario/RegistrarUsuario"> Regístrate aquí. </a> </p>
@@ -32,3 +35,5 @@
         </section>
     </form>
 </div>
+
+                <script src="~/js/Usuario/Login.js"> </script>
