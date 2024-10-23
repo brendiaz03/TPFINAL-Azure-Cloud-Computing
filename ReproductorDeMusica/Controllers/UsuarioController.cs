@@ -33,7 +33,7 @@ public class UsuarioController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegistrarUsuarioAsync(UsuarioViewModel usuarioModel)
+    public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
     {
 
         ViewBag.EsFormulario = true;
