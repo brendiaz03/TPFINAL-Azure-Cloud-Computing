@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -55,41 +55,43 @@
             else
             {
                 <div class="contenedor-botones">
-                <a href="/Usuario/RegistrarUsuario" class="span-register">Registrarse</a>
+                    <a href="/Usuario/RegistrarUsuario" class="span-register">Registrarse</a>
                     <span class="divider">|</span>
-                <a href="/Usuario/Login"><button class="btn-login">Iniciar Sesion</button></a>
+                    <a href="/Usuario/Login"><button class="btn-login">Iniciar Sesion</button></a>
                 </div>
             }
         }
     </header>
 
-     @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario==false){
-     <aside class="sidebar">
-        <h2>Tu bibliotecas</h2>
-        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <form action="/ListaReproduccion/Index" method="GET">
-                            <input type="hidden" name="usuarioId" value=4 />
-                            <button type="submit" class="btn btn-primary">Ver Mis Playlists</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </aside>
-     }
+    @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
+    {
+        <aside class="sidebar">
+            <h2>Tu bibliotecas</h2>
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <form action="/ListaReproduccion/Index" method="GET">
+                                <input type="hidden" name="usuarioId" value=4 />
+                                <button type="submit" class="btn btn-primary">Ver Mis Playlists</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-     @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario==false){
-    <div id="reproductorContainer">
-        <partial name="_ReproductorPartial" />
-    </div>
-     }
+    @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
+    {
+        <div id="reproductorContainer">
+            <partial name="_ReproductorPartial" />
+        </div>
+    }
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-section">
@@ -131,6 +133,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-        <script src="~/js/Layout/Layout.js"> </script>
+    <script src="~/js/Layout/Layout.js"> </script>
 </body>
 </html>

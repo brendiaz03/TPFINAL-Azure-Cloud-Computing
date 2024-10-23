@@ -1,13 +1,13 @@
-﻿.titulo_registroUsuario{
+﻿.titulo_registroUsuario {
     text-align: center;
 }
 
-.botones{
-    display:flex;
-    justify-content:center;
+.botones {
+    display: flex;
+    justify-content: center;
 }
 
-input[type="file"]{
+input[type="file"] {
     display: none;
 }
 

@@ -49,7 +49,7 @@ namespace ReproductorDeMusica.Web.Models
                 Apellido = usuarioModel.Apellido,
                 Email = usuarioModel.Email,
                 NombreUsuario = usuarioModel.NombreUsuario,
-                Contrasenia = usuarioModel.Contrasenia, 
+                Contrasenia = usuarioModel.Contrasenia,
                 ImagenUsuario = imagenUrl
             };
         }
@@ -68,3 +68,4 @@ namespace ReproductorDeMusica.Web.Models
         }
     }
 }
+

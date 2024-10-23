@@ -1,4 +1,4 @@
-﻿
+﻿// Inicializar comportamiento de carrusel
 const carousels = document.querySelectorAll('.carousel');
 
 carousels.forEach(carousel => {
@@ -24,8 +24,7 @@ carousels.forEach(carousel => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 3;
+        const walk = (x - startX) * 3; // Ajustar la velocidad de desplazamiento
         carousel.scrollLeft = scrollLeft - walk;
     });
 });
-

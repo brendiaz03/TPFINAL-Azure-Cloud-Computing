@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿
+document.addEventListener("DOMContentLoaded", () => {
     const imageFileInput = document.getElementById("ImagenUsuario");
     const selectImageButton = document.getElementById("selectImageButton");
     const imageFileNameDisplay = document.getElementById("imageFileName");

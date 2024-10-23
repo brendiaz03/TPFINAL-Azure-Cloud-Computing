@@ -18,7 +18,7 @@ public class UsuarioController : Controller
     {
         _usuarioLogica = usuarioLogica;
         _blobStorageService = blobStorageService;
-    } 
+    }
 
     [HttpGet]
     public IActionResult RegistrarUsuario()
@@ -33,15 +33,18 @@ public class UsuarioController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegistrarUsuarioAsync(UsuarioViewModel usuarioModel){
+    public async Task<IActionResult> RegistrarUsuarioAsync(UsuarioViewModel usuarioModel)
+    {
 
         ViewBag.EsFormulario = true;
 
-        if (!ModelState.IsValid){
-                return View(usuarioModel);
-            }
+        if (!ModelState.IsValid)
+        {
+            return View(usuarioModel);
+        }
 
-        try{
+        try
+        {
 
             // Subir los archivos a Azure Blob Storage
             string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "fotoDePerfil-usuarios");
@@ -51,7 +54,9 @@ public class UsuarioController : Controller
 
             _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
 
-        }   catch(UsuarioExistenteException e){
+        }
+        catch (UsuarioExistenteException e)
+        {
             ModelState.AddModelError(string.Empty, e.Message);
             return View(usuarioModel);
         }
@@ -109,7 +114,7 @@ public class UsuarioController : Controller
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
         ViewBag.EstaLoggeado = usuarioId != null;
 
-        if(usuarioId!=null)
+        if (usuarioId != null)
         {
             Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
             var usuarioViewModel = UsuarioViewModel.FromUsuario(buscado);
