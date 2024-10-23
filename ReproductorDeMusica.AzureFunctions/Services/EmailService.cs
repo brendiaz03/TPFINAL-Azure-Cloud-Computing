@@ -5,34 +5,32 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 
-namespace ReproductorDeMusica.AzureFunctions
+/*
+ // Configurar SmtpClient
+builder.Services.AddSingleton(smtp =>
+    new SmtpClient()
+    {
+        Host = builder.Configuration["EmailSettings:EmailHost"],
+        Port = int.Parse(builder.Configuration["EmailSettings:EmailPort"]),
+        Credentials = new NetworkCredential(builder.Configuration["EmailSettings:EmailCredential"], builder.Configuration["EmailSettings:EmailPassword"]),
+        EnableSsl = true,
+        UseDefaultCredentials = false
+    });
+ */
+namespace ReproductorDeMusica.AzureFunctions.Services
 {
-
-    public interface IEmailService {
-        Task EnviarMail(string subject, string contenido, string toEmail);
-    }
-
-
     public class EmailService : IEmailService
     {
-        private const string _emailCredencial = "alangta242@gmail.com";
-        private const string _contrasenaCredencial = "rjmc cyke owyh dvng";
-        private const string _host = "smtp.gmail.com";
-        private const int _port = 587;
-        private SmtpClient _smtpCliente;
+        private readonly IConfiguration _configuration;
+        private SmtpClient _smtpClient;
 
-        public EmailService()
+        public EmailService(SmtpClient smtpClient,IConfiguration configuration)
         {
-
-            _smtpCliente = new SmtpClient
-            {
-                Host = _host,
-                Port = _port,
-                Credentials = new NetworkCredential(_emailCredencial, _contrasenaCredencial),
-                EnableSsl = true,
-                UseDefaultCredentials = false
-            };
+            _smtpClient = smtpClient;
+            _configuration = configuration; 
         }
 
         //Llama a la azure function (demo)
@@ -40,18 +38,16 @@ namespace ReproductorDeMusica.AzureFunctions
         {
             try
             {
-
                 MailMessage mensajeCorreo = new MailMessage
                 {
-                    From = new MailAddress(_emailCredencial),
+                    From = new MailAddress(_configuration["EmailSettings:EmailCredential"]),
                     Subject = subject,
                     Body = contenido,
                     IsBodyHtml = true,
                 };
-
                 //Destinatario
                 mensajeCorreo.To.Add("alanaruquipa242@gmail.com"); // ejemplo del destinatario (lo puede cambiar)
-                _smtpCliente.Send(mensajeCorreo);
+                _smtpClient.Send(mensajeCorreo);
                 mensajeCorreo.Dispose();
 
             }

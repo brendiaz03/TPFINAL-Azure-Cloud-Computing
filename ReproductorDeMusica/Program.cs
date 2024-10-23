@@ -4,6 +4,8 @@ using ReproductorDeMusica.Entidades.Repositories;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
 using Azure.Storage.Blobs;
+using System.Net.Mail;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 

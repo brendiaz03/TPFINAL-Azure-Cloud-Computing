@@ -23,7 +23,7 @@ namespace ReproductorDeMusica.Logica
         {
             string subject = "Plan aprobado";
             string content = "Su plan a adquirir fue hecho";
-            string url = $"http://localhost:7065/api/AzFunEnviarCorreo?subject={subject}&content={content}&to={toEmail}";
+            string url = $"http://localhost:7071/api/AzFunEnviarCorreo?subject={subject}&content={content}&to={toEmail}";
             await _httpCliente.GetAsync(url);
         }
 

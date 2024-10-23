@@ -7,12 +7,23 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Mail;
 using System.Net;
+using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
+using ReproductorDeMusica.AzureFunctions.Services;
+
+
 namespace ReproductorDeMusica.AzureFunctions
 {
-    public static class AzFunEnviarCorreo
+    public class AzFunEnviarCorreo
     {
+
+        private readonly IEmailService _emailService;
+
+        public AzFunEnviarCorreo(IEmailService emailService) { 
+            _emailService = emailService;
+        }
+
         [FunctionName("AzFunEnviarCorreo")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
@@ -23,8 +34,7 @@ namespace ReproductorDeMusica.AzureFunctions
                 string content = req.Query["content"];
                 string subject = req.Query["subject"];
 
-                IEmailService service = new EmailService();
-                await service.EnviarMail(subject, content, to);
+                await _emailService.EnviarMail(subject, content, to);
                 log.LogInformation("Correo enviado");
             }
             catch (Exception ex)
