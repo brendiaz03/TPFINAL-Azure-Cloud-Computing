@@ -243,6 +243,25 @@ select:-webkit-autofill:focus {
         background-color: #609bf5;
     }
 
+.btn-secundario {
+    color: #ffffff;
+    background-color: transparent;
+    border-color: white;
+    border-radius: 50px;
+    text-align: center;
+    width: 7em;
+    padding: 5px;
+    text-decoration: none;
+    align-content: center;
+    transition: background-color 0.3s;
+}
+
+    .btn-secundario:hover {
+        background: #609bf5;
+        border-color: transparent;
+        color: white;
+    }
+
 .contenedor-botones a {
     text-decoration: none;
 }
@@ -250,3 +269,66 @@ select:-webkit-autofill:focus {
 .contenedor-pagina{
     padding-top:20px;
 }
+
+.icon-button {
+    width: 40px; /* Ajusta el tamaño */
+    height: 40px;
+    border-radius: 50%; /* Hace que sea un círculo */
+    background-color: #4b4bde; /* Color de fondo inicial */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+    .icon-button:hover {
+        background-color: #609bf5; /* Cambio de color al hacer hover */
+    }
+
+/* Estilos para el botón del icono */
+.btn-secondary.dropdown-toggle {
+    background-color: #4b4bde; 
+    border: none; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Transición suave para hover */
+}
+
+    .btn-secondary.dropdown-toggle:hover {
+        background-color: #609bf5;
+    }
+
+.dropdown-menu {
+    background-color: #121212;
+    color: white;
+    border: 2px solid black;
+}
+
+ 
+    .dropdown-menu .dropdown-item {
+        color: white;
+        transition: background-color 0.2s ease;
+    }
+
+      .dropdown-menu .dropdown-item:hover {
+            background-color: #609bf5;
+        }
+#dropdownMenuButton {
+    background-color: #4b4bde;
+    border: none; 
+    border-radius: 50%;
+    width: 40px; 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; 
+}
+
+    #dropdownMenuButton:hover {
+        background-color: #609bf5; 
+    }
