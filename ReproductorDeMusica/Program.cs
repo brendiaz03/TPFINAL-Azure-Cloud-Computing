@@ -15,6 +15,8 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache(); 
+builder.Services.AddSession(); 
 builder.Services.AddSingleton<Tpweb3AzureContext>();
 
 // Configurar BlobServiceClient
@@ -26,6 +28,7 @@ builder.Services.AddSingleton<ICancionRepository, CancionRepository>();
 builder.Services.AddSingleton<IListaReproduccionRepository, ListaReproduccionRepository>();
 
 // Servicios
+builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
 builder.Services.AddSingleton<IPagoLogica, PagoLogica>();
 builder.Services.AddSingleton<ICancionService, CancionService>();
 builder.Services.AddSingleton<IListaReproduccionService, ListaReproduccionService>();
@@ -45,7 +48,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(

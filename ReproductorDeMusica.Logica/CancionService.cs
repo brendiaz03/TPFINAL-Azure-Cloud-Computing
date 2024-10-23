@@ -78,5 +78,17 @@ namespace ReproductorDeMusica.Logica
                 throw ex;
             }
         }
+
+        public IEnumerable<Cancion> BuscarCancionesPorNombre(string nombre)
+        {
+            try
+            {
+                return _cancionRepository.BuscarCancionesPorNombre(nombre);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

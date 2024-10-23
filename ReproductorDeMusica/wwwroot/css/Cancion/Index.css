@@ -1,6 +1,6 @@
 ﻿.modal {
     color: white;
-    background-color: #111827;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-header, label, audioFileName, imageFileName {
@@ -8,7 +8,7 @@
 }
 
 .modal-content {
-    background-color: #2e2e2e;
+    background-color: #000000;
     border-radius: 10px;
 }
 

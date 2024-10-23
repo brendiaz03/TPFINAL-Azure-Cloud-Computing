@@ -1,7 +1,22 @@
-﻿<meta charset="UTF-8">
+﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.ListaReproduccion>
+
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="~/css/Cancion/Index.css" />
 <title>Añadir nueva Playlist</title>
+
+<div class="container">
+    <h2>Mis Playlists</h2>
+
+    <div class="mt-4">
+        <ul>
+            @foreach (var playlist in Model)
+            {
+                <li>@playlist.Nombre</li>
+            }
+        </ul>
+    </div>
+</div>
 
 <body>
     <div class="container">

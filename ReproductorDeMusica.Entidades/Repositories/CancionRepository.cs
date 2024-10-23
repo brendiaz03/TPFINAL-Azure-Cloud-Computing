@@ -48,5 +48,17 @@ namespace ReproductorDeMusica.Entidades.Repositories
         {
             return _context.Cancions.ToList();
         }
+
+        public IEnumerable<Cancion> BuscarCancionesPorNombre(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                return Enumerable.Empty<Cancion>();
+            }
+
+            return _context.Cancions
+                .Where(c => c.Titulo.ToLower().Contains(nombre.ToLower()))
+                .ToList();
+        }
     }
 }

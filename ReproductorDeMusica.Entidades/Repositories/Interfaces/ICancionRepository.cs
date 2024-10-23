@@ -12,9 +12,9 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
         Cancion CrearCancion(Cancion cancion);
         Cancion EditarCancion(Cancion cancion);
         void EliminarCancion(int idCancion);
-
         List<Cancion> GetCancions();
         Cancion GetCancionById(int id);
 
+        IEnumerable<Cancion> BuscarCancionesPorNombre(string nombre);
     }
 }

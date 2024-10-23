@@ -13,6 +13,6 @@ namespace ReproductorDeMusica.Logica.Interfaces
         ListaReproduccion EditarListaReproduccion(ListaReproduccion listaReproduccion);
         void EliminarListaReproduccion(int idListaReproduccion);
         List<ListaReproduccion> GetListasReproduccions();
-
+        IEnumerable<ListaReproduccion> ObtenerListasDeReproduccionPorUsuario(int usuarioId);
     }
 }

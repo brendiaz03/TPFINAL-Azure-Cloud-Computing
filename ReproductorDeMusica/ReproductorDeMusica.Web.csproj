@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ReproductorDeMusica.Logica\ReproductorDeMusica.Logica.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\Layout\" />
+  </ItemGroup>
+
 </Project>
