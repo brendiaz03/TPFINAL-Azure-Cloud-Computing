@@ -14,55 +14,7 @@
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="logo">
-            <a href="/Home/Index" class="logo-link">
-                <img src="/images/ripple_logo.png" alt="Logo" class="logo-img">
-            </a>
-        </div>
-
-        @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false && (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true))
-        {
-                
-        <div class="navigation">
-            <ul>
-                <li id="navigation-li-home">
-                    <a href="#">
-                        <span class="fa fa-home"></span>
-                        <span>Home</span>
-                    </a>
-                </li>
-       
-                <li id="navigation-li-my-library">
-                    <a href="#">
-                        <span class="fa fas fa-book"></span>
-                        <span>Your Library</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-       
-        <div class="navigation">
-                <ul>
-                <li id="navigation-li-create-playlist">
-                    <button id="createPlaylistButton" type="button" class="no-button" data-bs-toggle="modal" data-bs-target="#addSongModal">
-                        <span class="fa fas fa-plus-square"></span>
-                        <span>Create Song</span>
-                    </button>
-                </li>
-
-                <li id="navigation-li-liked-songs">
-                    <a href="#">
-                        <span class="fa fas fa-heart"></span>
-                        <span>Liked Songs</span>
-                    </a>
-                </li>
-            </ul>
-            
-        </div>
-         }
-    </div>
-
+   
     
     @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
     {
@@ -101,11 +53,62 @@
         }
         </div>
     }
+    <div class="columnas_main">
+    <div class="sidebar">
+        <div class="logo">
+            <a href="/Home/Index" class="logo-link">
+                <img src="/images/ripple_logo.png" alt="Logo" class="logo-img">
+            </a>
+        </div>
+
+        @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false && (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true))
+        {
+
+            <div class="navigation">
+                <ul>
+                    <li id="navigation-li-home">
+                        <a href="#">
+                            <span class="fa fa-home"></span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li id="navigation-li-my-library">
+                        <a href="#">
+                            <span class="fa fas fa-book"></span>
+                            <span>Your Library</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <li id="navigation-li-create-playlist">
+                        <button id="createPlaylistButton" type="button" class="no-button" data-bs-toggle="modal" data-bs-target="#addSongModal">
+                            <span class="fa fas fa-plus-square"></span>
+                            <span>Create Song</span>
+                        </button>
+                    </li>
+
+                    <li id="navigation-li-liked-songs">
+                        <a href="#">
+                            <span class="fa fas fa-heart"></span>
+                            <span>Liked Songs</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        }
+    </div>
+
     
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+    </div>
     </div>
      @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario==false){
     <div id="reproductorContainer">

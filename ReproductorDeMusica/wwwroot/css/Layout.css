@@ -78,13 +78,18 @@ body {
 
 .sidebar {
     position: fixed;
+    min-width: 196px;
     left: 0;
     top: 0;
     bottom: 0;
     width: 196px;
     background-color: #000000;
     padding: 24px;
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+
 }
+
+
 
     .sidebar .logo img {
         width: 130px;
@@ -281,3 +286,4 @@ body {
     font-size: 12px;
     color: #737373;
 }
+

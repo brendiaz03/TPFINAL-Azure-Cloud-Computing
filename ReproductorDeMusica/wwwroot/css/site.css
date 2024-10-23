@@ -179,6 +179,7 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.5);
     position: relative;
     color: white;
+    width:40em;
 }
 
     .fondo-form h2 {
@@ -266,8 +267,12 @@ select:-webkit-autofill:focus {
     text-decoration: none;
 }
 
-.contenedor-pagina{
-    padding-top:20px;
+.contenedor-pagina {
+    flex: 1;
+    display:flex;
+    flex-direction:column;
+    gap:2em;
+    padding:1em;
 }
 
 .icon-button {
@@ -301,7 +306,10 @@ select:-webkit-autofill:focus {
     .btn-secondary.dropdown-toggle:hover {
         background-color: #609bf5;
     }
-
+.dropdown{
+    display:flex;
+    align-items:center;
+}
 .dropdown-menu {
     background-color: #121212;
     color: white;
@@ -332,3 +340,25 @@ select:-webkit-autofill:focus {
     #dropdownMenuButton:hover {
         background-color: #609bf5; 
     }
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1; /* Esto asegura que el contenido ocupe el espacio restante */
+}
+
+footer {
+    flex-shrink: 0; /* Evita que el footer se reduzca */
+}
+
+.columnas_main {
+    display: flex;
+    height: 100vh; 
+    flex-wrap: nowrap; 
+}
+
+}
