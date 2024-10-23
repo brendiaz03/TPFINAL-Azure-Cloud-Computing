@@ -7,19 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
-
-/*
- // Configurar SmtpClient
-builder.Services.AddSingleton(smtp =>
-    new SmtpClient()
-    {
-        Host = builder.Configuration["EmailSettings:EmailHost"],
-        Port = int.Parse(builder.Configuration["EmailSettings:EmailPort"]),
-        Credentials = new NetworkCredential(builder.Configuration["EmailSettings:EmailCredential"], builder.Configuration["EmailSettings:EmailPassword"]),
-        EnableSsl = true,
-        UseDefaultCredentials = false
-    });
- */
 namespace ReproductorDeMusica.AzureFunctions.Services
 {
     public class EmailService : IEmailService
