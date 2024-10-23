@@ -37,7 +37,10 @@ namespace ReproductorDeMusica.Web.Models
             ErrorMessage = "La contraseña debe tener al menos una letra, un número y 6 caracteres")] // Valida la contraseña
         public string Contrasenia { get; set; }
 
-        public static Usuario ToUsuario(UsuarioViewModel usuarioModel)
+        public IFormFile? ImagenUsuario { get; set; }
+
+
+        public static Usuario ToUsuario(UsuarioViewModel usuarioModel, string imagenUrl)
         {
             return new Usuario
             {
@@ -46,7 +49,8 @@ namespace ReproductorDeMusica.Web.Models
                 Apellido = usuarioModel.Apellido,
                 Email = usuarioModel.Email,
                 NombreUsuario = usuarioModel.NombreUsuario,
-                Contrasenia = usuarioModel.Contrasenia
+                Contrasenia = usuarioModel.Contrasenia, 
+                ImagenUsuario = imagenUrl
             };
         }
 

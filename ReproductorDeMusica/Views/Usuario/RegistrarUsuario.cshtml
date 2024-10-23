@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="~/css/RegistroUsuario.css">
 
 <div class="main_registro">
+
     <h1 class="titulo_registroUsuario">Registrarse</h1>
 
     <form asp-action="RegistrarUsuario" method="post" class="fondo-form">
@@ -41,10 +42,23 @@
             <span asp-validation-for="Contrasenia" class="text-danger"></span>
         </div>
 
+            <div class="form-group mb-3">
+                <label asp-for="ImagenUsuario" class="form-label fw-bold">Imágen de Perfil</label>
+                <input asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control"/>
+                <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
+                    <i class="fa-solid fa-file-image"></i> Seleccionar imágen
+                </button>
+                <p id="imageFileName" class="mt-2 text-info"></p>
+            </div>
        
         </section>
         <section class="botones">
                 <button type="submit" id="boton_reg_usuario" class="btn-principal">Registrar</button>
         </section>
+        <section class="redirigir-login">
+            <p class="text-center"> ¿Ya tienes una cuenta? <a href="/Usuario/Login"> Inicia sesión aquí. </a> </p>
+        </section>
     </form>
 </div>
+
+<script src="~/js/Usuario/RegistroUsuario.js"></script>

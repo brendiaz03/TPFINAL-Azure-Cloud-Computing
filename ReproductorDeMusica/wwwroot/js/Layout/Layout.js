@@ -17,6 +17,20 @@
                     $('#resultadosBusqueda').hide();
                 }
             });
+
+     document.getElementById('usuarioMenu').addEventListener('click', function () {
+         const dropdownMenu = document.getElementById('dropdownMenu');
+         dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
+     });
+
+     // Cierra el menú si se hace clic fuera de él
+     window.addEventListener('click', function (event) {
+         const dropdownMenu = document.getElementById('dropdownMenu');
+         if (!document.getElementById('usuarioMenu').contains(event.target)) {
+             dropdownMenu.style.display = 'none';
+         }
+     });
+
   });
 
     $(document).ready(function () {
@@ -44,4 +58,4 @@
 
     player.play();
             });
-        });
+    });

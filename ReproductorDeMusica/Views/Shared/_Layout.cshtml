@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ReproductorDeMusica.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true">
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
             <a href="/Home/Index" class="logo-link">
-                <img src="/images/logo.png" alt="Artista 1" class="logo-img">
+                <img src="/images/ripple_logo.png" alt="Artista 1" class="logo-img">
             </a>
         </div>
         @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
@@ -21,30 +22,42 @@
             @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
             {
                 <div class="search-bar">
-                    <form id="searchForm" action="/Cancion/Buscar" method="GET">
-                        <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
-                        <button type="submit" class="search-btn">🔍</button>
+                    <form id="searchForm" action="/Cancion/Buscar" method="GET" class="search-bar">
+                        <div class="input-container">
+                            <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
                     </form>
                     <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
                 </div>
                 <div class="contenedor-botones">
-                    <span class="mensajeBienvenida">Bienvenido, @ViewBag.NombreUsuario</span>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="/Usuario/Cuenta">Cuenta</a></li>
-                            <li><a class="dropdown-item" href="/Usuario/Logout">Cerrar Sesión</a></li>
-                        </ul>
+                    <div class="usuario" id="usuarioMenu">
+                        <!-- Contenedor de la imagen o iniciales -->
+                        <div class="img-usuario">
+                            @if (string.IsNullOrEmpty(ViewBag.ImagenUsuario))
+                            {
+                                <span>@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
+                            }
+                            else
+                            {
+                                <img src="@ViewBag.ImagenUsuario" alt="Usuario" style="border-radius: 50%; width: 50px; height: 50px;">
+                            }
+                        </div>
                     </div>
+                    <!-- Menú desplegable -->
+                    <ul class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                        <li><a class="dropdown-item" href="/Usuario/Cuenta">Cuenta</a></li>
+                        <li><a class="dropdown-item" href="/Usuario/Logout">Cerrar Sesión</a></li>
+                    </ul>
                 </div>
+
             }
             else
             {
                 <div class="contenedor-botones">
-                <a href="/Usuario/RegistrarUsuario"><button class="btn-principal">Registrarse</button></a>
-                <a href="/Usuario/Login"><button class="btn-principal">Iniciar Sesion</button></a>
+                <a href="/Usuario/RegistrarUsuario" class="span-register">Registrarse</a>
+                    <span class="divider">|</span>
+                <a href="/Usuario/Login"><button class="btn-login">Iniciar Sesion</button></a>
                 </div>
             }
         }

@@ -17,9 +17,12 @@ public partial class Usuario
 
     public string? Contrasenia { get; set; }
 
+    public string? ImagenUsuario { get; set; }
+
     public virtual ICollection<Cancion> Cancions { get; set; } = new List<Cancion>();
 
     public virtual ICollection<ListaReproduccion> ListaReproduccions { get; set; } = new List<ListaReproduccion>();  //typo "Reproduccions"
 
     public virtual ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+
 }
