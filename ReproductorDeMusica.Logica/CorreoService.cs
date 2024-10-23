@@ -5,20 +5,17 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using ReproductorDeMusica.Logica.Interfaces;
 
 namespace ReproductorDeMusica.Logica
 {
-
-    public interface ICorreoLogica{
-        Task EnviarCorreoPago(string toEmail);
-    }
-    public class CorreoLogica : ICorreoLogica
+    public class CorreoService : ICorreoService
     {
 
-        private readonly HttpClient _cliente;
-        public CorreoLogica(HttpClient cliente)
+        private readonly HttpClient _httpCliente;
+        public CorreoService(HttpClient httpCliente)
         {
-            _cliente = cliente;
+            _httpCliente = httpCliente;
         }
 
         //Llama a la azure function (demo)
@@ -27,7 +24,7 @@ namespace ReproductorDeMusica.Logica
             string subject = "Plan aprobado";
             string content = "Su plan a adquirir fue hecho";
             string url = $"http://localhost:7065/api/AzFunEnviarCorreo?subject={subject}&content={content}&to={toEmail}";
-            await _cliente.GetAsync(url);
+            await _httpCliente.GetAsync(url);
         }
 
     }

@@ -1,21 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
+using ReproductorDeMusica.Logica.Interfaces;
 
 namespace ReproductorDeMusica.Web.Controllers
 {
     public class PagoController : Controller
     {
-        private readonly IPagoLogica _pagoLogica;
-        private readonly ICorreoLogica _correoLogica;
+        private readonly IPagoService _pagoService;
+        private readonly ICorreoService _correoService;
 
 
-        public PagoController(IPagoLogica pagoLogica, ICorreoLogica correoLogica)
+        public PagoController(IPagoService pagoLogica, ICorreoService correoLogica)
         {
-            _pagoLogica = pagoLogica;
-            _correoLogica = correoLogica;
+            _pagoService = pagoLogica;
+            _correoService = correoLogica;
         }
 
+        [HttpGet]
         public IActionResult Index(int planId)
         {
             ViewBag.planId = planId;   
@@ -27,24 +29,29 @@ namespace ReproductorDeMusica.Web.Controllers
         {
             int idUsuario = 3; // Prueba
             int idPlan = int.Parse(Request.Form["idPlan"]);
-            _pagoLogica.RealizarPago(idPlan, idUsuario);
-            _correoLogica.EnviarCorreoPago("acavauncorreo@gmail.com");
+            _pagoService.RealizarPago(idPlan, idUsuario);
+            _correoService.EnviarCorreoPago("acavauncorreo@gmail.com");
             return View("PagoRealizado");
         }
 
+        [HttpGet]
         public IActionResult PagoRealizado()
         {
             return View();
         }
 
+
+        /*Pruebas para la verificacion de datos*/
+        [HttpGet]
         public IActionResult Prueba()
         {
-            List<Plan> plan = _pagoLogica.GetListPlan();
+            List<Plan> plan = _pagoService.ObtenerTodosLosPlanes();
             return View(plan);
         }
 
+        [HttpGet]
         public IActionResult Prueba2() {
-            List<UsuarioPlan> usuariosPlanes = _pagoLogica.GetUsuariosPlansPorUsuario(3);
+            List<UsuarioPlan> usuariosPlanes = _pagoService.ObtenerPlanesPorUsuarioId(3);
             return View(usuariosPlanes);
         }
     }
