@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ReproductorDeMusica.Entidades.Entidades;
 
-public partial class ListaCancione
+public partial class CancionListaReproduccion
 {
     public int Id { get; set; }
 

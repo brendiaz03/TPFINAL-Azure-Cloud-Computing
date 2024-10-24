@@ -6,10 +6,12 @@ using ReproductorDeMusica.Logica.Interfaces;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
+using System.Net.Mail;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurar los servicios de autenticación
+// Configurar los servicios de autenticaciï¿½n
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
@@ -17,6 +19,8 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache(); 
 builder.Services.AddSession(); 
+
+// Add Contexto
 builder.Services.AddSingleton<Tpweb3AzureContext>();
 
 // Configurar BlobServiceClient
@@ -26,13 +30,20 @@ builder.Services.AddSingleton(sp =>
 // Repositorios
 builder.Services.AddSingleton<ICancionRepository, CancionRepository>();
 builder.Services.AddSingleton<IListaReproduccionRepository, ListaReproduccionRepository>();
+builder.Services.AddSingleton<IUsuarioPlanRepository, UsuarioPlanRepository>();
+
 
 // Servicios
 builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
-builder.Services.AddSingleton<IPagoLogica, PagoLogica>();
+builder.Services.AddSingleton<IPagoService, PagoService>();
+builder.Services.AddSingleton<ICorreoService, CorreoService>();
 builder.Services.AddSingleton<ICancionService, CancionService>();
 builder.Services.AddSingleton<IListaReproduccionService, ListaReproduccionService>();
 builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
+
+// Add HttpClient
+builder.Services.AddSingleton<HttpClient>();
+
 
 var app = builder.Build();
 

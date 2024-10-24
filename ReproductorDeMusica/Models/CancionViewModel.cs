@@ -11,7 +11,7 @@ namespace ReproductorDeMusica.Web.Models
         public int Creador { get; set; }
         public virtual Usuario UsuarioCreador { get; set; } = null!;
         public int Duracion { get; set; }
-        public virtual ICollection<ListaCancione> ListaCanciones { get; set; } = new List<ListaCancione>();
+        public virtual ICollection<CancionListaReproduccion> ListaCanciones { get; set; } = new List<CancionListaReproduccion>();
         public IFormFile Audio { get; set; }
         public IFormFile Imagen { get; set; }
 

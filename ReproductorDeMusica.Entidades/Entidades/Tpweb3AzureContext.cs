@@ -17,19 +17,21 @@ public partial class Tpweb3AzureContext : DbContext
 
     public virtual DbSet<Cancion> Cancions { get; set; }
 
-    public virtual DbSet<ListaCancione> ListaCanciones { get; set; }
+    public virtual DbSet<CancionListaReproduccion> CancionListaReproduccions { get; set; }
 
     public virtual DbSet<ListaReproduccion> ListaReproduccions { get; set; }
-
-    public virtual DbSet<Pago> Pagos { get; set; }
 
     public virtual DbSet<Plan> Plans { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
+    public virtual DbSet<UsuarioPlan> UsuarioPlans { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User=pw3Admin;Password=Admin242;Trusted_Connection=True;Encrypt=False;Integrated Security=False");
+    {
+        optionsBuilder.UseLazyLoadingProxies();
+        optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User=pw3Admin;Password=Admin242;Trusted_Connection=True;Encrypt=False;Integrated Security=False");
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -50,31 +52,33 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasColumnName("artista");
             entity.Property(e => e.Creador).HasColumnName("creador");
             entity.Property(e => e.Duracion).HasColumnName("duracion");
+            entity.Property(e => e.RutaAudio).HasColumnName("rutaAudio");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("titulo");
+            entity.Property(e => e.UrlPortada).HasColumnName("urlPortada");
 
             entity.HasOne(d => d.CreadorNavigation).WithMany(p => p.Cancions)
                 .HasForeignKey(d => d.Creador)
                 .HasConstraintName("fk_creador");
         });
 
-        modelBuilder.Entity<ListaCancione>(entity =>
+        modelBuilder.Entity<CancionListaReproduccion>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("pk_lista_canciones");
+            entity.ToTable("CancionListaReproduccion");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.IdCancion).HasColumnName("idCancion");
             entity.Property(e => e.IdListaReproduccion).HasColumnName("idListaReproduccion");
 
-            entity.HasOne(d => d.IdCancionNavigation).WithMany(p => p.ListaCanciones)
+            entity.HasOne(d => d.IdCancionNavigation).WithMany(p => p.CancionListaReproduccions)
                 .HasForeignKey(d => d.IdCancion)
-                .HasConstraintName("fk_cancion");
+                .HasConstraintName("FK_CancionListaReproduccion_Cancion1");
 
-            entity.HasOne(d => d.IdListaReproduccionNavigation).WithMany(p => p.ListaCanciones)
+            entity.HasOne(d => d.IdListaReproduccionNavigation).WithMany(p => p.CancionListaReproduccions)
                 .HasForeignKey(d => d.IdListaReproduccion)
-                .HasConstraintName("fk_listaReproduccion");
+                .HasConstraintName("FK_CancionListaReproduccion_ListaReproduccion");
         });
 
         modelBuilder.Entity<ListaReproduccion>(entity =>
@@ -90,29 +94,13 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
+            entity.Property(e => e.UrlPortada)
+                .HasMaxLength(255)
+                .HasColumnName("urlPortada");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ListaReproduccions)
                 .HasForeignKey(d => d.IdUsuario)
                 .HasConstraintName("fk_idUsuario");
-        });
-
-        modelBuilder.Entity<Pago>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("pk_pago");
-
-            entity.ToTable("Pago");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.IdPlan).HasColumnName("idPlan");
-            entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
-
-            entity.HasOne(d => d.IdPlanNavigation).WithMany(p => p.Pagos)
-                .HasForeignKey(d => d.IdPlan)
-                .HasConstraintName("fk_plan");
-
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Pagos)
-                .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("fk_usuario");
         });
 
         modelBuilder.Entity<Plan>(entity =>
@@ -159,6 +147,28 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("nombreUsuario");
+        });
+
+        modelBuilder.Entity<UsuarioPlan>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("pk_pago");
+
+            entity.ToTable("UsuarioPlan");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.FechaPago)
+                .HasColumnType("datetime")
+                .HasColumnName("fechaPago");
+            entity.Property(e => e.IdPlan).HasColumnName("idPlan");
+            entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+
+            entity.HasOne(d => d.IdPlanNavigation).WithMany(p => p.UsuarioPlans)
+                .HasForeignKey(d => d.IdPlan)
+                .HasConstraintName("fk_plan");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.UsuarioPlans)
+                .HasForeignKey(d => d.IdUsuario)
+                .HasConstraintName("fk_usuario");
         });
 
         OnModelCreatingPartial(modelBuilder);

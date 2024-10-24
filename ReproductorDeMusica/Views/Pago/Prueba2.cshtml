@@ -1,0 +1,14 @@
+﻿@model List<ReproductorDeMusica.Entidades.Entidades.UsuarioPlan>
+@{
+    Layout = "";
+}
+
+
+<h1>Prueba , obteniendo planes de un usuario</h1>
+
+<ul>
+    @foreach (var planUsuario in Model)
+    {
+        <li>@planUsuario.IdUsuarioNavigation.Nombre | @planUsuario.IdPlanNavigation.TipoPlan | @planUsuario.FechaPago</li>
+    }
+</ul>
