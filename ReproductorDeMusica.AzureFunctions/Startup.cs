@@ -10,6 +10,7 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Services;
+using Azure.Storage.Blobs;
 
 
 
@@ -22,6 +23,9 @@ namespace ReproductorDeMusica.AzureFunctions
         {
             builder.Services.AddHttpClient();
             builder.Services.AddSingleton<IEmailService, EmailService>();
+            builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();  
+
+            //Configuracion smtp client
             builder.Services.AddSingleton(smtp =>
                 new SmtpClient()
                 {
@@ -31,6 +35,10 @@ namespace ReproductorDeMusica.AzureFunctions
                     EnableSsl = true,
                     UseDefaultCredentials = false
                 });
+
+            //Configuracion BlobServiceClient
+            builder.Services.AddSingleton(sp =>
+                new BlobServiceClient(builder.GetContext().Configuration["BlobStorageConnection"]));
         }
     }
 }

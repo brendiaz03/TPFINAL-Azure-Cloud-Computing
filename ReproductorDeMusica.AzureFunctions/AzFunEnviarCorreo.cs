@@ -30,11 +30,16 @@ namespace ReproductorDeMusica.AzureFunctions
             log.LogInformation("AzEnviarCorreo Trigger http");
             try
             {
-                string to= req.Query["tp"];
-                string content = req.Query["content"];
-                string subject = req.Query["subject"];
+                //idUsuario
+                //string id= req.Query["id"];
 
-                await _emailService.EnviarMail(subject, content, to);
+                //obtengo el usuario id en la bd 
+                ///...
+                //await _emailService.EnviarMail(....);
+
+
+                //Metodo de test
+                await _emailService.EnviarMailTest();
                 log.LogInformation("Correo enviado");
             }
             catch (Exception ex)
