@@ -1,5 +1,4 @@
 ﻿using ReproductorDeMusica.AzureFunctions.Entidades;
-using ReproductorDeMusica.AzureFunctions.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ReproductorDeMusica.AzureFunctions.Services.Interfaces
 {
-    public interface IEmailService
+    public interface IPlanService
     {
-        Task EnviarMail(Usuario usuario,Plan plan, TipoMensaje tipoMensaje);
-        Task EnviarMailTest();
-
+        Task<Plan> ObtenerPlanPorId(int id);
     }
 }

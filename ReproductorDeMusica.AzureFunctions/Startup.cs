@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Services;
 using Azure.Storage.Blobs;
+using ReproductorDeMusica.AzureFunctions.Repositories.Interfaces;
+using ReproductorDeMusica.AzureFunctions.Repositories;
+using ReproductorDeMusica.AzureFunctions.Entidades;
 
 
 
@@ -22,8 +25,19 @@ namespace ReproductorDeMusica.AzureFunctions
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddHttpClient();
+            builder.Services.AddSingleton<tpweb3_azureContext>();
+
+            //Servicios
             builder.Services.AddSingleton<IEmailService, EmailService>();
-            builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();  
+            builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+            builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
+            builder.Services.AddSingleton<IPlanService, PlanService>();
+            builder.Services.AddSingleton<IEmailRegistroService, EmailRegistroService>();
+
+            //Repositorios
+            builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
+            builder.Services.AddSingleton<IPlanRepository, PlanRepository>();
+            builder.Services.AddSingleton<IEmailRegistroRepository,EmailRegistroRepository>();
 
             //Configuracion smtp client
             builder.Services.AddSingleton(smtp =>

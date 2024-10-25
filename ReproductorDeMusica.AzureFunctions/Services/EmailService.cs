@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Enumeradores;
+using ReproductorDeMusica.AzureFunctions.Entidades;
 namespace ReproductorDeMusica.AzureFunctions.Services
 {
     public class EmailService : IEmailService
@@ -23,7 +24,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             _blobStorageService = blobStorageService;
         }
 
-        public async Task EnviarMail(string toEmail, string usuario, string plan, TipoMensaje tipoMensaje)
+        public async Task EnviarMail(Usuario usuario,Plan plan, TipoMensaje tipoMensaje)
         {
             try
             {
@@ -31,8 +32,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 string body = await GenerarTemplatePorTipoMensaje(tipoMensaje);
                 string subject = await GenerarSubjectPorTipoMensaje(tipoMensaje);
 
-                body = body.Replace("{{Usuario}}", usuario);
-                body = body.Replace("{{Plan}}", plan);
+                body = body.Replace("{{Usuario}}", usuario.Nombre);
+                body = body.Replace("{{Plan}}", plan.TipoPlan);
 
 
                 MailMessage mensajeCorreo = new MailMessage
@@ -44,7 +45,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 };
 
                 //Destinatario
-                mensajeCorreo.To.Add(toEmail);
+                mensajeCorreo.To.Add("toEmail");
                 _smtpClient.Send(mensajeCorreo);
                 mensajeCorreo.Dispose();
 

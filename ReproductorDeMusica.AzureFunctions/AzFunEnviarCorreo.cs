@@ -9,6 +9,8 @@ using System.Net.Mail;
 using System.Net;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Services;
+using ReproductorDeMusica.AzureFunctions.Entidades;
+using ReproductorDeMusica.AzureFunctions.Enumeradores;
 
 
 namespace ReproductorDeMusica.AzureFunctions
@@ -17,9 +19,12 @@ namespace ReproductorDeMusica.AzureFunctions
     {
 
         private readonly IEmailService _emailService;
-
-        public AzFunEnviarCorreo(IEmailService emailService) { 
+        private readonly IUsuarioService _usuarioService;
+        private readonly IPlanService _planService;
+        public AzFunEnviarCorreo(IEmailService emailService, IUsuarioService usuarioService, IPlanService planService) { 
             _emailService = emailService;
+            _usuarioService = usuarioService;
+            _planService = planService;
         }
 
         [FunctionName("AzFunEnviarCorreo")]
@@ -30,16 +35,18 @@ namespace ReproductorDeMusica.AzureFunctions
             log.LogInformation("AzEnviarCorreo Trigger http");
             try
             {
-                //idUsuario
-                //string id= req.Query["id"];
+                //idUsuario y idPlan
+                int idUsuario = int.Parse(req.Query["idUsuario"]);
+                int idPlan = int.Parse(req.Query["idPlan"]);
 
                 //obtengo el usuario id en la bd 
-                ///...
-                //await _emailService.EnviarMail(....);
+                Usuario usuario = await _usuarioService.ObtenerUsuarioPorId(idUsuario);
+                Plan plan = await _planService.ObtenerPlanPorId(idPlan);
 
+                await _emailService.EnviarMail(usuario,TipoMensaje.MENSAJE_PAGO);
 
                 //Metodo de test
-                await _emailService.EnviarMailTest();
+                //await _emailService.EnviarMailTest();
                 log.LogInformation("Correo enviado");
             }
             catch (Exception ex)
