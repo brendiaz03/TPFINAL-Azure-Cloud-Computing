@@ -45,7 +45,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 };
 
                 //Destinatario
-                mensajeCorreo.To.Add("toEmail");
+                mensajeCorreo.To.Add(usuario.Email);
                 _smtpClient.Send(mensajeCorreo);
                 mensajeCorreo.Dispose();
 
