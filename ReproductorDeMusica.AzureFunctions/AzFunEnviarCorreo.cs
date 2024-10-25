@@ -21,10 +21,14 @@ namespace ReproductorDeMusica.AzureFunctions
         private readonly IEmailService _emailService;
         private readonly IUsuarioService _usuarioService;
         private readonly IPlanService _planService;
-        public AzFunEnviarCorreo(IEmailService emailService, IUsuarioService usuarioService, IPlanService planService) { 
+        private readonly IEmailRegistroService _emailRegistroService;
+
+
+        public AzFunEnviarCorreo(IEmailService emailService, IUsuarioService usuarioService, IPlanService planService, IEmailRegistroService emailRegistroService) { 
             _emailService = emailService;
             _usuarioService = usuarioService;
             _planService = planService;
+            _emailRegistroService = emailRegistroService;
         }
 
         [FunctionName("AzFunEnviarCorreo")]
@@ -43,12 +47,25 @@ namespace ReproductorDeMusica.AzureFunctions
                 Usuario usuario = await _usuarioService.ObtenerUsuarioPorId(idUsuario);
                 Plan plan = await _planService.ObtenerPlanPorId(idPlan);
 
-                await _emailService.EnviarMail(usuario,TipoMensaje.MENSAJE_PAGO);
+                await _emailService.EnviarMail(usuario,plan,TipoMensaje.MENSAJE_PAGO);
 
                 //Metodo de test
                 //await _emailService.EnviarMailTest();
                 log.LogInformation("Correo enviado");
+
+                //Registro el emailLog
+                EmailRegistro emailRegistro = new EmailRegistro() { 
+                    Email = usuario.Email,
+                    TipoPlan = plan.TipoPlan,
+                    Usuario = usuario.Nombre,
+                    EsEnviado = true,
+                    FechaCreada = DateTime.Now,
+                    FechaProxima = DateTime.Now.AddDays((int)plan.Duracion)
+                };
+
+                _emailRegistroService.GuardarEmailRegistro(emailRegistro);
             }
+
             catch (Exception ex)
             {
                 log.LogError(ex.Message);

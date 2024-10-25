@@ -1,5 +1,6 @@
 ﻿using ReproductorDeMusica.AzureFunctions.Entidades;
 using ReproductorDeMusica.AzureFunctions.Repositories;
+using ReproductorDeMusica.AzureFunctions.Repositories.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace ReproductorDeMusica.AzureFunctions.Services
 {
     public class PlanService : IPlanService
     {
-        private readonly PlanRepository _planRepository;
+        private readonly IPlanRepository _planRepository;
 
-        public PlanService(PlanRepository planRepository)
+        public PlanService(IPlanRepository planRepository)
         {
             _planRepository = planRepository;
         }
