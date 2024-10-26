@@ -16,12 +16,21 @@ namespace ReproductorDeMusica.AzureFunctions.Services
         public EmailRegistroService(IEmailRegistroRepository emailRegistroRepository)
         {
             _emailRegistroRepository = emailRegistroRepository;
-        }   
+        }
+
+        public void ActualizarEmailEsEnviado(EmailRegistro emailRegistro)
+        {
+            _emailRegistroRepository.UpdateEsEnviadoATrue(emailRegistro);
+        }
 
         public void GuardarEmailRegistro(EmailRegistro emailRegistro)
         {
             _emailRegistroRepository.SaveEmailRegistro(emailRegistro);
         }
 
+        public List<EmailRegistro> ObtenerLosEmailsNoEnviados()
+        {
+            return _emailRegistroRepository.GetEmailRegistroNoEnviados();
+        }
     }
 }

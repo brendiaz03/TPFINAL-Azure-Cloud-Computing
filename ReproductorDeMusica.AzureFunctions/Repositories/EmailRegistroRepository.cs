@@ -16,9 +16,20 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories
             _context = context;
         }
 
+        public List<EmailRegistro> GetEmailRegistroNoEnviados()
+        {
+            return _context.EmailRegistros.Where(em => em.EsEnviado == false).ToList();
+        }
+
         public void SaveEmailRegistro(EmailRegistro emailRegistro)
         {
             _context.EmailRegistros.Add(emailRegistro);
+            _context.SaveChanges();
+        }
+
+        public void UpdateEsEnviadoATrue(EmailRegistro emailRegistro)
+        {
+            emailRegistro.EsEnviado  = true;
             _context.SaveChanges();
         }
     }

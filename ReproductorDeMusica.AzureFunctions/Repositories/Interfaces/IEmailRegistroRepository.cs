@@ -10,5 +10,9 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories.Interfaces
     public interface IEmailRegistroRepository
     {
         void SaveEmailRegistro(EmailRegistro emailRegistro);
+
+        List<EmailRegistro> GetEmailRegistroNoEnviados();
+
+        void UpdateEsEnviadoATrue(EmailRegistro emailRegistro);
     }
 }

@@ -62,8 +62,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             {
                 case TipoMensaje.MENSAJE_PAGO:
                     return await _blobStorageService.CargarTemplateDesdeBlobAsync("templates-test", "RippieEmailTemplateBienvenidaPago/RippieEmailTemplate.html");
-                case TipoMensaje.MENSAJE_RECORDATORIO:
-                    return await _blobStorageService.CargarTemplateDesdeBlobAsync("templates-test", "RippieEmailTemplateBienvenidaPago/RippieEmailTemplate.html");
+                case TipoMensaje.MENSAJE_CADUCACION:
+                    return await _blobStorageService.CargarTemplateDesdeBlobAsync("templates-test", "RippieEmailTemplateCaducacion/RippieEmailTemplateCaducacion.html");
             }
             return "";
         }
@@ -73,8 +73,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             {
                 case TipoMensaje.MENSAJE_PAGO:
                     return "Bienvenido a Rippie";
-                case TipoMensaje.MENSAJE_RECORDATORIO:
-                    return "Expiracion";
+                case TipoMensaje.MENSAJE_CADUCACION:
+                    return "Recordatorio de expiración";
 
             }
             return "";
