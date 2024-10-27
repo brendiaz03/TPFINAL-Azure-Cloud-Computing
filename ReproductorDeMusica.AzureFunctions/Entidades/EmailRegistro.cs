@@ -10,7 +10,8 @@ namespace ReproductorDeMusica.AzureFunctions.Entidades
         public bool? EsEnviado { get; set; }
         public DateTime? FechaCreada { get; set; }
         public DateTime? FechaProxima { get; set; }
-        public string Usuario { get; set; }
-        public string TipoPlan { get; set; }
+        public int? IdUsuarioPlan { get; set; }
+
+        public virtual UsuarioPlan IdUsuarioPlanNavigation { get; set; }
     }
 }

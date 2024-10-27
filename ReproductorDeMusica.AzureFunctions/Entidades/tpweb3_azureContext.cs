@@ -19,12 +19,13 @@ namespace ReproductorDeMusica.AzureFunctions.Entidades
         public virtual DbSet<EmailRegistro> EmailRegistros { get; set; }
         public virtual DbSet<Plan> Plans { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<UsuarioPlan> UsuarioPlans { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User=pw3Admin;Password=Admin242;Trusted_Connection=True;Encrypt=False;Integrated Security=False");
+                optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User Id=pw3Admin;Password=Admin242;Encrypt=True;TrustServerCertificate=True;");
             }
         }
 
@@ -50,13 +51,12 @@ namespace ReproductorDeMusica.AzureFunctions.Entidades
                     .HasColumnType("datetime")
                     .HasColumnName("fechaProxima");
 
-                entity.Property(e => e.TipoPlan)
-                    .HasMaxLength(255)
-                    .HasColumnName("tipoPlan");
+                entity.Property(e => e.IdUsuarioPlan).HasColumnName("idUsuarioPlan");
 
-                entity.Property(e => e.Usuario)
-                    .HasMaxLength(255)
-                    .HasColumnName("usuario");
+                entity.HasOne(d => d.IdUsuarioPlanNavigation)
+                    .WithMany(p => p.EmailRegistros)
+                    .HasForeignKey(d => d.IdUsuarioPlan)
+                    .HasConstraintName("FK_EmailRegistro_UsuarioPlan");
             });
 
             modelBuilder.Entity<Plan>(entity =>
@@ -109,6 +109,35 @@ namespace ReproductorDeMusica.AzureFunctions.Entidades
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("nombreUsuario");
+            });
+
+            modelBuilder.Entity<UsuarioPlan>(entity =>
+            {
+                entity.ToTable("UsuarioPlan");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.FechaExpiracion)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fechaExpiracion");
+
+                entity.Property(e => e.FechaPago)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fechaPago");
+
+                entity.Property(e => e.IdPlan).HasColumnName("idPlan");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+
+                entity.HasOne(d => d.IdPlanNavigation)
+                    .WithMany(p => p.UsuarioPlans)
+                    .HasForeignKey(d => d.IdPlan)
+                    .HasConstraintName("fk_plan");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.UsuarioPlans)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("fk_usuario");
             });
 
             OnModelCreatingPartial(modelBuilder);

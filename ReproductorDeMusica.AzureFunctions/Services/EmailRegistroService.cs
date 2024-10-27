@@ -23,9 +23,9 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             _emailRegistroRepository.UpdateEsEnviadoATrue(emailRegistro);
         }
 
-        public void GuardarEmailRegistro(EmailRegistro emailRegistro)
+        public async Task<EmailRegistro> GuardarEmailRegistro(EmailRegistro emailRegistro)
         {
-            _emailRegistroRepository.SaveEmailRegistro(emailRegistro);
+            return _emailRegistroRepository.SaveEmailRegistro(emailRegistro);
         }
 
         public List<EmailRegistro> ObtenerLosEmailsNoEnviados()

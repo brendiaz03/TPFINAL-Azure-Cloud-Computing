@@ -19,15 +19,13 @@ namespace ReproductorDeMusica.AzureFunctions
     {
 
         private readonly IEmailService _emailService;
-        private readonly IUsuarioService _usuarioService;
-        private readonly IPlanService _planService;
+        private readonly IUsuarioPlanService _usuarioPlanService;
         private readonly IEmailRegistroService _emailRegistroService;
 
 
-        public AzFunEnviarCorreo(IEmailService emailService, IUsuarioService usuarioService, IPlanService planService, IEmailRegistroService emailRegistroService) { 
+        public AzFunEnviarCorreo(IEmailService emailService, IUsuarioPlanService usuarioPlanService, IEmailRegistroService emailRegistroService) { 
             _emailService = emailService;
-            _usuarioService = usuarioService;
-            _planService = planService;
+            _usuarioPlanService = usuarioPlanService;
             _emailRegistroService = emailRegistroService;
         }
 
@@ -40,30 +38,28 @@ namespace ReproductorDeMusica.AzureFunctions
             try
             {
                 //idUsuario y idPlan
-                int idUsuario = int.Parse(req.Query["idUsuario"]);
-                int idPlan = int.Parse(req.Query["idPlan"]);
+                int idUsuarioPlan = int.Parse(req.Query["id"]);
 
                 //obtengo el usuario id en la bd 
-                Usuario usuario = await _usuarioService.ObtenerUsuarioPorId(idUsuario);
-                Plan plan = await _planService.ObtenerPlanPorId(idPlan);
+                UsuarioPlan usuarioPlan = await _usuarioPlanService.ObtenerUsuarioPlanPorId(idUsuarioPlan);
 
-                await _emailService.EnviarMail(usuario,plan,TipoMensaje.MENSAJE_PAGO);
+                //Registro el emailLog
+                EmailRegistro emailRegistro = new EmailRegistro()
+                {
+                    Email = usuarioPlan.IdUsuarioNavigation.Email,
+                    EsEnviado = false,
+                    FechaCreada = DateTime.Now.Date,
+                    FechaProxima = usuarioPlan.FechaExpiracion,
+                    IdUsuarioPlanNavigation = usuarioPlan
+                };
+
+                emailRegistro = await _emailRegistroService.GuardarEmailRegistro(emailRegistro);
+
+                await _emailService.EnviarMail(emailRegistro,TipoMensaje.MENSAJE_PAGO);
 
                 //Metodo de test
                 //await _emailService.EnviarMailTest();
                 log.LogInformation("Correo enviado");
-
-                //Registro el emailLog
-                EmailRegistro emailRegistro = new EmailRegistro() { 
-                    Email = usuario.Email,
-                    TipoPlan = plan.TipoPlan,
-                    Usuario = usuario.Nombre,
-                    EsEnviado = true,
-                    FechaCreada = DateTime.Now,
-                    FechaProxima = DateTime.Now.AddDays((int)plan.Duracion)
-                };
-
-                _emailRegistroService.GuardarEmailRegistro(emailRegistro);
             }
 
             catch (Exception ex)

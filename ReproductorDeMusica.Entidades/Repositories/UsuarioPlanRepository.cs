@@ -30,7 +30,8 @@ namespace ReproductorDeMusica.Entidades.Repositories
             UsuarioPlan pago = new UsuarioPlan();
             pago.IdUsuarioNavigation = usuario;
             pago.IdPlanNavigation = planAPagar;
-            pago.FechaPago = DateTime.Now;
+            pago.FechaPago = DateTime.Now.Date;
+            pago.FechaExpiracion = DateTime.Now.Date.AddDays((double)planAPagar.Duracion);
 
             _context.UsuarioPlans.Add(pago);
             _context.SaveChanges();

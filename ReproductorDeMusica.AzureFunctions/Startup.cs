@@ -35,11 +35,13 @@ namespace ReproductorDeMusica.AzureFunctions
             builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
             builder.Services.AddScoped<IPlanService, PlanService>();
             builder.Services.AddScoped<IEmailRegistroService, EmailRegistroService>();
+            builder.Services.AddScoped<IUsuarioPlanService, UsuarioPlanService>();
 
             //Repositorios
             builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             builder.Services.AddScoped<IPlanRepository, PlanRepository>();
             builder.Services.AddScoped<IEmailRegistroRepository,EmailRegistroRepository>();
+            builder.Services.AddScoped<IUsuarioPlanRepository, UsuarioPlanRepository>();
 
             //Configuracion smtp client
             builder.Services.AddSingleton(smtp =>

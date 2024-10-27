@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace ReproductorDeMusica.AzureFunctions.Repositories.Interfaces
 {
-    public interface IEmailRegistroRepository
+    public interface IUsuarioPlanRepository
     {
-        EmailRegistro SaveEmailRegistro(EmailRegistro emailRegistro);
+        UsuarioPlan GetUsuarioPlanById(int id);
 
-        List<EmailRegistro> GetEmailRegistroNoEnviados();
-
-        void UpdateEsEnviadoATrue(EmailRegistro emailRegistro);
     }
 }

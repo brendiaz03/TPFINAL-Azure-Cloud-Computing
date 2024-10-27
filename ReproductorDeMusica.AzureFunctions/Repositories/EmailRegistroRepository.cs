@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.AzureFunctions.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.AzureFunctions.Entidades;
 using ReproductorDeMusica.AzureFunctions.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,13 +19,19 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories
 
         public List<EmailRegistro> GetEmailRegistroNoEnviados()
         {
-            return _context.EmailRegistros.Where(em => em.EsEnviado == false).ToList();
+            return _context.EmailRegistros
+                .Include(e=>e.IdUsuarioPlanNavigation)
+                    .ThenInclude(up=>up.IdPlanNavigation)
+                .Include(e=>e.IdUsuarioPlanNavigation)
+                    .ThenInclude(up=>up.IdUsuarioNavigation)
+                .Where(em => em.EsEnviado == false && DateTime.Now.Date == em.FechaProxima).ToList();
         }
 
-        public void SaveEmailRegistro(EmailRegistro emailRegistro)
+        public EmailRegistro SaveEmailRegistro(EmailRegistro emailRegistro)
         {
             _context.EmailRegistros.Add(emailRegistro);
             _context.SaveChanges();
+            return emailRegistro;
         }
 
         public void UpdateEsEnviadoATrue(EmailRegistro emailRegistro)

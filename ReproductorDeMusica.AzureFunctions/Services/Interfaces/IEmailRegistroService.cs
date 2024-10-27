@@ -9,7 +9,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services.Interfaces
 {
     public interface IEmailRegistroService
     {
-        void GuardarEmailRegistro(EmailRegistro emailRegistro);
+        Task<EmailRegistro> GuardarEmailRegistro(EmailRegistro emailRegistro);
         List<EmailRegistro> ObtenerLosEmailsNoEnviados();
 
         void ActualizarEmailEsEnviado(EmailRegistro emailRegistro);

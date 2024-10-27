@@ -24,7 +24,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             _blobStorageService = blobStorageService;
         }
 
-        public async Task EnviarMail(Usuario usuario,Plan plan, TipoMensaje tipoMensaje)
+        public async Task EnviarMail(EmailRegistro email, TipoMensaje tipoMensaje)
         {
             try
             {
@@ -32,10 +32,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 string body = await GenerarTemplatePorTipoMensaje(tipoMensaje);
                 string subject = await GenerarSubjectPorTipoMensaje(tipoMensaje);
 
-                body = body.Replace("{{Usuario}}", usuario.Nombre);
-                body = body.Replace("{{Plan}}", plan.TipoPlan);
-
-
+                body = await ReplaceTemplatePorTipoMensaje(body, email, tipoMensaje);
+                
                 MailMessage mensajeCorreo = new MailMessage
                 {
                     From = new MailAddress(_configuration["EmailSettings:EmailCredential"]),
@@ -45,7 +43,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 };
 
                 //Destinatario
-                mensajeCorreo.To.Add(usuario.Email);
+                mensajeCorreo.To.Add(email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Email);
                 _smtpClient.Send(mensajeCorreo);
                 mensajeCorreo.Dispose();
 
@@ -54,6 +52,23 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private async Task<string> ReplaceTemplatePorTipoMensaje(string body, EmailRegistro email, TipoMensaje tipoMensaje)
+        {
+            if (tipoMensaje == TipoMensaje.MENSAJE_PAGO)
+            {
+                body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre);
+                body = body.Replace("{{Plan}}", email.IdUsuarioPlanNavigation.IdPlanNavigation.TipoPlan);
+            }
+            if(tipoMensaje == TipoMensaje.MENSAJE_CADUCACION)
+            {
+                body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre);
+                body = body.Replace("{{Plan}}", email.IdUsuarioPlanNavigation.IdPlanNavigation.TipoPlan);
+                body = body.Replace("{{Fecha}}", email.IdUsuarioPlanNavigation.FechaExpiracion.ToString());  
+            }
+
+            return body;
         }
 
         private async Task<string> GenerarTemplatePorTipoMensaje(TipoMensaje tipoMensaje)
