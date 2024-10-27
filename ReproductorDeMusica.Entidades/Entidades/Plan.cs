@@ -13,5 +13,5 @@ public partial class Plan
 
     public int? Duracion { get; set; }
 
-    public virtual ICollection<Pago> Pagos { get; set; } = new List<Pago>();
+    public virtual ICollection<UsuarioPlan> UsuarioPlans { get; set; } = new List<UsuarioPlan>();
 }
