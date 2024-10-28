@@ -98,6 +98,23 @@ header {
         cursor: pointer;
     }
 
+    .sidebar .nav-item a {
+        display: flex;
+        align-items: center; /* Alinea verticalmente */
+    }
+
+    .sidebar .nav-item button {
+        display: flex;
+        align-items: center; /* Alinea verticalmente */
+        justify-content: center;
+    }
+
+    .sidebar .material-symbols-outlined {
+        margin-right: 8px; /* Espacio entre el ícono y el texto */
+        font-size: 24px; /* Ajusta el tamaño del ícono si es necesario */
+    }
+
+
 .content {
     width: 80%;
     padding: 20px;
@@ -286,4 +303,33 @@ select:-webkit-autofill:focus {
 
     .dropdown-item:hover {
         background-color: #f1f1f1;
+    }
+
+.span-verMisPlaylists {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+    .span-verMisPlaylists:hover,
+    .span-verMisPlaylists:active,
+    .span-verMisPlaylists:focus {
+        color: #ffffff;
+    }
+
+#createSongButton {
+    all: unset;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+    #createSongButton:hover,
+    #createSongButton:active,
+    #createSongButton:focus {
+        color: #ffffff;
     }

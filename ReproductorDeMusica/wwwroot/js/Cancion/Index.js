@@ -1,16 +1,17 @@
-﻿// Variables globales
-const submitButtonSong = document.getElementById("submitButtonSong");
+﻿
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    crearModalParaCrearPlaylist();
+    crearModalParaCrearCancion();
 
-    const createPlaylistButton = document.getElementById('createPlaylistButton');
-    if (createPlaylistButton) {
-        createPlaylistButton.addEventListener("click", function () {
+    const createSongButton = document.getElementById('createSongButton');
+    if (createSongButton) {
+        createSongButton.addEventListener("click", function () {
             addSongModal.show();
         });
     }
+
+    const submitButtonSong = document.getElementById("submitButtonSong");
 
     const audioFileInput = document.getElementById("audioFile");
     const selectAudioButton = document.getElementById("selectAudioButton");
@@ -65,7 +66,12 @@ function crearCancion(formData) {
         processData: false, // Evita que jQuery procese el data
         contentType: false, // Permite que el navegador gestione el content type
         success: function (data) {
-            console.log("Canción creada");
+            showToast('#F2C84B', 'La canción se creó con éxito');
+
+            setTimeout(function () {
+                window.location.href = '/Home/Index';
+            }, 4000);
+
         },
         error: function (xhr, status, error) {
             console.error('Error en la generación de la canción:', error);
@@ -102,7 +108,7 @@ function resetearForm() {
     cerrarModal('addSongModal');
 }
 
-function crearModalParaCrearPlaylist() {
+function crearModalParaCrearCancion() {
     // Crear el modal
     const modalHTML = `
         <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="addSongModalLabel" aria-hidden="true">
@@ -164,7 +170,17 @@ function crearModalParaCrearPlaylist() {
     addSongModal = new bootstrap.Modal(document.getElementById('addSongModal'));
 }
 
-
+function showToast(backgroundColor, message) {
+    Toastify({
+        text: message,
+        duration: 3000, // Duración en milisegundos
+        close: true, // Mostrar botón de cerrar
+        gravity: 'bottom', // Posición (top o bottom)
+        position: 'right', // Posición (left, center o right)
+        backgroundColor: backgroundColor, // Color de fondo
+        stopOnFocus: true, // Detener la animación si el mouse está sobre la notificación
+    }).showToast();
+}
 function cerrarModal(idModal) {
     $('#' + idModal).modal('hide');
 }

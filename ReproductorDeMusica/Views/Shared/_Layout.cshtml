@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ReproductorDeMusica</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ReproductorDeMusica.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Layout/Layout.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/Cancion/Index.css" asp-append-version="true">
+
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify/1.12.0/Toastify.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
 </head>
 <body>
     <header class="navbar">
@@ -71,9 +86,18 @@
                 <nav>
                     <ul class="nav flex-column w-100">
                         <li class="nav-item">
-                            <a href="/ListaReproduccion/Index">
-                                <button class="btn btn-primary w-100">Ver Mis Playlists</button>
+                            <a href="/ListaReproduccion/Index" class="span-verMisPlaylists">
+                                <span class="material-symbols-outlined">
+                                    queue_music
+                                </span> Ver Mis Playlists
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="createSongButton" class="span-verMisPlaylists">
+                                <span class="material-symbols-outlined">
+                                    library_music
+                                </span> Crear canción
+                            </button>
                         </li>
                     </ul>
                 </nav>
@@ -131,10 +155,14 @@
         </div>
     </footer>
     }
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="~/js/Layout/Layout.js"></script>
+    <script src="~/js/Cancion/Index.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    <script src="~/js/Layout/Layout.js"> </script>
+
 </body>
 </html>

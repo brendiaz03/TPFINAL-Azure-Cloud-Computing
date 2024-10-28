@@ -20,19 +20,28 @@ namespace ReproductorDeMusica.Web.Controllers
         [HttpGet]  // Asegúrate de que este atributo sea GET
         public IActionResult AgregarCancionListaReproduccion(int idCancion)
         {
-            // Obtener el ID de la lista de reproducción desde la sesión
-            var idListaReproduccion = HttpContext.Session.GetInt32("IdLista");
 
-            // Verificar si el ID de la lista de reproducción es válido
-            if (idListaReproduccion <= 0)
+            try
             {
-                return Json(new { success = false, message = "ID de lista de reproducción no válido." });
+                // Obtener el ID de la lista de reproducción desde la sesión
+                var idListaReproduccion = HttpContext.Session.GetInt32("IdLista");
+
+                // Verificar si el ID de la lista de reproducción es válido
+                if (idListaReproduccion <= 0)
+                {
+                    return Json(new { success = false, message = "ID de lista de reproducción no válido." });
+                }
+
+
+                // Lógica para agregar la canción a la lista de reproducción
+                var resultado = _cancionListaReproduccionService.AgregarCancionListaReproduccion(idCancion, (int)idListaReproduccion);
+
+                return Ok(idListaReproduccion);
+
+            } catch (Exception ex)
+            {
+                return Problem(ex.ToString());
             }
-
-            // Lógica para agregar la canción a la lista de reproducción
-            var resultado = _cancionListaReproduccionService.AgregarCancionListaReproduccion(idCancion, (int)idListaReproduccion);
-
-            return RedirectToAction("VerListaReproduccion", "ListaReproduccion",new { id = idListaReproduccion });
 
         }
 

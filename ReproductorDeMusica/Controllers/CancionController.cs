@@ -109,8 +109,7 @@ namespace ReproductorDeMusica.Web.Controllers
             }
             catch (Exception ex)
             {
-                var error = ex.ToString();
-                return Problem(error);
+                return Problem(ex.ToString());
             }
         }
 

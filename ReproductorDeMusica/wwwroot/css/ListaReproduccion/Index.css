@@ -1,0 +1,8 @@
+﻿#addPlaylistIcon {
+    font-size: 2rem; 
+    cursor: pointer; 
+}
+
+#addPlaylistButton {
+    all: unset;
+}

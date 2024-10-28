@@ -1,13 +1,31 @@
 ﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.Cancion>
+<link rel="stylesheet" type="text/css" href="/css/Cancion/ListaCancionesDisponibles.css" />
 
 <h2>Canciones Disponibles</h2>
-<p>ID de Lista de Reproducción: @ViewBag.IdListaReproduccion</p>
-<ul class="list-group">
-    @foreach (var cancion in Model)
-    {
-        <li class="list-group-item">
-            <strong>@cancion.Titulo</strong> - @cancion.Artista
-            <a asp-controller="CancionListaReproduccion" asp-action="AgregarCancionListaReproduccion" asp-route-idCancion="@cancion.Id" class="btn btn-primary">Agregar</a>
-        </li>
-    }
-</ul>
+<div class="container">
+    <table class="table">
+        <tbody>
+            @foreach (var cancion in Model)
+            {
+                <tr>
+                    <td class="song-row">
+                        <div class="song-info">
+                            @if (!string.IsNullOrEmpty(cancion.UrlPortada))
+                            {
+                                <img src="@cancion.UrlPortada" alt="Portada de @cancion.Titulo" class="song-image">
+                            }
+                            <strong>@cancion.Titulo - @cancion.Artista</strong>
+                        </div>
+                        <button class="add-song-button" data-cancion-id="@cancion.Id">
+                            <span class="material-symbols-outlined">
+                                add_circle
+                            </span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/js/Cancion/ListaCancionesDisponibles.js"> </script>
