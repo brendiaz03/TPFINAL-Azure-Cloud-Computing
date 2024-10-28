@@ -3,11 +3,7 @@ using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using ReproductorDeMusica.Logica.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ReproductorDeMusica.Logica
 {
@@ -20,11 +16,19 @@ namespace ReproductorDeMusica.Logica
             _listaReproduccionRepository = listaReproduccionRepository;
         }
 
-        public ListaReproduccion AgregarListaReproduccion(ListaReproduccion listaReproduccion)
+        public bool AgregarListaReproduccion(ListaReproduccion listaReproduccion)
         {
             try
             {
-                return _listaReproduccionRepository.AgregarListaReproduccion(listaReproduccion);
+                ListaReproduccion listaRepetida = _listaReproduccionRepository.ObtenerListaPorNombre(listaReproduccion.Nombre);
+
+                if(listaReproduccion == null)
+                {
+                    _listaReproduccionRepository.AgregarListaReproduccion(listaReproduccion);
+                    return true;
+
+                }
+                return false;
             }
             catch (Exception ex)
             {
@@ -71,6 +75,11 @@ namespace ReproductorDeMusica.Logica
         public IEnumerable<ListaReproduccion> ObtenerListasDeReproduccionPorUsuario(int usuarioId)
         {
             return _listaReproduccionRepository.ObtenerListasPorUsuario(usuarioId);
+        }
+
+        public ListaReproduccion ObtenerListasDeReproduccionPorId(int id)
+        {
+            return _listaReproduccionRepository.ObtenerListaPorId(id);
         }
     }
 }

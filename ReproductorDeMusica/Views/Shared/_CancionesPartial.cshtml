@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.Cancion>
+
+<ul class="list-group">
+    @foreach (var cancion in Model)
+    {
+        <li class="list-group-item">
+            <strong>@cancion.Titulo</strong> - @cancion.Artista
+            <button class="btn btn-primary btn-sm agregar-cancion" data-cancion-id="@cancion.Id">
+                Agregar
+            </button>
+        </li>
+    }
+</ul>

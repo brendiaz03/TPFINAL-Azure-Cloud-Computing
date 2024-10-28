@@ -1,16 +1,26 @@
 ﻿// Variables globales
 const submitButtonPlaylist = document.getElementById("submitButtonPlaylist");
+const imageFileInput = document.getElementById("coverImage");
+const selectImageButton = document.getElementById("selectImageButton");
+const imageFileNameDisplay = document.getElementById("imageFileName");
 
 document.addEventListener("DOMContentLoaded", () => {
-    submitButtonPlaylist.disabled = true;
+    submitButtonPlaylist.disabled = true; // Desactiva el botón inicialmente
 
-    const imageFileInput = document.getElementById("coverImage");
-    const selectImageButton = document.getElementById("selectImageButton");
-    const imageFileNameDisplay = document.getElementById("imageFileName");
+    // Configuración de eventos
+    $('#playlistForm').submit(function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        if (validateForm()) {
+            crearPlaylist(formData);
+            resetearForm();
+        }
+    });
 
     selectImageButton.onclick = () => imageFileInput.click();
 
-    // Validar en cada cambio de los inputs
     document.getElementById("nombre").addEventListener("input", validateForm);
     imageFileInput.addEventListener("change", validateForm);
 
@@ -20,18 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
             imageFileNameDisplay.textContent = file.name;
         }
     };
-});
 
-$('#playlistForm').submit(function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(this); // Crea un FormData a partir del formulario
-
-    // Llama a la función para crear la playlist solo si el form tiene los datos necesarios
-    if (validateForm()) {
-        crearPlaylist(formData);
-        resetearForm();
-    }
+    $('#addPlaylistButton').on('click', function () {
+        $('#addListaReproduccionModal').show();
+    });
 });
 
 function crearPlaylist(formData) {
@@ -52,11 +54,8 @@ function crearPlaylist(formData) {
 
 function validateForm() {
     const nombre = document.getElementById("nombre").value.trim();
-    const imageFileInput = document.getElementById("coverImage");
-
     const imageSelected = imageFileInput.files.length > 0;
 
-    // Habilita el botón solo si todos los campos son válidos
     if (nombre && imageSelected) {
         submitButtonPlaylist.disabled = false;
         return true;
@@ -68,8 +67,8 @@ function validateForm() {
 
 function resetearForm() {
     document.getElementById('nombre').value = "";
-    document.getElementById('coverImage').value = "";
-    document.getElementById('imageFileName').textContent = "";
+    imageFileInput.value = "";
+    imageFileNameDisplay.textContent = "";
     submitButtonPlaylist.disabled = true;
     cerrarModal('addListaReproduccionModal');
 }

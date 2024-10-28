@@ -17,6 +17,12 @@ namespace ReproductorDeMusica.Entidades.Repositories
             _context = context;
         }
 
+        public Cancion GetCancionById(int id)
+        {
+            var cancion = _context.Cancions.Find(id);
+            return cancion;
+        }
+
         public Cancion CrearCancion(Cancion cancion)
         {
             _context.Cancions.Add(cancion);

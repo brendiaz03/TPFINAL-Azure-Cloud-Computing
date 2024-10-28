@@ -13,6 +13,7 @@ namespace ReproductorDeMusica.Logica.Interfaces
         Cancion EditarCancion(Cancion cancion);
         void EliminarCancion(int idCancion);
         List<Cancion> GetCancions();
+        Cancion GetCancionById(int id);
         IEnumerable<Cancion> BuscarCancionesPorNombre(string nombre);
     }
 }

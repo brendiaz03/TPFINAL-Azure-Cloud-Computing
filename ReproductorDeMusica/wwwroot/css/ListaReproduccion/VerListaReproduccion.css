@@ -1,0 +1,32 @@
+﻿#addSongButton {
+    all: unset;
+    color: #fff;
+}
+
+#addSongButton a {
+    text-decoration: none;
+}
+
+thead {
+    color: #fff;
+    font-weight: bold;
+}
+
+.playlist-item {
+    cursor: pointer;
+    color: #fff;
+}
+
+    .playlist-item:hover .index-text {
+        display: none;
+    }
+
+    .playlist-item:hover .playlist-play-btn {
+        display: inline-block;
+        font-size: 16px;
+        color: white;
+    }
+
+.listening-song {
+    color: #5EADF2;
+}

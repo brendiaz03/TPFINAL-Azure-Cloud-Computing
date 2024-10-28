@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ReproductorDeMusica</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ReproductorDeMusica.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Layout/Layout.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/Cancion/Index.css" asp-append-version="true">
+
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify/1.12.0/Toastify.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
 </head>
 <body>
-      @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
-        {
     <header class="navbar">
         <div class="logo">
+            <a href="/Home/Index" class="logo-link">
+                <img src="/images/ripple_logo.png" alt="Artista 1" class="logo-img">
+            </a>
         </div>
-      
+        @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
+        {
             @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
             {
                 <div class="search-bar">
@@ -58,85 +75,94 @@
                     <a href="/Usuario/Login"><button class="btn-login">Iniciar Sesion</button></a>
                 </div>
             }
-        
-        </header>
-}
-    <main role="main" class="pb-3">
-        <section class="contenido-main">
-            <div class="sidebar">
-                <div class="logo">
-                    <a href="/Home/Index" class="logo-link">
-                        <img src="/images/ripple_logo.png" alt="Artista 1" class="logo-img">
-                    </a>
-                </div>
-                @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
-                {
-                    <h2>Tu bibliotecas</h2>
-                    <ul class="nav flex-column">
+        }
+    </header>
+
+    <div class="container-fluid">
+        @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+        {
+            <aside class="sidebar">
+                <h2>Tu biblioteca</h2>
+                <nav>
+                    <ul class="nav flex-column w-100">
                         <li class="nav-item">
-                            <form action="/ListaReproduccion/Index" method="GET">
-                                <button type="submit" class="btn btn-primary">Ver Mis Playlists</button>
-                            </form>
+                            <a href="/ListaReproduccion/Index" class="span-verMisPlaylists">
+                                <span class="material-symbols-outlined">
+                                    queue_music
+                                </span> Ver Mis Playlists
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="createSongButton" class="span-verMisPlaylists">
+                                <span class="material-symbols-outlined">
+                                    library_music
+                                </span> Crear canción
+                            </button>
                         </li>
                     </ul>
-                }
-            </div>
-            <div class="contenedor-estandar">
-                <div class="contenedor-pagina"> 
-                    @RenderBody()
-                </div>
-                @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
-                    {
-                <div id="reproductorContainer">
-                        <partial name="_ReproductorPartial" />
-                </div>
-                }
-            </div>
-        </section>
-    </main>
+                </nav>
+            </aside>
+        }
 
-   
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="footer-section">
-                <h4>Compañía</h4>
-                <ul>
-                    <li><a href="#">Acerca de</a></li>
-                    <li><a href="#">Empleo</a></li>
-                    <li><a href="#">Historia</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Comunidades</h4>
-                <ul>
-                    <li><a href="#">Para artistas</a></li>
-                    <li><a href="#">Desarrolladores</a></li>
-                    <li><a href="#">Publicidad</a></li>
-
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces útiles</h4>
-                <ul>
-                    <li><a href="#">Asistencia</a></li>
-                    <li><a href="#">App gratis</a></li>
-                    <li><a href="#">Privacidad</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/facebook-new.png" alt="Facebook"></a>
-                <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/instagram-new.png" alt="Instagram"></a>
-                <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/twitter.png" alt="Twitter"></a>
-            </div>
+        <div class="flex-grow-1 p-4">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+            @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+            {
+                <div id="reproductorContainer" class="mt-auto">
+                    <partial name="_ReproductorPartial" />
+                </div>
+            }
         </div>
-
-        <div class="footer-bottom">
+    </div>
+    <!-- Footer -->
+    @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+    {
+        <footer class="footer bg-dark text-white text-center py-3">
+        <div class="container">
+            <div class="footer-top d-flex justify-content-between">
+                <div class="footer-section">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="#">Acerca de</a></li>
+                        <li><a href="#">Empleo</a></li>
+                        <li><a href="#">Historia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Comunidades</h4>
+                    <ul>
+                        <li><a href="#">Para artistas</a></li>
+                        <li><a href="#">Desarrolladores</a></li>
+                        <li><a href="#">Publicidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces útiles</h4>
+                    <ul>
+                        <li><a href="#">Asistencia</a></li>
+                        <li><a href="#">App gratis</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/twitter.png" alt="Twitter"></a>
+                </div>
+            </div>
         </div>
     </footer>
+    }
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="~/js/Layout/Layout.js"></script>
+    <script src="~/js/Cancion/Index.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    <script src="~/js/Layout/Layout.js"> </script>
+
 </body>
 </html>

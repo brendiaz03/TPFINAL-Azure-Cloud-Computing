@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ReproductorDeMusica.Controllers;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
@@ -10,21 +11,58 @@ namespace ReproductorDeMusica.Web.Controllers
     {
         private readonly IListaReproduccionService _reproduccionService;
         private readonly IBlobStorageService _blobStorageService;
+        private readonly IUsuarioLogica _usuarioLogica;
 
-        public ListaReproduccionController(IListaReproduccionService service, IBlobStorageService blobStorageService)
+        public ListaReproduccionController(IListaReproduccionService service, IBlobStorageService blobStorageService, IUsuarioLogica usuarioLogica)
         {
+            _usuarioLogica = usuarioLogica;
             _reproduccionService = service;
             _blobStorageService = blobStorageService;
+            _usuarioLogica = usuarioLogica;
         }
 
-        // Método sincrónico para mostrar la página de listas de reproducción
-        public IActionResult Index(int usuarioId)
+        public IActionResult Index()
         {
-            // Obtener las listas de reproducción del usuario de manera sincrónica
-            var listasDeReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorUsuario(usuarioId);
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
-            // Pasarlas a la vista
-            return View(listasDeReproduccion);
+
+            ViewBag.EstaLoggeado = usuarioId != null;
+            ViewBag.EsFormulario = false;
+
+            if (usuarioId != null)
+            {
+                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                ViewBag.NombreUsuario = buscado.NombreUsuario;
+
+                var listasDeReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorUsuario((int)usuarioId);
+
+                return View(listasDeReproduccion);
+            }
+            return View();
+        }
+        public IActionResult VerListaReproduccion(int id)
+        {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+            ViewBag.EstaLoggeado = usuarioId != null;
+            ViewBag.EsFormulario = false;
+
+            if (usuarioId != null)
+            {
+                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                ViewBag.NombreUsuario = buscado.NombreUsuario;
+
+                var listaReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorId(id); // Cargar la lista por ID
+                var canciones = listaReproduccion.CancionListaReproduccions.Select(cl => cl.IdCancionNavigation).ToList();
+
+                var viewModel = new ListaReproduccionCancionViewModel
+                {
+                    ListaReproduccion = listaReproduccion,
+                    Canciones = canciones
+                };
+                return View(viewModel);
+            }
+            return NotFound();
         }
 
         [HttpGet]
@@ -34,25 +72,38 @@ namespace ReproductorDeMusica.Web.Controllers
             return listaReproduccions;
         }
 
+        #region Post
         [HttpPost]
         public async Task<IActionResult> AgregarListaReproduccion([FromForm] ListaReproduccionViewModel listaReproduccionViewModel)
         {
             try
             {
-                string urlImagen = await _blobStorageService.SubirArchivoAsync(listaReproduccionViewModel.Imagen, "imagenesListaReproduccion");
+                var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
-                // Convertir ViewModel a entidad ListaReproduccion
-                ListaReproduccion listaReproduccion = ListaReproduccionViewModel.ToListaReproduccion(listaReproduccionViewModel, urlImagen);
+                ViewBag.EstaLoggeado = usuarioId != null;
+                ViewBag.EsFormulario = false;
 
-                // Guardar lista en bdd
-                _reproduccionService.AgregarListaReproduccion(listaReproduccion);
+                if (usuarioId != null)
+                {
+                    Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                    ViewBag.NombreUsuario = buscado.NombreUsuario;
+                }
+                else
+                {
+                    return NotFound();
+                }
+                string urlImagen = await _blobStorageService.SubirArchivoAsync(listaReproduccionViewModel.Imagen, "imagenes-listareproduccion");
 
-                return Ok(listaReproduccion);
+                    ListaReproduccion listaReproduccion = ListaReproduccionViewModel.ToListaReproduccion((int)usuarioId, listaReproduccionViewModel, urlImagen);
+
+                bool agregado = _reproduccionService.AgregarListaReproduccion(listaReproduccion);
+
+                return View();
             }
             catch (Exception ex)
             {
                 var error = ex.ToString();
-                return Problem(error);
+                return RedirectToAction("Index", "ListaReproduccion");
             }
         }
 
@@ -85,7 +136,8 @@ namespace ReproductorDeMusica.Web.Controllers
                 return Problem(error);
             }
         }
-
+        #endregion
+    
     }
 
 }
