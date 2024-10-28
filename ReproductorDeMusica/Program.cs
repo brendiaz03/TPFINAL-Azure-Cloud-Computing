@@ -4,8 +4,10 @@ using ReproductorDeMusica.Entidades.Repositories;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
 using Azure.Storage.Blobs;
-using System.Net.Mail;
-using System.Net;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +31,7 @@ builder.Services.AddSingleton(sp =>
 builder.Services.AddSingleton<ICancionRepository, CancionRepository>();
 builder.Services.AddSingleton<IListaReproduccionRepository, ListaReproduccionRepository>();
 builder.Services.AddSingleton<IUsuarioPlanRepository, UsuarioPlanRepository>();
-
+builder.Services.AddSingleton<ICancionListaReproduccionRepository, CancionListaReproduccionRepository>();
 
 // Servicios
 builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
@@ -38,6 +40,7 @@ builder.Services.AddSingleton<ICorreoService, CorreoService>();
 builder.Services.AddSingleton<ICancionService, CancionService>();
 builder.Services.AddSingleton<IListaReproduccionService, ListaReproduccionService>();
 builder.Services.AddSingleton<IBlobStorageService, BlobStorageService>();
+builder.Services.AddSingleton<ICancionListaReproduccionService, CancionListaReproduccionService>();
 
 // Add HttpClient
 builder.Services.AddSingleton<HttpClient>();

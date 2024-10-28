@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
+using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
 using ReproductorDeMusica.Web.Models;
 
@@ -10,11 +11,13 @@ namespace ReproductorDeMusica.Web.Controllers
 
         private readonly ICancionService _cancionService;
         private readonly IBlobStorageService _blobStorageService;
+        private readonly IUsuarioLogica _usuarioLogica;
 
-        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService)
+        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService, IUsuarioLogica usuarioLogica)
         {
             _cancionService = cancionService;
             _blobStorageService = blobStorageService;
+            _usuarioLogica = usuarioLogica;
         }
 
         public IActionResult Index()
@@ -22,10 +25,23 @@ namespace ReproductorDeMusica.Web.Controllers
             return View();
         }
 
-        public List<Cancion> GetAllCanciones()
+
+        public IActionResult GetAllCancionesDisponibles(int idListaReproduccion)
         {
+            var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+
+            ViewBag.EstaLoggeado = usuarioId != null;
+            ViewBag.EsFormulario = false;
+
+            if (usuarioId != null)
+            {
+                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                ViewBag.NombreUsuario = buscado.NombreUsuario;
+            }
+            HttpContext.Session.SetInt32("IdLista", idListaReproduccion);
             List<Cancion> canciones = _cancionService.GetCancions();
-            return canciones;
+            return View("ListaCancionesDisponibles", canciones); 
         }
 
         [HttpPost]

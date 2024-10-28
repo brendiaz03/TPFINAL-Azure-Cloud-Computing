@@ -1,10 +1,14 @@
-﻿<header class="navbar">
+﻿@model ReproductorDeMusica.Web.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+@* <header class="navbar">
     <div class="logo">
         <a href="/Home/Index" class="logo-link">
             <img src="/images/logo.png" alt="Artista 1" class="logo-img">
         </a>
-    </div>
-    @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
+    </div> *@
+@*     @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
     {
         @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
         {
@@ -36,9 +40,9 @@
             </div>
         }
     }
-</header>
+</header> *@
 
-@if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
+@* @if (ViewBag.EsFormulario == null || ViewBag.EsFormulario == false)
 {
     <aside class="sidebar">
         <h2>Tu bibliotecas</h2>
@@ -54,5 +58,4 @@
                 </ul>
             </div>
         </nav>
-    </aside>
-}
+    </aside> *@

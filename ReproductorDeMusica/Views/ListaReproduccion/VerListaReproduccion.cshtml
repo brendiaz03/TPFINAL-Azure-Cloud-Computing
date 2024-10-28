@@ -1,0 +1,33 @@
+﻿@model ReproductorDeMusica.Web.Models.ListaReproduccionCancionViewModel
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>@Model.ListaReproduccion.Nombre</h2>
+    <a asp-controller="Cancion" asp-action="GetAllCancionesDisponibles" asp-route-idListaReproduccion="@Model.ListaReproduccion.Id" class="btn btn-primary">Agergar Canción</a>
+    <img src="@Model.ListaReproduccion.UrlPortada" alt="Imagen de la lista" />
+
+    <h3>Canciones</h3>
+    @if (Model.Canciones != null && Model.Canciones.Any())
+    {
+        <ul>
+            @foreach (var cancion in Model.Canciones)
+            {
+                <li class="list-group-item">
+                    <strong>@cancion.Titulo</strong> - @cancion.Artista
+                    <button class="btn btn-primary btn-sm btn-reproducir" data-ruta-audio="@cancion.RutaAudio">
+                        ▶️ Reproducir
+                    </button>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No hay música en esta lista de reproducción</p>
+    }
+
+</body>

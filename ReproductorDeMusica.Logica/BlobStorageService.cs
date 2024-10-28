@@ -26,12 +26,21 @@ namespace ReproductorDeMusica.Logica
 
         public async Task<string> SubirArchivoAsync(IFormFile archivo, string nombreContenedor)
         {
+            // Verifica que el archivo no sea nulo y que contenga datos
+            if (archivo == null || archivo.Length == 0)
+            {
+                throw new ArgumentException("El archivo no puede ser nulo o vacío.");
+            }
+
+            // Limpia el nombre del archivo
+            string cleanFileName = CleanFileName(archivo.FileName);
             // Obtener el cliente del contenedor
             var containerClient = _blobServiceClient.GetBlobContainerClient(nombreContenedor);
             await containerClient.CreateIfNotExistsAsync();
 
             // Generar un nombre único para el archivo
-            var blobClient = containerClient.GetBlobClient(Guid.NewGuid().ToString() + Path.GetExtension(archivo.FileName));
+            var uniqueBlobName = $"{Path.GetFileNameWithoutExtension(cleanFileName)}_{Guid.NewGuid()}{Path.GetExtension(cleanFileName)}";
+            var blobClient = containerClient.GetBlobClient(uniqueBlobName);
 
             // Subir el archivo usando el stream
             using (var stream = archivo.OpenReadStream())

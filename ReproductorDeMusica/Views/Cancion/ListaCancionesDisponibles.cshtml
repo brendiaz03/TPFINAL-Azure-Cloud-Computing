@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.Cancion>
+
+<h2>Canciones Disponibles</h2>
+<p>ID de Lista de Reproducción: @ViewBag.IdListaReproduccion</p>
+<ul class="list-group">
+    @foreach (var cancion in Model)
+    {
+        <li class="list-group-item">
+            <strong>@cancion.Titulo</strong> - @cancion.Artista
+            <a asp-controller="CancionListaReproduccion" asp-action="AgregarCancionListaReproduccion" asp-route-idCancion="@cancion.Id" class="btn btn-primary">Agregar</a>
+        </li>
+    }
+</ul>

@@ -36,11 +36,7 @@ namespace ReproductorDeMusica.Controllers
 
             return View(new HomeViewModel());
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
