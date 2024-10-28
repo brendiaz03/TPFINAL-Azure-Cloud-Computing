@@ -10,7 +10,7 @@ namespace ReproductorDeMusica.Logica.Interfaces
     public interface IPagoService
     {
         List<Plan> ObtenerTodosLosPlanes();
-        void RealizarPago(int idPlan, int idUsuario);
+        UsuarioPlan RealizarPago(int idPlan, int idUsuario);
         List<UsuarioPlan> ObtenerPlanesPorUsuarioId(int idUsuario);
     }
 }

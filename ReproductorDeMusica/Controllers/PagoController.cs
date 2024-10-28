@@ -29,8 +29,8 @@ namespace ReproductorDeMusica.Web.Controllers
         {
             int idUsuario = 3; // Prueba
             int idPlan = int.Parse(Request.Form["idPlan"]);
-            _pagoService.RealizarPago(idPlan, idUsuario);
-            _correoService.EnviarCorreoPago("acavauncorreo@gmail.com");
+            UsuarioPlan usuarioPlan = _pagoService.RealizarPago(idPlan, idUsuario);
+            _correoService.EnviarCorreoPago(usuarioPlan.Id);
             return View("PagoRealizado");
         }
 

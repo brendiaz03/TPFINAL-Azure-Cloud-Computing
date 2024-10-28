@@ -19,11 +19,10 @@ namespace ReproductorDeMusica.Logica
         }
 
         //Llama a la azure function (demo)
-        public async Task EnviarCorreoPago(string toEmail)
+        public async Task EnviarCorreoPago(int idParameter)
         {
-            string subject = "Plan aprobado";
-            string content = "Su plan a adquirir fue hecho";
-            string url = $"http://localhost:7071/api/AzFunEnviarCorreo?subject={subject}&content={content}&to={toEmail}";
+            string url = $"https://pw3-funciones.azurewebsites.net/api/AzFunEnviarCorreo?id={idParameter}";
+            //string url = $"http://localhost:7071/api/AzFunEnviarCorreo?id={idParameter}";
             await _httpCliente.GetAsync(url);
         }
 
