@@ -35,11 +35,13 @@ namespace ReproductorDeMusica.AzureFunctions
                 List<EmailRegistro> emailNoEnviados = _emailRegistroService.ObtenerLosEmailsNoEnviados();
  
                 foreach (EmailRegistro email in emailNoEnviados) {
-//                    if (DateTime.Now.Date == email.FechaProxima)
+                    if (DateTime.Now.Date == email.FechaProxima)
+                    {
                         await _emailService.EnviarMail(email,
                            TipoMensaje.MENSAJE_CADUCACION);
 
                         _emailRegistroService.ActualizarEmailEsEnviado(email);
+                    }
                 }
             }
             catch (Exception ex)

@@ -24,7 +24,7 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories
                     .ThenInclude(up=>up.IdPlanNavigation)
                 .Include(e=>e.IdUsuarioPlanNavigation)
                     .ThenInclude(up=>up.IdUsuarioNavigation)
-                .Where(em => em.EsEnviado == false && DateTime.Now.Date == em.FechaProxima).ToList();
+                .Where(em => em.EsEnviado == false).ToList();
         }
 
         public EmailRegistro SaveEmailRegistro(EmailRegistro emailRegistro)
