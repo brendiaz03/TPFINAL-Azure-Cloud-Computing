@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.Entidades.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -46,8 +47,25 @@ namespace ReproductorDeMusica.Entidades.Repositories
         public IEnumerable<ListaReproduccion> ObtenerListasPorUsuario(int usuarioId)
         {
             return _context.ListaReproduccions
+                           .Include(l => l.CancionListaReproduccions) 
                            .Where(l => l.IdUsuario == usuarioId)
-                           .ToList(); // Devuelve las listas como una lista sincrónica
+                           .ToList();
+        }
+
+        public ListaReproduccion ObtenerListaPorId(int id)
+        {
+            return _context.ListaReproduccions
+                   .Include(l => l.CancionListaReproduccions)
+                   .ThenInclude(cl => cl.IdCancionNavigation)
+                   .FirstOrDefault(l => l.Id == id);
+
+        }
+
+        public ListaReproduccion ObtenerListaPorNombre(string nombre)
+        {
+            return _context.ListaReproduccions
+                           .Where(l => l.Nombre.ToLower() == nombre.ToLower())
+                           .FirstOrDefault(); 
         }
     }
 }

@@ -12,6 +12,22 @@ body {
     font-family: Arial, sans-serif;
 }
 
+header {
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-link {
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+}
+
+.logo-img {
+    width: 130px;
+}
 /* Header */
 .navbar {
     display: flex;
@@ -21,26 +37,44 @@ body {
     background-color: #181818;
 }
 
-.search-bar input {
-    width: 300px;
-    padding: 8px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-}
-
-.auth-buttons button {
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 8px 12px;
-    margin-left: 10px;
-    border-radius: 20px;
+.btn-login {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 30px;
+    border: 0px;
+    border-radius: 40px;
     cursor: pointer;
+    margin-left: 20px;
 }
 
-.login-btn {
-    background-color: #1db954;
+.span-register {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+    .span-register:hover,
+    .span-register:active,
+    .span-register:focus {
+        color: #ffffff;
+        font-size: 15px;
+    }
+
+.btn-login:hover,
+.btn-login:active,
+.btn-login:focus {
+    background-color: #f2f2f2;
+}
+
+.divider {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 0px 20px;
+    width: auto;
 }
 
 /* Main layout */
@@ -148,3 +182,108 @@ body {
     font-size: 12px;
     color: #737373;
 }
+
+.fondo-form {
+    align-self: center;
+    border-radius: 50px;
+    align-items: center;
+    padding: 3% 5% 3% 5%;
+    background: rgba(10, 10, 10, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 4px 8px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    color: white;
+}
+
+    .fondo-form h2 {
+        text-align: center;
+    }
+
+.form-control {
+    border-color: white;
+    border-radius: 15px;
+    background-color: transparent;
+    height: 30px;
+    color: white;
+    padding: 0 10px;
+}
+
+    .form-control:focus {
+        background-color: transparent;
+        outline: none;
+        color: white;
+    }
+
+    .form-control:-webkit-autofill {
+        box-shadow: 0 0 0 30px transparent inset;
+        -webkit-box-shadow: 0 0 0 30px transparent inset;
+        color: white;
+    }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.contenedor-botones {
+    display: flex;
+    align-items: center;
+    position: relative; /* Posicionamiento relativo para el contenedor */
+}
+
+.usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.img-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff; /* Cambia el color según tu preferencia */
+    color: white; /* Color del texto */
+    font-weight: bold;
+    font-size: 18px; /* Tamaño de fuente para las iniciales */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 120px;
+    padding: 5px 0;
+}
+
+.dropdown-item {
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+    .dropdown-item:hover {
+        background-color: #f1f1f1;
+    }

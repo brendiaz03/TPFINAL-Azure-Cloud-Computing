@@ -1,0 +1,77 @@
+﻿.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.input-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search-bar input {
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 40px 14px 40px;
+    border: 0;
+    border-radius: 40px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 16px;
+}
+
+.search-bar .search-btn {
+    background-color: #1E293B;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .search-bar .search-btn:hover {
+        background-color: #2A394A;
+    }
+
+.redirigir-login a {
+    color: #fff;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 135vh;
+    margin: 0; /* Asegúrate de que no haya margen por defecto */
+}
+
+.container-fluid {
+    flex: 1;
+    display: flex;
+    overflow: hidden; /* Para evitar scrolls innecesarios */
+    padding: 0px;
+}
+
+.sidebar {
+    height: 700px; /* Aumentar la altura del sidebar */
+    overflow-y: auto; /* Habilitar scroll si es necesario */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para un mejor aspecto */
+    color: white;
+}
+
+.footer {
+    margin-top: auto; /* Para que el footer siempre esté al final */
+}
+
+main {
+    flex-grow: 1; /* Para que el main ocupe el resto del espacio disponible */
+    overflow-y: auto; /* Habilitar scroll si el contenido es más alto */
+}

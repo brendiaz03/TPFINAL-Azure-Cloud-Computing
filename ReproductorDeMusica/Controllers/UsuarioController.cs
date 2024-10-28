@@ -1,35 +1,62 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
+using ReproductorDeMusica.Logica.Interfaces;
 using ReproductorDeMusica.Models;
 using ReproductorDeMusica.Web.Models;
+using System.Runtime.CompilerServices;
 
 namespace ReproductorDeMusica.Web.Controllers;
 
 public class UsuarioController : Controller
 {
     private readonly IUsuarioLogica _usuarioLogica;
+    private readonly IBlobStorageService _blobStorageService;
 
-    public UsuarioController(IUsuarioLogica usuarioLogica)
+
+    public UsuarioController(IUsuarioLogica usuarioLogica, IBlobStorageService blobStorageService)
     {
         _usuarioLogica = usuarioLogica;
-    } 
+        _blobStorageService = blobStorageService;
+    }
 
     [HttpGet]
     public IActionResult RegistrarUsuario()
     {
-        return View();
+        var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+        ViewBag.EstaLoggeado = usuarioId != null;
+        ViewBag.EsFormulario = true;
+
+
+        return View(new UsuarioViewModel());
     }
 
     [HttpPost]
-    public IActionResult RegistrarUsuario(UsuarioViewModel usuarioModel){
-          
-        if (!ModelState.IsValid){
-                return View(usuarioModel);
-            }
-        try{
-            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel));
-        }   catch(UsuarioExistenteException e){
+    public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
+    {
+
+        ViewBag.EsFormulario = true;
+
+        if (!ModelState.IsValid)
+        {
+            return View(usuarioModel);
+        }
+
+        try
+        {
+
+            // Subir los archivos a Azure Blob Storage
+            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "fotoDePerfil-usuarios");
+
+            // Convertir el UsuarioViewModel a la entidad Usuario
+            Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
+
+            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
+
+        }
+        catch (UsuarioExistenteException e)
+        {
             ModelState.AddModelError(string.Empty, e.Message);
             return View(usuarioModel);
         }
@@ -41,12 +68,19 @@ public class UsuarioController : Controller
     [HttpGet]
     public IActionResult Login()
     {
-        return View();
+        var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+        ViewBag.EstaLoggeado = usuarioId != null;
+        ViewBag.EsFormulario = true;
+
+        return View(new LoginViewModel());
     }
 
     [HttpPost]
     public IActionResult Login(LoginViewModel loginModel)
     {
+        ViewBag.EsFormulario = true;
+
         if (!ModelState.IsValid)
         {
             return View(loginModel);
@@ -61,12 +95,40 @@ public class UsuarioController : Controller
         }
         else
         {
-            HttpContext.Session.SetString("UsuarioId", usuario.Id.ToString());
-            HttpContext.Session.SetString("NombreUsuario", usuario.NombreUsuario);
-            var nombreUsuario = HttpContext.Session.GetString("NombreUsuario");
-            return RedirectToAction("HomeLogged", "Home");
+            HttpContext.Session.SetInt32("UsuarioId", usuario.Id);
+            return RedirectToAction("Index", "Home");
         }
 
     }
+    public IActionResult Logout(LoginViewModel loginModel)
+    {
+        HttpContext.Session.Clear();
 
+        return RedirectToAction("Index", "Home");
+    }
+
+    [HttpGet]
+    public IActionResult Cuenta()
+    {
+
+        var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+        ViewBag.EstaLoggeado = usuarioId != null;
+
+        if (usuarioId != null)
+        {
+            Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+            var usuarioViewModel = UsuarioViewModel.FromUsuario(buscado);
+            ViewBag.NombreUsuario = buscado.NombreUsuario;
+            return View(usuarioViewModel);
+
+        }
+        else
+        {
+            return View(new UsuarioViewModel());
+        }
+
+
+    }
 }
+
+

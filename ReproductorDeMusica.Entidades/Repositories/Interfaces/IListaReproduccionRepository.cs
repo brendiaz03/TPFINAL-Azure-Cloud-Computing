@@ -14,5 +14,7 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
         void EliminarListaReproduccion(int idListaReproduccion);
         List<ListaReproduccion> GetListaReproduccions();
         IEnumerable<ListaReproduccion> ObtenerListasPorUsuario(int usuarioId);
+        ListaReproduccion ObtenerListaPorNombre(string nombre);
+        ListaReproduccion ObtenerListaPorId(int id);
     }
 }

@@ -1,24 +1,28 @@
 ﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.ListaReproduccion>
+<head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="~/css/Cancion/Index.css" />
-<title>Añadir nueva Playlist</title>
-
-<div class="container">
-    <h2>Mis Playlists</h2>
-
-    <div class="mt-4">
-        <ul>
-            @foreach (var playlist in Model)
-            {
-                <li>@playlist.Nombre</li>
-            }
-        </ul>
-    </div>
-</div>
+</head>
 
 <body>
+    <div class="container">
+        <h2>Mis Playlists</h2>
+        <div class="mt-4">
+            <ul>
+                @foreach (var playlist in Model)
+                {
+                    <tr>
+                        <td>@playlist.Nombre</td>
+                        <td>
+                            <a asp-controller="ListaReproduccion" asp-action="VerListaReproduccion" asp-route-id="@playlist.Id" class="btn btn-primary">Ver Playlist</a>
+                        </td>
+                    </tr>
+                }
+            </ul>
+        </div>
+    </div>
     <div class="container">
         <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#addListaReproduccionModal">
             Añadir nueva playlist
@@ -60,9 +64,12 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/js/ListaReproduccion/Index.js"> </script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>

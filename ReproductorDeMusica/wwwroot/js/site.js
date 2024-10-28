@@ -28,12 +28,3 @@ carousels.forEach(carousel => {
         carousel.scrollLeft = scrollLeft - walk;
     });
 });
-
-// Agregar eventos a los botones de autenticación
-document.querySelector('.login-btn').addEventListener('click', () => {
-    alert('Iniciar sesión clickeado');
-});
-
-document.querySelector('.register-btn').addEventListener('click', () => {
-    alert('Registrarse clickeado');
-});
