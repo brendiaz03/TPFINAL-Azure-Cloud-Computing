@@ -43,5 +43,18 @@ namespace ReproductorDeMusica.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpGet("api/playlists")]
+        public IActionResult GetPlaylists()
+        {
+            var playlists = new List<HomeViewModel>
+    {
+        new HomeViewModel { Name = "Shakira"},
+      
+        // Agrega más artistas o playlists aquí
+    };
+
+            return Json(playlists);
+        }
+
     }
 }
