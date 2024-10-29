@@ -75,6 +75,11 @@ namespace ReproductorDeMusica.Logica
         {
             return _context.Usuarios.FirstOrDefault(u => u.Id == usuarioId);
         }
+
+        public Usuario BuscarUsuarioPorMail(string mail)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.Email == mail);
+        }
     }
 
     public interface IUsuarioLogica
@@ -82,5 +87,7 @@ namespace ReproductorDeMusica.Logica
         Usuario buscarUsuarioPorID(int usuarioId);
         void RegistrarUsuario(Usuario usuario);
         Usuario ValidarUsuario(string nombreUsuario, string contrasenia);
+
+        Usuario BuscarUsuarioPorMail(string mail);
     }
 }

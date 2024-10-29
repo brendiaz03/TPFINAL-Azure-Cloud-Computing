@@ -6,6 +6,7 @@ using ReproductorDeMusica.Logica.Interfaces;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
+using ReproductorDeMusica.Web.Controllers;
 
 
 
@@ -44,6 +45,7 @@ builder.Services.AddSingleton<ICancionListaReproduccionService, CancionListaRepr
 
 // Add HttpClient
 builder.Services.AddSingleton<HttpClient>();
+builder.Services.AddHttpContextAccessor();
 
 
 var app = builder.Build();
@@ -61,6 +63,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
