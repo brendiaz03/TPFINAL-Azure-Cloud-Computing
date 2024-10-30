@@ -85,12 +85,12 @@
             width: 100%;
             padding: 12px;
             font-size: 17px;
-            background: #2ecc71;
+            background: #5be91a;
             color: #fff;
             margin-top: 5px;
             cursor: pointer;
         }
 
             .container form .submit-btn:hover {
-                background: #2ecc71;
+                background: #5be91a;
             }
