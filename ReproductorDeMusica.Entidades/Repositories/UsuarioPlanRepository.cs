@@ -22,7 +22,7 @@ namespace ReproductorDeMusica.Entidades.Repositories
             return _context.Plans.ToList();
         }
 
-        public void AgregarNuevoUsuarioPlan(int idPlan, int idUsuario)
+        public UsuarioPlan AgregarNuevoUsuarioPlan(int idPlan, int idUsuario)
         {
             Plan planAPagar = _context.Plans.Find(idPlan);
             Usuario usuario = _context.Usuarios.Find(idUsuario);
@@ -30,10 +30,13 @@ namespace ReproductorDeMusica.Entidades.Repositories
             UsuarioPlan pago = new UsuarioPlan();
             pago.IdUsuarioNavigation = usuario;
             pago.IdPlanNavigation = planAPagar;
-            pago.FechaPago = DateTime.Now;
+            pago.FechaPago = DateTime.Now.Date;
+            pago.FechaExpiracion = DateTime.Now.Date.AddDays((double)planAPagar.Duracion);
 
             _context.UsuarioPlans.Add(pago);
             _context.SaveChanges();
+
+            return pago;
         }
 
 

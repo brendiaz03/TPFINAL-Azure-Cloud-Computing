@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Enumeradores;
+using ReproductorDeMusica.AzureFunctions.Entidades;
 namespace ReproductorDeMusica.AzureFunctions.Services
 {
     public class EmailService : IEmailService
@@ -23,7 +24,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             _blobStorageService = blobStorageService;
         }
 
-        public async Task EnviarMail(string toEmail, string usuario, string plan, TipoMensaje tipoMensaje)
+        public async Task EnviarMail(EmailRegistro email, TipoMensaje tipoMensaje)
         {
             try
             {
@@ -31,10 +32,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 string body = await GenerarTemplatePorTipoMensaje(tipoMensaje);
                 string subject = await GenerarSubjectPorTipoMensaje(tipoMensaje);
 
-                body = body.Replace("{{Usuario}}", usuario);
-                body = body.Replace("{{Plan}}", plan);
-
-
+                body = await ReplaceTemplatePorTipoMensaje(body, email, tipoMensaje);
+                
                 MailMessage mensajeCorreo = new MailMessage
                 {
                     From = new MailAddress(_configuration["EmailSettings:EmailCredential"]),
@@ -44,7 +43,7 @@ namespace ReproductorDeMusica.AzureFunctions.Services
                 };
 
                 //Destinatario
-                mensajeCorreo.To.Add(toEmail);
+                mensajeCorreo.To.Add(email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Email);
                 _smtpClient.Send(mensajeCorreo);
                 mensajeCorreo.Dispose();
 
@@ -55,14 +54,31 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             }
         }
 
+        private async Task<string> ReplaceTemplatePorTipoMensaje(string body, EmailRegistro email, TipoMensaje tipoMensaje)
+        {
+            if (tipoMensaje == TipoMensaje.MENSAJE_PAGO)
+            {
+                body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre);
+                body = body.Replace("{{Plan}}", email.IdUsuarioPlanNavigation.IdPlanNavigation.TipoPlan);
+            }
+            if(tipoMensaje == TipoMensaje.MENSAJE_CADUCACION)
+            {
+                body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre);
+                body = body.Replace("{{Plan}}", email.IdUsuarioPlanNavigation.IdPlanNavigation.TipoPlan);
+                body = body.Replace("{{Fecha}}", email.IdUsuarioPlanNavigation.FechaExpiracion.ToString());  
+            }
+
+            return body;
+        }
+
         private async Task<string> GenerarTemplatePorTipoMensaje(TipoMensaje tipoMensaje)
         {
             switch (tipoMensaje)
             {
                 case TipoMensaje.MENSAJE_PAGO:
                     return await _blobStorageService.CargarTemplateDesdeBlobAsync("templates-test", "RippieEmailTemplateBienvenidaPago/RippieEmailTemplate.html");
-                case TipoMensaje.MENSAJE_RECORDATORIO:
-                    return await _blobStorageService.CargarTemplateDesdeBlobAsync("templates-test", "RippieEmailTemplateBienvenidaPago/RippieEmailTemplate.html");
+                case TipoMensaje.MENSAJE_CADUCACION:
+                    return await _blobStorageService.CargarTemplateDesdeBlobAsync("templates-test", "RippieEmailTemplateCaducacion/RippieEmailTemplateCaducacion.html");
             }
             return "";
         }
@@ -72,8 +88,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             {
                 case TipoMensaje.MENSAJE_PAGO:
                     return "Bienvenido a Rippie";
-                case TipoMensaje.MENSAJE_RECORDATORIO:
-                    return "Expiracion";
+                case TipoMensaje.MENSAJE_CADUCACION:
+                    return "Recordatorio de expiración";
 
             }
             return "";

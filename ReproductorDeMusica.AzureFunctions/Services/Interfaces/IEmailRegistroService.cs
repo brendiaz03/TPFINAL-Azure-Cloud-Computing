@@ -1,5 +1,4 @@
 ﻿using ReproductorDeMusica.AzureFunctions.Entidades;
-using ReproductorDeMusica.AzureFunctions.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace ReproductorDeMusica.AzureFunctions.Services.Interfaces
 {
-    public interface IEmailService
+    public interface IEmailRegistroService
     {
-        Task EnviarMail(EmailRegistro email, TipoMensaje tipoMensaje);
-        Task EnviarMailTest();
+        Task<EmailRegistro> GuardarEmailRegistro(EmailRegistro emailRegistro);
+        List<EmailRegistro> ObtenerLosEmailsNoEnviados();
 
+        void ActualizarEmailEsEnviado(EmailRegistro emailRegistro);
     }
 }
