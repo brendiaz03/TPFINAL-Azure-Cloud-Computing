@@ -1,10 +1,39 @@
 ﻿@model ReproductorDeMusica.Web.Models.UsuarioViewModel
 <link rel="stylesheet" href="~/css/Usuario/Cuenta.css">
 
-<div class="contenedor-pagina" id="body_cuenta">
-<h2>Cuenta de @Model.NombreUsuario</h2>
-<p>Nombre: @Model.Nombre</p>
-<p>Apellido: @Model.Apellido</p>
-<p>Email: @Model.Email</p>
+<div class="container">
+    <main>
+
+        <div class="user-info">
+            <div class="profile-image-container">
+                @if (string.IsNullOrEmpty(ViewBag.ImagenUsuario))
+                {
+                    <span class="img-usuario-cuenta">@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
+                }
+                else
+                {
+                    <img src="@ViewBag.ImagenUsuario" alt="Usuario" class="img-usuario-cuenta">
+                }
+            </div>
+
+            <div class="user-details">
+                <h1 id="userName"> @Model.Nombre @Model.Apellido </h1>
+                <p id="userEmail"> @Model.Email </p>
+            </div>
+
+        </div>
+
+        <div class="plan-card">
+            <div class="plan-header">
+                <p class="plan-title">Tu plan</p>
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20PNG-Y8NYO3BhnHdIDnWm2xw1XNnT1tG4CJ.png" alt="Ripple Logo" class="plan-ripple-logo">
+            </div>
+            <h2 class="plan-name">  </h2>
+            <p class="plan-details"> </p>
+        </div>
+
+    </main>
 </div>
-<!-- Otros atributos que desees mostrar -->
+
+
+<script src="~/js/Usuario/Cuenta.js"> </script>

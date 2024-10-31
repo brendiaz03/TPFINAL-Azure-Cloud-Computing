@@ -48,13 +48,7 @@ public class UsuarioController : Controller
         try
         {
 
-            // Subir los archivos a Azure Blob Storage
-            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "fotoDePerfil-usuarios");
-
-            // Convertir el UsuarioViewModel a la entidad Usuario
-            Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
-
-            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
+            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, null));
 
         }
         catch (UsuarioExistenteException e)
@@ -137,6 +131,34 @@ public class UsuarioController : Controller
 
 
     }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateProfilePhotoAsync(IFormFile photo)
+    {
+        var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+        Usuario usuario = _usuarioLogica.buscarUsuarioPorID(usuarioId.Value);
+
+        if (photo == null || photo.Length == 0)
+        {
+            return Json(new { success = false, message = "No se ha subido ninguna imagen." });
+        }
+
+        try
+        {
+            string urlImagen = await _blobStorageService.SubirArchivoAsync(photo, "usuarios-imagenes");
+            usuario.ImagenUsuario = urlImagen;
+            _usuarioLogica.ActualizarInfoUsuario(usuario);
+
+        } catch (Exception ex)
+        {
+            return Json(new { success = false, message = "No hemos podido modificar la imágen" });
+        }
+
+        return Json(usuarioId);
+
+    }
+
+
 }
 
 

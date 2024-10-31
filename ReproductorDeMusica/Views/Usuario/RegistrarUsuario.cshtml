@@ -5,7 +5,7 @@
 
     <h1 class="titulo_registroUsuario">Registrarse</h1>
 
-    <form asp-action="RegistrarUsuario" method="post" class="fondo-form">
+    <form action="/Usuario/RegistrarUsuario" method="POST" enctype="multipart/form-data" class="fondo-form">
         <section class="formulario">
 
         <div class="text-danger">
@@ -44,7 +44,7 @@
 
             <div class="form-group mb-3">
                 <label asp-for="ImagenUsuario" class="form-label fw-bold">Imágen de Perfil</label>
-                <input asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control"/>
+                <input type="file" asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control"/>
                 <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
                     <i class="fa-solid fa-file-image"></i> Seleccionar imágen
                 </button>

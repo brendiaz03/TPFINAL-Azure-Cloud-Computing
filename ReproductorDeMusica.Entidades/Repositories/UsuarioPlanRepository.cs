@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.Entidades.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -46,5 +47,25 @@ namespace ReproductorDeMusica.Entidades.Repositories
             return _context.Usuarios
                .First(u => u.Id == idUsuario).UsuarioPlans.ToList();
         }
+
+        public UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario)
+        {
+            var plan = _context.UsuarioPlans
+                .Where(u => u.IdUsuario == idUsuario)
+                .OrderByDescending(u => u.Id)
+                .Select(u => new UsuarioPlanDTO
+                {
+                    Id = u.Id,
+                    TipoPlan = u.IdPlanNavigation.TipoPlan,
+                    Precio = u.IdPlanNavigation.Precio,
+                    FechaExpiracion = u.FechaExpiracion
+                })
+                .FirstOrDefault();
+
+            return plan;
+        }
+
+
+
     }
 }

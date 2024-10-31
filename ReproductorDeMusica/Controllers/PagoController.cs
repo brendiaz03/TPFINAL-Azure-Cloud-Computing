@@ -54,5 +54,43 @@ namespace ReproductorDeMusica.Web.Controllers
             List<UsuarioPlan> usuariosPlanes = _pagoService.ObtenerPlanesPorUsuarioId(3);
             return View(usuariosPlanes);
         }
+
+        [HttpGet]
+        public JsonResult ObtenerUltimoPlanPorUsuarioActual()
+        {
+            var idUsuario = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (!idUsuario.HasValue)
+            {
+                return Json(new { error = "Usuario no autenticado o sesión expirada." });
+            }
+
+            try
+            {
+                var usuarioPlan = _pagoService.GetUltimoPlanUsuario(idUsuario.Value);
+
+                if (usuarioPlan == null)
+                {
+                    return Json(new { planNoDisponible = true });
+                }
+
+                var usuarioPlanDTO = new UsuarioPlanDTO
+                {
+                    Id = usuarioPlan.Id,
+                    TipoPlan = usuarioPlan.TipoPlan,
+                    Precio = usuarioPlan.Precio,
+                    FechaExpiracion = usuarioPlan.FechaExpiracion
+                };
+
+                return Json(usuarioPlanDTO);
+            }
+            catch (Exception)
+            {
+                return Json(new { error = "Ocurrió un error al obtener el plan." });
+            }
+        }
+
+
+
     }
 }
