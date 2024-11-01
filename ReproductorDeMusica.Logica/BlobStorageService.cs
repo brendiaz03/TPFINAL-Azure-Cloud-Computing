@@ -56,7 +56,7 @@ namespace ReproductorDeMusica.Logica
                     BlobContainerName = containerClient.Name,
                     BlobName = blobClient.Name,
                     Resource = "b", 
-                    ExpiresOn = DateTime.UtcNow.AddDays(30) //poner fecha de vencimiento alejada porque despues de esa fecha no se va a poder escuchr
+                    ExpiresOn = DateTime.UtcNow.AddDays(30)
                 };
 
                 sasBuilder.SetPermissions(BlobSasPermissions.Read);

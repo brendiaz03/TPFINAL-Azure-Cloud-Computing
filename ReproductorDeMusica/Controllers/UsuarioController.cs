@@ -48,7 +48,8 @@ public class UsuarioController : Controller
         try
         {
 
-            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, null));
+            // Subir los archivos a Azure Blob Storage
+            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
 
         }
         catch (UsuarioExistenteException e)

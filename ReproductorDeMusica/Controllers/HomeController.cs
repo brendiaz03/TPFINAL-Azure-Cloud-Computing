@@ -39,6 +39,7 @@ namespace ReproductorDeMusica.Controllers
             {
                 Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
             }
 
             return View(new HomeViewModel());
