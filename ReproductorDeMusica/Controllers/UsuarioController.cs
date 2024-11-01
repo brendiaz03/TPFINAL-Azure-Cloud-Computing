@@ -49,7 +49,7 @@ public class UsuarioController : Controller
         {
 
             // Subir los archivos a Azure Blob Storage
-            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "fotoDePerfil-usuarios");
+            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
 
             // Convertir el UsuarioViewModel a la entidad Usuario
             Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
