@@ -23,9 +23,9 @@ namespace ReproductorDeMusica.Logica
             return _usuarioPlanRepository.GetListPlan();
         }
 
-        public void RealizarPago(int idPlan, int idUsuario)
+        public UsuarioPlan RealizarPago(int idPlan, int idUsuario)
         {
-            _usuarioPlanRepository.AgregarNuevoUsuarioPlan(idPlan, idUsuario);
+            return _usuarioPlanRepository.AgregarNuevoUsuarioPlan(idPlan, idUsuario);
         }
 
         public List<UsuarioPlan> ObtenerPlanesPorUsuarioId(int idUsuario)

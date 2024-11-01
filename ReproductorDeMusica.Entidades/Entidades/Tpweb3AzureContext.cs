@@ -30,9 +30,9 @@ public partial class Tpweb3AzureContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseLazyLoadingProxies();
-        optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User=pw3Admin;Password=Admin242;Trusted_Connection=True;Encrypt=False;Integrated Security=False");
+        optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User Id=pw3Admin;Password=Admin242;Encrypt=True;TrustServerCertificate=True;");
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cancion>(entity =>
@@ -139,6 +139,7 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("email");
+            entity.Property(e => e.ImagenUsuario).HasMaxLength(255);
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -156,6 +157,9 @@ public partial class Tpweb3AzureContext : DbContext
             entity.ToTable("UsuarioPlan");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.FechaExpiracion)
+                .HasColumnType("datetime")
+                .HasColumnName("fechaExpiracion");
             entity.Property(e => e.FechaPago)
                 .HasColumnType("datetime")
                 .HasColumnName("fechaPago");

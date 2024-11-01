@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
@@ -47,7 +49,7 @@ public class UsuarioController : Controller
         {
 
             // Subir los archivos a Azure Blob Storage
-            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "fotoDePerfil-usuarios");
+            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
 
             // Convertir el UsuarioViewModel a la entidad Usuario
             Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
@@ -100,9 +102,15 @@ public class UsuarioController : Controller
         }
 
     }
-    public IActionResult Logout(LoginViewModel loginModel)
+    public async Task<IActionResult> Logout(LoginViewModel loginModel)
     {
         HttpContext.Session.Clear();
+        
+        if (User.Identity.IsAuthenticated)
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
 
         return RedirectToAction("Index", "Home");
     }

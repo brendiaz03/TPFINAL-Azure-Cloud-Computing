@@ -4,6 +4,9 @@ using ReproductorDeMusica.Web.Models;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.Identity.Web;
 
 namespace ReproductorDeMusica.Controllers
 {
@@ -22,16 +25,21 @@ namespace ReproductorDeMusica.Controllers
 
         public IActionResult Index()
         {
+            if(HttpContext.Session.GetInt32("UsuarioId") == null)
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
-            
-         
             ViewBag.EstaLoggeado = usuarioId != null;
             ViewBag.EsFormulario = false;
 
+
             if(usuarioId != null)
             {
-            Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
-            ViewBag.NombreUsuario = buscado.NombreUsuario;
+                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
             }
 
             return View(new HomeViewModel());

@@ -33,6 +33,7 @@ namespace ReproductorDeMusica.Web.Controllers
             {
                 Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
 
                 var listasDeReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorUsuario((int)usuarioId);
 
