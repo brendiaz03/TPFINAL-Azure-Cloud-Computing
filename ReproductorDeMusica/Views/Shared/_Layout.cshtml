@@ -49,13 +49,13 @@
                     <div class="usuario" id="usuarioMenu">
                         <!-- Contenedor de la imagen o iniciales -->
                         <div class="img-usuario">
-                            @if (string.IsNullOrEmpty(ViewBag.ImagenUsuario))
-                            {
-                                <span>@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
-                            }
-                            else
+                            @if (!string.IsNullOrEmpty(ViewBag.ImagenUsuario))
                             {
                                 <img src="@ViewBag.ImagenUsuario" alt="Usuario" style="border-radius: 50%; width: 50px; height: 50px;">
+                            }
+                            else if (!string.IsNullOrEmpty(ViewBag.NombreUsuario))
+                            {
+                                <span>@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
                             }
                         </div>
                     </div>

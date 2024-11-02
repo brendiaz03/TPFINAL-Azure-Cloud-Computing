@@ -32,10 +32,12 @@ builder.Services.AddSingleton(sp =>
 builder.Services.AddSingleton<ICancionRepository, CancionRepository>();
 builder.Services.AddSingleton<IListaReproduccionRepository, ListaReproduccionRepository>();
 builder.Services.AddSingleton<IUsuarioPlanRepository, UsuarioPlanRepository>();
+builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddSingleton<ICancionListaReproduccionRepository, CancionListaReproduccionRepository>();
 
 // Servicios
-builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
+builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+builder.Services.AddSingleton<IUsuarioPlanService, UsuarioPlanService>();
 builder.Services.AddSingleton<IPagoService, PagoService>();
 builder.Services.AddSingleton<ICorreoService, CorreoService>();
 builder.Services.AddSingleton<ICancionService, CancionService>();

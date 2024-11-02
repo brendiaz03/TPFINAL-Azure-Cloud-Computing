@@ -7,19 +7,20 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.Identity.Web;
+using ReproductorDeMusica.Logica.Interfaces;
 
 namespace ReproductorDeMusica.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioService;
 
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioLogica usuarioLogica)
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService)
         {
             _logger = logger;
-            _usuarioLogica = usuarioLogica;
+            _usuarioService = usuarioService;
 
         }
 
@@ -37,7 +38,7 @@ namespace ReproductorDeMusica.Controllers
 
             if(usuarioId != null)
             {
-                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                Usuario buscado = _usuarioService.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
                 ViewBag.ImagenUsuario = buscado.ImagenUsuario;
             }

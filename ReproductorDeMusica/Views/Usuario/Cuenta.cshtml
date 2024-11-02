@@ -1,10 +1,11 @@
-﻿@model ReproductorDeMusica.Web.Models.UsuarioViewModel
+﻿@model ReproductorDeMusica.Web.Models.CuentaViewModel
 <link rel="stylesheet" href="~/css/Usuario/Cuenta.css">
 
 <div class="contenedor-pagina" id="body_cuenta">
-<h2>Cuenta de @Model.NombreUsuario</h2>
-<p>Nombre: @Model.Nombre</p>
-<p>Apellido: @Model.Apellido</p>
-<p>Email: @Model.Email</p>
+    <h2>Cuenta de @Model.NombreUsuario</h2>
+    <p>Nombre: @Model.Nombre</p>
+    <p>Apellido: @Model.Apellido</p>
+    <p>Email: @Model.Email</p>
+    <p>Fecha de Pago: @Model.FechaPago?.ToString("dd/MM/yyyy")</p>
+    <p>Tipo de Plan: @Model.TipoPlan</p>
 </div>
-<!-- Otros atributos que desees mostrar -->

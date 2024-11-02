@@ -11,9 +11,9 @@ namespace ReproductorDeMusica.Web.Controllers
     {
         private readonly IListaReproduccionService _reproduccionService;
         private readonly IBlobStorageService _blobStorageService;
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioLogica;
 
-        public ListaReproduccionController(IListaReproduccionService service, IBlobStorageService blobStorageService, IUsuarioLogica usuarioLogica)
+        public ListaReproduccionController(IListaReproduccionService service, IBlobStorageService blobStorageService, IUsuarioService usuarioLogica)
         {
             _usuarioLogica = usuarioLogica;
             _reproduccionService = service;
@@ -31,7 +31,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
             if (usuarioId != null)
             {
-                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
                 ViewBag.ImagenUsuario = buscado.ImagenUsuario;
 
@@ -50,7 +50,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
             if (usuarioId != null)
             {
-                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
 
                 var listaReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorId(id); // Cargar la lista por ID
@@ -86,7 +86,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
                 if (usuarioId != null)
                 {
-                    Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                    Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                     ViewBag.NombreUsuario = buscado.NombreUsuario;
                 }
                 else

@@ -41,15 +41,16 @@
             <span asp-validation-for="Contrasenia" class="text-danger"></span>
         </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="ImagenUsuario" class="form-label fw-bold">Imágen de Perfil</label>
-                <input asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control"/>
-                <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
-                    <i class="fa-solid fa-file-image"></i> Seleccionar imágen
-                </button>
-                <p id="imageFileName" class="mt-2 text-info"></p>
-            </div>
-       
+        <div class="form-group mb-3 btn-subir-foto">
+            <label asp-for="ImagenUsuario" class="form-label fw-bold">Imagen de Perfil</label>
+            <input asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control" style="display: none;" />
+            <label for="ImagenUsuario" id="selectImageLabel" class="btn btn-secondary w-100">
+                <i class="fa-solid fa-file-image"></i> Seleccionar imágen
+            </label>
+            <p id="imageFileName" class="mt-2 text-info"></p>
+        </div>
+
+
         </section>
         <section class="botones">
                 <button type="submit" id="boton_reg_usuario" class="btn-register">Registrar</button>
@@ -59,4 +60,4 @@
         </section>
     </form>
 
-<script src="~/js/Usuario/RegistroUsuario.js"></script>
+<!--<script src="~/js/Usuario/RegistroUsuario.js"></script> -->

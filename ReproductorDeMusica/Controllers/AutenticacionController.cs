@@ -4,15 +4,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
+using ReproductorDeMusica.Logica.Interfaces;
 using System.Security.Claims;
 
 namespace ReproductorDeMusica.Web.Controllers
 {
     public class AutenticacionController : Controller
     {
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioLogica;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public AutenticacionController(IUsuarioLogica usuarioLogica, IHttpContextAccessor httpContextAccessor)
+        public AutenticacionController(IUsuarioService usuarioLogica, IHttpContextAccessor httpContextAccessor)
         {
             _usuarioLogica = usuarioLogica;
             _httpContextAccessor = httpContextAccessor;

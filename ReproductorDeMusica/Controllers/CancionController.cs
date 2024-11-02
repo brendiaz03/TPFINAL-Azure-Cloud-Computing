@@ -11,9 +11,9 @@ namespace ReproductorDeMusica.Web.Controllers
 
         private readonly ICancionService _cancionService;
         private readonly IBlobStorageService _blobStorageService;
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioLogica;
 
-        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService, IUsuarioLogica usuarioLogica)
+        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService, IUsuarioService usuarioLogica)
         {
             _cancionService = cancionService;
             _blobStorageService = blobStorageService;
@@ -36,7 +36,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
             if (usuarioId != null)
             {
-                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
             }
             HttpContext.Session.SetInt32("IdLista", idListaReproduccion);

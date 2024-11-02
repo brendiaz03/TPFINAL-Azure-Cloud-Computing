@@ -10,7 +10,7 @@ namespace ReproductorDeMusica.Web.Controllers
     public class CancionListaReproduccionController : Controller
     {
         private readonly ICancionListaReproduccionService _cancionListaReproduccionService;
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioLogica;
 
         public CancionListaReproduccionController(ICancionListaReproduccionService service)
         {

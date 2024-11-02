@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.Entidades.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,14 @@ namespace ReproductorDeMusica.Entidades.Repositories
             //Lazy Loading implicitamente 
             return _context.Usuarios
                .First(u => u.Id == idUsuario).UsuarioPlans.ToList();
+        }
+
+        public Usuario ObtenerUsuarioConPlan(int usuarioId)
+        {
+            return _context.Usuarios
+                .Include(u => u.UsuarioPlans)
+                    .ThenInclude(up => up.IdPlanNavigation)
+                .FirstOrDefault(u => u.Id == usuarioId);
         }
     }
 }
