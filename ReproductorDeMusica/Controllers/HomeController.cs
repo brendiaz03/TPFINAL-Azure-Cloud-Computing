@@ -48,9 +48,7 @@ namespace ReproductorDeMusica.Controllers
         {
             var playlists = new List<HomeViewModel>
     {
-        new HomeViewModel { Name = "Shakira"},
-      
-        // Agrega más artistas o playlists aquí
+        // Puedes agregar más playlists aquí
     };
 
             return Json(playlists);
