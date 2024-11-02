@@ -17,14 +17,14 @@
     align-items: center;
     padding: 25px;
     min-height: 100vh;
-    background: linear-gradient(90deg, #0D92F4 60%, #77CDFF 40.1%);
+    background: #000;
 }
 
     .container form {
         padding: 20px;
         width: 700px;
-        background: #fff;
-        box-shadow: 0 5px 10px rgba(0,0,0,.1);
+        background: #0d6ace;
+        box-shadow: 0px 0px 10px #0d6ace;
     }
 
         .container form .row {
@@ -39,7 +39,7 @@
 
                 .container form .row .col .title {
                     font-size: 20px;
-                    color: #333;
+                    color: white;
                     padding-bottom: 5px;
                     text-transform: uppercase;
                 }
@@ -51,6 +51,7 @@
                     .container form .row .col .inputBox span {
                         margin-bottom: 10px;
                         display: block;
+                        color: #eee;
                     }
 
                     .container form .row .col .inputBox input {
@@ -84,12 +85,12 @@
             width: 100%;
             padding: 12px;
             font-size: 17px;
-            background: #2ecc71;
+            background: #5be91a;
             color: #fff;
             margin-top: 5px;
             cursor: pointer;
         }
 
             .container form .submit-btn:hover {
-                background: #2ecc71;
+                background: #5be91a;
             }

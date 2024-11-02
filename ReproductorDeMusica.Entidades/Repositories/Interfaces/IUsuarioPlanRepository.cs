@@ -10,7 +10,8 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
     public interface IUsuarioPlanRepository
     {
         List<Plan> GetListPlan();
-        void AgregarNuevoUsuarioPlan(int idPlan, int idUsuario);
+        UsuarioPlan AgregarNuevoUsuarioPlan(int idPlan, int idUsuario);
         List<UsuarioPlan> GetUsuariosPlansPorUsuario(int idUsuario);
+        UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario);
     }
 }

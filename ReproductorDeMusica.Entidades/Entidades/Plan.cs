@@ -9,7 +9,7 @@ public partial class Plan
 
     public string? TipoPlan { get; set; }
 
-    public decimal? Precio { get; set; }
+    public decimal Precio { get; set; }
 
     public int? Duracion { get; set; }
 

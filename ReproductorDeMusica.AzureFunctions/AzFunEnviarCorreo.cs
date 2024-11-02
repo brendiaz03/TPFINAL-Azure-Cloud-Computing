@@ -9,6 +9,8 @@ using System.Net.Mail;
 using System.Net;
 using ReproductorDeMusica.AzureFunctions.Services.Interfaces;
 using ReproductorDeMusica.AzureFunctions.Services;
+using ReproductorDeMusica.AzureFunctions.Entidades;
+using ReproductorDeMusica.AzureFunctions.Enumeradores;
 
 
 namespace ReproductorDeMusica.AzureFunctions
@@ -17,9 +19,14 @@ namespace ReproductorDeMusica.AzureFunctions
     {
 
         private readonly IEmailService _emailService;
+        private readonly IUsuarioPlanService _usuarioPlanService;
+        private readonly IEmailRegistroService _emailRegistroService;
 
-        public AzFunEnviarCorreo(IEmailService emailService) { 
+
+        public AzFunEnviarCorreo(IEmailService emailService, IUsuarioPlanService usuarioPlanService, IEmailRegistroService emailRegistroService) { 
             _emailService = emailService;
+            _usuarioPlanService = usuarioPlanService;
+            _emailRegistroService = emailRegistroService;
         }
 
         [FunctionName("AzFunEnviarCorreo")]
@@ -30,18 +37,31 @@ namespace ReproductorDeMusica.AzureFunctions
             log.LogInformation("AzEnviarCorreo Trigger http");
             try
             {
-                //idUsuario
-                //string id= req.Query["id"];
+                //idUsuario y idPlan
+                int idUsuarioPlan = int.Parse(req.Query["id"]);
 
                 //obtengo el usuario id en la bd 
-                ///...
-                //await _emailService.EnviarMail(....);
+                UsuarioPlan usuarioPlan = await _usuarioPlanService.ObtenerUsuarioPlanPorId(idUsuarioPlan);
 
+                //Registro el emailLog
+                EmailRegistro emailRegistro = new EmailRegistro()
+                {
+                    Email = usuarioPlan.IdUsuarioNavigation.Email,
+                    EsEnviado = false,
+                    FechaCreada = DateTime.Now.Date,
+                    FechaProxima = usuarioPlan.FechaExpiracion,
+                    IdUsuarioPlanNavigation = usuarioPlan
+                };
+
+                emailRegistro = await _emailRegistroService.GuardarEmailRegistro(emailRegistro);
+
+                await _emailService.EnviarMail(emailRegistro,TipoMensaje.MENSAJE_PAGO);
 
                 //Metodo de test
-                await _emailService.EnviarMailTest();
+                //await _emailService.EnviarMailTest();
                 log.LogInformation("Correo enviado");
             }
+
             catch (Exception ex)
             {
                 log.LogError(ex.Message);

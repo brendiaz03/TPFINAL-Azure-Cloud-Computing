@@ -27,10 +27,10 @@ namespace ReproductorDeMusica.Web.Controllers
         [HttpPost]
         public IActionResult RealizarPago()
         {
-            int idUsuario = 3; // Prueba
+            int idUsuario = (int) HttpContext.Session.GetInt32("UsuarioId"); // Prueba
             int idPlan = int.Parse(Request.Form["idPlan"]);
-            _pagoService.RealizarPago(idPlan, idUsuario);
-            _correoService.EnviarCorreoPago("acavauncorreo@gmail.com");
+            UsuarioPlan usuarioPlan = _pagoService.RealizarPago(idPlan, idUsuario);
+            _correoService.EnviarCorreoPago(usuarioPlan.Id);
             return View("PagoRealizado");
         }
 
@@ -54,5 +54,43 @@ namespace ReproductorDeMusica.Web.Controllers
             List<UsuarioPlan> usuariosPlanes = _pagoService.ObtenerPlanesPorUsuarioId(3);
             return View(usuariosPlanes);
         }
+
+        [HttpGet]
+        public JsonResult ObtenerUltimoPlanPorUsuarioActual()
+        {
+            var idUsuario = HttpContext.Session.GetInt32("UsuarioId");
+
+            if (!idUsuario.HasValue)
+            {
+                return Json(new { error = "Usuario no autenticado o sesión expirada." });
+            }
+
+            try
+            {
+                var usuarioPlan = _pagoService.GetUltimoPlanUsuario(idUsuario.Value);
+
+                if (usuarioPlan == null)
+                {
+                    return Json(new { planNoDisponible = true });
+                }
+
+                var usuarioPlanDTO = new UsuarioPlanDTO
+                {
+                    Id = usuarioPlan.Id,
+                    TipoPlan = usuarioPlan.TipoPlan,
+                    Precio = usuarioPlan.Precio,
+                    FechaExpiracion = usuarioPlan.FechaExpiracion
+                };
+
+                return Json(usuarioPlanDTO);
+            }
+            catch (Exception)
+            {
+                return Json(new { error = "Ocurrió un error al obtener el plan." });
+            }
+        }
+
+
+
     }
 }
