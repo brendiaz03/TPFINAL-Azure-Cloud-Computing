@@ -26,8 +26,8 @@ namespace ReproductorDeMusica.Logica
             {
                 usuario.Contrasenia=this.HashPassword(usuario.Contrasenia);
                 const int PLAN_GRATUITO = 1;
-                this._usuarioPlanRepository.AgregarNuevoUsuarioPlan(PLAN_GRATUITO, usuario.Id);
                 this._usuarioRepository.RegistrarUsuario(usuario);
+                this._usuarioPlanRepository.AgregarNuevoUsuarioPlan(PLAN_GRATUITO, usuario.Id);
             }
             else
             {
