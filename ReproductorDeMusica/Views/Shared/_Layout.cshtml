@@ -36,9 +36,9 @@
         {
             @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
             {
-                <div class="search-bar">
+                <div class="search-bar ">
                     <form id="searchForm" action="/Cancion/Buscar" method="GET" class="search-bar">
-                        <div class="input-container">
+                        <div class="input-container">   
                             <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
                             <i class="fas fa-search search-icon"></i>
                         </div>
@@ -104,7 +104,7 @@
             </aside>
         }
 
-        <div class="flex-grow-1 p-4">
+        <div class="flex-grow-1 p-4 position-relative">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
