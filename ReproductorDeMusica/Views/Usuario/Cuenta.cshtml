@@ -11,7 +11,10 @@
             <p>Email: @Model.Email</p>
          </div>
          <div>
-            <p>Fecha de Pago: @Model.FechaPago?.ToString("dd/MM/yyyy")</p>
+            @if (ViewBag.MostrarPremium)
+             {
+              <p>Fecha de Pago: @Model.FechaPago?.ToString("dd/MM/yyyy")</p>
+             }
             <p>Tipo de Plan: @Model.TipoPlan</p>
          </div>
       </div>
