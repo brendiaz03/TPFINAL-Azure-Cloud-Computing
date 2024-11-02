@@ -1,3 +1,50 @@
 ﻿#body_cuenta {
     padding: 2em;
+  }
+.contenedor-pagina{
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    gap:2em;
 }
+.fondo-cuenta {
+    width: 60%;
+    align-self: center;
+    border-radius: 50px;
+    align-items: center;
+    padding: 3% 5% 3% 5%;
+    background: rgba(10, 10, 10, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 4px 8px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    color: white;
+}
+.info-cuenta{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+    .fondo-cuenta h2 {
+        text-align: center;
+    }
+
+.boton-pagar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+}
+    .boton-pagar p {
+        align-self: center; 
+        margin: 0; 
+    }
+
+    a{
+        text-decoration:none;
+    }
+

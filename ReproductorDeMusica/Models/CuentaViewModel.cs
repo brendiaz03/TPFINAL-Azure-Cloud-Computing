@@ -8,5 +8,7 @@ public class CuentaViewModel
     public string NombreUsuario { get; set; }
     public DateTime? FechaPago { get; set; }
     public string TipoPlan { get; set; }
+    public string FechaFinalizacionPremium { get; set; } // Nueva propiedad
+
 }
 

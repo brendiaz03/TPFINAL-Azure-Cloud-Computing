@@ -333,3 +333,57 @@ select:-webkit-autofill:focus {
     #createSongButton:focus {
         color: #ffffff;
     }
+
+.btn-principal {
+    display: flex;
+    justify-content: center;
+    color: #370a37;
+    background-color: white;
+    border-color: transparent;
+    border-radius: 50px;
+    width: 7em;
+    text-align: center;
+    padding: 5px 30px 5px 30px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .btn-principal:hover {
+        color: #ffffff;
+        background-color: transparent;
+        border-color: white;
+        border-radius: 50px;
+        text-align: center;
+        width: 7em;
+        padding: 5px 30px 5px 30px;
+        text-decoration: none;
+        align-content: center;
+        transition: background-color 0.3s;
+    }
+
+.btn-secundario {
+    color: #ffffff;
+    background-color: transparent;
+    border-color: white;
+    border-radius: 50px;
+    text-align: center;
+    width: 7em;
+    padding: 5px 30px 5px 30px;
+    text-decoration: none;
+    align-content: center;
+    transition: background-color 0.3s;
+}
+
+    .btn-secundario:hover {
+        display: flex;
+        justify-content: center;
+        color: #370a37;
+        background-color: white;
+        border-color: transparent;
+        border-radius: 50px;
+        width: 7em;
+        text-align: center;
+        padding: 5px 30px 5px 30px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }

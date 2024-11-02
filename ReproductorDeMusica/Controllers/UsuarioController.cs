@@ -129,6 +129,8 @@ public class UsuarioController : Controller
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
         ViewBag.EstaLoggeado = usuarioId != null;
         ViewBag.MostrarBotonPagar = false;
+        ViewBag.MostrarPremium = false;
+
 
         if (usuarioId != null)
         {
@@ -139,6 +141,11 @@ public class UsuarioController : Controller
                 var usuarioPlan = usuario.UsuarioPlans.FirstOrDefault();
                 ViewBag.NombreUsuario = usuario.NombreUsuario;
                 ViewBag.ImagenUsuario = usuario.ImagenUsuario;
+
+                string fechaFinalizacionPremium = usuarioPlan?.FechaPago.HasValue == true
+               ? usuarioPlan.FechaPago.Value.AddMonths(1).ToString("D", new System.Globalization.CultureInfo("es-ES"))
+               : null;
+
                 var CuentaViewModel = new CuentaViewModel
                 {
                     Nombre = usuario.Nombre,
@@ -146,11 +153,16 @@ public class UsuarioController : Controller
                     Email = usuario.Email,
                     NombreUsuario = usuario.NombreUsuario,
                     FechaPago = usuarioPlan?.FechaPago,
-                    TipoPlan = usuarioPlan?.IdPlanNavigation?.TipoPlan
+                    TipoPlan = usuarioPlan?.IdPlanNavigation?.TipoPlan,
+                    FechaFinalizacionPremium = fechaFinalizacionPremium
                 };
                 if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
                 {
-                    ViewBag.MostrarBotonPagar = true; 
+                    ViewBag.MostrarBotonPagar = true;
+                }
+                else
+                {
+                    ViewBag.MostrarPremium = true;
                 }
                 return View(CuentaViewModel);
             }
