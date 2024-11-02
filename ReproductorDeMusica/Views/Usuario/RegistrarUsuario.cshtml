@@ -1,10 +1,10 @@
-﻿@model ReproductorDeMusica.Web.Models.UsuarioViewModel
+@model ReproductorDeMusica.Web.Models.UsuarioViewModel
 <link rel="stylesheet" href="~/css/Usuario/RegistroUsuario.css">
 
 
     <h1 class="titulo_registroUsuario">Registrarse</h1>
 
-    <form asp-action="RegistrarUsuario" asp-controller="Usuario" method="post" enctype="multipart/form-data" class="fondo-form">
+    <form action="/Usuario/RegistrarUsuario" method="POST" enctype="multipart/form-data" class="fondo-form">
         <section class="formulario">
 
         <div class="text-danger">
@@ -41,15 +41,15 @@
             <span asp-validation-for="Contrasenia" class="text-danger"></span>
         </div>
 
-        <div class="form-group mb-3 btn-subir-foto">
-            <input asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control" style="display: none;" />
-            <label for="ImagenUsuario" id="selectImageLabel" class="btn btn-secondary w-100">
-                <i class="fa-solid fa-file-image"></i> Seleccionar imágen
-            </label>
-            <p id="imageFileName" class="mt-2 text-info"></p>
-        </div>
-
-
+                 <div class="form-group mb-3">
+                <label asp-for="ImagenUsuario" class="form-label fw-bold">Imágen de Perfil</label>
+                <input type="file" asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control"/>
+                <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
+                    <i class="fa-solid fa-file-image"></i> Seleccionar imágen
+                </button>
+                <p id="imageFileName" class="mt-2 text-info"></p>
+            </div>
+       
         </section>
         <section class="botones">
                 <button type="submit" id="boton_reg_usuario" class="btn-register">Registrar</button>

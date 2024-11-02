@@ -13,5 +13,6 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
         UsuarioPlan AgregarNuevoUsuarioPlan(int idPlan, int idUsuario);
         List<UsuarioPlan> GetUsuariosPlansPorUsuario(int idUsuario);
         Usuario ObtenerUsuarioConPlan(int usuarioId);
+        UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario);
     }
 }

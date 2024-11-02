@@ -40,7 +40,7 @@ namespace ReproductorDeMusica.Web.Models
         public IFormFile? ImagenUsuario { get; set; }
 
 
-        public static Usuario ToUsuario(UsuarioViewModel usuarioModel, string imagenUrl)
+        public static Usuario ToUsuario(UsuarioViewModel usuarioModel, string? imagenUrl)
         {
             return new Usuario
             {

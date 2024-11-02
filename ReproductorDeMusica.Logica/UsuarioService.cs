@@ -85,7 +85,35 @@ namespace ReproductorDeMusica.Logica
         {
             return this._usuarioRepository.BuscarUsuarioPorMail(mail);
         }
+
+        public Usuario ActualizarInfoUsuario(Usuario usuario)
+        {
+            try
+            {
+                if (buscarUsuarioPorID(usuario.Id) != null)
+                {
+                    _context.Update(usuario);
+                    _context.SaveChanges();
+                }
+
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return usuario;
+
+        }
+
     }
 
-  
+    public interface IUsuarioLogica
+    {
+        Usuario buscarUsuarioPorID(int usuarioId);
+        void RegistrarUsuario(Usuario usuario);
+        Usuario ValidarUsuario(string nombreUsuario, string contrasenia);
+
+        Usuario BuscarUsuarioPorMail(string mail);
+        Usuario ActualizarInfoUsuario(Usuario usuario);
+    }
 }
