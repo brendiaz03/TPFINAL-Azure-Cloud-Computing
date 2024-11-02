@@ -128,6 +128,7 @@ public class UsuarioController : Controller
     {
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
         ViewBag.EstaLoggeado = usuarioId != null;
+        ViewBag.MostrarBotonPagar = false;
 
         if (usuarioId != null)
         {
@@ -147,7 +148,10 @@ public class UsuarioController : Controller
                     FechaPago = usuarioPlan?.FechaPago,
                     TipoPlan = usuarioPlan?.IdPlanNavigation?.TipoPlan
                 };
-
+                if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
+                {
+                    ViewBag.MostrarBotonPagar = true; 
+                }
                 return View(CuentaViewModel);
             }
         }

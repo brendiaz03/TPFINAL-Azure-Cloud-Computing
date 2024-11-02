@@ -9,3 +9,9 @@
     <p>Fecha de Pago: @Model.FechaPago?.ToString("dd/MM/yyyy")</p>
     <p>Tipo de Plan: @Model.TipoPlan</p>
 </div>
+
+
+@if (ViewBag.MostrarBotonPagar)
+{
+    <a href="/Pago/Index" class="btn btn-primary">Pagar</a>
+}
