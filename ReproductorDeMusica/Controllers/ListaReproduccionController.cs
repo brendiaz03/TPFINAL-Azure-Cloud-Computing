@@ -67,9 +67,9 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpGet]
-        public List<ListaReproduccion> GetAllListasReproduccion()
+        public async Task<List<ListaReproduccion>> GetAllListasReproduccion()
         {
-            List<ListaReproduccion> listaReproduccions = _reproduccionService.GetListasReproduccions();
+            List<ListaReproduccion> listaReproduccions = await _reproduccionService.GetListasReproduccions();
             return listaReproduccions;
         }
 

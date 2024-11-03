@@ -70,11 +70,11 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarCancion(Cancion cancion)
+        public async Task<IActionResult> EditarCancion(Cancion cancion)
         {
             try
             {
-                Cancion editada = _cancionService.CrearCancion(cancion);
+                Cancion editada = await _cancionService.CrearCancion(cancion);
                 return Ok(editada);
             }
             catch (Exception ex)
@@ -100,11 +100,11 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult ReproducirCancion(int id)
+        public async Task<IActionResult> ReproducirCancion(int id)
         {
             try
             {
-                var cancion = _cancionService.GetCancionById(id);
+                var cancion = await _cancionService.GetCancionById(id);
                 return Ok(cancion);
             }
             catch (Exception ex)
@@ -114,9 +114,9 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(string titulo)
+        public async Task<IActionResult> Buscar(string titulo)
         {
-            var resultados = _cancionService.BuscarCancionesPorNombre(titulo);
+            var resultados = await _cancionService.BuscarCancionesPorNombre(titulo);
             return PartialView("_ResultadoBusquedaPartial", resultados);
         }
     }
