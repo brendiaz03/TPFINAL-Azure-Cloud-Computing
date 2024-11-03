@@ -20,15 +20,16 @@ namespace ReproductorDeMusica.Logica
         {
             try
             {
-                ListaReproduccion listaRepetida = _listaReproduccionRepository.ObtenerListaPorNombre(listaReproduccion.Nombre);
+                ListaReproduccion agregada = _listaReproduccionRepository.AgregarListaReproduccion(listaReproduccion);
 
-                if(listaReproduccion == null)
+                if(agregada != null)
                 {
-                    _listaReproduccionRepository.AgregarListaReproduccion(listaReproduccion);
                     return true;
 
                 }
+
                 return false;
+
             }
             catch (Exception ex)
             {
