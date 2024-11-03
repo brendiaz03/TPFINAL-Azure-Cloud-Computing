@@ -1,9 +1,9 @@
 ﻿.contenedor-icono-imagen {
     position: relative;
-    width: 100%; /* Ajusta el tamaño según lo necesites */
+    width: 100%; 
     height: 100%;
-    background-size: cover; /* Ajusta para que la imagen cubra todo el contenedor */
-    background-position: center; /* Centra la imagen en el contenedor */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -12,15 +12,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white; /* Cambia el color del icono si es necesario */
+    color: white;
 }
 .table-container {
-    max-height: 530px; /* Ajusta la altura según tus necesidades */
-    overflow-y: auto; /* Permite el desplazamiento vertical */
+    max-height: 485px;
+    overflow-y: auto; 
 }
 
 .table {
-    width: 100%; /* Para asegurar que la tabla ocupe todo el ancho del contenedor */
+    width: 100%;
     border-collapse: collapse;
 }
 
