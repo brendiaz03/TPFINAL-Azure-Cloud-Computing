@@ -6,14 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interfaz de Música</title>
     <link rel="stylesheet" href="~/css/Home/Home.css">
 </head>
 
     <div class="container">
-        <h3>¡Bienvenida/o!</h3>
         @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
         {
+        <h3>¡Bienvenida/o!</h3>
+
             <div id="reproductorContainer" class="mt-auto">
                 <partial name="_CancionesPartial" />
             </div>

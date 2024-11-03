@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.ListaReproduccion>
+@{
+    ViewData["Title"] = "Mis Playlists";
+}
 <head>
 
 <meta charset="UTF-8">
@@ -7,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="~/css/ListaReproduccion/Index.css" />
 </head>
 
-    <div class="container">
+    <div class="containerPlaylists">
         <div class="row align-items-center justify-content-between">
             <h2 class="col-auto">Mis Playlists</h2>
 
@@ -44,7 +47,6 @@
         </div>
     </div>
 
-    <div class="container">
 
         <div class="modal fade" id="addListaReproduccionModal" tabindex="-1" aria-labelledby="addListaReproduccionModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -84,7 +86,6 @@
             </div>
 
         </div>
-    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

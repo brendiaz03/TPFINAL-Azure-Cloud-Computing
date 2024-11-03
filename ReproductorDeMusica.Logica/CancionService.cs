@@ -1,13 +1,6 @@
-﻿using Microsoft.Identity.Client;
-using ReproductorDeMusica.Entidades.Entidades;
-using ReproductorDeMusica.Entidades.Repositories;
+﻿using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using ReproductorDeMusica.Logica.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReproductorDeMusica.Logica
 {
@@ -84,6 +77,18 @@ namespace ReproductorDeMusica.Logica
             try
             {
                 return _cancionRepository.BuscarCancionesPorNombre(nombre);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<Cancion>> GetCancionesPorCreador(int idUsuario)
+        {
+            try
+            {
+                return _cancionRepository.BuscarCancionesPorCreador(idUsuario);
             }
             catch (Exception ex)
             {

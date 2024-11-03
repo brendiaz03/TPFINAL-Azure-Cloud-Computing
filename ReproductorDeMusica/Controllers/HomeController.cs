@@ -2,11 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ReproductorDeMusica.Models;
 using ReproductorDeMusica.Web.Models;
 using ReproductorDeMusica.Entidades.Entidades;
-using ReproductorDeMusica.Logica;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
-using Microsoft.Identity.Web;
 using ReproductorDeMusica.Logica.Interfaces;
 
 namespace ReproductorDeMusica.Controllers
@@ -45,12 +41,13 @@ namespace ReproductorDeMusica.Controllers
 
             List<Cancion> canciones = _cancionService.GetCancions();
             ViewBag.Canciones = canciones;
-            var viewModel = new CancionesViewModel
-            {
-                Canciones = canciones ?? new List<Cancion>()
-            };
+            //var viewModel = new CancionesViewModel
+            //{
+            //    Canciones = canciones ?? new List<Cancion>()
+            //};
 
-            return View(viewModel);
+            //return View(viewModel);
+            return View();
         }
 
 

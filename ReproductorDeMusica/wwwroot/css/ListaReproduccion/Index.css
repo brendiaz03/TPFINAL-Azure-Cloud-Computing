@@ -6,3 +6,6 @@
 #addPlaylistButton {
     all: unset;
 }
+.containerPlaylists{
+    height:527px;
+}

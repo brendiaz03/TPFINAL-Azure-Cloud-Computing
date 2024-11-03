@@ -1,15 +1,29 @@
 ﻿@model ReproductorDeMusica.Web.Models.CancionViewModel;
-
+@{
+    ViewData["Title"] = "Mis Canciones";
+}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Añadir nueva canción</title>
 <link rel="stylesheet" href="~/css/Cancion/Index.css" />
 
-<body>
-    <div class="container">
-        <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#addSongModal">
-            Añadir nueva canción
+
+    <div class="containerCanciones">
+
+    <div class="row align-items-center justify-content-between">
+        <h2 class="col-auto">Mis Canciones Subidas</h2>
+
+        <button id="addPlaylistButton" title="Agregar playlist">
+            <span class="material-symbols-outlined col-auto" id="addPlaylistIcon" data-bs-toggle="modal" data-bs-target="#addSongModal">
+                playlist_add
+            </span>
         </button>
+    </div>
+    <div id="reproductorContainer" class="mt-auto">
+        <partial name="_CancionesPartial" />
+    </div>
+        @* <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#addSongModal">
+            Añadir nueva canción
+        </button> *@
 
         <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="addSongModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -74,4 +88,3 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/js/Cancion/Index.js"> </script>
-</body>

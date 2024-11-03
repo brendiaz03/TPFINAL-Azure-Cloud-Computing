@@ -54,3 +54,14 @@ input.form-control, select.form-select {
     width: 1rem;
     height: 1rem;
 }
+#addPlaylistIcon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#addPlaylistButton {
+    all: unset;
+}
+.containerCanciones {
+    height: 527px;
+}

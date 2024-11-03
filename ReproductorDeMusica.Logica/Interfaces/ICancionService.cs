@@ -15,5 +15,6 @@ namespace ReproductorDeMusica.Logica.Interfaces
         List<Cancion> GetCancions();
         Task<Cancion> GetCancionById(int id);
         Task<IEnumerable<Cancion>> BuscarCancionesPorNombre(string nombre);
+        Task<List<Cancion>> GetCancionesPorCreador(int idUsuario);
     }
 }
