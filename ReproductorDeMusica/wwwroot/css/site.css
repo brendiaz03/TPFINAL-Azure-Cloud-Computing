@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  position: relative;
 }
 
 /* Body */
@@ -30,6 +31,7 @@ body {
   padding: 10px 20px 10px 20px;
   background-color: #181818;
 }
+
 .nav-item a {
   display: flex;
   align-items: center;
@@ -38,14 +40,7 @@ body {
   cursor: pointer; /* Cambia el cursor a puntero al pasar el mouse */
   transition: background-color 0.3s ease; /* Agrega una transici�n suave */
 }
-/* Color de hover y seleccionado */
-.nav-item a:hover,
-.nav-item a:focus,
-.nav-item a.active {
-  /* Usar 'active' para indicar el estado seleccionado */
-  background-color: #f0f0f0; /* Cambia esto por el color deseado */
-  color: #000; /* Cambia esto si deseas un color diferente para el texto */
-}
+
 .material-symbols-outlined {
   margin-right: 8px;
 }
@@ -326,21 +321,6 @@ select:-webkit-autofill:focus {
   color: #ffffff;
 }
 
-#createSongButton {
-  all: unset;
-  color: #b3b3b3;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-#createSongButton:hover,
-#createSongButton:active,
-#createSongButton:focus {
-  color: #ffffff;
-}
-
 .btn-principal {
   display: flex;
   justify-content: center;
@@ -398,7 +378,7 @@ select:-webkit-autofill:focus {
 /*Audio*/
 
 #reproductor {
-  background-color: #222;
+    background-color: #121212;
 }
 audio::-webkit-media-controls-panel {
   background-color: #222;

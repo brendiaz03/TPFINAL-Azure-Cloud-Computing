@@ -60,8 +60,8 @@ $(document).ready(function () {
     if (currentButton && currentButton[0] === this) {
       // Si ya está reproduciendo, pausamos y cambiamos el ícono
       if (!player.paused) {
-        player.pause();
-        $(this).html("▶️"); // Cambiar a icono de play
+          player.pause();
+          $(this).html("▶️").hide; // Cambiar a icono de play
       } else {
         player.play();
         $(this).html("⏸️"); // Cambiar a icono de pausa
@@ -76,17 +76,16 @@ $(document).ready(function () {
       $(this).html("⏸️");
 
       // Restaurar el ícono de play en el botón anterior, si hay uno
-      if (currentButton) {
-        currentButton.html("▶️");
+        if (currentButton) {
+            currentButton.html("▶️").hide;
       }
 
       // Actualizar el botón en reproducción actual
       currentButton = $(this);
     }
 
-    // Evento para restaurar el ícono al finalizar la canción
-    player.onended = function () {
-      currentButton.html("▶️");
+      player.onended = function () {
+          currentButton.html("▶️").hide;
       currentButton = null;
     };
   });

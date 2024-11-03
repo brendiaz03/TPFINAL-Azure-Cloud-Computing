@@ -14,13 +14,13 @@ namespace ReproductorDeMusica.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioService;
         private readonly ICancionService _cancionService;
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioLogica usuarioLogica, ICancionService cancionService)
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioLogica, ICancionService cancionService)
         {
             _logger = logger;
-            _usuarioLogica = usuarioLogica;
+            _usuarioService = usuarioLogica;
             _cancionService = cancionService;
         }
 
@@ -28,7 +28,7 @@ namespace ReproductorDeMusica.Controllers
         {
             if(HttpContext.Session.GetInt32("UsuarioId") == null)
             {
-                return RedirectToAction("Login", "Usuario");
+                return View();
             }
 
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
@@ -59,18 +59,18 @@ namespace ReproductorDeMusica.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        [HttpGet("api/playlists")]
-        public IActionResult GetPlaylists()
-        {
-            var playlists = new List<HomeViewModel>
-    {
-        new HomeViewModel { Name = "Shakira"},
+    //    [HttpGet("api/playlists")]
+    //    public IActionResult GetPlaylists()
+    //    {
+    //        var playlists = new List<HomeViewModel>
+    //{
+    //    new HomeViewModel { Name = "Shakira"},
       
-        // Agrega m�s artistas o playlists aqu�
-    };
+    //    // Agrega m�s artistas o playlists aqu�
+    //};
 
-            return Json(playlists);
-        }
+    //        return Json(playlists);
+    //    }
 
     }
 }

@@ -22,7 +22,7 @@
         @foreach (var cancion in Model.Canciones)
     {
 
-         @*   <tr class="playlist-item" data-cancion-id="@cancion.Id">
+           <tr class="playlist-item" data-cancion-id="@cancion.Id">
                                 <td class="playlist-index" style="width: 30px;">
                                 <button class="btn-reproducir btn btn-sm playlist-play-btn" 
                             style="display: inline-block; width: 24px; height: 24px; padding: 0; font-size: 16px;" 
@@ -36,21 +36,8 @@
                                 <td>@cancion.Titulo</td>
                                 <td>@cancion.Artista</td>
                                 <td>@cancion.Duracion</td>
-                            </tr> *@
+                            </tr>
             
-                <tr class="playlist-item" data-cancion-id="@cancion.Id" data-ruta-audio="@cancion.RutaAudio">
-                    <td class="playlist-index" style="width: 30px;">
-                        <button class="btn-reproducir btn btn-sm playlist-play-btn" 
-                                style="display: inline-block; width: 24px; height: 24px; padding: 0; font-size: 16px;">
-                            <div class="contenedor-icono-imagen" style="background-image: url('@cancion.UrlPortada');">
-                                <i class="icono-delante"></i>
-                            </div>
-                        </button>
-                    </td>
-                    <td>@cancion.Titulo</td>
-                    <td>@cancion.Artista</td>
-                    <td>@cancion.Duracion</td>
-                </tr>
     }
     </tbody>
 </table>

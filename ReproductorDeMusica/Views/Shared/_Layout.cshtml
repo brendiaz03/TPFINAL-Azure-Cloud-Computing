@@ -43,7 +43,7 @@
                             <i class="fas fa-search search-icon"></i>
                         </div>
                     </form>
-                    <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
+                    <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto; position:absolute; z-index: 10; top:50px; right:32px"></div>
                 </div>
                 <div class="contenedor-botones">
                     <div class="usuario" id="usuarioMenu">
@@ -85,19 +85,19 @@
                 <h3>Tu biblioteca</h3>
                 <nav>
                     <ul class="nav flex-column w-100 p-1">
-                        <li class="nav-item  p-2">
+                        <li class="nav-item  p-2 ">
                             <a href="/ListaReproduccion/Index" class="span-verMisPlaylists active">
                                 <div class="material-symbols-outlined">
                                     queue_music
                                 </div>
-                                <label> Ver Mis Playlists</label>
+                                <label class="cursor-pointer">Mis Playlists</label>
                             </a>
                         </li>
-                        <li class="nav-item  p-2">
+                        <li class="nav-item  p-2 ">
                             <a class="span-verMisPlaylists active">
                                 <div class="material-symbols-outlined">
                                     library_music
-                                </div> <label>Ver Mis Canciones </label>
+                                </div> <label class="cursor-pointer">Mis Canciones </label>
                             </a>
                         </li>
                     </ul>
