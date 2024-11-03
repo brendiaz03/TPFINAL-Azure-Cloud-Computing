@@ -47,16 +47,16 @@ $(document).ready(function () {
         }
     });
 
-    //$(document).on('click', '.btn-reproducir', function (e) {
-    //    e.preventDefault();
+    $(document).on('click', '.btn-reproducir', function (e) {
+        e.preventDefault();
 
-    //    const audioUrl = $(this).data('ruta-audio');
+        const audioUrl = $(this).data('ruta-audio');
 
-    //    $('#audioSource').attr('src', audioUrl);
+        $('#audioSource').attr('src', audioUrl);
 
-    //    const player = $('#audioPlayer')[0];
-    //    player.load();
+        const player = $('#audioPlayer')[0];
+        player.load();
 
-    //    player.play();
-    //});
+        player.play();
+    });
 });
