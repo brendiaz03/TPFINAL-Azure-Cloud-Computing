@@ -72,7 +72,21 @@ namespace ReproductorDeMusica.Entidades.Repositories
             return plan;
         }
 
+        public UsuarioPlan RealizarPagoAPremium(int idUsuario)
+        {
+            Plan planAPagar = _context.Plans.Find(2);
+            Usuario usuario = _context.Usuarios.Find(idUsuario);
 
+            UsuarioPlan pago = new UsuarioPlan();
+            pago.IdUsuarioNavigation = usuario;
+            pago.IdPlanNavigation = planAPagar;
+            pago.FechaPago = DateTime.Now.Date;
+            pago.FechaExpiracion = DateTime.Now.Date.AddMonths((int)((double)planAPagar.Duracion));
 
+            _context.UsuarioPlans.Add(pago);
+            _context.SaveChanges();
+
+            return pago;
+        }
     }
 }

@@ -84,18 +84,52 @@
                 <nav>
                     <ul class="nav flex-column w-100">
                         <li class="nav-item">
-                            <a href="/ListaReproduccion/Index" class="span-verMisPlaylists">
-                                <span class="material-symbols-outlined">
-                                    queue_music
-                                </span> Ver Mis Playlists
-                            </a>
+                            @if (ViewBag.DeshabilitarSidebar==true)
+                            {
+
+                                <a href="#" class="span-verMisPlaylists" style="color:darkgray">
+                                    <span class="material-symbols-outlined">
+                                        queue_music
+                                    </span> Ver Mis Playlists
+                                </a> <br />
+                            }
+                            else if(ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
+                            {
+                                <a href="/ListaReproduccion/Index"  class="span-verMisPlaylists">
+                                    <span class="material-symbols-outlined">
+                                        queue_music
+                                    </span> Ver Mis Playlists
+                                </a>
+                            }
                         </li>
                         <li class="nav-item">
-                            <button id="createSongButton" class="span-verMisPlaylists">
+                             @if (ViewBag.DeshabilitarSidebar==true)
+                            {
+                                <button class="span-verMisPlaylists" style="background-color:darkgray">
+                                  <span class="material-symbols-outlined">
+                                    library_music
+                                </span> Crear canción
+                                </button> <br />
+
+                            }
+                            else if(ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
+                            {
+                                <button id="createSongButton" class="span-verMisPlaylists">
                                 <span class="material-symbols-outlined">
                                     library_music
                                 </span> Crear canción
                             </button>
+                            }
+                        </li>
+                        <li>
+                             @if (ViewBag.DeshabilitarSidebar==true)
+                            {
+                                <a href="/Plan" class="comprarPremium">
+                                <button type="button" class="but-premium">
+                                    <p><i class="fa-solid fa-crown"></i> Compra premium aquí</p>
+                                </button>
+                                </a>
+                            }
                         </li>
                     </ul>
                 </nav>

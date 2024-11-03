@@ -118,13 +118,14 @@ public class UsuarioController : Controller
     }
 
 
-[HttpGet]
+    [HttpGet]
     public IActionResult Cuenta()
     {
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
         ViewBag.EstaLoggeado = usuarioId != null;
         ViewBag.MostrarBotonPagar = false;
         ViewBag.MostrarPremium = false;
+        ViewBag.DeshabilitarSidebar = false;
 
 
         if (usuarioId != null)
@@ -133,13 +134,21 @@ public class UsuarioController : Controller
 
             if (usuario != null)
             {
-                var usuarioPlan = usuario.UsuarioPlans.FirstOrDefault();
+                var usuarioPlan = usuario.UsuarioPlans.LastOrDefault();
                 ViewBag.NombreUsuario = usuario.NombreUsuario;
                 ViewBag.ImagenUsuario = usuario.ImagenUsuario;
 
-                string fechaFinalizacionPremium = usuarioPlan?.FechaPago.HasValue == true
-               ? usuarioPlan.FechaPago.Value.AddMonths(1).ToString("D", new System.Globalization.CultureInfo("es-ES"))
-               : null;
+                if (usuarioPlan?.FechaPago.HasValue == true)
+                {
+                    DateTime fechaPago = usuarioPlan.FechaPago.Value;
+                    DateTime fechaFinalizacionPremium = usuarioPlan.FechaExpiracion;
+                    int diasTotales = (fechaFinalizacionPremium - fechaPago).Days;
+                    int diasRestantes = (fechaFinalizacionPremium - DateTime.Now).Days;
+
+                    ViewBag.DiasRestantes = diasRestantes;
+                    ViewBag.DiasTotales = diasTotales;
+                    ViewBag.FechaFinalizacionPremium = fechaFinalizacionPremium.ToString("D", new System.Globalization.CultureInfo("es-ES"));
+                }
 
                 var CuentaViewModel = new CuentaViewModel
                 {
@@ -147,16 +156,19 @@ public class UsuarioController : Controller
                     Apellido = usuario.Apellido,
                     Email = usuario.Email,
                     NombreUsuario = usuario.NombreUsuario,
-                    FechaPago = usuarioPlan?.FechaPago,
-                    TipoPlan = usuarioPlan?.IdPlanNavigation?.TipoPlan,
-                    FechaFinalizacionPremium = fechaFinalizacionPremium
+                    FechaPago = usuarioPlan.FechaPago,
+                    TipoPlan = usuarioPlan.IdPlanNavigation?.TipoPlan,
+                    FechaFinalizacionPremium = ViewBag.FechaFinalizacionPremium
                 };
+
                 if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
                 {
                     ViewBag.MostrarBotonPagar = true;
+                    ViewBag.DeshabilitarSidebar = true;
                 }
                 else
                 {
+                    
                     ViewBag.MostrarPremium = true;
                 }
                 return View(CuentaViewModel);
@@ -165,6 +177,7 @@ public class UsuarioController : Controller
 
         return View(new CuentaViewModel());
     }
+
 
     [HttpPost]
     public async Task<IActionResult> UpdateProfilePhotoAsync(IFormFile photo)

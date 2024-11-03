@@ -28,8 +28,24 @@
                 <p class="plan-title">Tu plan</p>
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20PNG-Y8NYO3BhnHdIDnWm2xw1XNnT1tG4CJ.png" alt="Ripple Logo" class="plan-ripple-logo">
             </div>
-            <h2 class="plan-name">  </h2>
-            <p class="plan-details"> </p>
+            <h2 class="plan-name"> @Model.TipoPlan</h2>
+            @if (ViewBag.MostrarBotonPagar)
+            {
+                <div class="boton-pagar">
+                    <p>¡Hazte miembro premium para disfrutar al máximo!</p>
+                    <a href="/Plan"><button type="button" class="btn-principal">Ver Plan Premium</button></a>
+                </div>
+            }
+            @if (ViewBag.MostrarPremium)
+            {
+                    <div class="barra-suscripcion-container">
+                <p>Días restantes de suscripción: @ViewBag.DiasRestantes</p>
+                <div class="barra-suscripcion">
+                    <div class="barra-suscripcion-restante" style="width: @(100 * ViewBag.DiasRestantes / ViewBag.DiasTotales)%;"></div>
+                </div>
+            </div>
+            }
+
         </div>
 
     </main>

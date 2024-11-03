@@ -37,5 +37,10 @@ namespace ReproductorDeMusica.Logica
         {
             return _usuarioPlanRepository.GetUltimoPlanUsuario(idUsuario) ?? null;
         }
+
+        public UsuarioPlan RealizarPagoAPremium(int idUsuario)
+        {
+            return _usuarioPlanRepository.RealizarPagoAPremium(idUsuario);
+        }
     }
 }

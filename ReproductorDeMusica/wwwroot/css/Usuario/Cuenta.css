@@ -36,12 +36,14 @@
 .boton-pagar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: initial;
     gap: 1em;
 }
     .boton-pagar p {
-        align-self: center; 
-        margin: 0; 
+        align-self: center;
+        margin: 0;
+        color: #b3b3b3;
+        font-size: 14px;
     }
 
     a{
@@ -236,4 +238,30 @@
 .plan-ripple-logo {
     width: 80px;
     height: 30px;
+}
+
+.barra-suscripcion-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.barra-suscripcion {
+    width: 100%;
+    background-color: #ccc; 
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.barra-suscripcion-restante {
+    height: 100%;
+    background: linear-gradient(to right, #4b4bde, #609bf5); 
+    transition: width 0.5s ease;
+}
+.btn-principal{
+    width:15em;
+}
+.btn-principal:hover {
+    width: 15em;
 }

@@ -15,13 +15,15 @@ namespace ReproductorDeMusica.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUsuarioService _usuarioService;
+        private readonly IUsuarioPlanService _usuarioPlanService;
 
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService)
+
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService, IUsuarioPlanService usuarioPlanService)
         {
             _logger = logger;
             _usuarioService = usuarioService;
-
+            _usuarioPlanService = usuarioPlanService;
         }
 
         public IActionResult Index()
@@ -34,13 +36,22 @@ namespace ReproductorDeMusica.Controllers
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
             ViewBag.EstaLoggeado = usuarioId != null;
             ViewBag.EsFormulario = false;
+            ViewBag.DeshabilitarSidebar = false;
 
 
-            if(usuarioId != null)
+            if (usuarioId != null)
             {
                 Usuario buscado = _usuarioService.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
                 ViewBag.ImagenUsuario = buscado.ImagenUsuario;
+                if (_usuarioPlanService.ObtenerUsuarioConPlan((int)usuarioId)!=null){
+                    var usuario = _usuarioPlanService.ObtenerUsuarioConPlan((int)usuarioId);
+                    var usuarioPlan = usuario.UsuarioPlans.LastOrDefault();
+                    if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
+                    {
+                        ViewBag.DeshabilitarSidebar = true;
+                    }
+                }
             }
 
             return View(new HomeViewModel());

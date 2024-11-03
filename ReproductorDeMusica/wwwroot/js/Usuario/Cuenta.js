@@ -39,3 +39,23 @@ function mostrarMensajeSinPlan() {
     planName.textContent = "No tienes un plan activo";
     planDetails.textContent = "Selecciona un plan para empezar a disfrutar de nuestros servicios.";
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const diasTotales = @ViewBag.DiasTotales;
+    let diasRestantes = @ViewBag.DiasRestantes;
+
+    const barra = document.querySelector('.barra-suscripcion-restante');
+
+    setInterval(() => {
+        if (diasRestantes > 0) {
+            diasRestantes--;
+            const porcentajeRestante = (100 * diasRestantes) / diasTotales;
+            barra.style.width = `${porcentajeRestante}%`;
+
+            if (diasRestantes === 0) {
+                barra.style.backgroundColor = '#ccc'; 
+            }
+        }
+    }, 86400000); 
+});
+

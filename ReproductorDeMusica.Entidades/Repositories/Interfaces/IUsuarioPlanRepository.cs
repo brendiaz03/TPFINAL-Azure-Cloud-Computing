@@ -14,5 +14,6 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
         List<UsuarioPlan> GetUsuariosPlansPorUsuario(int idUsuario);
         Usuario ObtenerUsuarioConPlan(int usuarioId);
         UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario);
+        UsuarioPlan RealizarPagoAPremium(int idUsuario);
     }
 }

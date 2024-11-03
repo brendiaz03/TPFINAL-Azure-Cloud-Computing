@@ -92,3 +92,24 @@ main {
     padding: 40px 20px;
     font-size: 14px;
 }
+.comprarPremium {
+    text-decoration: none;
+    display: flex;
+    
+    text-align:center;
+}
+    .comprarPremium button {
+        background: linear-gradient(to right, #4b4bde, #609bf5);
+        transition: width 0.5s ease;
+    }
+
+.but-premium {
+    height: 4em;
+    color: red;
+    width: 8.5em;
+}
+
+.comprarPremium button:hover {
+    background: linear-gradient(to right,#609bf5, #4b4bde);
+    transition: width 0.5s ease;
+}
