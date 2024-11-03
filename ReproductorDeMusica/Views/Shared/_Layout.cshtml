@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Layout/Layout.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/Cancion/Index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/Layout/Reproductor.css" asp-append-version="true">
+
 
 </head>
 <body>
@@ -104,14 +106,14 @@
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
-            @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
-            {
-                <div id="reproductorContainer" class="mt-auto">
-                    <partial name="_ReproductorPartial" />
-                </div>
-            }
-        </div>
+        </div> 
     </div>
+    @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+    {
+        <div id="reproductorContainer" class="reproductor">
+            <partial name="_ReproductorPartial" />
+        </div>
+    }
     <!-- Footer -->
     @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
     {
@@ -155,6 +157,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/Layout/Layout.js"></script>
+    <script src="~/js/Layout/Reproductor.js"></script>
     <script src="~/js/Cancion/Index.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 

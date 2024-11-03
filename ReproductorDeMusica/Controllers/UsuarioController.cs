@@ -51,7 +51,7 @@ public class UsuarioController : Controller
         try
         {
 
-            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, null));
+            _usuarioService.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, null));
 
         }
         catch (UsuarioExistenteException e)
@@ -170,7 +170,7 @@ public class UsuarioController : Controller
     public async Task<IActionResult> UpdateProfilePhotoAsync(IFormFile photo)
     {
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
-        Usuario usuario = _usuarioLogica.buscarUsuarioPorID(usuarioId.Value);
+        Usuario usuario = _usuarioService.BuscarUsuarioPorID(usuarioId.Value);
 
         if (photo == null || photo.Length == 0)
         {
@@ -181,7 +181,7 @@ public class UsuarioController : Controller
         {
             string urlImagen = await _blobStorageService.SubirArchivoAsync(photo, "usuarios-imagenes");
             usuario.ImagenUsuario = urlImagen;
-            _usuarioLogica.ActualizarInfoUsuario(usuario);
+            _usuarioService.ActualizarInfoUsuario(usuario);
 
         } catch (Exception ex)
         {

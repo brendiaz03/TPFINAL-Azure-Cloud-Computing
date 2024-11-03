@@ -1,6 +1,23 @@
-﻿<div id="reproductor" class="reproductor-container">
+﻿<!--<div id="reproductor" class="reproductor-container">
     <audio id="audioPlayer" controls>
         <source id="audioSource" src="" type="audio/mpeg">
         Tu navegador no soporta la reproducción de audio.
     </audio>
+</div>-->
+<div class="reproductor-container">
+    <div class="track-info">
+        <img src="ruta-de-imagen" alt="Portada de canción" />
+        <div class="track-details">
+            <p class="track-title">Título de la canción</p>
+            <p class="track-artist">Artista</p>
+        </div>
+    </div>
+    <div class="controls">
+        <button class="control-button"><i class="fas fa-step-backward"></i></button>
+        <button class="control-button"><i class="fas fa-play"></i></button>
+        <button class="control-button"><i class="fas fa-step-forward"></i></button>
+    </div>
+    <div class="progress-bar">
+        <input type="range" min="0" max="100" value="0">
+    </div>
 </div>
