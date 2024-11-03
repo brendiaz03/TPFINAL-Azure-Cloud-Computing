@@ -44,19 +44,31 @@
 }
 
 /* Estilos para el carrusel de playlists */
+
 .carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    padding-bottom: 20px;
+    display: flex; /* Mantiene la disposición horizontal */
+    flex-direction: column; /* Cambia a columna */
+    overflow-y: auto; /* Permite el scroll vertical */
+    height: 300px; /* Ajusta la altura según tus necesidades */
 }
+    .carousel .item {
+        flex: 0 0 auto; /* Mantiene los elementos en una sola línea */
+        width: 100px; /* Ancho de cada elemento, ajusta según tu diseño */
+        margin-right: 10px; /* Espaciado entre elementos */
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
 
 .spotify-playlists {
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
-}
+}a
 
     .spotify-playlists h2 {
         color: #ffffff;
@@ -65,14 +77,15 @@
         text-align: left;
     }
 
-    .spotify-playlists .list {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-        padding: 10px 0;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
+.spotify-playlists .list {
+    display: flex;
+    flex-direction: row; /* Asegura la disposición horizontal */
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
 
         .spotify-playlists .list .item {
             flex: 0 0 auto; /* Mantiene el ancho fijo */

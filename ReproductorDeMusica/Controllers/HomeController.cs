@@ -27,7 +27,7 @@ namespace ReproductorDeMusica.Controllers
         {
             if(HttpContext.Session.GetInt32("UsuarioId") == null)
             {
-                return RedirectToAction("Login", "Usuario");
+                return View();
             }
 
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
