@@ -14,10 +14,12 @@ namespace ReproductorDeMusica.Logica
     public class CancionService : ICancionService
     {
         private readonly ICancionRepository _cancionRepository;
+        private readonly ICancionListaReproduccionRepository _cancionListaReproduccionRepository;
 
-        public CancionService(ICancionRepository cancionRepository)
+        public CancionService(ICancionRepository cancionRepository, ICancionListaReproduccionRepository cancionListaReproduccionRepository)
         {
             _cancionRepository = cancionRepository;
+            _cancionListaReproduccionRepository = cancionListaReproduccionRepository;
         }
 
         public Cancion CrearCancion(Cancion cancion)
@@ -48,6 +50,7 @@ namespace ReproductorDeMusica.Logica
         {
             try
             {
+                _cancionListaReproduccionRepository.EliminarCancionDeTodasLasListas(idCancion);
                 _cancionRepository.EliminarCancion(idCancion);
             }
             catch (Exception ex)

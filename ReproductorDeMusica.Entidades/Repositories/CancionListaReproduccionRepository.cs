@@ -24,5 +24,28 @@ namespace ReproductorDeMusica.Entidades.Repositories
             _context.SaveChanges();
             return cancionLista;
         }
+
+        public void EliminarCancionDeLaLista(int idCancion, int idLista)
+        {
+            var lista = _context.CancionListaReproduccions
+                .Where(i => i.IdListaReproduccion == idLista && i.IdCancion == idCancion);
+
+            _context.Remove(lista);
+            _context.SaveChanges();
+        }
+
+        public void EliminarCancionDeTodasLasListas(int idCancion)
+        {
+            var listasConIdCancion = _context.CancionListaReproduccions
+                .Where(c => c.IdCancion == idCancion)
+                .ToList();
+
+            foreach (var lista in listasConIdCancion)
+            {
+                _context.Remove(lista);
+            }
+
+            _context.SaveChanges();
+        }
     }
 }

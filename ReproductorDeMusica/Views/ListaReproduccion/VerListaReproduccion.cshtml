@@ -50,12 +50,15 @@
                                         <i class="fa-solid fa-play"></i>
                                     </button>
                                 </td>
-                                <td>@cancion.Titulo</td>
+                                <td>
+                                <img src="@cancion.UrlPortada" alt="Imagen de @cancion.Titulo" class="img-thumbnail" style="width: 30px; height: 30px; margin-right: 10px;">
+                                @cancion.Titulo
+                                </td>
                                 <td>@cancion.Artista</td>
                                 <td>
-                                    <span>
-                                        <i class="fa-solid fa-trash"></i>
-                                    </span>
+                                    <button class="delete-song-button" data-cancion-id="@cancion.Id" data-lista-id="@Model.ListaReproduccion.Id">
+                                        <i class="fa-solid fa-trash delete"></i>
+                                    </button>
                                 </td>
                             </tr>
 
