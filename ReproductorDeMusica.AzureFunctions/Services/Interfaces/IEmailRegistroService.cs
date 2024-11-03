@@ -11,7 +11,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services.Interfaces
     {
         Task<EmailRegistro> GuardarEmailRegistro(EmailRegistro emailRegistro);
         List<EmailRegistro> ObtenerLosEmailsNoEnviados();
-
         void ActualizarEmailEsEnviado(EmailRegistro emailRegistro);
+
+        Task EliminarEmailRegistroPorUsuarioPlanId(int idUsuarioPlan);
     }
 }

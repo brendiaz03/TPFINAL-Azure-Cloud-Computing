@@ -10,5 +10,8 @@ namespace ReproductorDeMusica.AzureFunctions.Services.Interfaces
     public interface IUsuarioPlanService
     {
         Task<UsuarioPlan> ObtenerUsuarioPlanPorId(int id);
+        Task<List<UsuarioPlan>> ObtenerUsuariosPlanesExpirados();
+
+        Task EliminarUsuarioPlan(UsuarioPlan usuarioPlan);
     }
 }
