@@ -1,13 +1,13 @@
-﻿.modal {
+﻿.addSongModal {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-header, label, audioFileName, imageFileName {
+.modal-song-header, label, audioFileName, imageFileName {
     color: white;
 }
 
-.modal-content {
+.modal-song-content {
     background-color: #000000;
     border-radius: 10px;
 }
