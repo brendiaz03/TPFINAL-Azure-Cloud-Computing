@@ -56,17 +56,20 @@ namespace ReproductorDeMusica.AzureFunctions.Services
 
         private async Task<string> ReplaceTemplatePorTipoMensaje(string body, EmailRegistro email, TipoMensaje tipoMensaje)
         {
-            if (tipoMensaje == TipoMensaje.MENSAJE_PAGO)
-            {
-                body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre);
+           // if (tipoMensaje == TipoMensaje.MENSAJE_PAGO)
+            //{
+                body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre + " " + email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Apellido);
                 body = body.Replace("{{Plan}}", email.IdUsuarioPlanNavigation.IdPlanNavigation.TipoPlan);
-            }
-            if(tipoMensaje == TipoMensaje.MENSAJE_CADUCACION)
+                body = body.Replace("{{Fecha}}", email.IdUsuarioPlanNavigation.FechaExpiracion.Value.Date.ToString());
+
+           // }
+            /*
+            if (tipoMensaje == TipoMensaje.MENSAJE_CADUCACION)
             {
                 body = body.Replace("{{Usuario}}", email.IdUsuarioPlanNavigation.IdUsuarioNavigation.Nombre);
                 body = body.Replace("{{Plan}}", email.IdUsuarioPlanNavigation.IdPlanNavigation.TipoPlan);
                 body = body.Replace("{{Fecha}}", email.IdUsuarioPlanNavigation.FechaExpiracion.ToString());  
-            }
+            }*/
 
             return body;
         }
