@@ -44,24 +44,25 @@
 }
 
 /* Estilos para el carrusel de playlists */
-
 .carousel {
     display: flex; /* Mantiene la disposición horizontal */
-    flex-direction: column; /* Cambia a columna */
-    overflow-y: auto; /* Permite el scroll vertical */
-    height: 300px; /* Ajusta la altura según tus necesidades */
+    overflow-x: auto; /* Permite el scroll horizontal */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+    white-space: nowrap; /* Evita saltos de línea entre elementos */
+    margin-top: 20px; /* Añadir margen superior */
+    width: 100%; /* Ocupa el ancho completo */
 }
-    .carousel .item {
-        flex: 0 0 auto; /* Mantiene los elementos en una sola línea */
-        width: 100px; /* Ancho de cada elemento, ajusta según tu diseño */
-        margin-right: 10px; /* Espaciado entre elementos */
-    }
+.carousel .item {
+    flex: 0 0 auto; /* Mantiene los elementos en una sola línea */
+    width: 200px; /* Ancho de cada elemento, ajusta según tu diseño */
+    margin-right: 10px; /* Espaciado entre elementos */
+}
 
-    .carousel img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
+.carousel img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
 
 .spotify-playlists {
