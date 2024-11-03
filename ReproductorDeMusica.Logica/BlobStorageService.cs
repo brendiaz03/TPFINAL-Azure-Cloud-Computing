@@ -76,8 +76,7 @@ namespace ReproductorDeMusica.Logica
             using (var reader = new AudioFileReader(audioBlobUrl))
             {
                 TimeSpan duration = reader.TotalTime;
-                return string.Format("{0:D2}:{1:D2}:{2:D2}",
-                    (int)duration.TotalHours,
+                return string.Format("{0:D2}:{1:D2}",
                     duration.Minutes,
                     duration.Seconds); ; // Devuelve la duración
             }

@@ -52,10 +52,11 @@ namespace ReproductorDeMusica.Web.Controllers
                 // Subir los archivos a Azure Blob Storage
                 string urlAudio = await _blobStorageService.SubirArchivoAsync(model.Audio, "audios");
                 string urlImagen = await _blobStorageService.SubirArchivoAsync(model.Imagen, "imagenes-canciones");
+                string duracion = await _blobStorageService.ObtenerDuracionDelArchivo(urlAudio);
 
                 // Convertir el ViewModel a la entidad Cancion
                 Cancion cancion = CancionViewModel.ToCancion(model, urlAudio, urlImagen);
-
+                cancion.Duracion = duracion;
                 // Guardar la canción en la base de datos
                 _cancionService.CrearCancion(cancion);
 
