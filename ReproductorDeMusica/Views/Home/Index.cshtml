@@ -1,4 +1,4 @@
-﻿@model ReproductorDeMusica.Web.Models.HomeViewModel
+﻿@model ReproductorDeMusica.Web.Models.CancionesViewModel
 @{
     ViewData["Title"] = "Home";
 }
@@ -10,26 +10,12 @@
     <link rel="stylesheet" href="~/css/Home/Home.css">
 </head>
 
-<body>
-    <div class="main-container">
-
-        <!-- Los datos deberian cargarse con el JS con una llamada a AJAX-->
-
-      @*   <div class="spotify-playlists">
-
-            <div class="list">
-                <div class="item">
-                    <img src="/images/Shakira.jpg" />
-                    <div class="play">
-                        <span class="fa fa-play"></span> <!-- Agregar link para que redirija a la playlist-->
-                    </div>
-                    <h4 class="fw-bold">Título de la playlist</h4>
-                </div>
+    <div class="container">
+        @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+        {
+            <div id="reproductorContainer" class="mt-auto">
+                <partial name="_CancionesPartial" />
             </div>
-
-        </div> *@
-
+        }
     </div>
-
     <script src="/js/site.js"></script>
-</body>

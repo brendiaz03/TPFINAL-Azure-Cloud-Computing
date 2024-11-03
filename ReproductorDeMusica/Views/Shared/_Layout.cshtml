@@ -82,22 +82,23 @@
         @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
         {
             <aside class="sidebar">
-                <h2>Tu biblioteca</h2>
+                <h3>Tu biblioteca</h3>
                 <nav>
-                    <ul class="nav flex-column w-100">
-                        <li class="nav-item">
-                            <a href="/ListaReproduccion/Index" class="span-verMisPlaylists">
-                                <span class="material-symbols-outlined">
+                    <ul class="nav flex-column w-100 p-1">
+                        <li class="nav-item  p-2">
+                            <a href="/ListaReproduccion/Index" class="span-verMisPlaylists active">
+                                <div class="material-symbols-outlined">
                                     queue_music
-                                </span> Ver Mis Playlists
+                                </div>
+                                <label> Ver Mis Playlists</label>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <button id="createSongButton" class="span-verMisPlaylists">
-                                <span class="material-symbols-outlined">
+                        <li class="nav-item  p-2">
+                            <a class="span-verMisPlaylists active">
+                                <div class="material-symbols-outlined">
                                     library_music
-                                </span> Crear canción
-                            </button>
+                                </div> <label>Ver Mis Canciones </label>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -107,13 +108,14 @@
         <div class="flex-grow-1 p-4">
             <main role="main" class="pb-3">
                 @RenderBody()
-            </main>
-            @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
-            {
-                <div id="reproductorContainer" class="mt-auto">
-                    <partial name="_ReproductorPartial" />
-                </div>
-            }
+                @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+                {
+                    <div id="reproductorContainer" class="mt-auto">
+                        <partial name="_ReproductorPartial" />
+                    </div>
+                }
+
+            </main>  
         </div>
     </div>
     <!-- Footer -->

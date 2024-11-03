@@ -12,13 +12,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-header {
-    height: 4em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .logo-link {
     display: inline-block;
     width: 3em;
@@ -28,14 +21,34 @@ header {
 .logo-img {
     width: 130px;
 }
-/* Header */
+
 .navbar {
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 20px 10px 20px;
     background-color: #181818;
 }
+.nav-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer; /* Cambia el cursor a puntero al pasar el mouse */
+    transition: background-color 0.3s ease; /* Agrega una transición suave */
+}
+    /* Color de hover y seleccionado */
+    .nav-item a:hover,
+    .nav-item a:focus,
+    .nav-item a.active { /* Usar 'active' para indicar el estado seleccionado */
+        background-color: #f0f0f0; /* Cambia esto por el color deseado */
+        color: #000; /* Cambia esto si deseas un color diferente para el texto */
+    }
+.material-symbols-outlined {
+    margin-right: 8px;
+}
+
 
 .btn-login {
     background-color: #ffffff;
@@ -75,12 +88,6 @@ header {
     font-size: 26px;
     margin: 0px 20px;
     width: auto;
-}
-
-/* Main layout */
-.main-container {
-    display: flex;
-    height: 100vh;
 }
 
 .sidebar {
@@ -316,20 +323,5 @@ select:-webkit-autofill:focus {
     .span-verMisPlaylists:hover,
     .span-verMisPlaylists:active,
     .span-verMisPlaylists:focus {
-        color: #ffffff;
-    }
-
-#createSongButton {
-    all: unset;
-    color: #b3b3b3;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-    #createSongButton:hover,
-    #createSongButton:active,
-    #createSongButton:focus {
         color: #ffffff;
     }

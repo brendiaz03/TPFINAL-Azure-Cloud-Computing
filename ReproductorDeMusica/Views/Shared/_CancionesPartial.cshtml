@@ -1,13 +1,59 @@
-﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.Cancion>
+﻿@model ReproductorDeMusica.Web.Models.CancionesViewModel;
 
-<ul class="list-group">
-    @foreach (var cancion in Model)
+<head>
+    <link rel="stylesheet" href="~/css/Layout/Layout.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/Shared/CancionesPartial.css" asp-append-version="true">
+</head>
+<div class="table-container">
+<table class="table">
+    <thead>
+        <tr>
+                                            <th scope="col"></th>
+            <th scope="col">Título</th>
+            <th scope="col">Artista</th>
+            <th scope="col">
+                <span class="material-symbols-outlined">
+                    schedule
+                </span>
+            </th
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cancion in Model.Canciones)
     {
-        <li class="list-group-item">
-            <strong>@cancion.Titulo</strong> - @cancion.Artista
-            <button class="btn btn-primary btn-sm agregar-cancion" data-cancion-id="@cancion.Id">
-                Agregar
-            </button>
-        </li>
+
+         @*   <tr class="playlist-item" data-cancion-id="@cancion.Id">
+                                <td class="playlist-index" style="width: 30px;">
+                                <button class="btn-reproducir btn btn-sm playlist-play-btn" 
+                            style="display: inline-block; width: 24px; height: 24px; padding: 0; font-size: 16px;" 
+                            data-cancion-id="@cancion.Id" data-ruta-audio="@cancion.RutaAudio">
+<div class="contenedor-icono-imagen" style="background-image: url('@cancion.UrlPortada');">
+    <i class="icono-delante"></i>
+</div>
+
+                    </button>
+                                </td>
+                                <td>@cancion.Titulo</td>
+                                <td>@cancion.Artista</td>
+                                <td>@cancion.Duracion</td>
+                            </tr> *@
+            
+                <tr class="playlist-item" data-cancion-id="@cancion.Id" data-ruta-audio="@cancion.RutaAudio">
+                    <td class="playlist-index" style="width: 30px;">
+                        <button class="btn-reproducir btn btn-sm playlist-play-btn" 
+                                style="display: inline-block; width: 24px; height: 24px; padding: 0; font-size: 16px;">
+                            <div class="contenedor-icono-imagen" style="background-image: url('@cancion.UrlPortada');">
+                                <i class="icono-delante"></i>
+                            </div>
+                        </button>
+                    </td>
+                    <td>@cancion.Titulo</td>
+                    <td>@cancion.Artista</td>
+                    <td>@cancion.Duracion</td>
+                </tr>
     }
-</ul>
+    </tbody>
+</table>
+ <script src="~/js/Layout/Layout.js"></script>
+  <script src="~/js/Shared/CancionesPartial.js"></script>
+ </div>
