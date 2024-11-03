@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     margin-right: 20px;
+    flex-direction: column;
 }
 
 .input-container {
@@ -48,7 +49,7 @@
 body {
     display: flex;
     flex-direction: column;
-    height: 135vh;
+    height: 126vh;
     margin: 0; /* Asegúrate de que no haya margen por defecto */
 }
 
@@ -60,16 +61,13 @@ body {
 }
 
 .sidebar {
-    height: 700px; /* Aumentar la altura del sidebar */
-    overflow-y: auto; /* Habilitar scroll si es necesario */
-    padding: 20px; /* Espaciado interno */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para un mejor aspecto */
+    height: 630px;
+    overflow-y: auto;
+    padding: 20px; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
-.footer {
-    margin-top: auto; /* Para que el footer siempre esté al final */
-}
 
 /* Ajuste general para el layout */
 body {
@@ -112,4 +110,29 @@ main {
 .comprarPremium button:hover {
     background: linear-gradient(to right,#609bf5, #4b4bde);
     transition: width 0.5s ease;
+    overflow-y: auto;
+}
+
+thead {
+    color: #fff;
+    font-weight: bold;
+}
+
+.playlist-item {
+    cursor: pointer;
+    color: #fff;
+}
+
+    .playlist-item:hover .index-text {
+        display: none;
+    }
+
+    .playlist-item:hover .playlist-play-btn {
+        display: inline-block;
+        font-size: 16px;
+        color: white;
+    }
+
+.listening-song {
+    color: #5EADF2;
 }

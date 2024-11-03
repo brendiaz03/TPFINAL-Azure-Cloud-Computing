@@ -14,5 +14,7 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories.Interfaces
         List<EmailRegistro> GetEmailRegistroNoEnviados();
 
         void UpdateEsEnviadoATrue(EmailRegistro emailRegistro);
+
+        void DeleteEmailRegistroPorUsuarioPlanId(int idUsuarioPlan);
     }
 }

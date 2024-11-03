@@ -27,6 +27,13 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories
                 .Where(em => em.EsEnviado == false).ToList();
         }
 
+        public void DeleteEmailRegistroPorUsuarioPlanId(int idUsuarioPlan)
+        {
+            EmailRegistro em = _context.EmailRegistros.First(em => em.IdUsuarioPlan == idUsuarioPlan);
+            _context.EmailRegistros.Remove(em);
+            _context.SaveChanges();
+        }
+
         public EmailRegistro SaveEmailRegistro(EmailRegistro emailRegistro)
         {
             _context.EmailRegistros.Add(emailRegistro);

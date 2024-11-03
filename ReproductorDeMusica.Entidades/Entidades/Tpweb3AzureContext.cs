@@ -19,6 +19,8 @@ public partial class Tpweb3AzureContext : DbContext
 
     public virtual DbSet<CancionListaReproduccion> CancionListaReproduccions { get; set; }
 
+    public virtual DbSet<EmailRegistro> EmailRegistros { get; set; }
+
     public virtual DbSet<ListaReproduccion> ListaReproduccions { get; set; }
 
     public virtual DbSet<Plan> Plans { get; set; }
@@ -32,7 +34,7 @@ public partial class Tpweb3AzureContext : DbContext
         optionsBuilder.UseLazyLoadingProxies();
         optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User Id=pw3Admin;Password=Admin242;Encrypt=True;TrustServerCertificate=True;");
     }
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cancion>(entity =>
@@ -51,7 +53,9 @@ public partial class Tpweb3AzureContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("artista");
             entity.Property(e => e.Creador).HasColumnName("creador");
-            entity.Property(e => e.Duracion).HasColumnName("duracion");
+            entity.Property(e => e.Duracion)
+                .HasMaxLength(255)
+                .HasColumnName("duracion");
             entity.Property(e => e.RutaAudio).HasColumnName("rutaAudio");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(255)
@@ -79,6 +83,28 @@ public partial class Tpweb3AzureContext : DbContext
             entity.HasOne(d => d.IdListaReproduccionNavigation).WithMany(p => p.CancionListaReproduccions)
                 .HasForeignKey(d => d.IdListaReproduccion)
                 .HasConstraintName("FK_CancionListaReproduccion_ListaReproduccion");
+        });
+
+        modelBuilder.Entity<EmailRegistro>(entity =>
+        {
+            entity.ToTable("EmailRegistro");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .HasColumnName("email");
+            entity.Property(e => e.EsEnviado).HasColumnName("esEnviado");
+            entity.Property(e => e.FechaCreada)
+                .HasColumnType("datetime")
+                .HasColumnName("fechaCreada");
+            entity.Property(e => e.FechaProxima)
+                .HasColumnType("datetime")
+                .HasColumnName("fechaProxima");
+            entity.Property(e => e.IdUsuarioPlan).HasColumnName("idUsuarioPlan");
+
+            entity.HasOne(d => d.IdUsuarioPlanNavigation).WithMany(p => p.EmailRegistros)
+                .HasForeignKey(d => d.IdUsuarioPlan)
+                .HasConstraintName("FK_EmailRegistro_UsuarioPlan");
         });
 
         modelBuilder.Entity<ListaReproduccion>(entity =>

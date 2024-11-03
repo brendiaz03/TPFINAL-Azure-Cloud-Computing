@@ -24,5 +24,16 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories
                 .Include(up=>up.IdUsuarioNavigation).First(up => up.Id == id);
 
         }
+
+        public List<UsuarioPlan> GetAllUsuarioPlanesExpirados() {
+            return _context.UsuarioPlans.Include(up => up.IdPlanNavigation)
+                .Include(up => up.IdUsuarioNavigation).Where(up=> (up.FechaExpiracion == DateTime.Now.AddDays(-1).Date)).ToList();
+        }
+
+        public void DeleteUsuarioPlan(UsuarioPlan usuarioPlan)
+        {
+            _context.UsuarioPlans.Remove(usuarioPlan);
+            _context.SaveChanges();
+        }
     }
 }

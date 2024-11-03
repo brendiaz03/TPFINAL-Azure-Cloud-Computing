@@ -18,9 +18,19 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             _usuarioPlanRepository = usuarioPlanRepository;
         }
 
+        public async Task EliminarUsuarioPlan(UsuarioPlan usuarioPlan)
+        {
+            _usuarioPlanRepository.DeleteUsuarioPlan(usuarioPlan);
+        }
+
         public async Task<UsuarioPlan> ObtenerUsuarioPlanPorId(int id)
         {
             return _usuarioPlanRepository.GetUsuarioPlanById(id);
+        }
+
+        public async Task<List<UsuarioPlan>> ObtenerUsuariosPlanesExpirados()
+        {
+            return _usuarioPlanRepository.GetAllUsuarioPlanesExpirados();
         }
     }
 }

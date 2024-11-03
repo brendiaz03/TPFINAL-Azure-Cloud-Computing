@@ -16,21 +16,23 @@ namespace ReproductorDeMusica.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IUsuarioService _usuarioService;
         private readonly IUsuarioPlanService _usuarioPlanService;
+        private readonly ICancionService _cancionService;
 
 
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService, IUsuarioPlanService usuarioPlanService)
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService, IUsuarioPlanService usuarioPlanService, ICancionService cancionService)
         {
             _logger = logger;
             _usuarioService = usuarioService;
             _usuarioPlanService = usuarioPlanService;
+            _cancionService = cancionService;
         }
 
         public IActionResult Index()
         {
             if(HttpContext.Session.GetInt32("UsuarioId") == null)
             {
-                return RedirectToAction("Login", "Usuario");
+                return View();
             }
 
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
@@ -54,27 +56,34 @@ namespace ReproductorDeMusica.Controllers
                 }
             }
 
-            return View(new HomeViewModel());
+            List<Cancion> canciones = _cancionService.GetCancions();
+            ViewBag.Canciones = canciones;
+            var viewModel = new CancionesViewModel
+            {
+                Canciones = canciones ?? new List<Cancion>()
+            };
+
+            return View(viewModel);
         }
-        
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        [HttpGet("api/playlists")]
-        public IActionResult GetPlaylists()
-        {
-            var playlists = new List<HomeViewModel>
-    {
-        new HomeViewModel { Name = "Shakira"},
+    //    [HttpGet("api/playlists")]
+    //    public IActionResult GetPlaylists()
+    //    {
+    //        var playlists = new List<HomeViewModel>
+    //{
+    //    new HomeViewModel { Name = "Shakira"},
       
-        // Agrega más artistas o playlists aquí
-    };
+    //    // Agrega mï¿½s artistas o playlists aquï¿½
+    //};
 
-            return Json(playlists);
-        }
+    //        return Json(playlists);
+    //    }
 
     }
 }

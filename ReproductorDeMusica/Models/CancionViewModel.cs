@@ -16,10 +16,11 @@ namespace ReproductorDeMusica.Web.Models
         public IFormFile Imagen { get; set; }
 
         // Método para convertir el ViewModel a la entidad Cancion
-        public static Cancion ToCancion(CancionViewModel model, string audioUrl, string imagenUrl)
+        public static Cancion ToCancion(CancionViewModel model, string audioUrl, string imagenUrl, int idUsuario)
         {
             return new Cancion
             {
+                Creador = idUsuario,
                 Titulo = model.Titulo,
                 Artista = model.Artista,
                 Album = model.Album,

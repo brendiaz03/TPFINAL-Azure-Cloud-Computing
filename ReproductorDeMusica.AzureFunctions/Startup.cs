@@ -17,7 +17,6 @@ using ReproductorDeMusica.AzureFunctions.Entidades;
 using Microsoft.EntityFrameworkCore;
 
 
-
 [assembly: FunctionsStartup(typeof(ReproductorDeMusica.AzureFunctions.Startup))]
 namespace ReproductorDeMusica.AzureFunctions
 {

@@ -32,7 +32,13 @@ namespace ReproductorDeMusica.Entidades.Repositories
             pago.IdUsuarioNavigation = usuario;
             pago.IdPlanNavigation = planAPagar;
             pago.FechaPago = DateTime.Now.Date;
-            pago.FechaExpiracion = DateTime.Now.Date.AddDays((double)planAPagar.Duracion);
+
+
+            if (planAPagar.Id == 1)
+                pago.FechaExpiracion = DateTime.Now.Date.AddYears(100);
+
+            if (planAPagar.Id == 2)
+                pago.FechaExpiracion = DateTime.Now.Date.AddMonths((int)planAPagar.Duracion);
 
             _context.UsuarioPlans.Add(pago);
             _context.SaveChanges();

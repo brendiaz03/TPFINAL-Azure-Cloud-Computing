@@ -41,7 +41,7 @@
                             <i class="fas fa-search search-icon"></i>
                         </div>
                     </form>
-                    <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
+                    <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto; position:absolute; z-index: 10; top:50px; right:32px"></div>
                 </div>
                 <div class="contenedor-botones">
                     <div class="usuario" id="usuarioMenu">
@@ -80,13 +80,12 @@
         @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
         {
             <aside class="sidebar">
-                <h2>Tu biblioteca</h2>
+                <h3>Tu biblioteca</h3>
                 <nav>
-                    <ul class="nav flex-column w-100">
-                        <li class="nav-item">
+                    <ul class="nav flex-column w-100 p-1">
+                        <li class="nav-item   p-2">
                             @if (ViewBag.DeshabilitarSidebar==true)
                             {
-
                                 <a href="#" class="span-verMisPlaylists" style="color:darkgray">
                                     <span class="material-symbols-outlined">
                                         queue_music
@@ -95,30 +94,31 @@
                             }
                             else if(ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
                             {
-                                <a href="/ListaReproduccion/Index"  class="span-verMisPlaylists">
-                                    <span class="material-symbols-outlined">
+                                <a href="/ListaReproduccion/Index" class="span-verMisPlaylists active">
+                                    <div class="material-symbols-outlined">
                                         queue_music
-                                    </span> Ver Mis Playlists
+                                    </div>
+                                    <label class="cursor-pointer">Mis Playlists</label>
                                 </a>
                             }
                         </li>
                         <li class="nav-item">
-                             @if (ViewBag.DeshabilitarSidebar==true)
+                            @if (ViewBag.DeshabilitarSidebar == true)
                             {
                                 <button class="span-verMisPlaylists" style="background-color:darkgray">
-                                  <span class="material-symbols-outlined">
-                                    library_music
-                                </span> Crear canción
+                                    <span class="material-symbols-outlined">
+                                        library_music
+                                    </span> Crear canción
                                 </button> <br />
 
                             }
-                            else if(ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
+                            else if (ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
                             {
-                                <button id="createSongButton" class="span-verMisPlaylists">
-                                <span class="material-symbols-outlined">
-                                    library_music
-                                </span> Crear canción
-                            </button>
+                                <a class="span-verMisPlaylists active">
+                                    <div class="material-symbols-outlined">
+                                        library_music
+                                    </div> <label class="cursor-pointer">Mis Canciones </label>
+                                </a>
                             }
                         </li>
                         <li>

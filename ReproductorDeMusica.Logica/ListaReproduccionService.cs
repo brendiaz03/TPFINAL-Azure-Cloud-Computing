@@ -60,7 +60,7 @@ namespace ReproductorDeMusica.Logica
             }
         }
 
-        public List<ListaReproduccion> GetListasReproduccions()
+        public async Task<List<ListaReproduccion>> GetListasReproduccions()
         {
             try
             {

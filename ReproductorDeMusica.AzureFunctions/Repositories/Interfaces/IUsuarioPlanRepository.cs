@@ -10,6 +10,8 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories.Interfaces
     public interface IUsuarioPlanRepository
     {
         UsuarioPlan GetUsuarioPlanById(int id);
-
+        List<UsuarioPlan> GetAllUsuarioPlanesExpirados();
+        
+        void DeleteUsuarioPlan(UsuarioPlan usuarioPlan);    
     }
 }

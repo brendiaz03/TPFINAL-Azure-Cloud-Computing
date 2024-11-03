@@ -28,6 +28,11 @@ namespace ReproductorDeMusica.AzureFunctions.Services
             return _emailRegistroRepository.SaveEmailRegistro(emailRegistro);
         }
 
+        public async Task EliminarEmailRegistroPorUsuarioPlanId(int idUsuarioPlan)
+        {
+             _emailRegistroRepository.DeleteEmailRegistroPorUsuarioPlanId(idUsuarioPlan);
+        }
+
         public List<EmailRegistro> ObtenerLosEmailsNoEnviados()
         {
             return _emailRegistroRepository.GetEmailRegistroNoEnviados();
