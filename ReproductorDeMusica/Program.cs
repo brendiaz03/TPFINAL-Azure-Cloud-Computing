@@ -6,6 +6,7 @@ using ReproductorDeMusica.Logica.Interfaces;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
+using ReproductorDeMusica.Web.Controllers;
 
 
 
@@ -31,10 +32,12 @@ builder.Services.AddSingleton(sp =>
 builder.Services.AddSingleton<ICancionRepository, CancionRepository>();
 builder.Services.AddSingleton<IListaReproduccionRepository, ListaReproduccionRepository>();
 builder.Services.AddSingleton<IUsuarioPlanRepository, UsuarioPlanRepository>();
+builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddSingleton<ICancionListaReproduccionRepository, CancionListaReproduccionRepository>();
 
 // Servicios
-builder.Services.AddSingleton<IUsuarioLogica, UsuarioLogica>();
+builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+builder.Services.AddSingleton<IUsuarioPlanService, UsuarioPlanService>();
 builder.Services.AddSingleton<IPagoService, PagoService>();
 builder.Services.AddSingleton<ICorreoService, CorreoService>();
 builder.Services.AddSingleton<ICancionService, CancionService>();
@@ -44,6 +47,7 @@ builder.Services.AddSingleton<ICancionListaReproduccionService, CancionListaRepr
 
 // Add HttpClient
 builder.Services.AddSingleton<HttpClient>();
+builder.Services.AddHttpContextAccessor();
 
 
 var app = builder.Build();
@@ -61,6 +65,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

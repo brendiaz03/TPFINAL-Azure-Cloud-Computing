@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 using ReproductorDeMusica.Logica.Interfaces;
@@ -10,14 +13,17 @@ namespace ReproductorDeMusica.Web.Controllers;
 
 public class UsuarioController : Controller
 {
-    private readonly IUsuarioLogica _usuarioLogica;
+    private readonly IUsuarioService _usuarioService;
     private readonly IBlobStorageService _blobStorageService;
+    private readonly IUsuarioPlanService _usuarioPlanService;
 
 
-    public UsuarioController(IUsuarioLogica usuarioLogica, IBlobStorageService blobStorageService)
+
+    public UsuarioController(IUsuarioService usuarioService, IBlobStorageService blobStorageService, IUsuarioPlanService usuarioPlanService)
     {
-        _usuarioLogica = usuarioLogica;
+        _usuarioService = usuarioService;
         _blobStorageService = blobStorageService;
+        _usuarioPlanService = usuarioPlanService;
     }
 
     [HttpGet]
@@ -35,7 +41,6 @@ public class UsuarioController : Controller
     [HttpPost]
     public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
     {
-
         ViewBag.EsFormulario = true;
 
         if (!ModelState.IsValid)
@@ -45,17 +50,21 @@ public class UsuarioController : Controller
 
         try
         {
-
             // Subir los archivos a Azure Blob Storage
-            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "fotoDePerfil-usuarios");
+            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
 
             // Convertir el UsuarioViewModel a la entidad Usuario
             Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
 
-            _usuarioLogica.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
+            _usuarioService.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
 
         }
         catch (UsuarioExistenteException e)
+        {
+            ModelState.AddModelError(string.Empty, e.Message);
+            return View(usuarioModel);
+        }
+        catch (Exception e)
         {
             ModelState.AddModelError(string.Empty, e.Message);
             return View(usuarioModel);
@@ -86,7 +95,7 @@ public class UsuarioController : Controller
             return View(loginModel);
         }
 
-        var usuario = _usuarioLogica.ValidarUsuario(loginModel.NombreUsuario, loginModel.Contrasenia);
+        var usuario = _usuarioService.ValidarUsuario(loginModel.NombreUsuario, loginModel.Contrasenia);
 
         if (usuario == null)
         {
@@ -100,35 +109,68 @@ public class UsuarioController : Controller
         }
 
     }
-    public IActionResult Logout(LoginViewModel loginModel)
+    public async Task<IActionResult> Logout(LoginViewModel loginModel)
     {
         HttpContext.Session.Clear();
+        
+        if (User.Identity.IsAuthenticated)
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
 
         return RedirectToAction("Index", "Home");
     }
 
-    [HttpGet]
+
+[HttpGet]
     public IActionResult Cuenta()
     {
-
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
         ViewBag.EstaLoggeado = usuarioId != null;
+        ViewBag.MostrarBotonPagar = false;
+        ViewBag.MostrarPremium = false;
+
 
         if (usuarioId != null)
         {
-            Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
-            var usuarioViewModel = UsuarioViewModel.FromUsuario(buscado);
-            ViewBag.NombreUsuario = buscado.NombreUsuario;
-            return View(usuarioViewModel);
+            var usuario = _usuarioPlanService.ObtenerUsuarioConPlan((int)usuarioId);
 
+            if (usuario != null)
+            {
+                var usuarioPlan = usuario.UsuarioPlans.FirstOrDefault();
+                ViewBag.NombreUsuario = usuario.NombreUsuario;
+                ViewBag.ImagenUsuario = usuario.ImagenUsuario;
+
+                string fechaFinalizacionPremium = usuarioPlan?.FechaPago.HasValue == true
+               ? usuarioPlan.FechaPago.Value.AddMonths(1).ToString("D", new System.Globalization.CultureInfo("es-ES"))
+               : null;
+
+                var CuentaViewModel = new CuentaViewModel
+                {
+                    Nombre = usuario.Nombre,
+                    Apellido = usuario.Apellido,
+                    Email = usuario.Email,
+                    NombreUsuario = usuario.NombreUsuario,
+                    FechaPago = usuarioPlan?.FechaPago,
+                    TipoPlan = usuarioPlan?.IdPlanNavigation?.TipoPlan,
+                    FechaFinalizacionPremium = fechaFinalizacionPremium
+                };
+                if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
+                {
+                    ViewBag.MostrarBotonPagar = true;
+                }
+                else
+                {
+                    ViewBag.MostrarPremium = true;
+                }
+                return View(CuentaViewModel);
+            }
         }
-        else
-        {
-            return View(new UsuarioViewModel());
-        }
 
-
+        return View(new CuentaViewModel());
     }
+
 }
 
 

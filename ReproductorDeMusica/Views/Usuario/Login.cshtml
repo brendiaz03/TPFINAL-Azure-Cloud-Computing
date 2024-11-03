@@ -1,7 +1,6 @@
 ﻿@model ReproductorDeMusica.Web.Models.LoginViewModel
 <link rel="stylesheet" href="~/css/Usuario/Login.css">
 
-<div class="main_login">
     <h1 class="titulo_login">Iniciar Sesión</h1>
 
     <form asp-action="Login" method="post" class="fondo-form">
@@ -28,12 +27,13 @@
 
             <section class="botones">
                 <button type="submit" id="boton_Login" class="btn-login">Iniciar Sesión</button>
+                <a asp-action="Index" asp-controller="Autenticacion" class="btn-login">Logearse con Hotmail</a>
             </section>
             <section class="redirigir-register">
                 <p class="text-center"> ¿No tienes cuenta? <a href="/Usuario/RegistrarUsuario"> Regístrate aquí. </a> </p>
             </section>
         </section>
     </form>
-</div>
+
 
                 <script src="~/js/Usuario/Login.js"> </script>

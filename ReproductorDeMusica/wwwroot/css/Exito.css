@@ -9,6 +9,7 @@
     border: none;
     text-transform: capitalize;
     transition: all .2s linear;
+    color: white;
 }
 
 .container {
@@ -17,11 +18,12 @@
     align-items: center;
     padding: 25px;
     min-height: 100vh;
-    background: linear-gradient(90deg, #0D92F4 60%, #77CDFF 40.1%);
+    background: #000;
 }
 
 .exito {
-    background-color: white;
+    background: #0d6ace;
+    box-shadow: 0px 0px 10px #0d6ace;
     height: 600px;
     width: 500px;
     display: flex;
@@ -38,5 +40,5 @@
         font-weight: 500;
         font-size: 40px;
         text-align: center;
-        color: #2ecc71;
+        color: #fff;
     }

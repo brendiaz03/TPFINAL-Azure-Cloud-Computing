@@ -27,10 +27,10 @@ namespace ReproductorDeMusica.Web.Controllers
         [HttpPost]
         public IActionResult RealizarPago()
         {
-            int idUsuario = 3; // Prueba
+            int idUsuario = (int) HttpContext.Session.GetInt32("UsuarioId"); // Prueba
             int idPlan = int.Parse(Request.Form["idPlan"]);
-            _pagoService.RealizarPago(idPlan, idUsuario);
-            _correoService.EnviarCorreoPago("acavauncorreo@gmail.com");
+            UsuarioPlan usuarioPlan = _pagoService.RealizarPago(idPlan, idUsuario);
+            _correoService.EnviarCorreoPago(usuarioPlan.Id);
             return View("PagoRealizado");
         }
 

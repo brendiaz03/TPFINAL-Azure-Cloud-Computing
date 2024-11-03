@@ -20,7 +20,7 @@ namespace ReproductorDeMusica.Logica
             _cancionRepository = cancionRepository;
         }
 
-        public Cancion CrearCancion(Cancion cancion)
+        public async Task<Cancion> CrearCancion(Cancion cancion)
         {
             try
             {
@@ -56,11 +56,11 @@ namespace ReproductorDeMusica.Logica
             }
         }
 
-        public Cancion GetCancionById(int id)
+        public async Task<Cancion> GetCancionById(int id)
         {
             try
             {
-                return _cancionRepository.GetCancionById(id);
+                return  _cancionRepository.GetCancionById(id);
             } catch (Exception ex)
             {
                 throw ex;
@@ -79,7 +79,7 @@ namespace ReproductorDeMusica.Logica
             }
         }
 
-        public IEnumerable<Cancion> BuscarCancionesPorNombre(string nombre)
+        public async Task<IEnumerable<Cancion>> BuscarCancionesPorNombre(string nombre)
         {
             try
             {

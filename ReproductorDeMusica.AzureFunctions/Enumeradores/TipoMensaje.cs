@@ -8,6 +8,6 @@ namespace ReproductorDeMusica.AzureFunctions.Enumeradores
 {
     public enum TipoMensaje
     {
-        MENSAJE_PAGO, MENSAJE_RECORDATORIO
+        MENSAJE_PAGO, MENSAJE_CADUCACION
     }
 }

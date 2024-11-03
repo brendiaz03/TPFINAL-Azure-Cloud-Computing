@@ -1,10 +1,37 @@
-﻿@model ReproductorDeMusica.Web.Models.UsuarioViewModel
+﻿@model ReproductorDeMusica.Web.Models.CuentaViewModel
 <link rel="stylesheet" href="~/css/Usuario/Cuenta.css">
 
 <div class="contenedor-pagina" id="body_cuenta">
-<h2>Cuenta de @Model.NombreUsuario</h2>
-<p>Nombre: @Model.Nombre</p>
-<p>Apellido: @Model.Apellido</p>
-<p>Email: @Model.Email</p>
+    <div class="fondo-cuenta">
+    <h2>Cuenta de @Model.NombreUsuario</h2>
+        <div class="info-cuenta">
+         <div>
+            <p>Nombre: @Model.Nombre</p>
+            <p>Apellido: @Model.Apellido</p>
+            <p>Email: @Model.Email</p>
+         </div>
+         <div>
+            @if (ViewBag.MostrarPremium)
+             {
+              <p>Fecha de Pago: @Model.FechaPago?.ToString("dd/MM/yyyy")</p>
+             }
+            <p>Tipo de Plan: @Model.TipoPlan</p>
+         </div>
+      </div>
 </div>
-<!-- Otros atributos que desees mostrar -->
+
+
+@if (ViewBag.MostrarBotonPagar)
+{
+    <div class="boton-pagar">
+        <p>¡Hazte miembro premium para disfrutar al máximo!</p>
+            <a asp-controller="Pago" asp-action="Index" asp-route-planId="2"><button type="button" class="btn-principal">Pagar</button></a>
+        </div>
+}
+
+    @if (ViewBag.MostrarPremium)
+    {
+        <div class="boton-pagar">
+            <p>Usted ya es usuario PREMIUM. Su suscripción finaliza el dia: @Model.FechaFinalizacionPremium</p>
+        </div>
+    }

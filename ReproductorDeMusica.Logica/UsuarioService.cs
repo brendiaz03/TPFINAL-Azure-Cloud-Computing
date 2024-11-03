@@ -1,17 +1,23 @@
 ﻿using ReproductorDeMusica.Entidades.Entidades;
-using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Logica.Interfaces;
 using System.Text;
 using System.Security.Cryptography;
+using ReproductorDeMusica.Entidades.Repositories.Interfaces;
+
+using ReproductorDeMusica.Entidades.Repositories;
 
 namespace ReproductorDeMusica.Logica
 {
-    public class UsuarioLogica : IUsuarioLogica
+    public class UsuarioService : IUsuarioService
     {
-        private readonly Tpweb3AzureContext _context;
+        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IUsuarioPlanRepository _usuarioPlanRepository;
 
-        public UsuarioLogica(Tpweb3AzureContext context)
+
+        public UsuarioService(IUsuarioRepository usuarioRepository, IUsuarioPlanRepository usuarioPlanRepository)
         {
-            _context = context;
+            _usuarioRepository = usuarioRepository;
+            _usuarioPlanRepository = usuarioPlanRepository;
         }
 
         public void RegistrarUsuario(Usuario usuario)
@@ -19,8 +25,9 @@ namespace ReproductorDeMusica.Logica
             if (BuscarUsuario(usuario) == null)
             {
                 usuario.Contrasenia=this.HashPassword(usuario.Contrasenia);
-                _context.Usuarios.Add(usuario);
-                _context.SaveChanges();
+                const int PLAN_GRATUITO = 1;
+                this._usuarioRepository.RegistrarUsuario(usuario);
+                this._usuarioPlanRepository.AgregarNuevoUsuarioPlan(PLAN_GRATUITO, usuario.Id);
             }
             else
             {
@@ -30,13 +37,13 @@ namespace ReproductorDeMusica.Logica
 
         public Usuario BuscarUsuario(Usuario usuario)
         {
-            return _context.Usuarios.FirstOrDefault(u => u.NombreUsuario == usuario.NombreUsuario || u.Email == usuario.Email);
+            return this._usuarioRepository.BuscarUsuario(usuario);
         }
 
         public Usuario ValidarUsuario(string nombreUsuario, string contrasenia)
         {
-            var usuario = _context.Usuarios.FirstOrDefault(u => u.NombreUsuario == nombreUsuario);
 
+            var usuario = this._usuarioRepository.buscarUsuarioPorUsername(nombreUsuario);
             if (usuario == null)
             {
                 return null;
@@ -47,9 +54,7 @@ namespace ReproductorDeMusica.Logica
             return isPasswordValid ? usuario : null;
         }
 
-       
-        //HASH DE CONTRASEÑAS
-        public string HashPassword(string password)
+    public string HashPassword(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
@@ -71,16 +76,16 @@ namespace ReproductorDeMusica.Logica
             return hashOfInput.Equals(storedHash);
         }
 
-        public Usuario buscarUsuarioPorID(int usuarioId)
+        public Usuario BuscarUsuarioPorID(int usuarioId)
         {
-            return _context.Usuarios.FirstOrDefault(u => u.Id == usuarioId);
+            return this._usuarioRepository.buscarUsuarioPorID(usuarioId);
+        }
+
+        public Usuario BuscarUsuarioPorMail(string mail)
+        {
+            return this._usuarioRepository.BuscarUsuarioPorMail(mail);
         }
     }
 
-    public interface IUsuarioLogica
-    {
-        Usuario buscarUsuarioPorID(int usuarioId);
-        void RegistrarUsuario(Usuario usuario);
-        Usuario ValidarUsuario(string nombreUsuario, string contrasenia);
-    }
+  
 }

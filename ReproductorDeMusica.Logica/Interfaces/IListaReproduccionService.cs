@@ -12,7 +12,7 @@ namespace ReproductorDeMusica.Logica.Interfaces
         bool AgregarListaReproduccion(ListaReproduccion listaReproduccion);
         ListaReproduccion EditarListaReproduccion(ListaReproduccion listaReproduccion);
         void EliminarListaReproduccion(int idListaReproduccion);
-        List<ListaReproduccion> GetListasReproduccions();
+        Task<List<ListaReproduccion>> GetListasReproduccions();
         IEnumerable<ListaReproduccion> ObtenerListasDeReproduccionPorUsuario(int usuarioId);
         ListaReproduccion ObtenerListasDeReproduccionPorId(int id);
 

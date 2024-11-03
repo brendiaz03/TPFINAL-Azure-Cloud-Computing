@@ -4,6 +4,9 @@ using ReproductorDeMusica.Web.Models;
 using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Logica;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.Identity.Web;
 using ReproductorDeMusica.Logica.Interfaces;
 
 namespace ReproductorDeMusica.Controllers
@@ -23,16 +26,21 @@ namespace ReproductorDeMusica.Controllers
 
         public IActionResult Index()
         {
+            if(HttpContext.Session.GetInt32("UsuarioId") == null)
+            {
+                return RedirectToAction("Login", "Usuario");
+            }
+
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
-
-
             ViewBag.EstaLoggeado = usuarioId != null;
             ViewBag.EsFormulario = false;
 
-            if (usuarioId != null)
+
+            if(usuarioId != null)
             {
-                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                Usuario buscado = _usuarioService.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
             }
 
             List<Cancion> canciones = _cancionService.GetCancions();
@@ -51,5 +59,18 @@ namespace ReproductorDeMusica.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpGet("api/playlists")]
+        public IActionResult GetPlaylists()
+        {
+            var playlists = new List<HomeViewModel>
+    {
+        new HomeViewModel { Name = "Shakira"},
+      
+        // Agrega m�s artistas o playlists aqu�
+    };
+
+            return Json(playlists);
+        }
+
     }
 }

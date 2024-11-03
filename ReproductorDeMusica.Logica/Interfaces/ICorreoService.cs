@@ -8,6 +8,6 @@ namespace ReproductorDeMusica.Logica.Interfaces
 {
     public interface ICorreoService
     {
-        Task EnviarCorreoPago(string toEmail);
+        Task EnviarCorreoPago(int id);
     }
 }

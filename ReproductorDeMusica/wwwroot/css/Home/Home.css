@@ -1,8 +1,6 @@
 ﻿/* ****************************** SECCION DE PLAYLISTS ****************************** */
 
-.main-container {
-    margin-left: 50px;
-}
+
 
 .spotify-playlists {
     padding: 20px 40px;
@@ -81,3 +79,32 @@
         margin: 70px 0px 0px;
         border-color: #636363;
     }
+/* ESTILOS PRA IMAGEN */
+.image-with-phrase {
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+    max-width: 100%; /* Define un ancho máximo */
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Limita la altura de la imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste dentro del contenedor */
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.phrase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+   
+}

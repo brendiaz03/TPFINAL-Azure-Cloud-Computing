@@ -1,6 +1,7 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Sas;
 using Microsoft.AspNetCore.Http;
+using NAudio.Wave;
 using ReproductorDeMusica.Logica.Interfaces;
 using System.Text.RegularExpressions;
 
@@ -70,6 +71,19 @@ namespace ReproductorDeMusica.Logica
                 throw new InvalidOperationException("No se pudo generar una URL SAS para este blob.");
             }
         }
+        public async Task<string> ObtenerDuracionDelArchivo(string audioBlobUrl)
+        {
+            using (var reader = new AudioFileReader(audioBlobUrl))
+            {
+                TimeSpan duration = reader.TotalTime;
+                return string.Format("{0:D2}:{1:D2}:{2:D2}",
+                    (int)duration.TotalHours,
+                    duration.Minutes,
+                    duration.Seconds); ; // Devuelve la duración
+            }
+           
+        }
+
     }
 
 }

@@ -11,9 +11,9 @@ namespace ReproductorDeMusica.Web.Controllers
 
         private readonly ICancionService _cancionService;
         private readonly IBlobStorageService _blobStorageService;
-        private readonly IUsuarioLogica _usuarioLogica;
+        private readonly IUsuarioService _usuarioLogica;
 
-        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService, IUsuarioLogica usuarioLogica)
+        public CancionController(ICancionService cancionService, IBlobStorageService blobStorageService, IUsuarioService usuarioLogica)
         {
             _cancionService = cancionService;
             _blobStorageService = blobStorageService;
@@ -36,7 +36,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
             if (usuarioId != null)
             {
-                Usuario buscado = _usuarioLogica.buscarUsuarioPorID((int)usuarioId);
+                Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
             }
             HttpContext.Session.SetInt32("IdLista", idListaReproduccion);
@@ -71,11 +71,11 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarCancion(Cancion cancion)
+        public async Task<IActionResult> EditarCancion(Cancion cancion)
         {
             try
             {
-                Cancion editada = _cancionService.CrearCancion(cancion);
+                Cancion editada = await _cancionService.CrearCancion(cancion);
                 return Ok(editada);
             }
             catch (Exception ex)
@@ -101,11 +101,11 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult ReproducirCancion(int id)
+        public async Task<IActionResult> ReproducirCancion(int id)
         {
             try
             {
-                var cancion = _cancionService.GetCancionById(id);
+                var cancion = await _cancionService.GetCancionById(id);
                 return Ok(cancion);
             }
             catch (Exception ex)
@@ -115,9 +115,9 @@ namespace ReproductorDeMusica.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Buscar(string titulo)
+        public async Task<IActionResult> Buscar(string titulo)
         {
-            var resultados = _cancionService.BuscarCancionesPorNombre(titulo);
+            var resultados = await _cancionService.BuscarCancionesPorNombre(titulo);
             return PartialView("_ResultadoBusquedaPartial", resultados);
         }
     }

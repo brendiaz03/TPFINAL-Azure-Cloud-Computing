@@ -1,4 +1,5 @@
-﻿using ReproductorDeMusica.Entidades.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace ReproductorDeMusica.Entidades.Repositories
             return _context.Plans.ToList();
         }
 
-        public void AgregarNuevoUsuarioPlan(int idPlan, int idUsuario)
+        public UsuarioPlan AgregarNuevoUsuarioPlan(int idPlan, int idUsuario)
         {
             Plan planAPagar = _context.Plans.Find(idPlan);
             Usuario usuario = _context.Usuarios.Find(idUsuario);
@@ -30,10 +31,19 @@ namespace ReproductorDeMusica.Entidades.Repositories
             UsuarioPlan pago = new UsuarioPlan();
             pago.IdUsuarioNavigation = usuario;
             pago.IdPlanNavigation = planAPagar;
-            pago.FechaPago = DateTime.Now;
+            pago.FechaPago = DateTime.Now.Date;
+
+
+            if (planAPagar.Id == 1)
+                pago.FechaExpiracion = DateTime.Now.Date.AddYears(100);
+
+            if (planAPagar.Id == 2)
+                pago.FechaExpiracion = DateTime.Now.Date.AddMonths((int)planAPagar.Duracion);
 
             _context.UsuarioPlans.Add(pago);
             _context.SaveChanges();
+
+            return pago;
         }
 
 
@@ -42,6 +52,14 @@ namespace ReproductorDeMusica.Entidades.Repositories
             //Lazy Loading implicitamente 
             return _context.Usuarios
                .First(u => u.Id == idUsuario).UsuarioPlans.ToList();
+        }
+
+        public Usuario ObtenerUsuarioConPlan(int usuarioId)
+        {
+            return _context.Usuarios
+                .Include(u => u.UsuarioPlans)
+                    .ThenInclude(up => up.IdPlanNavigation)
+                .FirstOrDefault(u => u.Id == usuarioId);
         }
     }
 }

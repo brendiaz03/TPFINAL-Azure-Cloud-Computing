@@ -13,6 +13,10 @@ public partial class UsuarioPlan
 
     public DateTime? FechaPago { get; set; }
 
+    public DateTime? FechaExpiracion { get; set; }
+
+    public virtual ICollection<EmailRegistro> EmailRegistros { get; set; } = new List<EmailRegistro>();
+
     public virtual Plan? IdPlanNavigation { get; set; }
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }
