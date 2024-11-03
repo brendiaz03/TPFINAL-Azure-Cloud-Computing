@@ -31,9 +31,12 @@ namespace ReproductorDeMusica.AzureFunctions
 
                 foreach(UsuarioPlan usuarioPlan in usuarioPlanesExpirados)
                 {
-                    await _emailRegistroService.EliminarEmailRegistroPorUsuarioPlanId(usuarioPlan.Id);
-                    await _usuarioPlanService.EliminarUsuarioPlan(usuarioPlan);
-                    log.LogInformation("Eliminado plan caducado");
+                    if (usuarioPlan.IdPlanNavigation.TipoPlan.Equals("PREMIUM"))
+                    {
+                        await _emailRegistroService.EliminarEmailRegistroPorUsuarioPlanId(usuarioPlan.Id);
+                        await _usuarioPlanService.EliminarUsuarioPlan(usuarioPlan);
+                        log.LogInformation("Eliminado plan caducado");
+                    }
                 }
             }
             catch (Exception ex) {

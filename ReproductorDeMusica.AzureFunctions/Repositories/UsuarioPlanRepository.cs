@@ -27,7 +27,7 @@ namespace ReproductorDeMusica.AzureFunctions.Repositories
 
         public List<UsuarioPlan> GetAllUsuarioPlanesExpirados() {
             return _context.UsuarioPlans.Include(up => up.IdPlanNavigation)
-                .Include(up => up.IdUsuarioNavigation).Where(up=>up.FechaExpiracion == DateTime.Now.AddDays(-1).Date).ToList();
+                .Include(up => up.IdUsuarioNavigation).Where(up=> (up.FechaExpiracion == DateTime.Now.AddDays(-1).Date)).ToList();
         }
 
         public void DeleteUsuarioPlan(UsuarioPlan usuarioPlan)
