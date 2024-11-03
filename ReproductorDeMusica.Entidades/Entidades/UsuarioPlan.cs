@@ -15,6 +15,8 @@ public partial class UsuarioPlan
 
     public DateTime? FechaExpiracion { get; set; }
 
+    public virtual ICollection<EmailRegistro> EmailRegistros { get; set; } = new List<EmailRegistro>();
+
     public virtual Plan? IdPlanNavigation { get; set; }
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }

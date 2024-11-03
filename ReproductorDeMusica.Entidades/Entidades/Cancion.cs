@@ -15,7 +15,7 @@ public partial class Cancion
 
     public int? Creador { get; set; }
 
-    public int? Duracion { get; set; }
+    public string? Duracion { get; set; }
 
     public string? RutaAudio { get; set; }
 
