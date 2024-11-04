@@ -31,6 +31,7 @@ namespace ReproductorDeMusica.Web.Controllers
             {
                 Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
             }
             if (HttpContext.Session.GetInt32("Plan") == 1)
             {
@@ -71,6 +72,7 @@ namespace ReproductorDeMusica.Web.Controllers
             {
                 Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
             }
             HttpContext.Session.SetInt32("IdLista", idListaReproduccion);
             List<Cancion> canciones = _cancionService.GetCancions();
