@@ -26,7 +26,7 @@ namespace ReproductorDeMusica.Controllers
 
         public IActionResult Index()
         {
-            if(HttpContext.Session.GetInt32("UsuarioId") == null)
+            if (HttpContext.Session.GetInt32("UsuarioId") == null)
             {
                 return View();
             }
@@ -34,7 +34,6 @@ namespace ReproductorDeMusica.Controllers
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
             ViewBag.EstaLoggeado = usuarioId != null;
             ViewBag.EsFormulario = false;
-            ViewBag.DeshabilitarSidebar = false;
 
 
             if (usuarioId != null)
@@ -42,14 +41,6 @@ namespace ReproductorDeMusica.Controllers
                 Usuario buscado = _usuarioService.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
                 ViewBag.ImagenUsuario = buscado.ImagenUsuario;
-                if (_usuarioPlanService.ObtenerUsuarioConPlan((int)usuarioId)!=null){
-                    var usuario = _usuarioPlanService.ObtenerUsuarioConPlan((int)usuarioId);
-                    var usuarioPlan = usuario.UsuarioPlans.LastOrDefault();
-                    if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
-                    {
-                        ViewBag.DeshabilitarSidebar = true;
-                    }
-                }
             }
 
             List<Cancion> canciones = _cancionService.GetCancions();
