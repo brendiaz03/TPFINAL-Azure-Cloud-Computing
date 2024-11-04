@@ -1,9 +1,4 @@
-﻿@{
-    Layout = "";
-}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+﻿<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +7,43 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="fondo-form">
 
         <form asp-controller="Pago" asp-action="RealizarPago" method="post">
+            <section class="formulario">
+                <div class="columna">
             <input type="hidden" name="idPlan" value="@ViewBag.planId"/>
 
             <div class="row">
                 <div class="col">
 
-                    <h3 class="title">Datos personales</h3>
+                    <h3 class="title">Datos Personales</h3>
 
                     <div class="inputBox">
-                        <span>nombre Completo:</span>
-                        <input type="text" placeholder="john deo">
+                        <span>Nombre Completo:</span>
+                        <input type="text" class="form-control" placeholder="John Doe">
                     </div>
                     <div class="inputBox">
-                        <span>email :</span>
-                        <input type="email" placeholder="example@example.com">
+                        <span>Correo Electrónico :</span>
+                        <input type="email" class="form-control" placeholder="example@example.com">
                     </div>
                     <div class="inputBox">
-                        <span>Direccion :</span>
-                        <input type="text" placeholder="Direccion">
+                        <span>Dirección :</span>
+                        <input type="text" class="form-control" placeholder="Direccion">
                     </div>
                     <div class="inputBox">
                         <span>Ciudad :</span>
-                        <input type="text" placeholder="CABA">
+                        <input type="text" class="form-control" placeholder="CABA">
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
-                            <span>Pais :</span>
-                            <input type="text" placeholder="argentina">
+                            <span>País :</span>
+                            <input type="text" class="form-control" placeholder="Argentina">
                         </div>
                         <div class="inputBox">
-                            <span>codigo postal :</span>
-                            <input type="text" placeholder="123 456">
+                            <span>Codigo Postal :</span>
+                            <input type="text" class="form-control" placeholder="123 456">
                         </div>
                     </div>
 
@@ -54,45 +51,46 @@
 
                 <div class="col">
 
-                    <h3 class="title">Datos de tarjeta</h3>
+                    <h3 class="title">Datos de Tarjeta</h3>
 
                     <div class="inputBox">
                         <span>Tarjetas aceptadas :</span>
                         <img src="~/images/card_img.png" alt="">
                     </div>
                     <div class="inputBox">
-                        <span>titular :</span>
-                        <input type="text" placeholder="mr. john deo">
+                        <span>Titular :</span>
+                        <input type="text" class="form-control" placeholder="John Doe">
                     </div>
                     <div class="inputBox">
-                        <span>Numero de tarjeta de credito :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444">
+                        <span>Número de tarjeta de crédito:</span>
+                        <input type="number" class="form-control" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
-                        <span>Mes de expiracion :</span>
-                        <input type="text" placeholder="january">
+                        <span>Mes de expiración:</span>
+                        <input type="text" class="form-control" placeholder="Enero">
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
-                            <span>Año de expiracion :</span>
-                            <input type="number" placeholder="2022">
+                            <span>Año de expiración:</span>
+                            <input type="number" class="form-control" placeholder="2028">
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234">
+                            <input type="text" class="form-control" placeholder="123">
                         </div>
                     </div>
 
                 </div>
 
             </div>
-
-            <input type="submit" value="realizar pago" class="submit-btn">
-
+                    <div class="boton-pagar">
+                        <button type="submit" class="btn-principal">Realizar Pago</button>
+                    </div>
+       </div>
+       </section>      
         </form>
 
     </div>
 
 </body>
-</html>

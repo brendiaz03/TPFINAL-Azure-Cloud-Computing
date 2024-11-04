@@ -11,6 +11,8 @@ namespace ReproductorDeMusica.Logica.Interfaces
     {
         List<Plan> ObtenerTodosLosPlanes();
         UsuarioPlan RealizarPago(int idPlan, int idUsuario);
+        UsuarioPlan RealizarPagoAPremium(int idUsuario);
         List<UsuarioPlan> ObtenerPlanesPorUsuarioId(int idUsuario);
+        UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario);
     }
 }

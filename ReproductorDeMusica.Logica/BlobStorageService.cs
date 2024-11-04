@@ -57,7 +57,7 @@ namespace ReproductorDeMusica.Logica
                     BlobContainerName = containerClient.Name,
                     BlobName = blobClient.Name,
                     Resource = "b", 
-                    ExpiresOn = DateTime.UtcNow.AddDays(30) //poner fecha de vencimiento alejada porque despues de esa fecha no se va a poder escuchr
+                    ExpiresOn = DateTime.UtcNow.AddDays(30)
                 };
 
                 sasBuilder.SetPermissions(BlobSasPermissions.Read);
@@ -76,8 +76,7 @@ namespace ReproductorDeMusica.Logica
             using (var reader = new AudioFileReader(audioBlobUrl))
             {
                 TimeSpan duration = reader.TotalTime;
-                return string.Format("{0:D2}:{1:D2}:{2:D2}",
-                    (int)duration.TotalHours,
+                return string.Format("{0:D2}:{1:D2}",
                     duration.Minutes,
                     duration.Seconds); ; // Devuelve la duración
             }

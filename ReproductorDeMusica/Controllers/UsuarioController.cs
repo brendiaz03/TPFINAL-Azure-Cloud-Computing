@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -38,42 +38,41 @@ public class UsuarioController : Controller
         return View(new UsuarioViewModel());
     }
 
-    [HttpPost]
-    public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
-    {
-        ViewBag.EsFormulario = true;
-
-        if (!ModelState.IsValid)
-        {
-            return View(usuarioModel);
-        }
-
-        try
-        {
-            // Subir los archivos a Azure Blob Storage
-            string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
-
-            // Convertir el UsuarioViewModel a la entidad Usuario
-            Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
-
-            _usuarioService.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
-
-        }
-        catch (UsuarioExistenteException e)
-        {
-            ModelState.AddModelError(string.Empty, e.Message);
-            return View(usuarioModel);
-        }
-        catch (Exception e)
-        {
-            ModelState.AddModelError(string.Empty, e.Message);
-            return View(usuarioModel);
-        }
-
-        return RedirectToAction("Login");
-
-    }
-
+      [HttpPost]
+  public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
+  {
+      ViewBag.EsFormulario = true;
+ 
+      if (!ModelState.IsValid)
+      {
+          return View(usuarioModel);
+      }
+ 
+      try
+      {
+          // Subir los archivos a Azure Blob Storage
+          string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
+ 
+          // Convertir el UsuarioViewModel a la entidad Usuario
+          Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
+ 
+          _usuarioService.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
+ 
+      }
+      catch (UsuarioExistenteException e)
+      {
+          ModelState.AddModelError(string.Empty, e.Message);
+          return View(usuarioModel);
+      }
+      catch (Exception e)
+      {
+          ModelState.AddModelError(string.Empty, e.Message);
+          return View(usuarioModel);
+      }
+ 
+      return RedirectToAction("Login");
+ 
+  }
     [HttpGet]
     public IActionResult Login()
     {
@@ -123,13 +122,14 @@ public class UsuarioController : Controller
     }
 
 
-[HttpGet]
+    [HttpGet]
     public IActionResult Cuenta()
     {
         var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
         ViewBag.EstaLoggeado = usuarioId != null;
         ViewBag.MostrarBotonPagar = false;
         ViewBag.MostrarPremium = false;
+        ViewBag.DeshabilitarSidebar = false;
 
 
         if (usuarioId != null)
@@ -138,13 +138,21 @@ public class UsuarioController : Controller
 
             if (usuario != null)
             {
-                var usuarioPlan = usuario.UsuarioPlans.FirstOrDefault();
+                var usuarioPlan = usuario.UsuarioPlans.LastOrDefault();
                 ViewBag.NombreUsuario = usuario.NombreUsuario;
                 ViewBag.ImagenUsuario = usuario.ImagenUsuario;
 
-                string fechaFinalizacionPremium = usuarioPlan?.FechaPago.HasValue == true
-               ? usuarioPlan.FechaPago.Value.AddMonths(1).ToString("D", new System.Globalization.CultureInfo("es-ES"))
-               : null;
+                if (usuarioPlan?.FechaPago.HasValue == true)
+                {
+                    DateTime fechaPago = usuarioPlan.FechaPago.Value;
+                    DateTime fechaFinalizacionPremium = usuarioPlan.FechaExpiracion;
+                    int diasTotales = (fechaFinalizacionPremium - fechaPago).Days;
+                    int diasRestantes = (fechaFinalizacionPremium - DateTime.Now).Days;
+
+                    ViewBag.DiasRestantes = diasRestantes;
+                    ViewBag.DiasTotales = diasTotales;
+                    ViewBag.FechaFinalizacionPremium = fechaFinalizacionPremium.ToString("D", new System.Globalization.CultureInfo("es-ES"));
+                }
 
                 var CuentaViewModel = new CuentaViewModel
                 {
@@ -152,13 +160,15 @@ public class UsuarioController : Controller
                     Apellido = usuario.Apellido,
                     Email = usuario.Email,
                     NombreUsuario = usuario.NombreUsuario,
-                    FechaPago = usuarioPlan?.FechaPago,
-                    TipoPlan = usuarioPlan?.IdPlanNavigation?.TipoPlan,
-                    FechaFinalizacionPremium = fechaFinalizacionPremium
+                    FechaPago = usuarioPlan.FechaPago,
+                    TipoPlan = usuarioPlan.IdPlanNavigation?.TipoPlan,
+                    FechaFinalizacionPremium = ViewBag.FechaFinalizacionPremium
                 };
+
                 if (usuarioPlan != null && usuarioPlan.IdPlanNavigation.TipoPlan == "GRATUITO")
                 {
                     ViewBag.MostrarBotonPagar = true;
+                    ViewBag.DeshabilitarSidebar = true;
                 }
                 else
                 {
@@ -170,6 +180,34 @@ public class UsuarioController : Controller
 
         return View(new CuentaViewModel());
     }
+
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateProfilePhotoAsync(IFormFile photo)
+    {
+        var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+        Usuario usuario = _usuarioService.BuscarUsuarioPorID(usuarioId.Value);
+
+        if (photo == null || photo.Length == 0)
+        {
+            return Json(new { success = false, message = "No se ha subido ninguna imagen." });
+        }
+
+        try
+        {
+            string urlImagen = await _blobStorageService.SubirArchivoAsync(photo, "usuarios-imagenes");
+            usuario.ImagenUsuario = urlImagen;
+            _usuarioService.ActualizarInfoUsuario(usuario);
+
+        } catch (Exception ex)
+        {
+            return Json(new { success = false, message = "No hemos podido modificar la imágen" });
+        }
+
+        return Json(usuarioId);
+
+    }
+
 
 }
 

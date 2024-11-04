@@ -40,5 +40,28 @@ namespace ReproductorDeMusica.Logica
                 throw ex;
             }
         }
+
+        public void EliminarCancionDeLaLista(int idCancion, int idLista)
+        {
+            try
+            {
+                _cancionListaReproduccionRepository.EliminarCancionDeLaLista(idCancion, idLista);
+            } catch (Exception ex) { 
+                throw ex; 
+            }
+        }
+
+        public void EliminarCancionDeTodasLasListas(int idCancion)
+        {
+            try
+            {
+                _cancionListaReproduccionRepository.EliminarCancionDeTodasLasListas(idCancion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -11,18 +11,22 @@ namespace ReproductorDeMusica.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUsuarioService _usuarioService;
+        private readonly IUsuarioPlanService _usuarioPlanService;
         private readonly ICancionService _cancionService;
 
-        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioLogica, ICancionService cancionService)
+
+
+        public HomeController(ILogger<HomeController> logger, IUsuarioService usuarioService, IUsuarioPlanService usuarioPlanService, ICancionService cancionService)
         {
             _logger = logger;
-            _usuarioService = usuarioLogica;
+            _usuarioService = usuarioService;
+            _usuarioPlanService = usuarioPlanService;
             _cancionService = cancionService;
         }
 
         public IActionResult Index()
         {
-            if(HttpContext.Session.GetInt32("UsuarioId") == null)
+            if (HttpContext.Session.GetInt32("UsuarioId") == null)
             {
                 return View();
             }
@@ -32,7 +36,7 @@ namespace ReproductorDeMusica.Controllers
             ViewBag.EsFormulario = false;
 
 
-            if(usuarioId != null)
+            if (usuarioId != null)
             {
                 Usuario buscado = _usuarioService.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;

@@ -1,6 +1,6 @@
 ﻿.contenedor-icono-imagen {
     position: relative;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -14,9 +14,10 @@
     align-items: center;
     color: white;
 }
+
 .table-container {
     max-height: 485px;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 .table {
@@ -25,5 +26,5 @@
 }
 
     .table thead th {
-        
     }
+

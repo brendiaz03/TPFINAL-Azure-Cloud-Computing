@@ -14,4 +14,6 @@ public interface IUsuarioRepository
     void RegistrarUsuario(Usuario usuario);
     Usuario buscarUsuarioPorUsername(string nombreUsuario);
     Usuario BuscarUsuarioPorMail(string mail);
+    Usuario ActualizarInfoUsuario(Usuario usuario);
+
 }

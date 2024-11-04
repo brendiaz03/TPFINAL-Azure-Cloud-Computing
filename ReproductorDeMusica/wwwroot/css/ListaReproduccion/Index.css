@@ -1,11 +1,12 @@
 ﻿#addPlaylistIcon {
-    font-size: 2rem; 
-    cursor: pointer; 
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 #addPlaylistButton {
     all: unset;
 }
-.containerPlaylists{
-    height:527px;
+
+.containerPlaylists {
+    height: 527px;
 }

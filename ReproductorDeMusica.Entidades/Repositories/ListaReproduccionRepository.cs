@@ -20,9 +20,18 @@ namespace ReproductorDeMusica.Entidades.Repositories
 
         public ListaReproduccion AgregarListaReproduccion(ListaReproduccion listaReproduccion)
         {
-            _context.Add(listaReproduccion);
-            _context.SaveChanges();
-            return listaReproduccion;
+            var existente = _context.ListaReproduccions
+            .FirstOrDefault(l => l.Nombre == listaReproduccion.Nombre 
+            && l.IdUsuario == listaReproduccion.IdUsuario);
+
+            if (existente == null)
+            {
+                _context.Add(listaReproduccion);
+                _context.SaveChanges();
+                return listaReproduccion;
+            }
+
+            return null;
         }
 
         public ListaReproduccion EditarListaReproduccion(ListaReproduccion listaReproduccion)

@@ -13,4 +13,6 @@ public interface IUsuarioService
     void RegistrarUsuario(Usuario usuario);
     Usuario ValidarUsuario(string nombreUsuario, string contrasenia);
     Usuario BuscarUsuarioPorMail(string mail);
+    Usuario ActualizarInfoUsuario(Usuario usuario);
+
 }

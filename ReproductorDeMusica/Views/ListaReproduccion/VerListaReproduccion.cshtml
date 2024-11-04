@@ -36,9 +36,7 @@
                                 <th scope="col">Título</th>
                                 <th scope="col">Artista</th>
                                 <th scope="col">
-                                    <span class="material-symbols-outlined">
-                                        schedule
-                                    </span>
+                                    <!-- Columna para borrar la canción de la playlist -->
                                 </th>
                             </tr>
                         </thead>
@@ -53,9 +51,16 @@
                                         <i class="fa-solid fa-play"></i>
                                     </button>
                                 </td>
-                                <td>@cancion.Titulo</td>
+                                <td>
+                                <img src="@cancion.UrlPortada" alt="Imagen de @cancion.Titulo" class="img-thumbnail" style="width: 30px; height: 30px; margin-right: 10px;">
+                                @cancion.Titulo
+                                </td>
                                 <td>@cancion.Artista</td>
-                                <td>@cancion.Duracion</td>
+                                <td>
+                                    <button class="delete-song-button" data-cancion-id="@cancion.Id" data-lista-id="@Model.ListaReproduccion.Id">
+                                        <i class="fa-solid fa-trash delete"></i>
+                                    </button>
+                                </td>
                             </tr>
 
                     index++;

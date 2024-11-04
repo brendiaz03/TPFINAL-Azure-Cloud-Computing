@@ -61,5 +61,38 @@ namespace ReproductorDeMusica.Entidades.Repositories
                     .ThenInclude(up => up.IdPlanNavigation)
                 .FirstOrDefault(u => u.Id == usuarioId);
         }
+        public UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario)
+        {
+            var plan = _context.UsuarioPlans
+                .Where(u => u.IdUsuario == idUsuario)
+                .OrderByDescending(u => u.Id)
+                .Select(u => new UsuarioPlanDTO
+                {
+                    Id = u.Id,
+                    TipoPlan = u.IdPlanNavigation.TipoPlan,
+                    Precio = u.IdPlanNavigation.Precio,
+                    FechaExpiracion = u.FechaExpiracion
+                })
+                .FirstOrDefault();
+
+            return plan;
+        }
+
+        public UsuarioPlan RealizarPagoAPremium(int idUsuario)
+        {
+            Plan planAPagar = _context.Plans.Find(2);
+            Usuario usuario = _context.Usuarios.Find(idUsuario);
+
+            UsuarioPlan pago = new UsuarioPlan();
+            pago.IdUsuarioNavigation = usuario;
+            pago.IdPlanNavigation = planAPagar;
+            pago.FechaPago = DateTime.Now.Date;
+            pago.FechaExpiracion = DateTime.Now.Date.AddMonths((int)((double)planAPagar.Duracion));
+
+            _context.UsuarioPlans.Add(pago);
+            _context.SaveChanges();
+
+            return pago;
+        }
     }
 }

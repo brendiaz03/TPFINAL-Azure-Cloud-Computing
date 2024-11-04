@@ -1,37 +1,55 @@
-﻿@model ReproductorDeMusica.Web.Models.CuentaViewModel
+@model ReproductorDeMusica.Web.Models.CuentaViewModel
 <link rel="stylesheet" href="~/css/Usuario/Cuenta.css">
 
-<div class="contenedor-pagina" id="body_cuenta">
-    <div class="fondo-cuenta">
-    <h2>Cuenta de @Model.NombreUsuario</h2>
-        <div class="info-cuenta">
-         <div>
-            <p>Nombre: @Model.Nombre</p>
-            <p>Apellido: @Model.Apellido</p>
-            <p>Email: @Model.Email</p>
-         </div>
-         <div>
+<div class="container">
+    <main>
+
+        <div class="user-info">
+            <div class="profile-image-container">
+                @if (string.IsNullOrEmpty(ViewBag.ImagenUsuario))
+                {
+                    <span class="img-usuario-cuenta">@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
+                }
+                else
+                {
+                    <img src="@ViewBag.ImagenUsuario" alt="Usuario" class="img-usuario-cuenta">
+                }
+            </div>
+
+            <div class="user-details">
+                <h1 id="userName"> @Model.Nombre @Model.Apellido </h1>
+                <p id="userEmail"> @Model.Email </p>
+            </div>
+
+        </div>
+
+        <div class="plan-card">
+            <div class="plan-header">
+                <p class="plan-title">Tu plan</p>
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20PNG-Y8NYO3BhnHdIDnWm2xw1XNnT1tG4CJ.png" alt="Ripple Logo" class="plan-ripple-logo">
+            </div>
+            <h2 class="plan-name"> @Model.TipoPlan</h2>
+            @if (ViewBag.MostrarBotonPagar)
+            {
+                <div class="boton-pagar">
+                    <p>�Hazte miembro premium para disfrutar al m�ximo!</p>
+                    <a href="/Plan"><button type="button" class="btn-principal">Ver Plan Premium</button></a>
+                </div>
+            }
             @if (ViewBag.MostrarPremium)
-             {
-              <p>Fecha de Pago: @Model.FechaPago?.ToString("dd/MM/yyyy")</p>
-             }
-            <p>Tipo de Plan: @Model.TipoPlan</p>
-         </div>
-      </div>
+            {
+                    <div class="barra-suscripcion-container">
+                <p>D�as restantes de suscripci�n: @ViewBag.DiasRestantes</p>
+                <div class="barra-suscripcion">
+                    <div class="barra-suscripcion-restante" style="width: @(100 * ViewBag.DiasRestantes / ViewBag.DiasTotales)%;"></div>
+                </div>
+            </div>
+            }
+
+        </div>
+
+    </main>
 </div>
 
 
-@if (ViewBag.MostrarBotonPagar)
-{
-    <div class="boton-pagar">
-        <p>¡Hazte miembro premium para disfrutar al máximo!</p>
-            <a asp-controller="Pago" asp-action="Index" asp-route-planId="2"><button type="button" class="btn-principal">Pagar</button></a>
-        </div>
-}
-
-    @if (ViewBag.MostrarPremium)
-    {
-        <div class="boton-pagar">
-            <p>Usted ya es usuario PREMIUM. Su suscripción finaliza el dia: @Model.FechaFinalizacionPremium</p>
-        </div>
-    }
+<script src="~/js/Usuario/Cuenta.js"> </script>

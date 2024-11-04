@@ -1,5 +1,6 @@
 ﻿using ReproductorDeMusica.Entidades.Entidades;
 using ReproductorDeMusica.Entidades.Repositories.Interfaces;
+using ReproductorDeMusica.Logica.Interfaces;
 
 namespace ReproductorDeMusica.Logica;
 
@@ -25,7 +26,3 @@ public class UsuarioPlanService : IUsuarioPlanService
     }
 }
 
-public interface IUsuarioPlanService
-{
-    Usuario ObtenerUsuarioConPlan(int usuarioId);
-}

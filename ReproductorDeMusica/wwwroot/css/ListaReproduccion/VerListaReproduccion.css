@@ -30,3 +30,11 @@ thead {
 .listening-song {
     color: #5EADF2;
 }
+
+td {
+    vertical-align: middle;
+}
+
+.delete-song-button {
+    all: inherit;
+}

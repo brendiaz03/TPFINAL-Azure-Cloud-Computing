@@ -1,8 +1,7 @@
-﻿
-
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
 
     crearModalParaCrearCancion();
+    crearAlertaDeMensaje();
 
     const createSongButton = document.getElementById('createSongButton');
     if (createSongButton) {
@@ -10,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
             addSongModal.show();
         });
     }
-
-    const submitButtonSong = document.getElementById("submitButtonSong");
 
     const audioFileInput = document.getElementById("audioFile");
     const selectAudioButton = document.getElementById("selectAudioButton");
@@ -43,19 +40,31 @@ document.addEventListener("DOMContentLoaded", () => {
             imageFileNameDisplay.textContent = file.name;
         }
     };
-});
 
-$('#songForm').submit(function (event) {
-    event.preventDefault();
+    document.getElementById("songForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Previene el envío completo del formulario
 
-    const formData = new FormData(this); // Crea un FormData a partir del formulario
+        const formData = new FormData(this); // Recupera los datos del formulario
 
-    // Llama a la función para crear la canción solo si el form tiene los datos necesarios
-    if (validateForm()) {
-        submitButtonSong.disabled = false;
-        crearCancion(formData);
-        resetearForm();
-    }
+        fetch('/Cancion/AgregarCancion', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Cierra el modal y resetea el formulario 
+                addSongModal.hide();
+                this.reset(); // Resetea el formulario después de enviarlo
+                audioFileNameDisplay.textContent = '';
+                imageFileNameDisplay.textContent = '';
+                mostrarAlerta('Canción creada exitosamente', 'success');;
+            })
+            .catch(error => {
+                mostrarAlerta('Hubo un error al crear la canción', 'error');;
+                console.error("Error:", error);
+            });
+    });
+
 });
 
 function crearCancion(formData) {
@@ -66,12 +75,7 @@ function crearCancion(formData) {
         processData: false, // Evita que jQuery procese el data
         contentType: false, // Permite que el navegador gestione el content type
         success: function (data) {
-            showToast('#F2C84B', 'La canción se creó con éxito');
-
-            setTimeout(function () {
-                window.location.href = '/Home/Index';
-            }, 4000);
-
+            console.log('Canción creada con éxito');
         },
         error: function (xhr, status, error) {
             console.error('Error en la generación de la canción:', error);
@@ -96,25 +100,13 @@ function validateForm() {
     return isValid;
 }
 
-function resetearForm() {
-    document.getElementById('songName').value = "";
-    document.getElementById('artist').value = "";
-    document.getElementById('album').value = "";
-    document.getElementById('audioFile').value = "";
-    document.getElementById('coverImage').value = "";
-    document.getElementById('audioFileName').textContent = "";
-    document.getElementById('imageFileName').textContent = "";
-    submitButtonSong.disabled = true;
-    cerrarModal('addSongModal');
-}
-
 function crearModalParaCrearCancion() {
     // Crear el modal
     const modalHTML = `
         <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="addSongModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
+                <div class="modal-content modal-song-content">
+                    <div class="modal-header modal-song-header">
                         <h5 class="modal-title fw-bold text-center" id="addSongModalLabel">Añadir nueva canción</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -170,17 +162,45 @@ function crearModalParaCrearCancion() {
     addSongModal = new bootstrap.Modal(document.getElementById('addSongModal'));
 }
 
-function showToast(backgroundColor, message) {
-    Toastify({
-        text: message,
-        duration: 3000, // Duración en milisegundos
-        close: true, // Mostrar botón de cerrar
-        gravity: 'bottom', // Posición (top o bottom)
-        position: 'right', // Posición (left, center o right)
-        backgroundColor: backgroundColor, // Color de fondo
-        stopOnFocus: true, // Detener la animación si el mouse está sobre la notificación
-    }).showToast();
+function crearAlertaDeMensaje() {
+    // Crear el contenedor de la alerta y agregarlo al DOM
+    const alertaHTML = `
+        <div id="mensajeAlerta" class="alert text-center position-fixed d-none" role="alert" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; z-index: 1050;">
+            <span id="mensajeAlertaIcono"></span>
+            <span id="mensajeAlertaTexto"></span>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', alertaHTML);
 }
+
+function mostrarAlerta(mensaje, tipo) {
+    const mensajeAlerta = document.getElementById("mensajeAlerta");
+    const mensajeAlertaIcono = document.getElementById("mensajeAlertaIcono");
+    const mensajeAlertaTexto = document.getElementById("mensajeAlertaTexto");
+
+    // Limpiar clases e íconos anteriores
+    mensajeAlerta.className = "alert text-center position-fixed"; // Restablecer clases base
+    mensajeAlertaIcono.className = ""; // Limpiar icono previo
+    mensajeAlertaTexto.textContent = mensaje;
+
+    // Añadir clases e íconos según el tipo de mensaje (success o error)
+    if (tipo === 'success') {
+        mensajeAlerta.classList.add("alert-success");
+        mensajeAlertaIcono.classList.add("fa-solid", "fa-circle-check", "text-success", "me-2");
+    } else {
+        mensajeAlerta.classList.add("alert-danger");
+        mensajeAlertaIcono.classList.add("fa-solid", "fa-circle-xmark", "text-danger", "me-2");
+    }
+
+    // Mostrar la alerta
+    mensajeAlerta.classList.remove("d-none");
+
+    // Cerrar automáticamente después de 3 segundos
+    setTimeout(() => {
+        mensajeAlerta.classList.add("d-none");
+    }, 3000);
+}
+
 function cerrarModal(idModal) {
     $('#' + idModal).modal('hide');
 }

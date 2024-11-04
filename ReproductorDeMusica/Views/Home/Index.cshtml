@@ -9,14 +9,95 @@
     <link rel="stylesheet" href="~/css/Home/Home.css">
 </head>
 
-    <div class="container">
-        @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
-        {
+<div class="container">
+    @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+    {
         <h3>¡Bienvenida/o!</h3>
 
-            <div id="reproductorContainer" class="mt-auto">
-                <partial name="_CancionesPartial" />
+        <div id="reproductorContainer" class="mt-auto">
+            <partial name="_CancionesPartial" />
+        </div>
+    }
+    else if (ViewBag.EstaLoggeado == null || ViewBag.EstaLoggeado == false)
+    {
+    <div class="main-container">
+        <div class="welcome-section text-center"> 
+        <!-- Contenedor del carrusel de playlists -->
+        <div class="carousel">
+            <div class="spotify-playlists">
+                <h2>Playlists</h2>
+                <div class="list">
+
+                    <div class="item">
+                        <h4>Shakira</h4>
+                        <img src="/images/Shakira.jpg" alt="Shakira" />
+                        <div class="play"> 
+                            <span class="fa fa-play"></span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <h4>Fonzi</h4>
+                        <img src="/images/Luis Fonsi.jpg" alt="Luis Fonsi" />
+                        <div class="play">
+                            <span class="fa fa-play"></span>
+                        </div>
+                    </div>
+
+                    <!-- Nuevos ítems -->
+                    <div class="item">
+                        <h4>Diego Torres</h4>
+                        <img src="/images/Diego Torres.jpg" alt="Diego Torres" />
+                        <div class="play">
+                            <span class="fa fa-play"></span>
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <h4>Axel</h4>
+                        <img src="/images/Axcel.png" alt="Axel" />
+                        <div class="play">
+                            <span class="fa fa-play"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="item">
+                        <h4>Tini</h4>
+                        <img src="/images/Tini.jpg" alt="Tini" />
+                        <div class="play">
+                            <span class="fa fa-play"></span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <h4>Chayanne</h4>
+                        <img src="/images/Chayanne.jpg" alt="Chayanne" />
+                        <div class="play">
+                            <span class="fa fa-play"></span>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
-        }
-    </div>
-    <script src="/js/site.js"></script>
+            <!-- Sección de bienvenida -->
+            <div class="welcome-section text-center">
+                
+                <h1 class="display-3">"La mejor música, al alcance de un clic."</h1>
+                <h3>
+                    <p>
+                        Sumérgete en un universo de sonidos. Explora, crea y
+                        comparte tu pasión por la música. Con nuestra app, cada momento tiene su propia melodía.
+                    </p>
+                </h3>
+                <!-- Imagen  -->
+                <div class="image-with-phrase">
+                    <img src="~/images/indoor-image-fashionable-pretty-girl-wearing-tight-fitting-top-moving-body-rhythm-music-using-mobile-phone-earphones.jpg" alt="Imagen de fondo" class="background-image" />
+                </div>
+        </div>
+        </div>
+        </div>
+    }
+</div>
+
+<script src="/js/site.js"></script>

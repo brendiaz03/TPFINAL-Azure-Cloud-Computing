@@ -40,6 +40,13 @@ namespace ReproductorDeMusica.Entidades.Repositories
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == mail);
         }
+
+        public Usuario ActualizarInfoUsuario(Usuario usuario)
+        {
+            _context.Update(usuario);
+            _context.SaveChanges();
+            return usuario;
+        }
     }
 }
 

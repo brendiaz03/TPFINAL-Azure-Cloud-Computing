@@ -10,5 +10,7 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
     public interface ICancionListaReproduccionRepository
     {
         CancionListaReproduccion CrearCancionListaReproduccion(CancionListaReproduccion cancionLista);
+        void EliminarCancionDeLaLista(int idCancion, int idLista);
+        void EliminarCancionDeTodasLasListas(int idCancion);
     }
 }

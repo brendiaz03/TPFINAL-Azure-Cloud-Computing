@@ -10,6 +10,7 @@ namespace ReproductorDeMusica.Logica.Interfaces
     public interface ICancionListaReproduccionService
     {
         bool AgregarCancionListaReproduccion(int idListaReproduccion, int idCancion);
-
+        void EliminarCancionDeLaLista(int idCancion, int idLista);
+        void EliminarCancionDeTodasLasListas(int idCancion);
     }
 }

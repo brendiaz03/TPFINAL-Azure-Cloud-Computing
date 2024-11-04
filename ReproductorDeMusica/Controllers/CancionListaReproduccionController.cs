@@ -41,6 +41,20 @@ namespace ReproductorDeMusica.Web.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult EliminarCancionListaReproduccion([FromBody] int idCancion, int idLista)
+        {
+            try
+            {
+                _cancionListaReproduccionService.EliminarCancionDeLaLista(idCancion, idLista);
+                return Ok(idLista);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.ToString());
+            }
+        }
+
     }
 
 }

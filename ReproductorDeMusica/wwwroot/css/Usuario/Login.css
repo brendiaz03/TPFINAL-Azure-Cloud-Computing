@@ -1,4 +1,8 @@
-﻿.titulo_login {
+﻿a {
+    all: unset; !important
+}
+
+.titulo_login {
     text-align: center;
 }
 
@@ -21,6 +25,10 @@
     border-radius: 40px;
     cursor: pointer;
     margin-left: 20px;
+}
+
+.btn-login:hover {
+    color: #000000;
 }
 
 .main_login {
