@@ -1,0 +1,17 @@
+﻿#addPlaylistIcon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#addPlaylistButton {
+    all: unset;
+}
+
+.containerPlaylists {
+    height: 527px;
+}
+
+.scrollable-card {
+    max-height: 455px; /* Define la altura máxima de la tarjeta */
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}

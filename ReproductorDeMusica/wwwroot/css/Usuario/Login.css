@@ -1,0 +1,59 @@
+﻿a {
+    all: unset; !important
+}
+
+.titulo_login {
+    text-align: center;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+}
+
+.redirigir-register a {
+    color: #fff;
+}
+
+.btn-login {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 30px;
+    border: 0px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.btn-login:hover {
+    color: #000000;
+}
+
+.main_login {
+    width: 500px; /* o 500px según tus preferencias */
+    margin: auto; /* centra el contenedor */
+    padding: 0 0 32px; /* agrega un poco de espacio interno */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* sombra sutil */
+}
+
+.input-container {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+    .input-container input {
+        width: 100%;
+    }
+
+#passwordIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 16px;
+}
