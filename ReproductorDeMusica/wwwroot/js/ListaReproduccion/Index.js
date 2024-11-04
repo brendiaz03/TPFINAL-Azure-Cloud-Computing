@@ -14,16 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(this);
 
-        if (validateForm()) {
-            crearPlaylist(formData);
-            resetearForm();
-        }
+        crearPlaylist(formData);
+        resetearForm();
     });
 
     selectImageButton.onclick = () => imageFileInput.click();
 
-    document.getElementById("nombre").addEventListener("input", validateForm);
-    imageFileInput.addEventListener("change", validateForm);
+    // Eventos para habilitar el botón si ambos campos están completos
+    document.getElementById("nombre").addEventListener("input", toggleSubmitButton);
+    imageFileInput.addEventListener("change", toggleSubmitButton);
 
     imageFileInput.onchange = () => {
         if (imageFileInput.files.length > 0) {
@@ -53,17 +52,12 @@ function crearPlaylist(formData) {
     });
 }
 
-function validateForm() {
+// Función para habilitar el botón de enviar solo si el campo de nombre y la imagen están seleccionados
+function toggleSubmitButton() {
     const nombre = document.getElementById("nombre").value.trim();
     const imageSelected = imageFileInput.files.length > 0;
 
-    if (nombre && imageSelected) {
-        submitButtonPlaylist.disabled = false;
-        return true;
-    } else {
-        submitButtonPlaylist.disabled = true;
-        return false;
-    }
+    submitButtonPlaylist.disabled = !(nombre && imageSelected);
 }
 
 function resetearForm() {
