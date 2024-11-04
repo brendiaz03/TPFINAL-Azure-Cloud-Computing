@@ -41,6 +41,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
         }
 
+        /*
         [HttpPost]
         public IActionResult EliminarCancionListaReproduccion([FromBody] int idCancion, int idLista)
         {
@@ -48,6 +49,24 @@ namespace ReproductorDeMusica.Web.Controllers
             {
                 _cancionListaReproduccionService.EliminarCancionDeLaLista(idCancion, idLista);
                 return Ok(idLista);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.ToString());
+            }
+        }*/
+
+        [HttpGet]
+        public IActionResult EliminarCancionListaReproduccion(int idCancion, int idLista)
+        {
+            try
+            {
+                _cancionListaReproduccionService.EliminarCancionDeLaLista(idCancion, idLista);
+                var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
+
+                return RedirectToAction("VerListaReproduccion", "ListaReproduccion",new { 
+                    id = idLista
+                });
             }
             catch (Exception ex)
             {
