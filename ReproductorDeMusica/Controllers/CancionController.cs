@@ -51,12 +51,9 @@ namespace ReproductorDeMusica.Web.Controllers
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
             }
             List<Cancion> canciones = await _cancionService.GetCancionesPorCreador((int)usuarioId);
-            var viewModel = new CancionesViewModel
-            {
-                Canciones = canciones ?? new List<Cancion>()
-            };
+            ViewBag.Canciones = canciones;
 
-            return View(viewModel);
+            return View();
         }
         public IActionResult GetAllCancionesDisponibles(int idListaReproduccion)
         {
