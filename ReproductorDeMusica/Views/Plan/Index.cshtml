@@ -1,0 +1,26 @@
+﻿<link rel="stylesheet" href="~/css/Usuario/Plan.css">
+<div class="container">
+    <main>
+
+        <div class="plan_card">
+            <h1>Plan Premium</h1>
+            <p class="precio">$1500</p>
+            <p class="parrafo">Lleva tu experiencia musical al siguiente nivel con nuestro plan Premium.</p>
+
+            <ul class="benefits">
+                <li><i class="fa-solid fa-play"></i>  Música sin anuncios</li>
+                <li><i class="fa-solid fa-file-audio"></i>  Subí tus propias canciones</li>
+                <li><i class="fa-solid fa-icons"></i>  Listas de reproducción personalizadas</li>
+                <li><i class="fa-solid fa-music"></i>  Recomendaciones exclusivas</li>
+                <li><i class="fa-solid fa-calendar-days"></i>  Duración de suscripción: 30 días</li>
+            </ul>
+
+            <a asp-controller="Pago" asp-action="Index" asp-route-planId="2" class="plan_button"></a>
+            <a asp-controller="Pago" asp-action="Index" asp-route-planId="2" class="btn-principal"><button type="button" class="btn-principal">Contratar Plan</button></a>
+        </div>
+
+
+</main>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

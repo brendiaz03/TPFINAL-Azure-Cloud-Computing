@@ -1,0 +1,154 @@
+﻿/* Contenedor principal */
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Sección de bienvenida */
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Imagen con frase */
+
+.image-with-phrase {
+    position: relative;
+    text-align: center;
+    margin: 20px auto;
+    width: 100%; /* Ocupa el ancho total */
+    max-width: 800px; /* Ajuste máximo para centrar */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.phrase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+/* Estilos para el carrusel de playlists */
+
+.carousel {
+    display: flex; /* Mantiene la disposición horizontal */
+    overflow-x: auto; /* Permite el scroll horizontal */
+    scroll-behavior: smooth; /* Desplazamiento suave */
+    white-space: nowrap; /* Evita saltos de línea entre elementos */
+    margin-top: 20px; /* Añadir margen superior */
+    width: 100%; /* Ocupa el ancho completo */
+}
+
+    .carousel .item {
+        flex: 0 0 auto; /* Mantiene los elementos en una sola línea */
+        width: 200px; /* Ancho de cada elemento, ajusta según tu diseño */
+        margin-right: 10px; /* Espaciado entre elementos */
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+.spotify-playlists {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+a .spotify-playlists h2 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.spotify-playlists .list {
+    display: flex;
+    flex-direction: row; /* Asegura la disposición horizontal */
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+    .spotify-playlists .list .item {
+        flex: 0 0 auto; /* Mantiene el ancho fijo */
+        width: 180px; /* Ancho fijo para cada item */
+        background-color: #181818;
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.4s ease;
+        scroll-snap-align: center;
+        text-align: center;
+    }
+
+        .spotify-playlists .list .item:hover {
+            background-color: #252525;
+        }
+
+        .spotify-playlists .list .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .spotify-playlists .list .item h4 {
+            color: #ffffff;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .spotify-playlists .list .item .play {
+            position: relative;
+        }
+
+            .spotify-playlists .list .item .play .fa {
+                position: absolute;
+                right: 10px;
+                top: -20px;
+                padding: 10px;
+                background-color: #1db954;
+                border-radius: 50%;
+                opacity: 0;
+                transition: all ease 0.4s;
+            }
+
+        .spotify-playlists .list .item:hover .play .fa {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+/* Responsividad */
+
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 1.5em;
+    }
+
+    .spotify-playlists .list .item {
+        width: 150px; /* Ancho ajustado para pantallas más pequeñas */
+    }
+
+    .phrase {
+        font-size: 1.4rem; /* Ajuste del tamaño de fuente en dispositivos pequeños */
+    }
+}

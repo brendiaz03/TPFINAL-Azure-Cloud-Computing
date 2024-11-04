@@ -1,0 +1,30 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+main{
+    display:flex;
+    justify-content:center;
+}
+.fondo-form{
+    width:70%;
+
+}
+.boton-pagar {
+    display:flex;
+    justify-content:center;
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+.btn-principal {
+    padding: 12px 30px;
+    width: 60%; 
+    max-width: 300px; 
+    border-radius: 10px; 
+   
+}
+.btn-principal:hover {
+    padding: 12px 30px;
+    width: 60%;
+    max-width: 300px; 
+    border-radius: 10px; 
+    
+}

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ReproductorDeMusica.Entidades.Entidades.Cancion>
+@{
+    ViewData["Title"] = "Canciones Disponibles";
+}
+<link rel="stylesheet" type="text/css" href="/css/Cancion/ListaCancionesDisponibles.css" />
+
+<h2>Canciones Disponibles</h2>
+<div class="containerCancionesDisponibles">
+    <table class="table">
+        <tbody>
+            @foreach (var cancion in Model)
+            {
+                <tr>
+                    <td class="song-row">
+                        <div class="song-info">
+                            @if (!string.IsNullOrEmpty(cancion.UrlPortada))
+                            {
+                                <img src="@cancion.UrlPortada" alt="Portada de @cancion.Titulo" class="song-image">
+                            }
+                            <strong>@cancion.Titulo - @cancion.Artista</strong>
+                        </div>
+                        <button class="add-song-button" data-cancion-id="@cancion.Id">
+                            <span class="material-symbols-outlined">
+                                add_circle
+                            </span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/js/Cancion/ListaCancionesDisponibles.js"> </script>

@@ -1,0 +1,62 @@
+@model ReproductorDeMusica.Web.Models.UsuarioViewModel
+<link rel="stylesheet" href="~/css/Usuario/RegistroUsuario.css">
+
+
+<h1 class="titulo_registroUsuario">Registrarse</h1>
+
+<form asp-action="RegistrarUsuario" asp-controller="Usuario" method="post" enctype="multipart/form-data" class="fondo-form">
+    <section class="formulario">
+
+        <div class="text-danger">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Nombre" class="form-label fw-bold">Nombre</label>
+            <input asp-for="Nombre" class="form-control" placeholder="Ingrese su nombre" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Apellido" class="form-label fw-bold">Apellido</label>
+            <input asp-for="Apellido" class="form-control" placeholder="Ingrese su Apellido" />
+            <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Email" class="form-label fw-bold">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="Ingrese su Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="NombreUsuario" class="form-label fw-bold">Nombre de Usuario</label>
+            <input asp-for="NombreUsuario" class="form-control" placeholder="Ingrese su Nombre de Usuario" />
+            <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Contrasenia" class="form-label fw-bold">Contraseña</label>
+            <input asp-for="Contrasenia" type="password" class="form-control" placeholder="Ingrese su Contraseña" />
+            <span asp-validation-for="Contrasenia" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3 btn-subir-foto">
+            <input asp-for="ImagenUsuario" accept="image/*" id="ImagenUsuario" name="ImagenUsuario" class="form-control" style="display: none;" />
+            <label for="ImagenUsuario" id="selectImageLabel" class="btn btn-secondary w-100">
+                <i class="fa-solid fa-file-image"></i> Seleccionar imágen
+            </label>
+            <p id="imageFileName" class="mt-2 text-info"></p>
+        </div>
+
+
+    </section>
+    <section class="botones">
+        <button type="submit" id="boton_reg_usuario" class="btn-register">Registrar</button>
+    </section>
+    <section class="redirigir-login">
+        <p class="text-center"> ¿Ya tienes una cuenta? <a href="/Usuario/Login"> Inicia sesión aquí. </a> </p>
+    </section>
+</form>
+
+<!--<script src="~/js/Usuario/RegistroUsuario.js"></script> -->

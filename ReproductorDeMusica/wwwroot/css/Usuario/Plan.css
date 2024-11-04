@@ -1,0 +1,77 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+main {
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    align-items:center;
+    align-self:center;
+}
+.plan_card {
+    box-shadow: white 0px 0px 10px;
+    background-color: #181818;
+    text-align: center;
+    padding: 50px 10px;
+    cursor: pointer;
+    transition: 1s all;
+    position: relative;
+    width: 50%;
+    height: 90%;
+}
+
+    .plan_card:hover {
+        background-color: #34353d;
+    }
+
+    .plan_card h1 {
+        font-size: 44px;
+        text-transform: uppercase;
+    }
+
+    .plan_card .precio {
+        font-size: 30px;
+    }
+
+    .plan_card .parrafo {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+.plan_button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+    .benefits li {
+        font-size: 18px;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .benefits li span {
+            font-size: 22px;
+            margin-right: 10px;
+        }
+
+
+.btn-principal {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    width:100%;
+}
+    .btn-principal:hover {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }

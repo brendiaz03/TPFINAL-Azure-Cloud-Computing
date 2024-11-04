@@ -1,0 +1,83 @@
+﻿.modal {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header, label, audioFileName, imageFileName {
+    color: white;
+}
+
+.modal-content {
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+#subtitle {
+    color: #D1D5D0;
+}
+
+.btn-primary, .btn-success {
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #2980b9;
+    }
+
+    .btn-success:hover {
+        background-color: #27ae60;
+    }
+
+#selectFileButton {
+    background-color: #145932;
+    color: white;
+}
+
+input.form-control, select.form-select {
+    background-color: #3e3e3e;
+    border: none;
+    color: white;
+}
+
+.form-control:focus, select.form-control:focus {
+    background-color: #3e3e3e;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+#fileName {
+    color: #8e44ad;
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+}
+
+#addPlaylistIcon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#addPlaylistButton {
+    all: unset;
+}
+
+.containerCanciones {
+    height: 528px;
+}
+.tamanioImg{
+    height:410px;
+    width:100%;
+    padding-bottom: 10px;
+}
+.imgSVG{
+    height:100%;
+    width: 100%;
+}
+.btn-principal{
+    display:flex;
+    justify-content:center;
+    text-decoration:none;
+}

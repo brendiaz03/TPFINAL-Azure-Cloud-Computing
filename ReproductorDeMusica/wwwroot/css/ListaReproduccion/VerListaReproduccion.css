@@ -1,0 +1,61 @@
+﻿#addSongButton {
+    all: unset;
+    color: #fff;
+}
+
+#addSongButton a {
+    text-decoration: none;
+}
+
+thead {
+    color: #fff;
+    font-weight: bold;
+}
+
+.playlist-item {
+    cursor: pointer;
+    color: #fff;
+}
+
+    .playlist-item:hover .index-text {
+        display: none;
+    }
+
+    .playlist-item:hover .playlist-play-btn {
+        display: inline-block;
+        font-size: 16px;
+        color: white;
+    }
+
+.listening-song {
+    color: #5EADF2;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.delete-song-button {
+    all: inherit;
+}
+.tamanioImagenPortada {
+    height: 180px;
+    width: 200px;
+}
+.imagenPlaylists{
+    width: 100%;
+    height:100%;
+}
+.containercardplaylist {
+    display: flex;
+    flex-direction: row;
+}
+.containerdatos {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+.scrollable-canciones {
+    max-height: 348px;
+    overflow-y: auto;
+}

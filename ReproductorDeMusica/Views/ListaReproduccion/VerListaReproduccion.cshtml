@@ -1,0 +1,143 @@
+﻿@model ReproductorDeMusica.Web.Models.ListaReproduccionCancionViewModel
+@{
+    int index = 1;
+}
+@{
+    ViewData["Title"] = "Playlist";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/ListaReproduccion/VerListaReproduccion.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/Cancion/Index.css" />
+</head>
+
+    <div class="container">
+        <div class="containercardplaylist">
+            <div class="tamanioImagenPortada">
+            <img class="imagenPlaylists" src="@Model.ListaReproduccion.UrlPortada" alt="Imagen de la lista" />
+            </div>
+            <div class="p-2 containerdatos">
+                <div class="d-flex justify-content-between">
+                <h2 class="col-auto">@Model.ListaReproduccion.Nombre</h2>
+                <button id="addSongButton" title="Agregar canción">
+                    <a asp-controller="Cancion" asp-action="GetAllCancionesDisponibles" asp-route-idListaReproduccion="@Model.ListaReproduccion.Id">
+                        <span class="material-symbols-outlined text-white">
+                            add_circle
+                        </span>
+                    </a>
+                </button>
+                </div>
+            
+                <label>Creador por: @ViewBag.NombreUsuario</label>
+                <label>Fecha de Creacion: @Model.ListaReproduccion.FechaCreacion</label>
+           
+            </div>
+        </div>
+
+    <div class="scrollable-canciones">
+
+        @if (Model.Canciones != null && Model.Canciones.Any())
+        {
+            <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Artista</th>
+                                <th scope="col">
+                                    <!-- Columna para borrar la canción de la playlist -->
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                @foreach (var cancion in Model.Canciones)
+                {
+                    
+                            <tr class="playlist-item" data-cancion-id="@cancion.Id">
+                                <td class="playlist-index" style="width: 30px;">
+                                    <span class="index-text">@index</span>
+                                <button class="btn btn-sm btn-reproducir playlist-play-btn" style="display: none; width: 24px; height: 24px; padding: 0; font-size: 16px;" data-cancion-id="@cancion.Id" data-ruta-audio="@cancion.RutaAudio">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                <img src="@cancion.UrlPortada" alt="Imagen de @cancion.Titulo" class="img-thumbnail" style="width: 30px; height: 30px; margin-right: 10px;">
+                                @cancion.Titulo
+                                </td>
+                                <td>@cancion.Artista</td>
+                                <td>
+                                    <button class="delete-song-button" data-cancion-id="@cancion.Id" data-lista-id="@Model.ListaReproduccion.Id">
+                                        <i class="fa-solid fa-trash delete"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                    index++;
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No hay música en esta lista de reproducción</p>
+        }
+    </div>
+
+    </div>
+
+<div class="container">
+        <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="addSongModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold text-center" id="addSongModalLabel">Añadir nueva canción</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="subtitle">Sube tu canción y añade los detalles aquí.</p>
+                        <form id="songForm" action="/Cancion/AgregarCancion" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" readonly id="id" />
+                            <div class="mb-3">
+                                <label for="songName" class="form-label">Nombre de la canción</label>
+                                <input type="text" class="form-control" id="songName" name="Titulo" placeholder="Ingrese el nombre de la canción" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="artist" class="form-label">Artista</label>
+                                <input type="text" class="form-control" id="artist" name="Artista" placeholder="Ingrese el nombre del artista" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="album" class="form-label"> Álbum </label>
+                                <input type="text" class="form-control" id="album" name="Album" placeholder="Ingrese el nombre del álbum" />
+                            </div>
+                            <div class="d-flex gap-3">
+                                <div class="w-50">
+                                    <label for="audioFile" class="form-label">Archivo de audio</label>
+                                    <input type="file" class="form-control d-none" id="audioFile" name="Audio" accept="audio/*">
+                                    <button type="button" id="selectAudioButton" class="btn btn-primary w-100">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>  Seleccionar audio
+                                    </button>
+                                    <p id="audioFileName" class="mt-2 text-info"></p>
+                                </div>
+                                <div class="w-50">
+                                    <label for="coverImage" class="form-label">Imagen de portada</label>
+                                    <input type="file" class="form-control d-none" id="coverImage" name="Imagen" accept="image/*">
+                                    <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
+                                        <i class="fa-solid fa-file-image"></i> Seleccionar portada
+                                    </button>
+                                    <p id="imageFileName" class="mt-2 text-info"></p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-3">
+                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success" id="submitButtonSong" disabled>Subir canción</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<script src="~/js/ListaReproduccion/VerListaReproduccion.js"> </script>
+
