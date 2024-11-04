@@ -1,8 +1,8 @@
 ﻿// Variables globales
 const submitButtonPlaylist = document.getElementById("submitButtonPlaylist");
-const imageFileInput = document.getElementById("coverImage");
-const selectImageButton = document.getElementById("selectImageButton");
-const imageFileNameDisplay = document.getElementById("imageFileName");
+const imageFileInput = document.getElementById("coverImagePlaylist");
+const selectImageButton = document.getElementById("selectImagePlaylistButton");
+const imageFileNameDisplay = document.getElementById("imageFileNamePlaylist");
 
 document.addEventListener("DOMContentLoaded", () => {
     crearAlertaDeMensaje();
