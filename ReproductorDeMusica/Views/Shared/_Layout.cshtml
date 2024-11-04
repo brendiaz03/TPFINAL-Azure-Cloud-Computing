@@ -19,8 +19,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Layout/Layout.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/Cancion/Index.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/Layout/Reproductor.css" asp-append-version="true">
 
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify/1.12.0/Toastify.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
 </head>
 <body>
@@ -34,44 +36,44 @@
         {
             @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
             {
-                <div class="search-bar ">
-                    <form id="searchForm" action="/Cancion/Buscar" method="GET" class="search-bar">
-                        <div class="input-container">   
-                            <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
-                            <i class="fas fa-search search-icon"></i>
+                        <div class="search-bar ">
+                            <form id="searchForm" action="/Cancion/Buscar" method="GET" class="search-bar">
+                                <div class="input-container">   
+                                    <input type="text" name="titulo" placeholder="¿Qué quieres reproducir?" required>
+                                    <i class="fas fa-search search-icon"></i>
+                                </div>
+                            </form>
+                            <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto; position:absolute; z-index: 10; top:50px; right:32px"></div>
                         </div>
-                    </form>
-                    <div id="resultadosBusqueda" style="display: none; border: 1px solid #ccc; max-height: 200px; overflow-y: auto; position:absolute; z-index: 10; top:50px; right:32px"></div>
-                </div>
-                <div class="contenedor-botones">
-                    <div class="usuario" id="usuarioMenu">
-                        <!-- Contenedor de la imagen o iniciales -->
-                        <div class="img-usuario">
+                        <div class="contenedor-botones">
+                            <div class="usuario" id="usuarioMenu">
+                                <!-- Contenedor de la imagen o iniciales -->
+                                <div class="img-usuario">
                             @if (!string.IsNullOrEmpty(ViewBag.ImagenUsuario))
                             {
-                                <img src="@ViewBag.ImagenUsuario" alt="Usuario" style="border-radius: 50%; width: 50px; height: 50px;">
+                                            <img src="@ViewBag.ImagenUsuario" alt="Usuario" style="border-radius: 50%; width: 50px; height: 50px;">
                             }
                             else if (!string.IsNullOrEmpty(ViewBag.NombreUsuario))
                             {
-                                <span>@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
+                                            <span>@ViewBag.NombreUsuario.Substring(0, 1) @ViewBag.NombreUsuario.Substring(1, 1)</span>
                             }
+                                </div>
+                            </div>
+                            <!-- Menú desplegable -->
+                            <ul class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                                <li><a class="dropdown-item" href="/Usuario/Cuenta">Cuenta</a></li>
+                                <li><a class="dropdown-item" href="/Usuario/Logout">Cerrar Sesión</a></li>
+                            </ul>
                         </div>
-                    </div>
-                    <!-- Menú desplegable -->
-                    <ul class="dropdown-menu" id="dropdownMenu" style="display: none;">
-                        <li><a class="dropdown-item" href="/Usuario/Cuenta">Cuenta</a></li>
-                        <li><a class="dropdown-item" href="/Usuario/Logout">Cerrar Sesión</a></li>
-                    </ul>
-                </div>
 
             }
             else
             {
-                <div class="contenedor-botones">
-                    <a href="/Usuario/RegistrarUsuario" class="span-register">Registrarse</a>
-                    <span class="divider">|</span>
-                    <a href="/Usuario/Login"><button class="btn-login">Iniciar Sesion</button></a>
-                </div>
+                        <div class="contenedor-botones">
+                            <a href="/Usuario/RegistrarUsuario" class="span-register">Registrarse</a>
+                            <span class="divider">|</span>
+                            <a href="/Usuario/Login"><button class="btn-login">Iniciar Sesion</button></a>
+                        </div>
             }
         }
     </header>
@@ -79,119 +81,88 @@
     <div class="container-fluid">
         @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
         {
-            <aside class="sidebar">
-                <h3>Tu biblioteca</h3>
-                <nav>
-                    <ul class="nav flex-column w-100 p-1">
-                        <li class="nav-item   p-2">
-                            @if (ViewBag.DeshabilitarSidebar==true)
-                            {
-                                <a href="#" class="span-verMisPlaylists" style="color:darkgray">
-                                    <span class="material-symbols-outlined">
-                                        queue_music
-                                    </span> Ver Mis Playlists
-                                </a> <br />
-                            }
-                            else if(ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
-                            {
+                <aside class="sidebar">
+                    <h3>Tu biblioteca</h3>
+                    <nav>
+                        <ul class="nav flex-column w-100 p-1">
+                            <li class="nav-item  p-2 ">
                                 <a href="/ListaReproduccion/Index" class="span-verMisPlaylists active">
                                     <div class="material-symbols-outlined">
                                         queue_music
                                     </div>
                                     <label class="cursor-pointer">Mis Playlists</label>
                                 </a>
-                            }
-                        </li>
-                        <li class="nav-item">
-                            @if (ViewBag.DeshabilitarSidebar == true)
-                            {
-                                <button class="span-verMisPlaylists" style="background-color:darkgray">
-                                    <span class="material-symbols-outlined">
-                                        library_music
-                                    </span> Crear canción
-                                </button> <br />
-
-                            }
-                            else if (ViewBag.DeshabilitarSidebar == false || ViewBag.DeshabilitarSidebar == null)
-                            {
-                                <a class="span-verMisPlaylists active">
+                            </li>
+                            <li class="nav-item  p-2 ">
+                                <a href="/Cancion/Index"  class="span-verMisPlaylists active">
                                     <div class="material-symbols-outlined">
                                         library_music
                                     </div> <label class="cursor-pointer">Mis Canciones </label>
                                 </a>
-                            }
-                        </li>
-                        <li>
-                             @if (ViewBag.DeshabilitarSidebar==true)
-                            {
-                                <a href="/Plan" class="comprarPremium">
-                                <button type="button" class="but-premium">
-                                    <p><i class="fa-solid fa-crown"></i> Compra premium aquí</p>
-                                </button>
-                                </a>
-                            }
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
         }
 
         <div class="flex-grow-1 p-4 position-relative">
             <main role="main" class="pb-3">
                 @RenderBody()
-            </main>
-        </div> 
-    </div>
-    @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
-    {
-        <div id="reproductorContainer" class="reproductor">
-            <partial name="_ReproductorPartial" />
+                @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+                {
+                        <div id="reproductorContainer" class="mt-auto">
+                            <partial name="_ReproductorPartial" />
+                        </div>
+                }
+
+            </main>  
         </div>
-    }
+    </div>
     <!-- Footer -->
     @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
     {
-        <footer class="footer bg-dark text-white text-center py-3">
-        <div class="container">
-            <div class="footer-top d-flex justify-content-between">
-                <div class="footer-section">
-                    <h4>Compañía</h4>
-                    <ul>
-                        <li><a href="#">Acerca de</a></li>
-                        <li><a href="#">Empleo</a></li>
-                        <li><a href="#">Historia</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Comunidades</h4>
-                    <ul>
-                        <li><a href="#">Para artistas</a></li>
-                        <li><a href="#">Desarrolladores</a></li>
-                        <li><a href="#">Publicidad</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces útiles</h4>
-                    <ul>
-                        <li><a href="#">Asistencia</a></li>
-                        <li><a href="#">App gratis</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/facebook-new.png" alt="Facebook"></a>
-                    <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/instagram-new.png" alt="Instagram"></a>
-                    <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/twitter.png" alt="Twitter"></a>
+            <footer class="footer bg-dark text-white text-center py-3">
+            <div class="container">
+                <div class="footer-top d-flex justify-content-between">
+                    <div class="footer-section">
+                        <h4>Compañía</h4>
+                        <ul>
+                            <li><a href="#">Acerca de</a></li>
+                            <li><a href="#">Empleo</a></li>
+                            <li><a href="#">Historia</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Comunidades</h4>
+                        <ul>
+                            <li><a href="#">Para artistas</a></li>
+                            <li><a href="#">Desarrolladores</a></li>
+                            <li><a href="#">Publicidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Enlaces útiles</h4>
+                        <ul>
+                            <li><a href="#">Asistencia</a></li>
+                            <li><a href="#">App gratis</a></li>
+                            <li><a href="#">Privacidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                        <a href="#"><img src="https://img.icons8.com/material-rounded/24/ffffff/twitter.png" alt="Twitter"></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     }
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="~/js/Layout/Layout.js"></script>
-    <script src="~/js/Layout/Reproductor.js"></script>
     <script src="~/js/Cancion/Index.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 

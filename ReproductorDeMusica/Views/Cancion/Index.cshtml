@@ -1,77 +1,90 @@
 ﻿@model ReproductorDeMusica.Web.Models.CancionViewModel;
-
+@{
+    ViewData["Title"] = "Mis Canciones";
+}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Añadir nueva canción</title>
 <link rel="stylesheet" href="~/css/Cancion/Index.css" />
 
-<body>
-    <div class="container">
-        <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#addSongModal">
-            Añadir nueva canción
+
+<div class="containerCanciones">
+
+    <div class="row align-items-center justify-content-between">
+        <h2 class="col-auto">Mis Canciones Subidas</h2>
+
+        <button id="addPlaylistButton" title="Agregar playlist">
+            <span class="material-symbols-outlined col-auto" id="addPlaylistIcon" data-bs-toggle="modal" data-bs-target="#addSongModal">
+                playlist_add
+            </span>
         </button>
+    </div>
+    <div id="reproductorContainer" class="mt-auto">
+        <partial name="_CancionesPartial" />
+    </div>
+    @* <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#addSongModal">
+    Añadir nueva canción
+    </button> *@
 
-        <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="addSongModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fw-bold text-center" id="addSongModalLabel">Añadir nueva canción</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p id="subtitle">Sube tu canción y añade los detalles aquí.</p>
-                        <form id="songForm" action="/Cancion/AgregarCancion" method="POST" enctype="multipart/form-data">
+    <div class="modal fade" id="addSongModal" tabindex="-1" aria-labelledby="addSongModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-center" id="addSongModalLabel">Añadir nueva canción</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="subtitle">Sube tu canción y añade los detalles aquí.</p>
+                    <form id="songForm" action="/Cancion/AgregarCancion" method="POST" enctype="multipart/form-data">
 
-                            <input type="hidden" readonly id="id" />
+                        <input type="hidden" readonly id="id" />
 
-                            <div class="mb-3">
-                                <label for="songName" class="form-label">Nombre de la canción</label>
-                                <input type="text" class="form-control" id="songName" name="Titulo" placeholder="Ingrese el nombre de la canción" required>
+                        <div class="mb-3">
+                            <label for="songName" class="form-label">Nombre de la canción</label>
+                            <input type="text" class="form-control" id="songName" name="Titulo" placeholder="Ingrese el nombre de la canción" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="artist" class="form-label">Artista</label>
+                            <input type="text" class="form-control" id="artist" name="Artista" placeholder="Ingrese el nombre del artista" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="album" class="form-label"> Álbum </label>
+                            <input type="text" class="form-control" id="album" name="Album" placeholder="Ingrese el nombre del álbum" />
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <div class="w-50">
+                                <label for="audioFile" class="form-label">Archivo de audio</label>
+                                <input type="file" class="form-control d-none" id="audioFile" name="Audio" accept="audio/*">
+                                <button type="button" id="selectAudioButton" class="btn btn-primary w-100">
+                                    <i class="fa-solid fa-arrow-up-from-bracket"></i>  Seleccionar audio
+                                </button>
+                                <p id="audioFileName" class="mt-2 text-info"></p>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="artist" class="form-label">Artista</label>
-                                <input type="text" class="form-control" id="artist" name="Artista" placeholder="Ingrese el nombre del artista" required>
+                            <!-- Selector de imagen de portada -->
+                            <div class="w-50">
+                                <label for="coverImage" class="form-label">Imagen de portada</label>
+                                <input type="file" class="form-control d-none" id="coverImage" name="Imagen" accept="image/*">
+                                <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
+                                    <i class="fa-solid fa-file-image"></i> Seleccionar portada
+                                </button>
+                                <p id="imageFileName" class="mt-2 text-info"></p>
                             </div>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="album" class="form-label"> Álbum </label>
-                                <input type="text" class="form-control" id="album" name="Album" placeholder="Ingrese el nombre del álbum" />
-                            </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success" id="submitButtonSong">Subir canción</button>
+                        </div>
 
-                            <div class="d-flex gap-3">
-                                <div class="w-50">
-                                    <label for="audioFile" class="form-label">Archivo de audio</label>
-                                    <input type="file" class="form-control d-none" id="audioFile" name="Audio" accept="audio/*">
-                                    <button type="button" id="selectAudioButton" class="btn btn-primary w-100">
-                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>  Seleccionar audio
-                                    </button>
-                                    <p id="audioFileName" class="mt-2 text-info"></p>
-                                </div>
-
-                                <!-- Selector de imagen de portada -->
-                                <div class="w-50">
-                                    <label for="coverImage" class="form-label">Imagen de portada</label>
-                                    <input type="file" class="form-control d-none" id="coverImage" name="Imagen" accept="image/*">
-                                    <button type="button" id="selectImageButton" class="btn btn-secondary w-100">
-                                        <i class="fa-solid fa-file-image"></i> Seleccionar portada
-                                    </button>
-                                    <p id="imageFileName" class="mt-2 text-info"></p>
-                                </div>
-                            </div>
-
-                            <div class="d-flex justify-content-end mt-3">
-                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-success" id="submitButtonSong">Subir canción</button>
-                            </div>
-
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="~/js/Cancion/Index.js"> </script>
-</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/Cancion/Index.js"> </script>

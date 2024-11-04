@@ -46,6 +46,7 @@
 .redirigir-login a {
     color: #fff;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -63,53 +64,16 @@ body {
 .sidebar {
     height: 630px;
     overflow-y: auto;
-    padding: 20px; 
+    padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
-
-/* Ajuste general para el layout */
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
+.footer {
 }
-
 
 main {
     flex-grow: 1;
-    padding-bottom: 60px;
-}
-
-.footer {
-    margin-top: auto;
-    background-color: #181818;
-    color: #b3b3b3;
-    padding: 40px 20px;
-    font-size: 14px;
-}
-.comprarPremium {
-    text-decoration: none;
-    display: flex;
-    
-    text-align:center;
-}
-    .comprarPremium button {
-        background: linear-gradient(to right, #4b4bde, #609bf5);
-        transition: width 0.5s ease;
-    }
-
-.but-premium {
-    height: 4em;
-    color: red;
-    width: 8.5em;
-}
-
-.comprarPremium button:hover {
-    background: linear-gradient(to right,#609bf5, #4b4bde);
-    transition: width 0.5s ease;
     overflow-y: auto;
 }
 

@@ -1,6 +1,4 @@
-﻿@model ReproductorDeMusica.Web.Models.CancionesViewModel;
-
-<head>
+﻿<head>
     <link rel="stylesheet" href="~/css/Layout/Layout.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/Shared/CancionesPartial.css" asp-append-version="true">
 </head>
@@ -19,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var cancion in Model.Canciones)
+        @foreach (var cancion in ViewBag.Canciones)
     {
 
            <tr class="playlist-item" data-cancion-id="@cancion.Id">

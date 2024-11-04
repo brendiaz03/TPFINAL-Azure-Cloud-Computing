@@ -6,17 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interfaz de Música</title>
     <link rel="stylesheet" href="~/css/Home/Home.css">
 </head>
 
-    <div class="container">
+<div class="container">
+    @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
+    {
         <h3>¡Bienvenida/o!</h3>
-        @if (ViewBag.EstaLoggeado != null && ViewBag.EstaLoggeado == true)
-        {
-            <div id="reproductorContainer" class="mt-auto">
-                <partial name="_CancionesPartial" />
-            </div>
-        }
-    </div>
-    <script src="/js/site.js"></script>
+
+        <div id="reproductorContainer" class="mt-auto">
+            <partial name="_CancionesPartial" />
+        </div>
+    }
+</div>
+<script src="/js/site.js"></script>
