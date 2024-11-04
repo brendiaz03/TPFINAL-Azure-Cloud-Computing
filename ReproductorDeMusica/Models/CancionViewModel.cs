@@ -10,13 +10,13 @@ namespace ReproductorDeMusica.Web.Models
         public string Album { get; set; } = null!;
         public int Creador { get; set; }
         public virtual Usuario UsuarioCreador { get; set; } = null!;
-        public int Duracion { get; set; }
+        public string Duracion { get; set; }
         public virtual ICollection<CancionListaReproduccion> ListaCanciones { get; set; } = new List<CancionListaReproduccion>();
         public IFormFile Audio { get; set; }
         public IFormFile Imagen { get; set; }
 
         // Método para convertir el ViewModel a la entidad Cancion
-        public static Cancion ToCancion(CancionViewModel model, string audioUrl, string imagenUrl, int idUsuario)
+        public static Cancion ToCancion(CancionViewModel model, string audioUrl, string imagenUrl, int idUsuario, string duracion)
         {
             return new Cancion
             {
@@ -25,7 +25,8 @@ namespace ReproductorDeMusica.Web.Models
                 Artista = model.Artista,
                 Album = model.Album,
                 UrlPortada = imagenUrl,  // Asignar URL de la imagen
-                RutaAudio = audioUrl      // Asignar URL del archivo de audio
+                RutaAudio = audioUrl,      // Asignar URL del archivo de audio
+                Duracion = duracion
             };
         }
     }

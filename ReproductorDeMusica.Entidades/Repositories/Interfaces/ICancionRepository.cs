@@ -14,7 +14,7 @@ namespace ReproductorDeMusica.Entidades.Repositories.Interfaces
         void EliminarCancion(int idCancion);
         List<Cancion> GetCancions();
         Cancion GetCancionById(int id);
-
+        List<Cancion> BuscarCancionesPorCreador(int idUsuario);
         IEnumerable<Cancion> BuscarCancionesPorNombre(string nombre);
     }
 }
