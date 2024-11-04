@@ -67,7 +67,7 @@
                                 <td>@cancion.Artista</td>
                                 <td>
                                     <button class="delete-song-button" data-cancion-id="@cancion.Id" data-lista-id="@Model.ListaReproduccion.Id">
-                                        <i class="fa-solid fa-trash delete"></i>
+                                    <a class="text-white" asp-controller="CancionListaReproduccion" asp-action="EliminarCancionListaReproduccion" asp-route-idCancion="@cancion.Id" asp-route-idLista="@Model.ListaReproduccion.Id"><i class="fa-solid fa-trash delete"></i></a>
                                     </button>
                                 </td>
                             </tr>

@@ -34,7 +34,6 @@ public partial class Tpweb3AzureContext : DbContext
         optionsBuilder.UseLazyLoadingProxies();
         optionsBuilder.UseSqlServer("Server=pw3-servidor.database.windows.net;Database=tpweb3_azure;User Id=pw3Admin;Password=Admin242;Encrypt=True;TrustServerCertificate=True;");
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cancion>(entity =>
@@ -56,12 +55,16 @@ public partial class Tpweb3AzureContext : DbContext
             entity.Property(e => e.Duracion)
                 .HasMaxLength(255)
                 .HasColumnName("duracion");
-            entity.Property(e => e.RutaAudio).HasColumnName("rutaAudio");
+            entity.Property(e => e.RutaAudio)
+                .HasColumnType("text")
+                .HasColumnName("rutaAudio");
             entity.Property(e => e.Titulo)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("titulo");
-            entity.Property(e => e.UrlPortada).HasColumnName("urlPortada");
+            entity.Property(e => e.UrlPortada)
+                .HasColumnType("text")
+                .HasColumnName("urlPortada");
 
             entity.HasOne(d => d.CreadorNavigation).WithMany(p => p.Cancions)
                 .HasForeignKey(d => d.Creador)
@@ -121,7 +124,7 @@ public partial class Tpweb3AzureContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
             entity.Property(e => e.UrlPortada)
-                .HasMaxLength(255)
+                .HasColumnType("text")
                 .HasColumnName("urlPortada");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.ListaReproduccions)
@@ -165,7 +168,7 @@ public partial class Tpweb3AzureContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("email");
-            entity.Property(e => e.ImagenUsuario).HasMaxLength(255);
+            entity.Property(e => e.ImagenUsuario).HasColumnType("text");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(100)
                 .IsUnicode(false)

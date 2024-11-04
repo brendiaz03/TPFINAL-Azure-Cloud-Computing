@@ -42,3 +42,30 @@
         text-align: center;
         color: #fff;
     }
+
+.btn-home {
+    display: flex;
+    justify-content: center;
+    color: #370a37;
+    background-color: white;
+    border-color: transparent;
+    border-radius: 50px;
+    width: 7em;
+    text-align: center;
+    padding: 5px 30px 5px 30px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+    .btn-home:hover {
+        color: #ffffff;
+        background-color: transparent;
+        border-color: white;
+        border-radius: 50px;
+        text-align: center;
+        width: 7em;
+        padding: 5px 30px 5px 30px;
+        text-decoration: none;
+        align-content: center;
+        transition: background-color 0.3s;
+    }

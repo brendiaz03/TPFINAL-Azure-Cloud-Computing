@@ -56,6 +56,6 @@ td {
     width:100%;
 }
 .scrollable-canciones {
-    max-height: 348px;
+    height: 348px;
     overflow-y: auto;
 }

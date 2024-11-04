@@ -57,9 +57,10 @@ namespace ReproductorDeMusica.Web.Controllers
             {
                 Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
+                ViewBag.ImagenUsuario = buscado.ImagenUsuario;
 
                 var listaReproduccion = _reproduccionService.ObtenerListasDeReproduccionPorId(id); // Cargar la lista por ID
-                var canciones = listaReproduccion.CancionListaReproduccions.Select(cl => cl.IdCancionNavigation).ToList();
+                var canciones = listaReproduccion.CancionListaReproduccions.Where(cl => cl.Eliminado == false).Select(cl => cl.IdCancionNavigation).ToList();
 
                 var viewModel = new ListaReproduccionCancionViewModel
                 {
