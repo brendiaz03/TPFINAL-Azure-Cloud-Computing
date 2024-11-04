@@ -11,7 +11,12 @@
             $("#resultadosBusqueda").hide(); // Oculta los resultados si la consulta es muy corta
         }
     });
-
+    // Evitar que el formulario se envíe al presionar Enter en el campo de entrada
+    $('input[name="titulo"]').on("keypress", function (e) {
+        if (e.which === 13) {
+            e.preventDefault(); // Evita el envío del formulario
+        }
+    });
     // Cerrar la lista de resultados al hacer clic fuera de ella
     $(document).on("click", function (e) {
         if (!$(e.target).closest(".search-bar").length) {
