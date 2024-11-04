@@ -58,7 +58,8 @@ namespace ReproductorDeMusica.Entidades.Repositories
         {
             return _context.Usuarios
         .Include(u => u.UsuarioPlans
-            .OrderByDescending(up => up.FechaPago)
+            .OrderByDescending(up => up.Id)
+            .ThenByDescending(up=>up.FechaPago)
             .Take(1))
         .ThenInclude(up => up.IdPlanNavigation)
         .FirstOrDefault(u => u.Id == usuarioId);
