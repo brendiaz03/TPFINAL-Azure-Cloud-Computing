@@ -20,6 +20,7 @@ namespace ReproductorDeMusica.Entidades.Repositories
 
         public CancionListaReproduccion CrearCancionListaReproduccion(CancionListaReproduccion cancionLista)
         {
+            cancionLista.Eliminado = false;
             _context.CancionListaReproduccions.Add(cancionLista);
             _context.SaveChanges();
             return cancionLista;
@@ -28,9 +29,9 @@ namespace ReproductorDeMusica.Entidades.Repositories
         public void EliminarCancionDeLaLista(int idCancion, int idLista)
         {
             var lista = _context.CancionListaReproduccions
-                .Where(i => i.IdListaReproduccion == idLista && i.IdCancion == idCancion);
+                .Where(i => i.IdListaReproduccion == idLista && i.IdCancion == idCancion).FirstOrDefault();
 
-            _context.Remove(lista);
+            lista.Eliminado = true;
             _context.SaveChanges();
         }
 
