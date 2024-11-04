@@ -11,9 +11,11 @@
 </head>
 
 <div class="containerPlaylists">
+     @if (ViewBag.Gratuito == null || ViewBag.Gratuito == false)
+    {
     <div class="row align-items-center justify-content-between">
         <h2 class="col-auto">Mis Playlists</h2>
-
+        
         <button id="addPlaylistButton" title="Agregar playlist">
             <span class="material-symbols-outlined col-auto" id="addPlaylistIcon" data-bs-toggle="modal" data-bs-target="#addListaReproduccionModal">
                 playlist_add
@@ -21,12 +23,12 @@
         </button>
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-4 scrollable-card">
         @foreach (var playlist in Model)
         {
             <div class="col-md-4 mb-4">
                 <a asp-controller="ListaReproduccion" asp-action="VerListaReproduccion" asp-route-id="@playlist.Id" class="text-decoration-none">
-                    <div class="card h-100">
+                    <div class="card h-100 ">
                         <div class="card-img-top" style="height: 200px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
                             @if (!string.IsNullOrEmpty(playlist.UrlPortada))
                             {
@@ -41,41 +43,12 @@
                             <h5 class="card-title text-dark">@playlist.Nombre</h5>
                         </div>
                     </div>
-                    @* <div class="modal-body">
-                        <p id="subtitle">Crea tu playlist y añade los detalles aquí.</p>
-                        <form id="playlistForm" action="/ListaReproduccion/AgregarListaReproduccion" method="POST" enctype="multipart/form-data">
-
-                            <input type="hidden" readonly id="id" />
-
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre de la playlist</label>
-                                <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Ingrese el nombre de la playlist" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="coverImagePlaylist" class="form-label">Imagen de portada</label>
-                                <input type="file" class="form-control d-none" id="coverImagePlaylist" name="Imagen" accept="image/*">
-                                <button type="button" id="selectImagePlaylistButton" class="btn btn-secondary w-100">
-                                    <i class="fa-solid fa-file-image"></i> Seleccionar portada
-                                </button>
-                                <p id="imageFileNamePlaylist" class="mt-2 text-info"></p>
-                            </div>
-
-                            <div class="d-flex justify-content-end mt-3">
-                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-success" id="submitButtonPlaylist">Crear </button>
-                            </div>
-
-                        </form>
-                    </div> *@
                     </a>
                 </div>
         }
     </div>
-</div>
 
-
-<div class="modal fade" id="addListaReproduccionModal" tabindex="-1" aria-labelledby="addListaReproduccionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addListaReproduccionModal" tabindex="-1" aria-labelledby="addListaReproduccionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -110,7 +83,23 @@
                 </form>
             </div>
         </div>
+         </div>
+        </div>
+
+    }
+    else if( ViewBag.Gratuito != null || ViewBag.Gratuito == true){
+    <div class="row d-flex align-items-center justify-content-center text-center">
+        <h4>Para acceder a este contenido debes ser del Plan Premium</h4>
+        <div class="tamanioImg">
+            <img class="imgSVG" src="/images/accesodenegado.svg" alt="Stop" />
+        </div>
+        <div class="row d-flex align-items-center justify-content-center text-center">
+
+            <a href="/Plan" class="btn-principal"><button type="button" class="btn-principal">Ver Plan Premium</button></a>
+        </div>
+
     </div>
+    }
 
 </div>
 

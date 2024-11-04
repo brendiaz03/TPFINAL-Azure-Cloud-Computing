@@ -40,3 +40,7 @@ button{
 .material-symbols-outlined {
     cursor: pointer;
 }
+.containerCancionesDisponibles {
+    max-height: 480px;
+    overflow-y: auto;
+}

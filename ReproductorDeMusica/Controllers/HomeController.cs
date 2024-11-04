@@ -45,12 +45,7 @@ namespace ReproductorDeMusica.Controllers
 
             List<Cancion> canciones = _cancionService.GetCancions();
             ViewBag.Canciones = canciones;
-            //var viewModel = new CancionesViewModel
-            //{
-            //    Canciones = canciones ?? new List<Cancion>()
-            //};
-
-            //return View(viewModel);
+           
             return View();
         }
 

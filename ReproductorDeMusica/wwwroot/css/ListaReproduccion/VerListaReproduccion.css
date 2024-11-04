@@ -38,3 +38,24 @@ td {
 .delete-song-button {
     all: inherit;
 }
+.tamanioImagenPortada {
+    height: 180px;
+    width: 200px;
+}
+.imagenPlaylists{
+    width: 100%;
+    height:100%;
+}
+.containercardplaylist {
+    display: flex;
+    flex-direction: row;
+}
+.containerdatos {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+.scrollable-canciones {
+    max-height: 348px;
+    overflow-y: auto;
+}

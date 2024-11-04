@@ -64,4 +64,14 @@ main {
         }
 
 
-
+.btn-principal {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    width:100%;
+}
+    .btn-principal:hover {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }

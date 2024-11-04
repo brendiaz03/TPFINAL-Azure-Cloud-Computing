@@ -12,20 +12,29 @@
 </head>
 
     <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <h2 class="col-auto">@Model.ListaReproduccion.Nombre</h2>
-
-            <button id="addSongButton" title="Agregar canción">
-                <a asp-controller="Cancion" asp-action="GetAllCancionesDisponibles" asp-route-idListaReproduccion="@Model.ListaReproduccion.Id">
-                    <span class="material-symbols-outlined text-white">
-                        add_circle
-                    </span>
-                </a>
-            </button>
-
+        <div class="containercardplaylist">
+            <div class="tamanioImagenPortada">
+            <img class="imagenPlaylists" src="@Model.ListaReproduccion.UrlPortada" alt="Imagen de la lista" />
+            </div>
+            <div class="p-2 containerdatos">
+                <div class="d-flex justify-content-between">
+                <h2 class="col-auto">@Model.ListaReproduccion.Nombre</h2>
+                <button id="addSongButton" title="Agregar canción">
+                    <a asp-controller="Cancion" asp-action="GetAllCancionesDisponibles" asp-route-idListaReproduccion="@Model.ListaReproduccion.Id">
+                        <span class="material-symbols-outlined text-white">
+                            add_circle
+                        </span>
+                    </a>
+                </button>
+                </div>
+            
+                <label>Creador por: @ViewBag.NombreUsuario</label>
+                <label>Fecha de Creacion: @Model.ListaReproduccion.FechaCreacion</label>
+           
+            </div>
         </div>
 
-        <img src="@Model.ListaReproduccion.UrlPortada" alt="Imagen de la lista" />
+    <div class="scrollable-canciones">
 
         @if (Model.Canciones != null && Model.Canciones.Any())
         {
@@ -72,6 +81,8 @@
         {
             <p>No hay música en esta lista de reproducción</p>
         }
+    </div>
+
     </div>
 
 <div class="container">

@@ -52,6 +52,7 @@ namespace ReproductorDeMusica.Web.Controllers
             int idUsuario = (int) HttpContext.Session.GetInt32("UsuarioId"); 
             UsuarioPlan usuarioPlan = _pagoService.RealizarPagoAPremium(idUsuario);
             _correoService.EnviarCorreoPago(usuarioPlan.Id);
+            HttpContext.Session.SetInt32("Plan", 2);
             return View("PagoRealizado");
         }
 
@@ -63,55 +64,53 @@ namespace ReproductorDeMusica.Web.Controllers
 
 
         /*Pruebas para la verificacion de datos*/
-        [HttpGet]
-        public IActionResult Prueba()
-        {
-            List<Plan> plan = _pagoService.ObtenerTodosLosPlanes();
-            return View(plan);
-        }
+        //[HttpGet]
+        //public IActionResult Prueba()
+        //{
+        //    List<Plan> plan = _pagoService.ObtenerTodosLosPlanes();
+        //    return View(plan);
+        //}
 
-        [HttpGet]
-        public IActionResult Prueba2() {
-            List<UsuarioPlan> usuariosPlanes = _pagoService.ObtenerPlanesPorUsuarioId(3);
-            return View(usuariosPlanes);
-        }
+        //[HttpGet]
+        //public IActionResult Prueba2() {
+        //    List<UsuarioPlan> usuariosPlanes = _pagoService.ObtenerPlanesPorUsuarioId(3);
+        //    return View(usuariosPlanes);
+        //}
 
-        [HttpGet]
-        public JsonResult ObtenerUltimoPlanPorUsuarioActual()
-        {
-            var idUsuario = HttpContext.Session.GetInt32("UsuarioId");
+        //[HttpGet]
+        //public JsonResult ObtenerUltimoPlanPorUsuarioActual()
+        //{
+        //    var idUsuario = HttpContext.Session.GetInt32("UsuarioId");
 
-            if (!idUsuario.HasValue)
-            {
-                return Json(new { error = "Usuario no autenticado o sesión expirada." });
-            }
+        //    if (!idUsuario.HasValue)
+        //    {
+        //        return Json(new { error = "Usuario no autenticado o sesión expirada." });
+        //    }
 
-            try
-            {
-                var usuarioPlan = _pagoService.GetUltimoPlanUsuario(idUsuario.Value);
+        //    try
+        //    {
+        //        var usuarioPlan = _pagoService.GetUltimoPlanUsuario(idUsuario.Value);
 
-                if (usuarioPlan == null)
-                {
-                    return Json(new { planNoDisponible = true });
-                }
+        //        if (usuarioPlan == null)
+        //        {
+        //            return Json(new { planNoDisponible = true });
+        //        }
 
-                var usuarioPlanDTO = new UsuarioPlanDTO
-                {
-                    Id = usuarioPlan.Id,
-                    TipoPlan = usuarioPlan.TipoPlan,
-                    Precio = usuarioPlan.Precio,
-                    FechaExpiracion = usuarioPlan.FechaExpiracion
-                };
+        //        var usuarioPlanDTO = new UsuarioPlanDTO
+        //        {
+        //            Id = usuarioPlan.Id,
+        //            TipoPlan = usuarioPlan.TipoPlan,
+        //            Precio = usuarioPlan.Precio,
+        //            FechaExpiracion = usuarioPlan.FechaExpiracion
+        //        };
 
-                return Json(usuarioPlanDTO);
-            }
-            catch (Exception)
-            {
-                return Json(new { error = "Ocurrió un error al obtener el plan." });
-            }
-        }
-
-
+        //        return Json(usuarioPlanDTO);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return Json(new { error = "Ocurrió un error al obtener el plan." });
+        //    }
+        //}
 
     }
 }

@@ -32,6 +32,10 @@ namespace ReproductorDeMusica.Web.Controllers
                 Usuario buscado = _usuarioLogica.BuscarUsuarioPorID((int)usuarioId);
                 ViewBag.NombreUsuario = buscado.NombreUsuario;
             }
+            if (HttpContext.Session.GetInt32("Plan") == 1)
+            {
+                ViewBag.Gratuito = true;
+            }
             List<Cancion> canciones = await _cancionService.GetCancionesPorCreador((int)usuarioId);
             ViewBag.Canciones = canciones;
             return View();

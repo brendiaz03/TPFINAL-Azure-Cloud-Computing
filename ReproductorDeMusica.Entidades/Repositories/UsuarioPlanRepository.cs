@@ -57,10 +57,13 @@ namespace ReproductorDeMusica.Entidades.Repositories
         public Usuario ObtenerUsuarioConPlan(int usuarioId)
         {
             return _context.Usuarios
-                .Include(u => u.UsuarioPlans)
-                    .ThenInclude(up => up.IdPlanNavigation)
-                .FirstOrDefault(u => u.Id == usuarioId);
+        .Include(u => u.UsuarioPlans
+            .OrderByDescending(up => up.FechaPago)
+            .Take(1))
+        .ThenInclude(up => up.IdPlanNavigation)
+        .FirstOrDefault(u => u.Id == usuarioId);
         }
+
         public UsuarioPlanDTO GetUltimoPlanUsuario(int idUsuario)
         {
             var plan = _context.UsuarioPlans

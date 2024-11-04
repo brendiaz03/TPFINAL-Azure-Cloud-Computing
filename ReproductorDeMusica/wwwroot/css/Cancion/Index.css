@@ -65,5 +65,19 @@ input.form-control, select.form-select {
 }
 
 .containerCanciones {
-    height: 527px;
+    height: 528px;
+}
+.tamanioImg{
+    height:410px;
+    width:100%;
+    padding-bottom: 10px;
+}
+.imgSVG{
+    height:100%;
+    width: 100%;
+}
+.btn-principal{
+    display:flex;
+    justify-content:center;
+    text-decoration:none;
 }

@@ -52,12 +52,14 @@ body {
     flex-direction: column;
     height: 126vh;
     margin: 0; /* Asegúrate de que no haya margen por defecto */
+    position: relative;
 }
 
 .container-fluid {
     flex: 1;
     display: flex;
-    overflow: hidden; /* Para evitar scrolls innecesarios */
+    height:200px;
+    /*overflow: hidden;*/ /* Para evitar scrolls innecesarios */
     padding: 0px;
 }
 

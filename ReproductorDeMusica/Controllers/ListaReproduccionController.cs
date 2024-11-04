@@ -25,6 +25,10 @@ namespace ReproductorDeMusica.Web.Controllers
         {
             var usuarioId = HttpContext.Session.GetInt32("UsuarioId");
 
+            if (HttpContext.Session.GetInt32("Plan") == 1)
+            {
+                ViewBag.Gratuito = true;
+            }
 
             ViewBag.EstaLoggeado = usuarioId != null;
             ViewBag.EsFormulario = false;
@@ -39,6 +43,7 @@ namespace ReproductorDeMusica.Web.Controllers
 
                 return View(listasDeReproduccion);
             }
+            
             return View();
         }
         public IActionResult VerListaReproduccion(int id)
