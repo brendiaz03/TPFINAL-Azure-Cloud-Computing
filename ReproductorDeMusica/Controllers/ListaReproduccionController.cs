@@ -103,8 +103,8 @@ namespace ReproductorDeMusica.Web.Controllers
                     ListaReproduccion listaReproduccion = ListaReproduccionViewModel.ToListaReproduccion((int)usuarioId, listaReproduccionViewModel, urlImagen);
 
                 bool agregado = _reproduccionService.AgregarListaReproduccion(listaReproduccion);
-
-                return View();
+                
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {

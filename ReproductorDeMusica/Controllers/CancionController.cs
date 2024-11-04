@@ -113,11 +113,10 @@ namespace ReproductorDeMusica.Web.Controllers
                 // Convertir el ViewModel a la entidad Cancion
                 Cancion cancion = CancionViewModel.ToCancion(model, urlAudio, urlImagen, (int)usuarioId, duracion);
 
-                // Guardar la canción en la base de datos
-                cancion.Creador = usuarioId;
                 _cancionService.CrearCancion(cancion);
 
-                return Ok(cancion);
+                //return Ok(cancion);
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
