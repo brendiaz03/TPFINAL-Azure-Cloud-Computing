@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const addPlaylistButton = document.getElementById("addPlaylistButton");
+    const closePlayListButton = document.getElementById("closePlayListButton");
     const addPlaylistModal = new bootstrap.Modal(document.getElementById("addListaReproduccionModal"));
 
     addPlaylistButton.addEventListener("click", () => {
         addPlaylistModal.show();
     });
-
+    closePlayListButton.addEventListener("click", () => {
+        addPlaylistModal.hide();
+    })
     // Configuración de otros eventos, por ejemplo, para habilitar el botón de enviar
     const submitButtonPlaylist = document.getElementById("submitButtonPlaylist");
     const imageFileInput = document.getElementById("coverImage");
