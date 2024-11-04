@@ -22,8 +22,10 @@
             </span>
         </button>
     </div>
-
+       
     <div class="row mt-4 scrollable-card">
+            @if (Model != null)
+            {
         @foreach (var playlist in Model)
         {
             <div class="col-md-4 mb-4">
@@ -46,7 +48,13 @@
                     </a>
                 </div>
         }
+            }
+            else
+            {
+                <p>No hay listas de reproducción cargadas</p>
+            }
     </div>
+       
 
     <div class="modal fade" id="addListaReproduccionModal" tabindex="-1" aria-labelledby="addListaReproduccionModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

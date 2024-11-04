@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="~/css/Shared/CancionesPartial.css" asp-append-version="true">
 </head>
 <div class="table-container">
+     @if (ViewBag.Canciones != null)
+        {
 <table class="table">
     <thead>
         <tr>
@@ -39,6 +41,11 @@
     }
     </tbody>
 </table>
+}
+else
+        {
+            <p>No hay música en esta lista de reproducción</p>
+        }
  <script src="~/js/Layout/Layout.js"></script>
   <script src="~/js/Shared/CancionesPartial.js"></script>
  </div>
