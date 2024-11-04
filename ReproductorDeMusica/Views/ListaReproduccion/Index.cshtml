@@ -41,7 +41,34 @@
                             <h5 class="card-title text-dark">@playlist.Nombre</h5>
                         </div>
                     </div>
-                </a>
+                    <div class="modal-body">
+                        <p id="subtitle">Crea tu playlist y añade los detalles aquí.</p>
+                        <form id="playlistForm" action="/ListaReproduccion/AgregarListaReproduccion" method="POST" enctype="multipart/form-data">
+
+                            <input type="hidden" readonly id="id" />
+
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre de la playlist</label>
+                                <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Ingrese el nombre de la playlist" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="coverImagePlaylist" class="form-label">Imagen de portada</label>
+                                <input type="file" class="form-control d-none" id="coverImagePlaylist" name="Imagen" accept="image/*">
+                                <button type="button" id="selectImagePlaylistButton" class="btn btn-secondary w-100">
+                                    <i class="fa-solid fa-file-image"></i> Seleccionar portada
+                                </button>
+                                <p id="imageFileNamePlaylist" class="mt-2 text-info"></p>
+                            </div>
+
+                            <div class="d-flex justify-content-end mt-3">
+                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success" id="submitButtonPlaylist">Crear </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
             </div>
         }
     </div>

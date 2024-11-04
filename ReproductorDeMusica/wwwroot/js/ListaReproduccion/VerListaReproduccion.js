@@ -5,6 +5,7 @@ let estaPausado = false;
 
 document.addEventListener("DOMContentLoaded", () => {
     configurarInteraccionesPlaylist();
+    crearAlertaDeMensaje();
 });
 
 function configurarInteraccionesPlaylist() {
@@ -64,4 +65,74 @@ function configurarInteraccionesPlaylist() {
             }
         }
     });
+}
+
+function manejarEliminarCancion() {
+    $(document).on('click', '.delete-song-button', function (e) {
+        e.stopPropagation();
+
+        const idCancion = e.target.closest('.delete-song-button').getAttribute('data-cancion-id');
+        const idListaCancion = e.target.cloest('.delete-song-button').getAttribute('data-lista-id');
+        const fila = e.target.closest('tr');
+
+        if (idCancion && idListaCancion) {
+            eliminarCancionDeLaLista(idCancion, idLista, fila);
+
+        }
+
+    });
+}
+
+function eliminarCancionDeLaLista(idCancion, idLista, fila) {
+    $.ajax({
+        url: '/CancionListaReproduccionController/EliminarCancionListaReproduccion', 
+        type: 'POST',
+        data: { idCancion: idCancion, idLista: idLista},
+        success: function (response) {
+            mostrarAlerta('La canción se ha eliminado correctamente', 'success');
+            $(fila).remove();
+        },
+        error: function (xhr, status, error) {
+            mostrarAlerta('No hemos podido eliminar la canción de la playlist', 'error');
+        }
+    });
+}
+
+function crearAlertaDeMensaje() {
+    // Crear el contenedor de la alerta y agregarlo al DOM
+    const alertaHTML = `
+        <div id="mensajeAlerta" class="alert text-center position-fixed d-none" role="alert" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%; z-index: 1050;">
+            <span id="mensajeAlertaIcono"></span>
+            <span id="mensajeAlertaTexto"></span>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', alertaHTML);
+}
+
+function mostrarAlerta(mensaje, tipo) {
+    const mensajeAlerta = document.getElementById("mensajeAlerta");
+    const mensajeAlertaIcono = document.getElementById("mensajeAlertaIcono");
+    const mensajeAlertaTexto = document.getElementById("mensajeAlertaTexto");
+
+    // Limpiar clases e íconos anteriores
+    mensajeAlerta.className = "alert text-center position-fixed"; // Restablecer clases base
+    mensajeAlertaIcono.className = ""; // Limpiar icono previo
+    mensajeAlertaTexto.textContent = mensaje;
+
+    // Añadir clases e íconos según el tipo de mensaje (success o error)
+    if (tipo === 'success') {
+        mensajeAlerta.classList.add("alert-success");
+        mensajeAlertaIcono.classList.add("fa-solid", "fa-circle-check", "text-success", "me-2");
+    } else {
+        mensajeAlerta.classList.add("alert-danger");
+        mensajeAlertaIcono.classList.add("fa-solid", "fa-circle-xmark", "text-danger", "me-2");
+    }
+
+    // Mostrar la alerta
+    mensajeAlerta.classList.remove("d-none");
+
+    // Cerrar automáticamente después de 3 segundos
+    setTimeout(() => {
+        mensajeAlerta.classList.add("d-none");
+    }, 3000);
 }

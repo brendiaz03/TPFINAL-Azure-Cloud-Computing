@@ -38,37 +38,41 @@ public class UsuarioController : Controller
         return View(new UsuarioViewModel());
     }
 
-    [HttpPost]
-    public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
-    {
-        ViewBag.EsFormulario = true;
-
-        if (!ModelState.IsValid)
-        {
-            return View(usuarioModel);
-        }
-
-        try
-        {
-
-            _usuarioService.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, null));
-
-        }
-        catch (UsuarioExistenteException e)
-        {
-            ModelState.AddModelError(string.Empty, e.Message);
-            return View(usuarioModel);
-        }
-        catch (Exception e)
-        {
-            ModelState.AddModelError(string.Empty, e.Message);
-            return View(usuarioModel);
-        }
-
-        return RedirectToAction("Login");
-
-    }
-
+      [HttpPost]
+  public async Task<IActionResult> RegistrarUsuario(UsuarioViewModel usuarioModel)
+  {
+      ViewBag.EsFormulario = true;
+ 
+      if (!ModelState.IsValid)
+      {
+          return View(usuarioModel);
+      }
+ 
+      try
+      {
+          // Subir los archivos a Azure Blob Storage
+          string imagenUrl = await _blobStorageService.SubirArchivoAsync(usuarioModel.ImagenUsuario, "usuarios-imagenes");
+ 
+          // Convertir el UsuarioViewModel a la entidad Usuario
+          Usuario usuario = UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl);
+ 
+          _usuarioService.RegistrarUsuario(UsuarioViewModel.ToUsuario(usuarioModel, imagenUrl));
+ 
+      }
+      catch (UsuarioExistenteException e)
+      {
+          ModelState.AddModelError(string.Empty, e.Message);
+          return View(usuarioModel);
+      }
+      catch (Exception e)
+      {
+          ModelState.AddModelError(string.Empty, e.Message);
+          return View(usuarioModel);
+      }
+ 
+      return RedirectToAction("Login");
+ 
+  }
     [HttpGet]
     public IActionResult Login()
     {
