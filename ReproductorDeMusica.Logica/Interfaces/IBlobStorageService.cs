@@ -11,7 +11,7 @@ namespace ReproductorDeMusica.Logica.Interfaces
     {
         Task<string> SubirArchivoAsync(IFormFile archivo, string nombreContenedor);
         string CleanFileName(string fileName);
-        Task<string> ObtenerDuracionDelArchivo(string audioBlobUrl);
+        Task<string> ObtenerDuracionDelArchivo(string containerName, string audioBlobUrl);
 
     }
 }
