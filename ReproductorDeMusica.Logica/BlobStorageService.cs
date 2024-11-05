@@ -3,6 +3,7 @@ using Azure.Storage.Sas;
 using Microsoft.AspNetCore.Http;
 using NAudio.Wave;
 using ReproductorDeMusica.Logica.Interfaces;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace ReproductorDeMusica.Logica
@@ -71,16 +72,36 @@ namespace ReproductorDeMusica.Logica
                 throw new InvalidOperationException("No se pudo generar una URL SAS para este blob.");
             }
         }
-        public async Task<string> ObtenerDuracionDelArchivo(string audioBlobUrl)
+        public async Task<string> ObtenerDuracionDelArchivo(string containerName, string audioBlobUrl)
         {
-            using (var reader = new AudioFileReader(audioBlobUrl))
+
+            // Obtener el cliente del contenedor y del blob
+            var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            string baseUrl = "https://pw3storage.blob.core.windows.net/audios/";
+
+            string uri = audioBlobUrl.Replace(baseUrl, "");
+            int mp3Index = uri.LastIndexOf("mp3");
+            uri = uri.Substring(0, mp3Index + 3);  // Incluye "mp3"
+            var blobClient = containerClient.GetBlobClient(uri);
+
+            // Descargar el contenido del blob a un MemoryStream
+            using (MemoryStream memoryStream = new MemoryStream())
             {
-                TimeSpan duration = reader.TotalTime;
-                return string.Format("{0:D2}:{1:D2}",
-                    duration.Minutes,
-                    duration.Seconds); ; // Devuelve la duración
+                await blobClient.DownloadToAsync(memoryStream);
+
+                // Reestablecer la posición del MemoryStream a 0 para leer desde el inicio
+                memoryStream.Position = 0;
+
+                // Usamos NAudio para leer la duración del archivo MP3 desde el MemoryStream
+                using (var mp3Reader = new Mp3FileReader(memoryStream))
+                {
+                    TimeSpan duration = mp3Reader.TotalTime;
+
+                    // Formateamos la duración en formato MM:SS
+                    return string.Format("{0:D2}:{1:D2}", duration.Minutes, duration.Seconds);
+                }
             }
-           
+
         }
 
     }
